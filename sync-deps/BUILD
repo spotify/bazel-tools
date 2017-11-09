@@ -3,10 +3,10 @@ java_binary(
     srcs = glob(["src/main/java/**/*.java"]),
     args = [
         "--buildifier",
-        "$(location //external:tool/buildifier)",
+        "$(location //external:spotify_bazel_tools/dependency/buildtools/buildifier)",
     ],
     data = [
-        "//external:tool/buildifier",
+        "//external:spotify_bazel_tools/dependency/buildtools/buildifier",
     ],
     main_class = "com.spotify.syncdeps.Main",
     runtime_deps = [

@@ -9,8 +9,8 @@ fi
 
 echo >&2 "$0: Building prerequisites..."
 bazel build //...
-bazel build //external:tool/unused-deps
-bazel build //external:tool/buildozer
+bazel build //external:spotify_bazel_tools/dependency/buildtools/unused-deps
+bazel build //external:spotify_bazel_tools/dependency/buildtools/buildozer
 unused_deps=bazel-bin/external/com_github_bazelbuild_buildtools/unused_deps/unused_deps
 buildozer=bazel-bin/external/com_github_bazelbuild_buildtools/buildozer/buildozer
 

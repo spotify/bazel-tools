@@ -8,7 +8,7 @@ fi
 macro=$1
 outer_query="attr(generator_function, $macro, //...)"
 
-bazel build //external:tool/buildozer
+bazel build //external:spotify_bazel_tools/dependency/buildtools/buildozer
 buildozer=bazel-bin/external/com_github_bazelbuild_buildtools/buildozer/buildozer
 
 bazel query --output package "$outer_query" | while read -r pkg
