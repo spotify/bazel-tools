@@ -150,33 +150,17 @@ public abstract class Dependencies {
 
     Maven() {}
 
-    @JsonProperty("language")
-    public abstract Optional<String> language();
-
     @JsonProperty("version")
     public abstract Optional<String> version();
 
     @JsonProperty("modules")
     public abstract ImmutableSet<String> modules();
 
-    @JsonProperty("exports")
-    public abstract ImmutableSet<MavenCoords> exports();
-
-    @JsonProperty("excludes")
-    public abstract ImmutableSet<MavenCoords> excludes();
-
     @JsonCreator
     public static Maven create(
-        @JsonProperty("language") final String language,
         @JsonProperty("version") final String version,
-        @JsonProperty("modules") final ImmutableSet<String> modules,
-        @JsonProperty("exports") final ImmutableSet<MavenCoords> exports,
-        @JsonProperty("excludes") final ImmutableSet<MavenCoords> excludes) {
+        @JsonProperty("modules") final ImmutableSet<String> modules) {
       final Builder builder = builder();
-
-      if (language != null) {
-        builder.language(language);
-      }
 
       if (version != null) {
         builder.version(version);
@@ -184,14 +168,6 @@ public abstract class Dependencies {
 
       if (modules != null) {
         builder.modules(modules);
-      }
-
-      if (exports != null) {
-        builder.exports(exports);
-      }
-
-      if (excludes != null) {
-        builder.excludes(excludes);
       }
 
       return builder.build();
@@ -206,8 +182,6 @@ public abstract class Dependencies {
 
       Builder() {}
 
-      public abstract Builder language(final String language);
-
       public abstract Builder version(final String version);
 
       public abstract ImmutableSet.Builder<String> modulesBuilder();
@@ -219,30 +193,6 @@ public abstract class Dependencies {
 
       public Builder modules(final Iterable<String> modules) {
         modulesBuilder().addAll(modules);
-        return this;
-      }
-
-      public abstract ImmutableSet.Builder<MavenCoords> exportsBuilder();
-
-      public Builder export(final MavenCoords export) {
-        exportsBuilder().add(export);
-        return this;
-      }
-
-      public Builder exports(final Iterable<MavenCoords> exports) {
-        exportsBuilder().addAll(exports);
-        return this;
-      }
-
-      public abstract ImmutableSet.Builder<MavenCoords> excludesBuilder();
-
-      public Builder exclude(final MavenCoords exclude) {
-        excludesBuilder().add(exclude);
-        return this;
-      }
-
-      public Builder excludes(final Iterable<MavenCoords> excludes) {
-        excludesBuilder().addAll(excludes);
         return this;
       }
 
