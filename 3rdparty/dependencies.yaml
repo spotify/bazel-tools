@@ -1,0 +1,66 @@
+options:
+  mavenResolvers:
+    - id: "default"
+      url: https://repo.maven.apache.org/maven2/
+  excludedDependencies:
+    - com.google.guava:guava-jdk5
+    - org.slf4j:slf4j-log4j12
+
+maven:
+  ch.qos.logback:
+    logback:
+      modules:
+        - classic
+      version: "1.2.3"
+
+  com.fasterxml.jackson:
+    jackson:
+      modules:
+        - core:annotations
+        - core:core
+        - core:databind
+        - dataformat:dataformat-yaml
+        - datatype:datatype-guava
+      version: "2.9.1"
+
+  com.google.auto.value:
+    auto-value:
+      version: "1.5.1"
+
+  com.google.code.findbugs:
+    jsr305:
+      version: "3.0.2"
+
+  com.google.googlejavaformat:
+    google-java-format:
+      version: "1.4"
+
+  com.google.guava:
+    guava:
+      version: "23.2-jre"
+
+  com.google.jimfs:
+    jimfs:
+      version: "1.0"
+
+  com.squareup.okio:
+    okio:
+      version: "1.13.0"
+
+  net.sf.jopt-simple:
+    jopt-simple:
+      version: "5.0.3"
+
+  org.apache.ivy:
+    ivy:
+      version: "2.4.0"
+
+  org.hamcrest:
+    java-hamcrest:
+      version: "2.0.0.0"
+
+  org.slf4j:
+    slf4j:
+      modules:
+        - api
+      version: "1.7.25"

@@ -1,0 +1,252 @@
+package com.spotify.syncdeps.config;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.fasterxml.jackson.datatype.guava.GuavaModule;
+import com.google.auto.value.AutoValue;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableTable;
+import com.google.common.collect.Table;
+import com.spotify.syncdeps.model.MavenCoords;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.Optional;
+
+@AutoValue
+@JsonIgnoreProperties(ignoreUnknown = true)
+public abstract class Dependencies {
+
+  Dependencies() {}
+
+  @JsonProperty("options")
+  public abstract Options options();
+
+  @JsonProperty("maven")
+  public abstract ImmutableTable<String, String, Maven> maven();
+
+  public static Dependencies parseYaml(final Path path) throws IOException {
+    final ObjectMapper mapper =
+        new ObjectMapper(new YAMLFactory()).registerModule(new GuavaModule());
+    return mapper.readValue(path.toFile(), Dependencies.class);
+  }
+
+  @JsonCreator
+  public static Dependencies create(
+      @JsonProperty("options") final Options options,
+      @JsonDeserialize(using = TableDeserializer.class) @JsonProperty("maven")
+          final ImmutableTable<String, String, Maven> maven) {
+    return builder().options(options).maven(maven == null ? ImmutableTable.of() : maven).build();
+  }
+
+  public static Builder builder() {
+    return new AutoValue_Dependencies.Builder();
+  }
+
+  @AutoValue.Builder
+  public abstract static class Builder {
+
+    Builder() {}
+
+    public abstract Builder options(final Options options);
+
+    public abstract ImmutableTable.Builder<String, String, Maven> mavenBuilder();
+
+    public Builder maven(final String groupId, final String artifactId, final Maven maven) {
+      mavenBuilder().put(groupId, artifactId, maven);
+      return this;
+    }
+
+    public Builder maven(final Table<String, String, Maven> maven) {
+      mavenBuilder().putAll(maven);
+      return this;
+    }
+
+    public abstract Dependencies build();
+  }
+
+  @AutoValue
+  @JsonIgnoreProperties(ignoreUnknown = true)
+  public abstract static class Options {
+
+    Options() {}
+
+    @JsonProperty("mavenResolvers")
+    public abstract ImmutableSet<MavenResolver> mavenResolvers();
+
+    @JsonProperty("excludedDependencies")
+    public abstract ImmutableSet<MavenCoords> excludedDependencies();
+
+    @JsonCreator
+    public static Options create(
+        @JsonProperty("mavenResolvers") final ImmutableSet<MavenResolver> mavenResolvers,
+        @JsonProperty("excludedDependencies")
+            final ImmutableSet<MavenCoords> excludedDependencies) {
+      return builder()
+          .mavenResolvers(mavenResolvers == null ? ImmutableSet.of() : mavenResolvers)
+          .excludedDependencies(
+              excludedDependencies == null ? ImmutableSet.of() : excludedDependencies)
+          .build();
+    }
+
+    public static Builder builder() {
+      return new AutoValue_Dependencies_Options.Builder();
+    }
+
+    @AutoValue.Builder
+    public abstract static class Builder {
+
+      public abstract ImmutableSet.Builder<MavenResolver> mavenResolversBuilder();
+
+      public abstract ImmutableSet.Builder<MavenCoords> excludedDependenciesBuilder();
+
+      public Builder mavenResolver(final MavenResolver mavenResolver) {
+        mavenResolversBuilder().add(mavenResolver);
+        return this;
+      }
+
+      public Builder mavenResolvers(final Iterable<MavenResolver> mavenResolvers) {
+        mavenResolversBuilder().addAll(mavenResolvers);
+        return this;
+      }
+
+      public Builder excludedDependency(final MavenCoords excludedDependency) {
+        excludedDependenciesBuilder().add(excludedDependency);
+        return this;
+      }
+
+      public Builder excludedDependencies(final Iterable<MavenCoords> excludedDependencies) {
+        excludedDependenciesBuilder().addAll(excludedDependencies);
+        return this;
+      }
+
+      public abstract Options build();
+    }
+  }
+
+  @AutoValue
+  @JsonIgnoreProperties(ignoreUnknown = true)
+  public abstract static class MavenResolver {
+
+    @JsonProperty("id")
+    public abstract String id();
+
+    @JsonProperty("url")
+    public abstract String url();
+
+    @JsonCreator
+    public static MavenResolver create(
+        @JsonProperty("id") final String id, @JsonProperty("url") final String url) {
+      return new AutoValue_Dependencies_MavenResolver(id, url);
+    }
+  }
+
+  @AutoValue
+  @JsonIgnoreProperties(ignoreUnknown = true)
+  public abstract static class Maven {
+
+    Maven() {}
+
+    @JsonProperty("language")
+    public abstract Optional<String> language();
+
+    @JsonProperty("version")
+    public abstract Optional<String> version();
+
+    @JsonProperty("modules")
+    public abstract ImmutableSet<String> modules();
+
+    @JsonProperty("exports")
+    public abstract ImmutableSet<MavenCoords> exports();
+
+    @JsonProperty("excludes")
+    public abstract ImmutableSet<MavenCoords> excludes();
+
+    @JsonCreator
+    public static Maven create(
+        @JsonProperty("language") final String language,
+        @JsonProperty("version") final String version,
+        @JsonProperty("modules") final ImmutableSet<String> modules,
+        @JsonProperty("exports") final ImmutableSet<MavenCoords> exports,
+        @JsonProperty("excludes") final ImmutableSet<MavenCoords> excludes) {
+      final Builder builder = builder();
+
+      if (language != null) {
+        builder.language(language);
+      }
+
+      if (version != null) {
+        builder.version(version);
+      }
+
+      if (modules != null) {
+        builder.modules(modules);
+      }
+
+      if (exports != null) {
+        builder.exports(exports);
+      }
+
+      if (excludes != null) {
+        builder.excludes(excludes);
+      }
+
+      return builder.build();
+    }
+
+    public static Builder builder() {
+      return new AutoValue_Dependencies_Maven.Builder();
+    }
+
+    @AutoValue.Builder
+    public abstract static class Builder {
+
+      Builder() {}
+
+      public abstract Builder language(final String language);
+
+      public abstract Builder version(final String version);
+
+      public abstract ImmutableSet.Builder<String> modulesBuilder();
+
+      public Builder module(final String module) {
+        modulesBuilder().add(module);
+        return this;
+      }
+
+      public Builder modules(final Iterable<String> modules) {
+        modulesBuilder().addAll(modules);
+        return this;
+      }
+
+      public abstract ImmutableSet.Builder<MavenCoords> exportsBuilder();
+
+      public Builder export(final MavenCoords export) {
+        exportsBuilder().add(export);
+        return this;
+      }
+
+      public Builder exports(final Iterable<MavenCoords> exports) {
+        exportsBuilder().addAll(exports);
+        return this;
+      }
+
+      public abstract ImmutableSet.Builder<MavenCoords> excludesBuilder();
+
+      public Builder exclude(final MavenCoords exclude) {
+        excludesBuilder().add(exclude);
+        return this;
+      }
+
+      public Builder excludes(final Iterable<MavenCoords> excludes) {
+        excludesBuilder().addAll(excludes);
+        return this;
+      }
+
+      public abstract Maven build();
+    }
+  }
+}

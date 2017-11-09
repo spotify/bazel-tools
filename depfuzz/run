@@ -1,0 +1,31 @@
+#!/bin/bash -eu
+
+if [ $# -lt 1 ]
+then
+    echo >&2 "Usage: $0 [package]..."
+    echo >&2 "Example: $0 //..."
+    exit 1
+fi
+
+echo >&2 "$0: Building prerequisites..."
+bazel build //...
+bazel build //external:tool/unused-deps
+bazel build //external:tool/buildozer
+unused_deps=bazel-bin/external/com_github_bazelbuild_buildtools/unused_deps/unused_deps
+buildozer=bazel-bin/external/com_github_bazelbuild_buildtools/buildozer/buildozer
+
+echo >&2 "$0: Finding potentially unused deps..."
+"$unused_deps" "$@" | sed "s:buildozer ::" | while read -r cmd
+do
+    invert_cmd=$(echo "$cmd" | sed -e 's/remove deps/add deps/' -e 's/move deps runtime_deps/move runtime_deps deps/')
+    echo >&2 "$0: Will try to $cmd"
+    /bin/sh -c "$buildozer $cmd"
+
+    if bazel test //... &>/dev/null
+    then
+        echo >&2 "$0: Success! Keeping change"
+    else
+        echo >&2 "$0: Didn't work, will try to $invert_cmd"
+        /bin/sh -c "$buildozer $invert_cmd"
+    fi
+done

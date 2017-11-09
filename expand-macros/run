@@ -1,0 +1,21 @@
+#!/bin/sh -eu
+if [ $# -lt 1 ]
+then
+    echo >&2 "Usage: $0 <macro name>"
+    exit 1
+fi
+
+macro=$1
+outer_query="attr(generator_function, $macro, //...)"
+
+bazel build //external:tool/buildozer
+buildozer=bazel-bin/external/com_github_bazelbuild_buildtools/buildozer/buildozer
+
+bazel query --output package "$outer_query" | while read -r pkg
+do
+    query="attr(generator_function, $macro, //$pkg:*)"
+    build=$(bazel query --output build "$query" | grep -v '^  generator_' | grep -v '^#' | sed -e "s;//$pkg:;;g")
+
+    "$buildozer" "delete" "//$pkg:%$macro"
+    echo "$build" >> "$pkg/BUILD"
+done
