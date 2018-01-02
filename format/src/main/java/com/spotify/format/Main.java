@@ -83,6 +83,13 @@ public final class Main {
                   handleResult(formatJavaFile(formatter, javaFile), verify, malformattedPaths));
     }
 
+    try (final Stream<Path> scalaFiles = findFilesMatching(workspaceDirectory, "glob:**/*.scala")) {
+      scalaFiles
+          .parallel()
+          .forEach(
+              scalaFile -> handleResult(formatScalaFile(scalaFile), verify, malformattedPaths));
+    }
+
     try (final Stream<Path> buildFiles = findFilesMatching(workspaceDirectory, "glob:**/BUILD")) {
       buildFiles
           .parallel()
@@ -102,7 +109,7 @@ public final class Main {
     }
 
     if (!malformattedPaths.isEmpty()) {
-      System.err.println("There are malformatted files, please run 'format/run'!");
+      System.err.println("There are malformatted files, please run 'tools/format/run'!");
       System.err.println("Malformatted file paths are:");
       for (final Path malformattedPath : malformattedPaths) {
         System.err.println("  - " + workspaceDirectory.relativize(malformattedPath));
@@ -178,6 +185,10 @@ public final class Main {
         javaFile, formatJavaSource(formatter, javaFile, readFile(javaFile)));
   }
 
+  private static FormattingResult formatScalaFile(final Path scalaFile) {
+    return FormattingResult.create(scalaFile, formatScalaSource(scalaFile, readFile(scalaFile)));
+  }
+
   private static String formatJavaSource(
       final Formatter formatter, final Path javaFile, final String source) {
     final String formattedSource;
@@ -185,6 +196,16 @@ public final class Main {
       formattedSource = formatter.formatSource(source);
     } catch (final FormatterException e) {
       throw new IllegalStateException("Could not format source in file " + javaFile, e);
+    }
+    return formattedSource;
+  }
+
+  private static String formatScalaSource(final Path scalaFile, final String source) {
+    final String formattedSource;
+    try {
+      formattedSource = ScalaFmt.format(source);
+    } catch (final Exception e) {
+      throw new IllegalStateException("Could not format source in file " + scalaFile, e);
     }
     return formattedSource;
   }
@@ -202,7 +223,8 @@ public final class Main {
   private static Stream<Path> findFilesMatching(final Path directory, final String syntaxAndPattern)
       throws IOException {
     final PathMatcher matcher = directory.getFileSystem().getPathMatcher(syntaxAndPattern);
-    return Files.find(directory, Integer.MAX_VALUE, (p, a) -> matcher.matches(p));
+    return Files.find(
+        directory, Integer.MAX_VALUE, (p, a) -> matcher.matches(p) && !a.isDirectory());
   }
 
   @AutoValue

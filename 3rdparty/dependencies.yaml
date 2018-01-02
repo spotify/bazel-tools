@@ -23,6 +23,15 @@ maven:
         - datatype:datatype-guava
       version: "2.9.1"
 
+  com.geirsson:
+    scalafmt-core_2.11:
+      version: "1.3.0"
+    metaconfig:
+      modules:
+        - core_2.11
+        - typesafe-config_2.11
+      version: "0.4.0"
+
   com.google.auto.value:
     auto-value:
       version: "1.5.1"
@@ -38,6 +47,12 @@ maven:
   com.google.guava:
     guava:
       version: "23.2-jre"
+
+  com.google.protobuf:
+    protobuf:
+      modules:
+        - java
+      version: "3.5.0"
 
   com.google.jimfs:
     jimfs:
@@ -58,6 +73,14 @@ maven:
   org.hamcrest:
     java-hamcrest:
       version: "2.0.0.0"
+
+  org.scala-lang:
+    scala:
+      modules:
+        - compiler
+        - library
+        - reflect
+      version: "2.11.12"
 
   org.slf4j:
     slf4j:
