@@ -14,6 +14,13 @@ http_archive(
     urls = ["https://github.com/bazelbuild/rules_scala/archive/388a2585f45dff804d006b0e81e1b1a1c60578bc.zip"],
 )
 
+http_archive(
+    name = "com_github_bazelbuild_buildtools",
+    sha256 = "5772dfbd67f6fc7ad8aa07fb5896858d4c65b8aee7a54ada69271b962d69535f",
+    strip_prefix = "buildtools-b0f22bba2532e4f62eb815a86637e7ac5372e142",  # branch superhack
+    urls = ["https://github.com/dflemstr/buildtools/archive/b0f22bba2532e4f62eb815a86637e7ac5372e142.zip"],
+)
+
 load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")
 
 go_rules_dependencies()
