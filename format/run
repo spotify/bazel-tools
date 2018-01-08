@@ -1,2 +1,4 @@
-#!/bin/sh
-exec bazel run //format -- -w "$PWD" "$@"
+#!/bin/sh -eu
+script=$(mktemp)
+bazel run --script_path="$script" @spotify_bazel_tools//format
+exec "$script" -w "$PWD" "$@"

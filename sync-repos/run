@@ -1,2 +1,4 @@
-#!/bin/sh
-exec bazel run //sync-repos -- -w "$PWD" "$@"
+#!/bin/sh -eu
+script=$(mktemp)
+bazel run --script_path="$script" @spotify_bazel_tools//sync-repos
+exec "$script" -w "$PWD" "$@"

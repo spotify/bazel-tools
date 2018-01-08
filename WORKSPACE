@@ -39,6 +39,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_too
 go_rules_dependencies()
 
 go_register_toolchains()
+
 BAZEL_JAVA_LAUNCHER_VERSION = "0.4.5"
 
 http_file(
