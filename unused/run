@@ -1,0 +1,4 @@
+#!/bin/sh -eu
+script=$(mktemp)
+bazel run --script_path="$script" @spotify_bazel_tools//unused
+exec "$script" -w "$PWD" "$@"

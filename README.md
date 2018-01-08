@@ -8,8 +8,7 @@ towards writing JVM backend services.
     generate.
   - [format](format) - A tool for formatting all files in the repository according to common style
     guides.
-  - [list-unused-files](list-unused-files) - A tool for showing source files that are not used in
-    the build.
+  - [unused](unused) - A tool for showing source files that are not used in the build.
   - [sync-deps](sync-deps) - A tool for synchronizing third-party dependencies.
   - [sync-repos](sync-repos) - A tool for synchronizing third-party repositories.
 
