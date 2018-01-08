@@ -1,4 +1,4 @@
-# bazel-tools
+# bazel-tools [![Build Status](https://travis-ci.org/spotify/bazel-tools.svg?branch=master)](https://travis-ci.org/spotify/bazel-tools)
 
 This repository contains a collection of tools for working with Bazel workspaces; mostly tailored
 towards writing JVM backend services.
