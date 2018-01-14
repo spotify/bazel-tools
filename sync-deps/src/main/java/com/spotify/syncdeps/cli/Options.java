@@ -16,10 +16,13 @@
 package com.spotify.syncdeps.cli;
 
 import com.google.auto.value.AutoValue;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
+
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
@@ -60,7 +63,10 @@ public abstract class Options {
 
     final OptionSpec<Void> helpOption = parser.accepts("help").forHelp();
     final OptionSpec<File> workspaceDirectoryArgument =
-        parser.accepts("workspace-directory").withRequiredArg().ofType(File.class);
+        parser
+            .acceptsAll(Arrays.asList("workspace-directory", "w"))
+            .withRequiredArg()
+            .ofType(File.class);
     final OptionSpec<File> buildifierArgument =
         parser.accepts("buildifier").withRequiredArg().ofType(File.class);
     final OptionSpec<Void> verifyFlag = parser.accepts("verify");
