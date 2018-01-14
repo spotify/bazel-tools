@@ -14,14 +14,13 @@
 licenses(["notice"])
 
 java_library(
-    name = "maven",
-    srcs = glob(["*.java"]),
-    visibility = ["//sync-deps:__subpackages__"],
+    name = "cli",
+    srcs = ["Options.java"],
+    visibility = ["//depfuzz:__subpackages__"],
     deps = [
+        "//3rdparty/jvm/com/google/auto/value:auto-value",
         "//3rdparty/jvm/com/google/guava",
-        "//3rdparty/jvm/org/apache/ivy",
-        "//3rdparty/jvm/org/slf4j:slf4j-api",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/config",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/model",
+        "//3rdparty/jvm/net/sf/jopt-simple",
+        "//3rdparty/tools:auto-value",
     ],
 )

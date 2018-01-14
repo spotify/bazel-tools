@@ -12,9 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+DEPENDENCY_CHECKSUM_WHITELIST = [
+    "org.fusesource.jansi:jansi-native:",
+]
+
 def declare_maven(name, artifact, bind, actual, sha1=None):
   if sha1 == None:
-    print("%s does not have a sha1 checksum; integrity cannot be verified" % (artifact,))
+    if not any([artifact.startswith(pat) for pat in DEPENDENCY_CHECKSUM_WHITELIST]):
+      print("%s does not have a sha1 checksum; integrity cannot be verified" % (artifact,))
     native.maven_jar(name=name, artifact=artifact)
   else:
     native.maven_jar(name=name, artifact=artifact, sha1=sha1)

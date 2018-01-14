@@ -14,14 +14,14 @@
 licenses(["notice"])
 
 java_library(
-    name = "maven",
+    name = "bazel",
     srcs = glob(["*.java"]),
-    visibility = ["//sync-deps:__subpackages__"],
+    visibility = ["//depfuzz:__subpackages__"],
     deps = [
+        "//3rdparty/jvm/com/google/auto/value:auto-value",
         "//3rdparty/jvm/com/google/guava",
-        "//3rdparty/jvm/org/apache/ivy",
-        "//3rdparty/jvm/org/slf4j:slf4j-api",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/config",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/model",
+        "//3rdparty/tools:auto-value",
+        "@io_bazel//src/main/protobuf:build_java_proto",
+        "@io_bazel//src/main/protobuf:deps_java_proto",
     ],
 )
