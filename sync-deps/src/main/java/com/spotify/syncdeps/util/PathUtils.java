@@ -28,6 +28,7 @@ import java.nio.file.StandardCopyOption;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -122,7 +123,9 @@ public final class PathUtils {
   }
 
   private static Set<Path> dirContents(final Path dir) throws IOException {
-    return Files.list(dir).map(Path::getFileName).collect(Collectors.toSet());
+    try (Stream<Path> path = Files.list(dir)) {
+      return path.map(Path::getFileName).collect(Collectors.toSet());
+    }
   }
 
   static Path equivalentSubpath(final Path a, final Path b, final Path path) {
