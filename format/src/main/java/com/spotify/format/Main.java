@@ -238,8 +238,10 @@ public final class Main {
   private static Stream<Path> findFilesMatching(final Path directory, final String syntaxAndPattern)
       throws IOException {
     final PathMatcher matcher = directory.getFileSystem().getPathMatcher(syntaxAndPattern);
-    return Files.find(
-        directory, Integer.MAX_VALUE, (p, a) -> matcher.matches(p) && !a.isDirectory());
+    try (final Stream<Path> files = Files
+        .find(directory, Integer.MAX_VALUE, (p, a) -> matcher.matches(p) && !a.isDirectory())) {
+      return files;
+    }
   }
 
   @AutoValue
