@@ -23,6 +23,7 @@ java_library(
         "//3rdparty/jvm/com/google/guava",
         "//3rdparty/jvm/net/sf/jopt-simple",
         "//3rdparty/tools:auto-value",
+        "//external:jar/com/google/errorprone/error_prone_annotations",
         "//format/src/main/scala/com/spotify/format",
     ],
 )
