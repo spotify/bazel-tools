@@ -22,6 +22,7 @@ import com.google.common.hash.HashCode;
 import com.google.common.hash.Hashing;
 import com.google.common.io.CharStreams;
 import com.google.common.io.MoreFiles;
+import com.google.errorprone.annotations.MustBeClosed;
 import com.google.googlejavaformat.java.Formatter;
 import com.google.googlejavaformat.java.FormatterException;
 import com.google.googlejavaformat.java.JavaFormatterOptions;
@@ -235,6 +236,7 @@ public final class Main {
     return source;
   }
 
+  @MustBeClosed
   private static Stream<Path> findFilesMatching(final Path directory, final String syntaxAndPattern)
       throws IOException {
     final PathMatcher matcher = directory.getFileSystem().getPathMatcher(syntaxAndPattern);
@@ -244,6 +246,7 @@ public final class Main {
 
   @AutoValue
   abstract static class FormattingResult {
+
     abstract Path path();
 
     abstract String contents();
