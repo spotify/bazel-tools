@@ -57,7 +57,7 @@ public class Bazel {
   public static ImmutableGraph<String> dependencyGraph(final Path workspace, final Rule rule)
       throws IOException {
     final Process process =
-        new ProcessBuilder("bazel", "query", "--output=proto", "deps(" + rule + ")")
+        new ProcessBuilder("bazel", "query", "--output=proto", "deps(" + rule + ") + " + rule)
             .redirectError(ProcessBuilder.Redirect.INHERIT)
             .redirectOutput(ProcessBuilder.Redirect.PIPE)
             .directory(workspace.toFile())

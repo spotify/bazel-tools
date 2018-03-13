@@ -16,14 +16,22 @@
 package com.spotify.depfuzz;
 
 import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Maps;
+import com.google.common.graph.EndpointPair;
+import com.google.common.graph.ImmutableGraph;
 import com.spotify.bazeltools.cliutils.Cli;
 import com.spotify.depfuzz.bazel.Bazel;
 import com.spotify.depfuzz.bazel.Rule;
 import com.spotify.depfuzz.cli.Options;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +42,7 @@ public class Main {
     throw new IllegalAccessError("This class must not be instantiated.");
   }
 
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args) throws Exception {
     final Options options = Options.parse(args);
     final Path workspace = options.workspaceDirectory();
 
@@ -52,15 +60,60 @@ public class Main {
     final ImmutableSet<Rule> rules = Bazel.queryRules(workspace, query);
 
     for (final Rule rule : rules) {
-      System.out.println("rule = " + rule);
-      final ImmutableMap<String, Rule> directDeps = Bazel.directDeps(workspace, rule);
-      final ImmutableSet<String> potentiallyUnusedDependencyJars =
-          Bazel.potentiallyUnusedDependencyJars(workspace, rule);
-
-      for (final String jar : potentiallyUnusedDependencyJars) {
-        final Rule unusedRule = directDeps.get(jar);
-        System.out.println("unusedRule = " + unusedRule);
-      }
+      LOG.info("Processing rule @|bold {}|@", rule);
+      final ImmutableGraph<String> graph = Bazel.dependencyGraph(workspace, rule);
+      
     }
+  }
+
+  private static void showGraph(final ImmutableGraph<String> graph)
+      throws IOException, InterruptedException {
+    final Path tempFile = Files.createTempFile("dependencies-", ".png");
+
+    final Process dotProcess =
+        new ProcessBuilder()
+            .command("dot", "-Tpng")
+            .redirectInput(ProcessBuilder.Redirect.PIPE)
+            .redirectOutput(tempFile.toFile())
+            .start();
+
+    try (final Writer rawOut =
+            new OutputStreamWriter(dotProcess.getOutputStream(), StandardCharsets.UTF_8);
+        final PrintWriter out = new PrintWriter(rawOut)) {
+      out.printf("digraph dependencies {\n");
+
+      int i = 0;
+      final Map<String, Integer> ids = Maps.newHashMap();
+      for (final String node : graph.nodes()) {
+        if (isLocalNode(node)) {
+          out.printf("    %d [label=\"%s\"];\n", i, node);
+          ids.put(node, i);
+          i++;
+        }
+      }
+
+      for (final EndpointPair<String> edge : graph.edges()) {
+        if (isLocalNode(edge.source()) && isLocalNode(edge.target())) {
+          out.printf("    %d -> %d;\n", ids.get(edge.source()), ids.get(edge.target()));
+        }
+      }
+
+      out.printf("}\n");
+    }
+
+    final int exitCode = dotProcess.waitFor();
+
+    if (exitCode == 0) {
+      new ProcessBuilder("eog", tempFile.toAbsolutePath().toString()).start().waitFor();
+    } else {
+      throw new IOException("Could not generate graph; exit code " + exitCode);
+    }
+  }
+
+  private static boolean isLocalNode(final String node) {
+    return !node.startsWith("@")
+        && !node.startsWith("//external:")
+        && !node.startsWith("//tools:")
+        && !node.startsWith("//tools/");
   }
 }

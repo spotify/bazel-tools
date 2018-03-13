@@ -16,7 +16,6 @@
 package com.spotify.depfuzz.bazel;
 
 import com.google.auto.value.AutoValue;
-
 import java.util.Optional;
 
 @AutoValue
@@ -36,6 +35,11 @@ public abstract class Rule {
     } else {
       return prefix + pkg() + ":" + name();
     }
+  }
+
+  public String canonical() {
+    final String prefix = workspace().map(w -> "@" + w).orElse("") + "//";
+    return prefix + pkg() + ":" + name();
   }
 
   @Override
