@@ -17,12 +17,10 @@ package com.spotify.depfuzz.cli;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableSet;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Arrays;
-
 import joptsimple.NonOptionArgumentSpec;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -40,10 +38,13 @@ public abstract class Options {
 
   public abstract ImmutableSet<String> targets();
 
+  public abstract boolean verbose();
+
   public static Options parse(final String... args) throws IOException {
     final OptionParser parser = new OptionParser();
 
-    final OptionSpec<Void> helpOption = parser.accepts("help").forHelp();
+    final OptionSpec<Void> helpFlag = parser.accepts("help").forHelp();
+    final OptionSpec<Void> verboseFlag = parser.acceptsAll(Arrays.asList("v", "verbose"));
     final OptionSpec<File> workspaceDirectoryArgument =
         parser
             .acceptsAll(Arrays.asList("workspace-directory", "w"))
@@ -57,7 +58,7 @@ public abstract class Options {
 
     final OptionSet optionSet = parser.parse(args);
 
-    if (optionSet.has(helpOption)) {
+    if (optionSet.has(helpFlag)) {
       parser.printHelpOn(System.err);
       throw new IllegalStateException("Help requested"); // TODO(dflemstr): hack
     }
@@ -67,14 +68,16 @@ public abstract class Options {
         workspaceDirectoryArgument.value(optionSet).toPath(),
         unusedDepsArgument.value(optionSet).toPath(),
         buildozerArgument.value(optionSet).toPath(),
-        ImmutableSet.copyOf(targetsArgument.values(optionSet)));
+        ImmutableSet.copyOf(targetsArgument.values(optionSet)),
+        optionSet.has(verboseFlag));
   }
 
   public static Options create(
       final Path workspaceDirectory,
       final Path unusedDeps,
       final Path buildozer,
-      final ImmutableSet<String> targets) {
-    return new AutoValue_Options(workspaceDirectory, unusedDeps, buildozer, targets);
+      final ImmutableSet<String> targets,
+      final boolean verbose) {
+    return new AutoValue_Options(workspaceDirectory, unusedDeps, buildozer, targets, verbose);
   }
 }

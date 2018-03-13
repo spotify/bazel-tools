@@ -18,15 +18,18 @@ package com.spotify.depfuzz;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-
+import com.spotify.bazeltools.cliutils.Cli;
 import com.spotify.depfuzz.bazel.Bazel;
 import com.spotify.depfuzz.bazel.Rule;
 import com.spotify.depfuzz.cli.Options;
-
 import java.io.IOException;
 import java.nio.file.Path;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Main {
+  private static final Logger LOG = LoggerFactory.getLogger(Main.class);
+
   private Main() {
     throw new IllegalAccessError("This class must not be instantiated.");
   }
@@ -34,6 +37,14 @@ public class Main {
   public static void main(String[] args) throws IOException {
     final Options options = Options.parse(args);
     final Path workspace = options.workspaceDirectory();
+
+    Cli.configureLogging("depfuzz", options.verbose());
+
+    if (options.targets().isEmpty()) {
+      LOG.error("No targets specified; maybe try @|bold '//...'|@?");
+      System.exit(1);
+      return;
+    }
 
     final String query =
         String.format(

@@ -16,6 +16,7 @@
 package com.spotify.syncrepos;
 
 import com.google.common.base.Joiner;
+import com.spotify.bazeltools.cliutils.Cli;
 import com.spotify.syncrepos.cli.Options;
 import com.spotify.syncrepos.config.Repositories;
 import java.io.IOException;
@@ -30,8 +31,11 @@ public final class Main {
 
   private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
-  public static void main(String[] args) throws IOException, ParseException, InterruptedException {
+  public static void main(String[] args) throws IOException, InterruptedException {
     final Options options = Options.parse(args);
+
+    Cli.configureLogging("sync-repos", options.verbose());
+
     final Repositories repositories = Repositories.parseYaml(options.inputFile());
     final Path workspace = options.workspaceDirectory();
 
@@ -41,7 +45,7 @@ public final class Main {
       final Repositories.Git git = gitEntry.getValue();
 
       if (Files.exists(directory)) {
-        LOG.info("Pulling changes into {}...", relativeDirectory);
+        LOG.info("Pulling changes into @|bold {}|@...", relativeDirectory);
         exec(
             workspace,
             "git",
@@ -51,7 +55,7 @@ public final class Main {
             git.remote(),
             git.branch());
       } else {
-        LOG.info("Creating {}...", relativeDirectory);
+        LOG.info("Creating @|bold {}|@...", relativeDirectory);
         exec(
             workspace,
             "git",
