@@ -13,21 +13,20 @@
 # limitations under the License.
 licenses(["notice"])
 
-java_library(
-    name = "syncdeps",
-    srcs = glob(["*.java"]),
-    data = [
-        "//3rdparty:dependencies.yaml",
+java_binary(
+    name = "depfuzz",
+    args = [
+        "--buildozer",
+        "$(location //external:spotify_bazel_tools/dependency/buildtools/buildozer)",
+        "--unused-deps",
+        "$(location //external:spotify_bazel_tools/dependency/buildtools/unused-deps)",
     ],
-    visibility = ["//visibility:public"],
-    deps = [
-        "//3rdparty/jvm/com/google/guava",
-        "//3rdparty/jvm/org/slf4j:slf4j-api",
-        "//cli-utils",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/cli",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/config",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/maven",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/model",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/util",
+    data = [
+        "//external:spotify_bazel_tools/dependency/buildtools/buildozer",
+        "//external:spotify_bazel_tools/dependency/buildtools/unused-deps",
+    ],
+    main_class = "com.spotify.depfuzz.Main",
+    runtime_deps = [
+        "//depfuzz/src/java/com/spotify/depfuzz",
     ],
 )

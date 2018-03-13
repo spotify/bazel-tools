@@ -18,11 +18,11 @@ load("//3rdparty:load.bzl", "declare_maven")
 def bazel_tools_repositories():
     native.http_archive(
         name = "io_bazel",
-        sha256 = "3d548ad202dd921696f57768fe263d1f0164de50b5ace35d24016cd36054a019",
-        strip_prefix = "bazel-0.7.0",  # Should match current Bazel version
+        sha256 = "255e1199c0876b9a8cc02d5ea569b6cfe1901d30428355817b7606ddecb04c15",
+        strip_prefix = "bazel-0.8.0",  # Should match current Bazel version
         urls = [
-            "http://bazel-mirror.storage.googleapis.com/github.com/bazelbuild/bazel/archive/0.7.0.tar.gz",
-            "https://github.com/bazelbuild/bazel/archive/0.7.0.tar.gz",
+            "http://bazel-mirror.storage.googleapis.com/github.com/bazelbuild/bazel/archive/0.8.0.tar.gz",
+            "https://github.com/bazelbuild/bazel/archive/0.8.0.tar.gz",
         ],
     )
 

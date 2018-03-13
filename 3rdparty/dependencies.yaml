@@ -25,6 +25,7 @@ maven:
     logback:
       modules:
         - classic
+        - core
       version: "1.2.3"
 
   com.fasterxml.jackson:
@@ -45,6 +46,10 @@ maven:
         - core_2.11
         - typesafe-config_2.11
       version: "0.4.0"
+
+  com.github.tomas-langer:
+    chalk:
+      version: "1.0.2"
 
   com.google.auto.value:
     auto-value:
@@ -83,6 +88,10 @@ maven:
   org.apache.ivy:
     ivy:
       version: "2.4.0"
+
+  org.fusesource.jansi:
+    jansi-native:
+      version: "1.5"
 
   org.hamcrest:
     java-hamcrest:

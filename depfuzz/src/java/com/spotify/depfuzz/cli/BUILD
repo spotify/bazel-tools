@@ -14,20 +14,13 @@
 licenses(["notice"])
 
 java_library(
-    name = "syncdeps",
-    srcs = glob(["*.java"]),
-    data = [
-        "//3rdparty:dependencies.yaml",
-    ],
-    visibility = ["//visibility:public"],
+    name = "cli",
+    srcs = ["Options.java"],
+    visibility = ["//depfuzz:__subpackages__"],
     deps = [
+        "//3rdparty/jvm/com/google/auto/value:auto-value",
         "//3rdparty/jvm/com/google/guava",
-        "//3rdparty/jvm/org/slf4j:slf4j-api",
-        "//cli-utils",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/cli",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/config",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/maven",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/model",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/util",
+        "//3rdparty/jvm/net/sf/jopt-simple",
+        "//3rdparty/tools:auto-value",
     ],
 )

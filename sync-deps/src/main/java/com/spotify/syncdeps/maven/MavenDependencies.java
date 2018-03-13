@@ -37,6 +37,7 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.time.Instant;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -58,6 +59,8 @@ import org.apache.ivy.core.settings.IvySettings;
 import org.apache.ivy.plugins.conflict.LatestConflictManager;
 import org.apache.ivy.plugins.resolver.DependencyResolver;
 import org.apache.ivy.plugins.resolver.IBiblioResolver;
+import org.apache.ivy.util.Message;
+import org.apache.ivy.util.MessageLogger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -72,10 +75,13 @@ public final class MavenDependencies {
 
   public static ImmutableSet<MavenDependency> resolveDependencies(
       final Dependencies dependencyDescriptor) throws IOException, ParseException {
+    Message.setDefaultLogger(IvyLogger.INSTANCE);
+
     final IvySettings settings = new IvySettings();
-    Path cacheDirectory =
+    final Path cacheDirectory =
         Paths.get(System.getProperty("user.home"), ".cache", "bazel", "ivy2-cache");
-    LOG.info("Using {} as Ivy cache directory", cacheDirectory.toAbsolutePath().toString());
+    LOG.info(
+        "Using @|bold {}|@ as Ivy cache directory", cacheDirectory.toAbsolutePath().toString());
     settings.setDefaultCache(cacheDirectory.toFile());
 
     final LatestConflictManager conflictManager = new LatestConflictManager();
@@ -84,6 +90,8 @@ public final class MavenDependencies {
     addResolvers(dependencyDescriptor.options().mavenResolvers(), settings);
 
     final Ivy ivy = Ivy.newInstance(settings);
+    ivy.getLoggerEngine().setDefaultLogger(IvyLogger.INSTANCE);
+
     final ResolveOptions resolveOptions = createResolveOptions();
 
     final DefaultModuleDescriptor descriptor =
@@ -282,5 +290,121 @@ public final class MavenDependencies {
     resolver.setName(mavenResolver.id());
     resolver.setRoot(mavenResolver.url());
     return resolver;
+  }
+
+  private enum IvyLogger implements MessageLogger {
+    INSTANCE;
+
+    // Intentionally using Ivy as the logger name here.
+    private static final Logger LOG = LoggerFactory.getLogger(Ivy.class);
+
+    @Override
+    public void log(final String msg, final int level) {
+      switch (level) {
+        case Message.MSG_DEBUG:
+          debug(msg);
+          break;
+        case Message.MSG_VERBOSE:
+          verbose(msg);
+          break;
+        case Message.MSG_INFO:
+          info(msg);
+          break;
+        case Message.MSG_WARN:
+          warn(msg);
+          break;
+        case Message.MSG_ERR:
+          error(msg);
+          break;
+        default:
+          throw new IllegalArgumentException("Unexpected log level " + level);
+      }
+    }
+
+    @Override
+    public void rawlog(final String msg, final int level) {
+      log(msg, level);
+    }
+
+    @Override
+    public void debug(final String msg) {
+      LOG.debug("{}", msg);
+    }
+
+    @Override
+    public void verbose(final String msg) {}
+
+    @Override
+    public void deprecated(final String msg) {}
+
+    @Override
+    public void info(final String msg) {
+      LOG.info("{}", msg);
+    }
+
+    @Override
+    public void rawinfo(final String msg) {
+      info(msg);
+    }
+
+    @Override
+    public void warn(final String msg) {
+      LOG.warn("{}", msg);
+    }
+
+    @Override
+    public void error(final String msg) {
+      LOG.error("{}", msg);
+    }
+
+    @Override
+    public List<String> getProblems() {
+      return null;
+    }
+
+    @Override
+    public List<String> getWarns() {
+      return Collections.emptyList();
+    }
+
+    @Override
+    public List<String> getErrors() {
+      return Collections.emptyList();
+    }
+
+    @Override
+    public void clearProblems() {
+      // No-op
+    }
+
+    @Override
+    public void sumupProblems() {
+      // No-op
+    }
+
+    @Override
+    public void progress() {
+      // No-op
+    }
+
+    @Override
+    public void endProgress() {
+      // No-op
+    }
+
+    @Override
+    public void endProgress(final String msg) {
+      // No-op
+    }
+
+    @Override
+    public boolean isShowProgress() {
+      return false;
+    }
+
+    @Override
+    public void setShowProgress(final boolean progress) {
+      // No-op
+    }
   }
 }

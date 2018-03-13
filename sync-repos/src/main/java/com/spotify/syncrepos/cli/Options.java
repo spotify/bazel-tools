@@ -16,13 +16,11 @@
 package com.spotify.syncrepos.cli;
 
 import com.google.auto.value.AutoValue;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
-
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
@@ -33,6 +31,8 @@ public abstract class Options {
   Options() {}
 
   public abstract Path workspaceDirectory();
+
+  public abstract boolean verbose();
 
   public Path inputFile() {
     return thirdPartyDirectory().resolve("repositories.yaml");
@@ -46,6 +46,7 @@ public abstract class Options {
     final OptionParser parser = new OptionParser();
 
     final OptionSpec<Void> helpOption = parser.accepts("help").forHelp();
+    final OptionSpec<Void> verboseFlag = parser.acceptsAll(Arrays.asList("verbose", "v"));
     final OptionSpec<File> workspaceDirectoryArgument =
         parser
             .acceptsAll(Arrays.asList("workspace-directory", "w"))
@@ -67,11 +68,11 @@ public abstract class Options {
       workspaceDirectory = Paths.get(".");
     }
 
-    return create(workspaceDirectory);
+    return create(workspaceDirectory, optionSet.has(verboseFlag));
   }
 
-  public static Options create(final Path workspaceDirectory) {
-    return builder().workspaceDirectory(workspaceDirectory).build();
+  public static Options create(final Path workspaceDirectory, final boolean verbose) {
+    return builder().workspaceDirectory(workspaceDirectory).verbose(verbose).build();
   }
 
   public static Builder builder() {
@@ -84,6 +85,8 @@ public abstract class Options {
     Builder() {}
 
     public abstract Builder workspaceDirectory(final Path workspaceDirectory);
+
+    public abstract Builder verbose(final boolean verbose);
 
     public abstract Options build();
   }

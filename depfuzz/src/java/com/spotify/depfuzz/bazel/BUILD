@@ -14,20 +14,15 @@
 licenses(["notice"])
 
 java_library(
-    name = "syncdeps",
+    name = "bazel",
     srcs = glob(["*.java"]),
-    data = [
-        "//3rdparty:dependencies.yaml",
-    ],
-    visibility = ["//visibility:public"],
+    visibility = ["//depfuzz:__subpackages__"],
     deps = [
+        "//3rdparty/jvm/com/google/auto/value:auto-value",
         "//3rdparty/jvm/com/google/guava",
-        "//3rdparty/jvm/org/slf4j:slf4j-api",
-        "//cli-utils",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/cli",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/config",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/maven",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/model",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/util",
+        "//3rdparty/jvm/com/google/protobuf:protobuf-java",
+        "//3rdparty/tools:auto-value",
+        "@io_bazel//src/main/protobuf:build_java_proto",
+        "@io_bazel//src/main/protobuf:deps_java_proto",
     ],
 )

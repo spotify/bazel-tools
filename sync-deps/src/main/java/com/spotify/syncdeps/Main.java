@@ -24,6 +24,7 @@ import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.hash.HashCode;
+import com.spotify.bazeltools.cliutils.Cli;
 import com.spotify.syncdeps.cli.Options;
 import com.spotify.syncdeps.config.Dependencies;
 import com.spotify.syncdeps.maven.MavenDependencies;
@@ -61,16 +62,20 @@ public final class Main {
   public static void main(String[] args) throws IOException, ParseException {
     final Options options = Options.parse(args);
 
+    Cli.configureLogging("sync-deps", options.verbose());
+
     final Path relativeLockFile = options.workspaceDirectory().relativize(options.lockFile());
     if (options.verify()) {
-      LOG.info("Verifying integrity of {}", relativeLockFile);
+      LOG.info("Verifying integrity of @|bold {}|", relativeLockFile);
 
       final String lockContents = createLockContents(options);
       final boolean lockFileUpToDate =
           Files.exists(options.lockFile())
               && new String(Files.readAllBytes(options.lockFile()), UTF_8).equals(lockContents);
       if (!lockFileUpToDate) {
-        LOG.error("Integrity violation in {}; please run sync-deps/run", relativeLockFile);
+        LOG.error(
+            "Integrity violation in @|bold {}|@; please run @|bold sync-deps/run|@",
+            relativeLockFile);
         System.exit(1);
       }
     } else {
@@ -89,15 +94,15 @@ public final class Main {
       final Path newOutputFile = writeNewOutputFile(options, mavenDependencies);
       final Path newJvmDirectory = writeNewJvmDirectory(options, mavenDependencies);
 
-      LOG.info("Updating {}", relativeJvmDirectory);
+      LOG.info("Updating @|bold {}|@", relativeJvmDirectory);
       PathUtils.syncRecursive(newJvmDirectory, jvmDirectory);
       PathUtils.removeRecursive(newJvmDirectory);
 
-      LOG.info("Updating {}", relativeOutputFile);
+      LOG.info("Updating @|bold {}|@", relativeOutputFile);
       Files.deleteIfExists(outputFile);
       Files.move(newOutputFile, outputFile);
 
-      LOG.info("Updating {}", relativeLockFile);
+      LOG.info("Updating @|bold {}|@", relativeLockFile);
       Files.write(options.lockFile(), createLockContents(options).getBytes(UTF_8));
 
       LOG.info("Done");
