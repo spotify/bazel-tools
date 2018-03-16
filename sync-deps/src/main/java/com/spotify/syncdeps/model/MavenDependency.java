@@ -18,10 +18,8 @@ package com.spotify.syncdeps.model;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.hash.HashCode;
 import java.util.Optional;
-import javax.annotation.Nonnull;
 
 @AutoValue
 public abstract class MavenDependency implements Comparable<MavenDependency> {
