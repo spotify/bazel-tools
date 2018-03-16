@@ -77,30 +77,38 @@ public class Main {
 
       for (final String dependency : graph.successors(rule.canonical())) {
         LOG.info("Will try to remove @|bold,red {}|@ from @|bold {}|@", dependency, rule);
-        if (runBuildozer(options, "remove deps " + dependency, rule.raw())) {
-          try {
-            LOG.info("Running tests...");
-            if (Bazel.allTestsPass(workspace)) {
-              LOG.info("@|green Success!|@ Keeping change.");
-            } else {
-              LOG.info(
-                  "@|red Failure!|@ Adding back @|bold,green {}|@ to @|bold {}|@",
-                  dependency,
-                  rule);
+        try {
+          if (runBuildozer(options, "remove deps " + dependency, rule.raw())) {
+            try {
+              LOG.info("Running tests...");
+              if (Bazel.allTestsPass(workspace)) {
+                LOG.info("@|green Success!|@ Keeping change.");
+              } else {
+                LOG.info(
+                    "@|red Failure!|@ Adding back @|bold,green {}|@ to @|bold {}|@",
+                    dependency,
+                    rule);
+                runBuildozer(options, "add deps " + dependency, rule.raw());
+              }
+            } catch (Exception e) {
+              LOG.info("An error occurred; adding back dependency.");
               runBuildozer(options, "add deps " + dependency, rule.raw());
+              throw e;
             }
-          } catch (Exception e) {
-            LOG.info("An error occurred; adding back dependency.");
-            runBuildozer(options, "add deps " + dependency, rule.raw());
-            throw e;
+          } else {
+            LOG.info(
+                "@|yellow That made no sense!|@ Left dependency @|bold,yellow {}|@ for @|bold {}|@",
+                dependency,
+                rule);
           }
-        } else {
+        } catch (final Exception e) {
           LOG.info(
-              "@|yellow That made no sense!|@ Left dependency @|bold,yellow {}|@ for @|bold {}|@");
+              "@|red Unexpected error.|@ Left dependency @|bold,yellow {}|@ for @|bold {}|@",
+              dependency,
+              rule);
         }
       }
     }
-    return;
   }
 
   private static boolean runBuildozer(final Options options, final String... cmd)
