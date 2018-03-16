@@ -16,13 +16,11 @@
 package com.spotify.syncdeps.cli;
 
 import com.google.auto.value.AutoValue;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
-
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
@@ -37,6 +35,8 @@ public abstract class Options {
   public abstract Path buildifier();
 
   public abstract boolean verify();
+
+  public abstract boolean verbose();
 
   public Path inputFile() {
     return thirdPartyDirectory().resolve("dependencies.yaml");
@@ -61,7 +61,8 @@ public abstract class Options {
   public static Options parse(final String... args) throws IOException {
     final OptionParser parser = new OptionParser();
 
-    final OptionSpec<Void> helpOption = parser.accepts("help").forHelp();
+    final OptionSpec<Void> helpFlag = parser.accepts("help").forHelp();
+    final OptionSpec<Void> verboseFlag = parser.acceptsAll(Arrays.asList("verbose", "v"));
     final OptionSpec<File> workspaceDirectoryArgument =
         parser
             .acceptsAll(Arrays.asList("workspace-directory", "w"))
@@ -73,7 +74,7 @@ public abstract class Options {
 
     final OptionSet optionSet = parser.parse(args);
 
-    if (optionSet.has(helpOption)) {
+    if (optionSet.has(helpFlag)) {
       parser.printHelpOn(System.err);
       throw new IllegalStateException("Help requested"); // TODO(dflemstr): hack
     }
@@ -94,16 +95,21 @@ public abstract class Options {
     }
 
     final boolean verify = optionSet.has(verifyFlag);
+    final boolean verbose = optionSet.has(verboseFlag);
 
-    return create(workspaceDirectory, buildifier, verify);
+    return create(workspaceDirectory, buildifier, verify, verbose);
   }
 
   public static Options create(
-      final Path workspaceDirectory, final Path buildifier, final boolean verify) {
+      final Path workspaceDirectory,
+      final Path buildifier,
+      final boolean verify,
+      final boolean verbose) {
     return builder()
         .workspaceDirectory(workspaceDirectory)
         .buildifier(buildifier)
         .verify(verify)
+        .verbose(verbose)
         .build();
   }
 
@@ -121,6 +127,8 @@ public abstract class Options {
     public abstract Builder buildifier(final Path buildifier);
 
     public abstract Builder verify(final boolean verify);
+
+    public abstract Builder verbose(final boolean verbose);
 
     public abstract Options build();
   }

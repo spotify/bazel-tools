@@ -23,6 +23,7 @@ java_library(
     deps = [
         "//3rdparty/jvm/com/google/guava",
         "//3rdparty/jvm/org/slf4j:slf4j-api",
+        "//cli-utils",
         "//sync-deps/src/main/java/com/spotify/syncdeps/cli",
         "//sync-deps/src/main/java/com/spotify/syncdeps/config",
         "//sync-deps/src/main/java/com/spotify/syncdeps/maven",

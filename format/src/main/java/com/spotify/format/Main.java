@@ -26,6 +26,7 @@ import com.google.errorprone.annotations.MustBeClosed;
 import com.google.googlejavaformat.java.Formatter;
 import com.google.googlejavaformat.java.FormatterException;
 import com.google.googlejavaformat.java.JavaFormatterOptions;
+import com.spotify.bazeltools.cliutils.Cli;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -35,6 +36,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.PathMatcher;
+import java.util.Arrays;
 import java.util.Set;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.stream.Stream;
@@ -42,8 +44,11 @@ import joptsimple.AbstractOptionSpec;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public final class Main {
+  private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
   public static void main(String[] args) throws IOException {
     final OptionParser optionParser = new OptionParser();
@@ -55,8 +60,12 @@ public final class Main {
     final OptionSpec<Void> verifyFlag = optionParser.accepts("verify");
 
     final AbstractOptionSpec<Void> helpFlag = optionParser.accepts("help").forHelp();
+    final AbstractOptionSpec<Void> verboseFlag =
+        optionParser.acceptsAll(Arrays.asList("verbose", "v"));
 
     final OptionSet optionSet = optionParser.parse(args);
+
+    Cli.configureLogging("format", optionSet.has(verboseFlag));
 
     if (optionSet.has(helpFlag)) {
       optionParser.printHelpOn(System.err);
@@ -65,25 +74,33 @@ public final class Main {
     }
 
     final Path workspaceDirectory;
-    final Path buildifier;
-
     if (optionSet.has(workspaceArgument)) {
       workspaceDirectory = optionSet.valueOf(workspaceArgument).toPath();
     } else {
-      System.err.println("Mandatory flag --workspace-directory missing (see --help)");
+      LOG.error("Mandatory flag --workspace-directory missing (see --help)");
       System.exit(1);
       return;
     }
 
+    final Path buildifier;
     if (optionSet.has(buildifierArgument)) {
       buildifier = optionSet.valueOf(buildifierArgument).toPath();
     } else {
-      System.err.println("Mandatory flag --buildifier missing (see --help)");
+      LOG.error("Mandatory flag --buildifier missing (see --help)");
       System.exit(1);
       return;
     }
 
-    final boolean verify = optionSet.has(verifyFlag);
+    try {
+      run(workspaceDirectory, buildifier, optionSet.has(verifyFlag));
+    } catch (final Exception e) {
+      LOG.error("Fatal: {}", e);
+    }
+  }
+
+  private static void run(
+      final Path workspaceDirectory, final Path buildifier, final boolean verify)
+      throws IOException {
 
     final JavaFormatterOptions options =
         JavaFormatterOptions.builder().style(JavaFormatterOptions.Style.GOOGLE).build();
@@ -125,10 +142,10 @@ public final class Main {
     }
 
     if (!malformattedPaths.isEmpty()) {
-      System.err.println("There are malformatted files, please run 'tools/format/run'!");
-      System.err.println("Malformatted file paths are:");
+      LOG.error("There are malformatted files, please run 'tools/format/run'!");
+      LOG.error("Malformatted file paths are:");
       for (final Path malformattedPath : malformattedPaths) {
-        System.err.println("  - " + workspaceDirectory.relativize(malformattedPath));
+        LOG.error("  - {}", workspaceDirectory.relativize(malformattedPath));
       }
       System.exit(1);
     }

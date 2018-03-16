@@ -15,23 +15,23 @@ workspace(name = "spotify_bazel_tools")
 
 http_archive(
     name = "io_bazel_rules_go",
-    sha256 = "53059e0cda4517afe5a3907f77d1a379577773f2b1659fed8dc668b3f110a7d3",
-    strip_prefix = "rules_go-0dc1f9e0741d766780e931d49790ddb501bb34c9",  # branch master
-    urls = ["https://github.com/bazelbuild/rules_go/archive/0dc1f9e0741d766780e931d49790ddb501bb34c9.zip"],
+    sha256 = "4f95bc867830231b3fa0ab5325632f7865cbe8cef842d2b5a269b59a7df95279",
+    strip_prefix = "rules_go-f668026feec298887e7114b01edf72b229829ec9",  # branch master
+    urls = ["https://github.com/bazelbuild/rules_go/archive/f668026feec298887e7114b01edf72b229829ec9.zip"],
 )
 
 http_archive(
     name = "io_bazel_rules_scala",
-    sha256 = "d25da37320a91c7b5e2e7a2525307a18ed9f21c55fe232ab4423fb73c082357a",
-    strip_prefix = "rules_scala-388a2585f45dff804d006b0e81e1b1a1c60578bc",  # branch master
-    urls = ["https://github.com/bazelbuild/rules_scala/archive/388a2585f45dff804d006b0e81e1b1a1c60578bc.zip"],
+    sha256 = "e81aab0ff850ecda0e3a704f8c4c8a570875a833199313b51555125339724124",
+    strip_prefix = "rules_scala-e9e65ada59823c263352d10c30411f4739d5df25",  # branch master
+    urls = ["https://github.com/bazelbuild/rules_scala/archive/e9e65ada59823c263352d10c30411f4739d5df25.zip"],
 )
 
 http_archive(
     name = "com_github_bazelbuild_buildtools",
     sha256 = "5772dfbd67f6fc7ad8aa07fb5896858d4c65b8aee7a54ada69271b962d69535f",
-    strip_prefix = "buildtools-b0f22bba2532e4f62eb815a86637e7ac5372e142",  # branch superhack
-    urls = ["https://github.com/dflemstr/buildtools/archive/b0f22bba2532e4f62eb815a86637e7ac5372e142.zip"],
+    strip_prefix = "buildtools-405641a50b8583dc9fe254b7a22ebc2002722d17",  # branch master
+    urls = ["https://github.com/bazelbuild/buildtools/archive/405641a50b8583dc9fe254b7a22ebc2002722d17.zip"],
 )
 
 load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")
@@ -40,16 +40,13 @@ go_rules_dependencies()
 
 go_register_toolchains()
 
-BAZEL_JAVA_LAUNCHER_VERSION = "0.4.5"
+load("@io_bazel_rules_scala//scala:scala.bzl", "scala_repositories")
 
-http_file(
-    name = "java_stub_template",
-    sha256 = "f09d06d55cd25168427a323eb29d32beca0ded43bec80d76fc6acd8199a24489",
-    url = ("https://raw.githubusercontent.com/bazelbuild/bazel/" +
-           BAZEL_JAVA_LAUNCHER_VERSION +
-           "/src/main/java/com/google/devtools/build/lib/bazel/rules/java/" +
-           "java_stub_template.txt"),
-)
+scala_repositories()
+
+load("@io_bazel_rules_scala//scala:toolchains.bzl", "scala_register_toolchains")
+
+scala_register_toolchains()
 
 bind(
     name = "io_bazel_rules_scala/dependency/com_google_protobuf/protobuf_java",
