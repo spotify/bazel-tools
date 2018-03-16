@@ -59,9 +59,9 @@ public class Main {
   }
 
   private static void run(final Options options, final Path workspace)
-      throws IOException, InterruptedException {
+      throws IOException {
     if (options.targets().isEmpty()) {
-      LOG.error("No targets specified; maybe try @|bold '//...'|@?");
+      LOG.error("No targets specified; maybe try @|bold '//... except //3rdparty/...'|@?");
       System.exit(1);
       return;
     }
