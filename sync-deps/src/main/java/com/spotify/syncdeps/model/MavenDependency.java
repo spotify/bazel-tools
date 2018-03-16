@@ -58,7 +58,7 @@ public abstract class MavenDependency implements Comparable<MavenDependency> {
   }
 
   @Override
-  public int compareTo(@Nonnull final MavenDependency that) {
+  public int compareTo(final MavenDependency that) {
     return ComparisonChain.start()
         .compare(this.coords(), that.coords())
         .compare(this.version(), that.version())
