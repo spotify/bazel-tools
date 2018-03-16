@@ -108,6 +108,7 @@ public final class Main {
     final Formatter formatter = new Formatter(options);
     final Set<Path> malformattedPaths = new ConcurrentSkipListSet<>();
 
+    LOG.info("Processing Java files...");
     try (final Stream<Path> javaFiles = findFilesMatching(workspaceDirectory, "glob:**/*.java")) {
       javaFiles
           .parallel()
@@ -116,6 +117,7 @@ public final class Main {
                   handleResult(formatJavaFile(formatter, javaFile), verify, malformattedPaths));
     }
 
+    LOG.info("Processing Scala files...");
     try (final Stream<Path> scalaFiles = findFilesMatching(workspaceDirectory, "glob:**/*.scala")) {
       scalaFiles
           .parallel()
@@ -123,6 +125,7 @@ public final class Main {
               scalaFile -> handleResult(formatScalaFile(scalaFile), verify, malformattedPaths));
     }
 
+    LOG.info("Processing Bazel BUILD files...");
     try (final Stream<Path> buildFiles = findFilesMatching(workspaceDirectory, "glob:**/BUILD")) {
       buildFiles
           .parallel()
@@ -131,6 +134,7 @@ public final class Main {
                   handleResult(formatBuildFile(buildifier, buildFile), verify, malformattedPaths));
     }
 
+    LOG.info("Processing Bazel WORKSPACE files...");
     try (final Stream<Path> workspaceFiles =
         findFilesMatching(workspaceDirectory, "glob:**/WORKSPACE")) {
       workspaceFiles
