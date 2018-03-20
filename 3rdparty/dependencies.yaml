@@ -56,6 +56,8 @@ maven:
       version: "1.5.1"
 
   com.google.code.findbugs:
+    annotations:
+      version: "3.0.1"
     jsr305:
       version: "3.0.2"
 
