@@ -96,7 +96,7 @@ public final class Main {
     try {
       run(workspaceDirectory, buildifier, optionSet.has(verifyFlag));
     } catch (final Exception e) {
-      LOG.error("Fatal: {}", e);
+      LOG.error("A fatal error occurred", e);
     }
   }
 

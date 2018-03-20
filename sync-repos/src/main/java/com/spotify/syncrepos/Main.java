@@ -43,7 +43,7 @@ public final class Main {
     try {
       run(options);
     } catch (final Exception e) {
-      LOG.error("Fatal: {}", e);
+      LOG.error("A fatal error occurred", e);
     }
   }
 

@@ -7,6 +7,7 @@ java_library(
         "//3rdparty/jvm/ch/qos/logback:logback-core",
         "//3rdparty/jvm/com/github/tomas-langer:chalk",
         "//3rdparty/jvm/com/google/auto/value:auto-value",
+        "//3rdparty/jvm/com/google/guava",
         "//3rdparty/jvm/org/slf4j:slf4j-api",
         "//3rdparty/tools:auto-value",
     ],

@@ -1,16 +1,23 @@
 package com.spotify.bazeltools.cliutils;
 
-import static org.fusesource.jansi.Ansi.ansi;
+import com.google.auto.value.AutoValue;
+import com.google.common.base.Splitter;
+
+import com.github.tomaslanger.chalk.Chalk;
+
+import org.slf4j.LoggerFactory;
+
+import java.util.Locale;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.classic.spi.IThrowableProxy;
+import ch.qos.logback.classic.spi.ThrowableProxyUtil;
 import ch.qos.logback.core.AppenderBase;
-import com.github.tomaslanger.chalk.Chalk;
-import com.google.auto.value.AutoValue;
-import java.util.Locale;
-import org.slf4j.LoggerFactory;
+
+import static org.fusesource.jansi.Ansi.ansi;
 
 public final class Cli {
 
@@ -89,6 +96,16 @@ public final class Cli {
           toolChalk(),
           prefix,
           ansi().render(eventObject.getFormattedMessage()));
+
+      final IThrowableProxy throwableProxy = eventObject.getThrowableProxy();
+      if (throwableProxy != null) {
+        for (final String line :
+            Splitter.on('\n')
+                .omitEmptyStrings()
+                .split(ThrowableProxyUtil.asString(throwableProxy))) {
+          System.err.printf(Locale.ROOT, "%s %s: %s%n", toolChalk(), prefix, line);
+        }
+      }
     }
   }
 }
