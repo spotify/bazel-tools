@@ -15,8 +15,6 @@
  */
 package com.spotify.syncdeps.maven;
 
-import static com.google.common.collect.ImmutableMap.toImmutableMap;
-
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -24,28 +22,14 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Table;
 import com.google.common.collect.TreeMultimap;
 import com.google.common.hash.HashCode;
+import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
 import com.google.common.io.Files;
+
 import com.spotify.syncdeps.config.Dependencies;
 import com.spotify.syncdeps.model.MavenCoords;
 import com.spotify.syncdeps.model.MavenDependency;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.Date;
-import java.text.ParseException;
-import java.time.Instant;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 import org.apache.ivy.Ivy;
 import org.apache.ivy.core.module.descriptor.DefaultDependencyDescriptor;
 import org.apache.ivy.core.module.descriptor.DefaultModuleDescriptor;
@@ -64,6 +48,26 @@ import org.apache.ivy.util.MessageLogger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.Date;
+import java.text.ParseException;
+import java.time.Instant;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
+import java.util.Optional;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static com.google.common.collect.ImmutableMap.toImmutableMap;
+
 public final class MavenDependencies {
 
   private static final Logger LOG = LoggerFactory.getLogger(MavenDependencies.class);
@@ -72,6 +76,8 @@ public final class MavenDependencies {
       new ModuleRevisionId(new ModuleId("com.spotify", "spotify"), "master");
   private static final String ARTIFACT_PATTERN =
       "lib/[organisation]/[artifact](-[classifier])-[revision].jar";
+
+  private MavenDependencies() {}
 
   public static ImmutableSet<MavenDependency> resolveDependencies(
       final Dependencies dependencyDescriptor) throws IOException, ParseException {
@@ -168,7 +174,9 @@ public final class MavenDependencies {
 
         final Optional<HashCode> maybeSha1;
         if (file.exists()) {
-          maybeSha1 = Optional.of(Files.hash(file, Hashing.sha1()));
+          @SuppressWarnings("deprecation") // Yes, this hash function is broken but needed by Bazel
+          final HashFunction hashFunction = Hashing.sha1();
+          maybeSha1 = Optional.of(Files.asByteSource(file).hash(hashFunction));
         } else {
           maybeSha1 = Optional.empty();
         }
@@ -181,10 +189,6 @@ public final class MavenDependencies {
     }
 
     return ImmutableSet.copyOf(result);
-  }
-
-  private static DefaultDependencyDescriptor createDependencyDescriptor(final MavenDependency d) {
-    return createDependencyDescriptor(d.coords().groupId(), d.coords().artifactId(), d.version());
   }
 
   private static MavenCoords getCoords(final ModuleId moduleId) {
@@ -206,7 +210,10 @@ public final class MavenDependencies {
     final String version = dependencySpec.version().get();
 
     return buildCoords(groupIdBase, artifactIdBase, dependencySpec.modules())
-        .map(coord -> MavenDependency.create(coord, version, Optional.empty(), false));
+        .map(
+            coord ->
+                MavenDependency.create(
+                    coord, version, Optional.empty(), ImmutableMap.of(), /* isPublic= */ false));
   }
 
   private static Stream<MavenCoords> buildCoords(
@@ -250,6 +257,10 @@ public final class MavenDependencies {
 
       return MavenCoords.create(groupIdBase, artifactId);
     }
+  }
+
+  private static DefaultDependencyDescriptor createDependencyDescriptor(final MavenDependency d) {
+    return createDependencyDescriptor(d.coords().groupId(), d.coords().artifactId(), d.version());
   }
 
   private static DefaultDependencyDescriptor createDependencyDescriptor(
@@ -359,7 +370,7 @@ public final class MavenDependencies {
 
     @Override
     public List<String> getProblems() {
-      return null;
+      return Collections.emptyList();
     }
 
     @Override

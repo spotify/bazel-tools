@@ -13,4 +13,52 @@
 # limitations under the License.
 licenses(["notice"])
 
+load("@bazel_tools//tools/jdk:default_java_toolchain.bzl", "default_java_toolchain")
+
 exports_files(["tools.bzl"])
+
+default_java_toolchain(
+    name = "java_toolchain",
+    bootclasspath = ["@bazel_tools//tools/jdk:platformclasspath.jar"],
+    javac = ["@bazel_tools//third_party/java/jdk/langtools:javac_jar"],
+    jvm_opts = ["-Xbootclasspath/p:$(location @bazel_tools//third_party/java/jdk/langtools:javac_jar)"],
+    package_configuration = [
+        ":java_lints",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+java_package_configuration(
+    name = "java_lints",
+    javacopts = [
+        "-Xlint:cast",
+        "-Xlint:deprecation",
+        "-Xlint:divzero",
+        "-Xlint:empty",
+        "-Xlint:fallthrough",
+        "-Xlint:finally",
+        "-Xlint:overrides",
+        "-Xlint:path",
+        "-Xlint:serial",
+        "-Xlint:unchecked",
+        "-Xlint:-options",
+        "-XepAllDisabledChecksAsWarnings",
+        "-XepDisableWarningsInGeneratedCode",
+        "-Xep:Var:OFF",
+        "-Xep:StaticOrDefaultInterfaceMethod:OFF",
+        "-Werror",
+    ],
+    packages = [":java_linted_packages"],
+)
+
+package_group(
+    name = "java_linted_packages",
+    packages = ["//..."],
+)
+
+proto_lang_toolchain(
+    name = "protobuf_java_toolchain",
+    command_line = "--java_out=$(OUT)",
+    runtime = "//3rdparty/jvm/com/google/protobuf:protobuf-java",
+    visibility = ["//visibility:public"],
+)

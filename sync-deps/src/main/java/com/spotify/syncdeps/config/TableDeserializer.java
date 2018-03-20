@@ -15,6 +15,8 @@
  */
 package com.spotify.syncdeps.config;
 
+import com.google.common.collect.ImmutableTable;
+
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.BeanProperty;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -22,15 +24,17 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.deser.ContextualDeserializer;
-import com.google.common.base.Preconditions;
-import com.google.common.collect.ImmutableTable;
+
 import java.io.IOException;
 import java.util.Map;
+import java.util.Objects;
+
+import javax.annotation.Nullable;
 
 final class TableDeserializer extends JsonDeserializer<ImmutableTable<?, ?, ?>>
     implements ContextualDeserializer {
 
-  private final JavaType javaType;
+  private final @Nullable JavaType javaType;
 
   TableDeserializer() {
     this.javaType = null;
@@ -44,6 +48,8 @@ final class TableDeserializer extends JsonDeserializer<ImmutableTable<?, ?, ?>>
   public ImmutableTable<?, ?, ?> deserialize(final JsonParser jp, final DeserializationContext ctxt)
       throws IOException {
     final ImmutableTable.Builder<Object, Object, Object> tableBuilder = ImmutableTable.builder();
+
+    final JavaType javaType = Objects.requireNonNull(this.javaType);
 
     final JavaType rowKeyType = javaType.containedTypeOrUnknown(0);
     final JavaType columnKeyType = javaType.containedTypeOrUnknown(1);

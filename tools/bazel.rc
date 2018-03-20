@@ -1,0 +1,2 @@
+build --java_toolchain=//:java_toolchain
+build --proto_toolchain_for_java=//:protobuf_java_toolchain

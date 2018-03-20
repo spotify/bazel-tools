@@ -15,14 +15,16 @@
  */
 package com.spotify.syncrepos.config;
 
+import com.google.auto.value.AutoValue;
+import com.google.common.collect.ImmutableMap;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.datatype.guava.GuavaModule;
-import com.google.auto.value.AutoValue;
-import com.google.common.collect.ImmutableMap;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Map;
@@ -57,11 +59,6 @@ public abstract class Repositories {
     Builder() {}
 
     public abstract ImmutableMap.Builder<String, Git> gitBuilder();
-
-    public Builder git(final String dir, final Git git) {
-      gitBuilder().put(dir, git);
-      return this;
-    }
 
     public Builder git(final Map<String, Git> git) {
       gitBuilder().putAll(git);

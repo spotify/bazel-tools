@@ -15,15 +15,11 @@
  */
 package com.spotify.syncdeps;
 
-import static com.google.common.collect.ImmutableMap.toImmutableMap;
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static java.nio.file.attribute.PosixFilePermissions.asFileAttribute;
-import static java.nio.file.attribute.PosixFilePermissions.fromString;
-
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.hash.HashCode;
+
 import com.spotify.bazeltools.cliutils.Cli;
 import com.spotify.syncdeps.cli.Options;
 import com.spotify.syncdeps.config.Dependencies;
@@ -31,6 +27,10 @@ import com.spotify.syncdeps.maven.MavenDependencies;
 import com.spotify.syncdeps.model.MavenCoords;
 import com.spotify.syncdeps.model.MavenDependency;
 import com.spotify.syncdeps.util.PathUtils;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -47,8 +47,11 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import static com.google.common.collect.ImmutableMap.toImmutableMap;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.nio.file.attribute.PosixFilePermissions.asFileAttribute;
+import static java.nio.file.attribute.PosixFilePermissions.fromString;
 
 public final class Main {
 
@@ -58,6 +61,8 @@ public final class Main {
       asFileAttribute(fromString("rw-r--r--"));
   private static final FileAttribute<Set<PosixFilePermission>> DIR_PERMISSIONS =
       asFileAttribute(fromString("rwxr-xr-x"));
+
+  private Main() {}
 
   public static void main(String[] args) throws IOException {
     final Options options = Options.parse(args);

@@ -16,17 +16,22 @@
 package com.spotify.syncrepos;
 
 import com.google.common.base.Joiner;
+
 import com.spotify.bazeltools.cliutils.Cli;
 import com.spotify.syncrepos.cli.Options;
 import com.spotify.syncrepos.config.Repositories;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public final class Main {
+
+  private Main() {}
 
   private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 

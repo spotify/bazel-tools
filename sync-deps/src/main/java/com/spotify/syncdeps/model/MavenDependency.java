@@ -41,15 +41,6 @@ public abstract class MavenDependency implements Comparable<MavenDependency> {
       final MavenCoords coords,
       final String version,
       final Optional<HashCode> sha1,
-      final boolean isPublic) {
-    return create(coords, version, sha1, ImmutableMap.of(), isPublic);
-  }
-
-  @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
-  public static MavenDependency create(
-      final MavenCoords coords,
-      final String version,
-      final Optional<HashCode> sha1,
       final ImmutableMap<MavenCoords, Boolean> dependencies,
       final boolean isPublic) {
     return new AutoValue_MavenDependency(coords, version, sha1, dependencies, isPublic);

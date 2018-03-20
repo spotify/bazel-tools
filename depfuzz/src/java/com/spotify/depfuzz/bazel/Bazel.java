@@ -22,14 +22,16 @@ import com.google.common.graph.ImmutableGraph;
 import com.google.common.graph.MutableGraph;
 import com.google.devtools.build.lib.query2.proto.proto2api.Build;
 import com.google.devtools.build.lib.view.proto.Deps;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Stream;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class Bazel {
 
@@ -47,7 +49,7 @@ public class Bazel {
             .start();
 
     try (BufferedReader reader =
-        new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+        new BufferedReader(new InputStreamReader(process.getInputStream(), UTF_8))) {
       return reader.lines().map(Rule::parse).collect(ImmutableSet.toImmutableSet());
     } finally {
       process.destroyForcibly();
@@ -108,7 +110,7 @@ public class Bazel {
 
     if (Files.exists(jarParamsFile)) {
       final ImmutableMap.Builder<String, Rule> resultBuilder = ImmutableMap.builder();
-      try (final Stream<String> lines = Files.lines(jarParamsFile, StandardCharsets.UTF_8)) {
+      try (final Stream<String> lines = Files.lines(jarParamsFile, UTF_8)) {
         final AtomicReference<State> state = new AtomicReference<>(State.START);
         final AtomicReference<String> lastJar = new AtomicReference<>();
 

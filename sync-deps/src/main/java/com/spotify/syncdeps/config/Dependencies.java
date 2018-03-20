@@ -15,6 +15,11 @@
  */
 package com.spotify.syncdeps.config;
 
+import com.google.auto.value.AutoValue;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableTable;
+import com.google.common.collect.Table;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,11 +27,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.datatype.guava.GuavaModule;
-import com.google.auto.value.AutoValue;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableTable;
-import com.google.common.collect.Table;
 import com.spotify.syncdeps.model.MavenCoords;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Optional;
@@ -69,11 +71,6 @@ public abstract class Dependencies {
     public abstract Builder options(final Options options);
 
     public abstract ImmutableTable.Builder<String, String, Maven> mavenBuilder();
-
-    public Builder maven(final String groupId, final String artifactId, final Maven maven) {
-      mavenBuilder().put(groupId, artifactId, maven);
-      return this;
-    }
 
     public Builder maven(final Table<String, String, Maven> maven) {
       mavenBuilder().putAll(maven);

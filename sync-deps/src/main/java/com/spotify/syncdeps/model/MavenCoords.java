@@ -15,16 +15,18 @@
  */
 package com.spotify.syncdeps.model;
 
-import static java.util.stream.Collectors.joining;
+import com.google.auto.value.AutoValue;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ComparisonChain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.auto.value.AutoValue;
-import com.google.common.base.Splitter;
-import com.google.common.collect.ComparisonChain;
 import com.spotify.syncdeps.util.BazelUtils;
+
 import java.util.Iterator;
+
+import static java.util.stream.Collectors.joining;
 
 @AutoValue
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -48,12 +50,12 @@ public abstract class MavenCoords implements Comparable<MavenCoords> {
     return BazelUtils.packagePathSegment(artifactId());
   }
 
-  public String groupRelativePackageName() {
-    return groupRelativePackageName(groupId());
-  }
-
   public String workspaceName() {
     return BazelUtils.workspaceName(groupId() + "_" + artifactId());
+  }
+
+  public String groupRelativePackageName() {
+    return groupRelativePackageName(groupId());
   }
 
   public static String groupRelativePackageName(final String groupId) {
