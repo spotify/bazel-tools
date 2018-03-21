@@ -55,6 +55,7 @@ public class Main {
       run(options, workspace);
     } catch (final Exception e) {
       LOG.error("A fatal error occurred", e);
+      System.exit(1);
     }
   }
 

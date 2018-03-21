@@ -97,6 +97,7 @@ public final class Main {
       run(workspaceDirectory, buildifier, optionSet.has(verifyFlag));
     } catch (final Exception e) {
       LOG.error("A fatal error occurred", e);
+      System.exit(1);
     }
   }
 

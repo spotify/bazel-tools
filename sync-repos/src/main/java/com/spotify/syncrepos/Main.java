@@ -44,6 +44,7 @@ public final class Main {
       run(options);
     } catch (final Exception e) {
       LOG.error("A fatal error occurred", e);
+      System.exit(1);
     }
   }
 
