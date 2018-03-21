@@ -74,6 +74,11 @@ public class Main {
       LOG.info("Processing rule @|bold {}|@", rule);
       final ImmutableGraph<String> graph = Bazel.dependencyGraph(workspace, rule);
 
+      if (!graph.nodes().contains(rule.canonical())) {
+        LOG.warn("Skipping dangling dependency node @|bold {}|@", rule);
+        continue;
+      }
+
       for (final String dependency : graph.successors(rule.canonical())) {
         LOG.info("Will try to remove @|bold,red {}|@ from @|bold {}|@", dependency, rule);
         try {
