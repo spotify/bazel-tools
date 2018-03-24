@@ -32,7 +32,10 @@ import com.spotify.syncdeps.model.MavenDependency;
 
 import org.apache.ivy.Ivy;
 import org.apache.ivy.core.module.descriptor.DefaultDependencyDescriptor;
+import org.apache.ivy.core.module.descriptor.DefaultExcludeRule;
 import org.apache.ivy.core.module.descriptor.DefaultModuleDescriptor;
+import org.apache.ivy.core.module.descriptor.ExcludeRule;
+import org.apache.ivy.core.module.id.ArtifactId;
 import org.apache.ivy.core.module.id.ModuleId;
 import org.apache.ivy.core.module.id.ModuleRevisionId;
 import org.apache.ivy.core.report.ResolveReport;
@@ -41,6 +44,7 @@ import org.apache.ivy.core.resolve.ResolveOptions;
 import org.apache.ivy.core.retrieve.RetrieveOptions;
 import org.apache.ivy.core.settings.IvySettings;
 import org.apache.ivy.plugins.conflict.LatestConflictManager;
+import org.apache.ivy.plugins.matcher.ExactOrRegexpPatternMatcher;
 import org.apache.ivy.plugins.resolver.DependencyResolver;
 import org.apache.ivy.plugins.resolver.IBiblioResolver;
 import org.apache.ivy.util.Message;
@@ -103,6 +107,9 @@ public final class MavenDependencies {
     final DefaultModuleDescriptor descriptor =
         DefaultModuleDescriptor.newBasicInstance(MODULE_REVISION_ID, Date.from(Instant.EPOCH));
 
+    final ImmutableSet<MavenCoords> excludedDependencies =
+        dependencyDescriptor.options().excludedDependencies();
+
     final Set<MavenDependency> leafDependencies =
         dependencyDescriptor
             .maven()
@@ -118,6 +125,11 @@ public final class MavenDependencies {
         .stream()
         .map(MavenDependencies::createDependencyDescriptor)
         .forEach(descriptor::addDependency);
+
+    excludedDependencies
+        .stream()
+        .map(MavenDependencies::createExcludeRule)
+        .forEach(descriptor::addExcludeRule);
 
     final ResolveReport resolveReport = ivy.resolve(descriptor, resolveOptions);
 
@@ -142,18 +154,11 @@ public final class MavenDependencies {
       }
     }
 
-    final ImmutableSet<MavenCoords> excludedDependencies =
-        dependencyDescriptor.options().excludedDependencies();
-
     for (final IvyNode dependency : dependencies) {
-      if (!dependency.isCompletelyEvicted()) {
-        final ModuleRevisionId id = dependency.getId();
-        final MavenCoords coords = getCoords(id);
+      final ModuleRevisionId id = dependency.getId();
+      final MavenCoords coords = getCoords(id);
 
-        if (excludedDependencies.contains(coords)) {
-          continue;
-        }
-
+      if (!(excludedDependencies.contains(coords) || dependency.isCompletelyEvicted())) {
         final String version = id.getRevision();
         final ImmutableMap<MavenCoords, Boolean> transitiveDependencies =
             edges
@@ -257,6 +262,16 @@ public final class MavenDependencies {
 
       return MavenCoords.create(groupIdBase, artifactId);
     }
+  }
+
+  private static ExcludeRule createExcludeRule(final MavenCoords mavenCoords) {
+    final ModuleId moduleId = new ModuleId(mavenCoords.groupId(), mavenCoords.artifactId());
+    final ArtifactId artifactId = new ArtifactId(moduleId, ".*", ".*", ",*");
+    final DefaultExcludeRule excludeRule =
+        new DefaultExcludeRule(
+            artifactId, ExactOrRegexpPatternMatcher.INSTANCE, Collections.emptyMap());
+    excludeRule.addConfiguration("default");
+    return excludeRule;
   }
 
   private static DefaultDependencyDescriptor createDependencyDescriptor(final MavenDependency d) {
