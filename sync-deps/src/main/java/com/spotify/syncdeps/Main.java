@@ -169,7 +169,7 @@ public final class Main {
       out.printf("def maven_dependencies(callback):\n");
       for (final MavenDependency mavenDependency : mavenDependencies) {
         out.printf(
-            "    callback(artifact=\"%1$s:%5$s\", name=\"%2$s\", actual=\"@%2$s//jar\", bind=\"jar/%3$s/%4$s\", sha1=%6$s)\n",
+            "    callback(artifact=\"%1$s:%5$s\", name=\"%2$s\", jar=\"@%2$s//jar\", file=\"@%2$s//file\", bind_jar=\"jar/%3$s/%4$s\", bind_file=\"file/%3$s/%4$s\", sha1=%6$s)\n",
             mavenDependency.coords(),
             mavenDependency.coords().workspaceName(),
             mavenDependency.coords().groupRelativePackageName(),
@@ -242,9 +242,14 @@ public final class Main {
           out.printf("    visibility = [\"//3rdparty/jvm:__subpackages__\"],\n");
         }
         out.printf(
-            "    exports = [\"//external:jar/%s/%s\"],\n",
+            "    exports = [\"//external:%s/%s/%s\"],\n",
+            dependency.asFile() ? "file" : "jar",
             dependency.coords().groupRelativePackageName(),
             dependency.coords().artifactPackagePathSegment());
+
+        if (dependency.neverLink()) {
+          out.printf("    neverlink = 1,");
+        }
 
         final ImmutableMap<MavenCoords, Boolean> transitiveDependencies = dependency.dependencies();
 

@@ -16,7 +16,7 @@ DEPENDENCY_CHECKSUM_WHITELIST = [
     "org.fusesource.jansi:jansi-native:",
 ]
 
-def declare_maven(name, artifact, bind, actual, sha1=None):
+def declare_maven(name, artifact, jar, file, bind_jar, bind_file, sha1=None):
   if sha1 == None:
     if not any([artifact.startswith(pat) for pat in DEPENDENCY_CHECKSUM_WHITELIST]):
       print("%s does not have a sha1 checksum; integrity cannot be verified" % (artifact,))
@@ -24,4 +24,5 @@ def declare_maven(name, artifact, bind, actual, sha1=None):
   else:
     native.maven_jar(name=name, artifact=artifact, sha1=sha1)
 
-  native.bind(name=bind, actual=actual)
+  native.bind(name=bind_jar, actual=jar)
+  native.bind(name=bind_file, actual=file)

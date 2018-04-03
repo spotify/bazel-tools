@@ -15,6 +15,8 @@
  */
 package com.spotify.syncdeps.maven;
 
+import static com.google.common.collect.ImmutableMap.toImmutableMap;
+
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -25,11 +27,28 @@ import com.google.common.hash.HashCode;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
 import com.google.common.io.Files;
-
 import com.spotify.syncdeps.config.Dependencies;
 import com.spotify.syncdeps.model.MavenCoords;
 import com.spotify.syncdeps.model.MavenDependency;
-
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.Date;
+import java.text.ParseException;
+import java.time.Instant;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import javax.annotation.Nullable;
 import org.apache.ivy.Ivy;
 import org.apache.ivy.core.module.descriptor.DefaultDependencyDescriptor;
 import org.apache.ivy.core.module.descriptor.DefaultExcludeRule;
@@ -51,26 +70,6 @@ import org.apache.ivy.util.Message;
 import org.apache.ivy.util.MessageLogger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.Date;
-import java.text.ParseException;
-import java.time.Instant;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import static com.google.common.collect.ImmutableMap.toImmutableMap;
 
 public final class MavenDependencies {
 
@@ -118,8 +117,10 @@ public final class MavenDependencies {
             .flatMap(MavenDependencies::createCellDependencies)
             .collect(Collectors.toSet());
 
-    final Set<MavenCoords> leafDependencyCoords =
-        leafDependencies.stream().map(MavenDependency::coords).collect(Collectors.toSet());
+    final Map<MavenCoords, MavenDependency> leafDependenciesByCoords =
+        leafDependencies
+            .stream()
+            .collect(Collectors.toMap(MavenDependency::coords, Function.identity()));
 
     leafDependencies
         .stream()
@@ -165,8 +166,13 @@ public final class MavenDependencies {
                 .get(coords)
                 .stream()
                 .filter(mc -> !excludedDependencies.contains(mc))
-                .collect(toImmutableMap(Function.identity(), leafDependencyCoords::contains));
-        final boolean isPublic = leafDependencyCoords.contains(coords);
+                .collect(
+                    toImmutableMap(
+                        Function.identity(),
+                        c -> {
+                          final MavenDependency dep = leafDependenciesByCoords.get(c);
+                          return dep != null && dep.isPublic();
+                        }));
 
         final File file =
             new File(
@@ -186,8 +192,17 @@ public final class MavenDependencies {
           maybeSha1 = Optional.empty();
         }
 
+        final @Nullable MavenDependency declaredDependency = leafDependenciesByCoords.get(coords);
+
         final MavenDependency mavenDependency =
-            MavenDependency.create(coords, version, maybeSha1, transitiveDependencies, isPublic);
+            MavenDependency.create(
+                coords,
+                version,
+                maybeSha1,
+                transitiveDependencies,
+                declaredDependency != null && declaredDependency.isPublic(),
+                declaredDependency != null && declaredDependency.neverLink(),
+                declaredDependency != null && declaredDependency.asFile());
 
         result.add(mavenDependency);
       }
@@ -218,7 +233,13 @@ public final class MavenDependencies {
         .map(
             coord ->
                 MavenDependency.create(
-                    coord, version, Optional.empty(), ImmutableMap.of(), /* isPublic= */ false));
+                    coord,
+                    version,
+                    Optional.empty(),
+                    ImmutableMap.of(),
+                    /* isPublic= */ true,
+                    /* neverLink= */ dependencySpec.neverLink(),
+                    /* asFile=*/ dependencySpec.asFile()));
   }
 
   private static Stream<MavenCoords> buildCoords(

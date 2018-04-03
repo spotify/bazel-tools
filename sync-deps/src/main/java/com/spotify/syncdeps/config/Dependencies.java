@@ -15,11 +15,6 @@
  */
 package com.spotify.syncdeps.config;
 
-import com.google.auto.value.AutoValue;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableTable;
-import com.google.common.collect.Table;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -27,8 +22,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.datatype.guava.GuavaModule;
+import com.google.auto.value.AutoValue;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableTable;
+import com.google.common.collect.Table;
 import com.spotify.syncdeps.model.MavenCoords;
-
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Optional;
@@ -168,10 +166,18 @@ public abstract class Dependencies {
     @JsonProperty("modules")
     public abstract ImmutableSet<String> modules();
 
+    @JsonProperty("never-link")
+    public abstract boolean neverLink();
+
+    @JsonProperty("file")
+    public abstract boolean asFile();
+
     @JsonCreator
     public static Maven create(
         @JsonProperty("version") final String version,
-        @JsonProperty("modules") final ImmutableSet<String> modules) {
+        @JsonProperty("modules") final ImmutableSet<String> modules,
+        @JsonProperty(value = "never-link", defaultValue = "false") final boolean neverLink,
+        @JsonProperty(value = "as-file", defaultValue = "false") final boolean asFile) {
       final Builder builder = builder();
 
       if (version != null) {
@@ -181,6 +187,9 @@ public abstract class Dependencies {
       if (modules != null) {
         builder.modules(modules);
       }
+
+      builder.neverLink(neverLink);
+      builder.asFile(asFile);
 
       return builder.build();
     }
@@ -207,6 +216,10 @@ public abstract class Dependencies {
         modulesBuilder().addAll(modules);
         return this;
       }
+
+      public abstract Builder neverLink(final boolean neverLink);
+
+      public abstract Builder asFile(final boolean asFile);
 
       public abstract Maven build();
     }

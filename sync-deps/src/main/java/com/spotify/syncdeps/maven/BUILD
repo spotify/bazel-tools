@@ -18,6 +18,7 @@ java_library(
     srcs = glob(["*.java"]),
     visibility = ["//sync-deps:__subpackages__"],
     deps = [
+        "//3rdparty/jvm/com/google/code/findbugs:annotations",
         "//3rdparty/jvm/com/google/guava",
         "//3rdparty/jvm/org/apache/ivy",
         "//3rdparty/jvm/org/slf4j:slf4j-api",

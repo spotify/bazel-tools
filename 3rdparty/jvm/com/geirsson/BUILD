@@ -18,11 +18,7 @@ java_library(
     runtime_deps = [
         "//3rdparty/jvm/com/geirsson:metaconfig-core_2_11",
         "//3rdparty/jvm/org/scala-lang:scala-library",
-        "//external:jar/com/lihaoyi/sourcecode_2.11",
         "//external:jar/com/typesafe/config",
-        "//external:jar/org/scalameta/common_2.11",
-        "//external:jar/org/scalameta/inputs_2.11",
-        "//external:jar/org/scalameta/io_2.11",
     ],
 )
 
@@ -41,6 +37,7 @@ java_library(
         "//external:jar/com/lihaoyi/sourcecode_2.11",
         "//external:jar/com/trueaccord/lenses/lenses_2.11",
         "//external:jar/com/trueaccord/scalapb/scalapb-runtime_2.11",
+        "//external:jar/com/typesafe/config",
         "//external:jar/org/scalameta/common_2.11",
         "//external:jar/org/scalameta/dialects_2.11",
         "//external:jar/org/scalameta/inline_2.11",
