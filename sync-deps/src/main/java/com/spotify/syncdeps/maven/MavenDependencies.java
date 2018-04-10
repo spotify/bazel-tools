@@ -50,9 +50,11 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nullable;
 import org.apache.ivy.Ivy;
+import org.apache.ivy.core.module.descriptor.DefaultDependencyArtifactDescriptor;
 import org.apache.ivy.core.module.descriptor.DefaultDependencyDescriptor;
 import org.apache.ivy.core.module.descriptor.DefaultExcludeRule;
 import org.apache.ivy.core.module.descriptor.DefaultModuleDescriptor;
+import org.apache.ivy.core.module.descriptor.DependencyArtifactDescriptor;
 import org.apache.ivy.core.module.descriptor.ExcludeRule;
 import org.apache.ivy.core.module.id.ArtifactId;
 import org.apache.ivy.core.module.id.ModuleId;
@@ -132,6 +134,7 @@ public final class MavenDependencies {
         .map(MavenDependencies::createExcludeRule)
         .forEach(descriptor::addExcludeRule);
 
+    System.out.println("=== === ===" + descriptor.toString());
     final ResolveReport resolveReport = ivy.resolve(descriptor, resolveOptions);
 
     if (resolveReport.hasError()) {
@@ -229,7 +232,7 @@ public final class MavenDependencies {
     // TODO(dflemstr): handle absent version, which is "dependency management"?
     final String version = dependencySpec.version().get();
 
-    return buildCoords(groupIdBase, artifactIdBase, dependencySpec.modules())
+    return buildCoords(groupIdBase, artifactIdBase, dependencySpec.modules(), dependencySpec.classifier())
         .map(
             coord ->
                 MavenDependency.create(
@@ -243,16 +246,18 @@ public final class MavenDependencies {
   }
 
   private static Stream<MavenCoords> buildCoords(
-      final String groupIdBase, final String artifactIdBase, final ImmutableSet<String> modules) {
+      final String groupIdBase, final String artifactIdBase, final ImmutableSet<String> modules,
+      Optional<String> classifier) {
     if (modules.isEmpty()) {
-      return Stream.of(MavenCoords.create(groupIdBase, artifactIdBase));
+      return Stream.of(MavenCoords.create(groupIdBase, artifactIdBase, classifier));
     } else {
-      return modules.stream().map(spec -> formatSpec(groupIdBase, artifactIdBase, spec));
+      return modules.stream().map(spec -> formatSpec(groupIdBase, artifactIdBase, classifier, spec));
     }
   }
 
   private static MavenCoords formatSpec(
-      final String groupIdBase, final String artifactIdBase, final String spec) {
+      final String groupIdBase, final String artifactIdBase,
+      Optional<String> classifier, final String spec) {
     if (spec.contains(":")) {
       final List<String> parts = Splitter.on(':').limit(2).splitToList(spec);
       final String groupIdFragment = parts.get(0);
@@ -272,7 +277,7 @@ public final class MavenDependencies {
         artifactId = String.format(Locale.ROOT, "%s-%s", artifactIdBase, artifactIdFragment);
       }
 
-      return MavenCoords.create(groupId, artifactId);
+      return MavenCoords.create(groupId, artifactId, classifier);
     } else {
       final String artifactId;
       if (spec.isEmpty()) {
@@ -281,7 +286,7 @@ public final class MavenDependencies {
         artifactId = String.format(Locale.ROOT, "%s-%s", artifactIdBase, spec);
       }
 
-      return MavenCoords.create(groupIdBase, artifactId);
+      return MavenCoords.create(groupIdBase, artifactId, classifier);
     }
   }
 
@@ -296,16 +301,34 @@ public final class MavenDependencies {
   }
 
   private static DefaultDependencyDescriptor createDependencyDescriptor(final MavenDependency d) {
-    return createDependencyDescriptor(d.coords().groupId(), d.coords().artifactId(), d.version());
+    return createDependencyDescriptor(
+        d.coords().groupId(), d.coords().artifactId(), d.coords().classifier(), d.version());
   }
 
   private static DefaultDependencyDescriptor createDependencyDescriptor(
-      final String groupId, final String artifactId, final String version) {
+      final String groupId,
+      final String artifactId,
+      Optional<String> classifier,
+      final String version) {
     final ModuleRevisionId moduleRevisionId =
-        new ModuleRevisionId(new ModuleId(groupId, artifactId), version);
+        ModuleRevisionId.newInstance(groupId, artifactId, version);
+    System.out.println("A ==> " + moduleRevisionId.encodeToString());
     final DefaultDependencyDescriptor dependencyDescriptor =
         new DefaultDependencyDescriptor(moduleRevisionId, false);
     dependencyDescriptor.addDependencyConfiguration("default", "default");
+
+    classifier.ifPresent(
+        classifierName -> {
+          DependencyArtifactDescriptor artifact =
+              new DefaultDependencyArtifactDescriptor(
+                  dependencyDescriptor,
+                  moduleRevisionId.getName(),
+                  "jar",
+                  "jar",
+                  null,
+                  ImmutableMap.of("m:classifier", classifierName));
+          dependencyDescriptor.addDependencyArtifact("default", artifact);
+        });
     return dependencyDescriptor;
   }
 

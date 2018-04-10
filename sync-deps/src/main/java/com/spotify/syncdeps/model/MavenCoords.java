@@ -15,24 +15,25 @@
  */
 package com.spotify.syncdeps.model;
 
-import com.google.auto.value.AutoValue;
-import com.google.common.base.Splitter;
-import com.google.common.collect.ComparisonChain;
+import static java.util.stream.Collectors.joining;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.auto.value.AutoValue;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ComparisonChain;
 import com.spotify.syncdeps.util.BazelUtils;
-
 import java.util.Iterator;
-
-import static java.util.stream.Collectors.joining;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @AutoValue
 @JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class MavenCoords implements Comparable<MavenCoords> {
 
   public static final Splitter DOT_SPLITTER = Splitter.on('.');
+  public static final Splitter COLON_SPLITTER = Splitter.on(':');
 
   MavenCoords() {}
 
@@ -41,6 +42,9 @@ public abstract class MavenCoords implements Comparable<MavenCoords> {
 
   @JsonProperty("artifactId")
   public abstract String artifactId();
+
+  @JsonProperty("classifier")
+  public abstract Optional<String> classifier();
 
   public String artifactLabel() {
     return BazelUtils.label(artifactId());
@@ -66,21 +70,38 @@ public abstract class MavenCoords implements Comparable<MavenCoords> {
         .collect(joining("/"));
   }
 
+  public static MavenCoords create(final String groupId, final String artifactId) {
+    return create(groupId, artifactId, Optional.empty());
+  }
+
   @JsonCreator
   public static MavenCoords create(
       @JsonProperty("groupId") final String groupId,
-      @JsonProperty("artifactId") final String artifactId) {
-    return new AutoValue_MavenCoords(groupId, artifactId);
+      @JsonProperty("artifactId") final String artifactId,
+      @JsonProperty("classifier") final Optional<String> classifier) {
+    return new AutoValue_MavenCoords(groupId, artifactId, classifier);
   }
 
   public static MavenCoords valueOf(final String string) {
-    final Iterator<String> parts = Splitter.on(':').limit(2).split(string).iterator();
-    return create(parts.next(), parts.next());
+    final Iterator<String> parts = COLON_SPLITTER.limit(3).split(string).iterator();
+    final String groupId = parts.next();
+    final String artifactId = parts.next();
+    Optional<String> classifier;
+    try {
+      classifier = Optional.of(parts.next());
+    } catch (NoSuchElementException exception) {
+      classifier = Optional.empty();
+    }
+    return create(groupId, artifactId, classifier);
   }
 
   @Override
   public String toString() {
-    return groupId() + ":" + artifactId();
+    if (classifier().isPresent()) {
+      return groupId() + ":" + artifactId() + ":" + classifier().get();
+    } else {
+      return groupId() + ":" + artifactId();
+    }
   }
 
   @Override

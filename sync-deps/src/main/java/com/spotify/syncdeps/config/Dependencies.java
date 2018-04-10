@@ -166,6 +166,9 @@ public abstract class Dependencies {
     @JsonProperty("modules")
     public abstract ImmutableSet<String> modules();
 
+    @JsonProperty("classifier")
+    public abstract Optional<String> classifier();
+
     @JsonProperty("never-link")
     public abstract boolean neverLink();
 
@@ -176,6 +179,7 @@ public abstract class Dependencies {
     public static Maven create(
         @JsonProperty("version") final String version,
         @JsonProperty("modules") final ImmutableSet<String> modules,
+        @JsonProperty("classifier") final String classifier,
         @JsonProperty(value = "never-link", defaultValue = "false") final boolean neverLink,
         @JsonProperty(value = "as-file", defaultValue = "false") final boolean asFile) {
       final Builder builder = builder();
@@ -186,6 +190,10 @@ public abstract class Dependencies {
 
       if (modules != null) {
         builder.modules(modules);
+      }
+
+      if (classifier != null) {
+        builder.classifier(classifier);
       }
 
       builder.neverLink(neverLink);
@@ -204,6 +212,8 @@ public abstract class Dependencies {
       Builder() {}
 
       public abstract Builder version(final String version);
+
+      public abstract Builder classifier(final String classifier);
 
       public abstract ImmutableSet.Builder<String> modulesBuilder();
 
