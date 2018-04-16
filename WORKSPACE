@@ -55,7 +55,7 @@ bind(
 
 bind(
     name = "io_bazel_rules_scala/dependency/scala/parser_combinators",
-    actual = "//3rdparty/jvm/org/scala-lang/modules:scala-parser-combinators_2_11",
+    actual = "//3rdparty/jvm/org/scala-lang/modules:scala-parser-combinators",
 )
 
 bind(
@@ -75,12 +75,12 @@ bind(
 
 bind(
     name = "io_bazel_rules_scala/dependency/scala/scala_xml",
-    actual = "//3rdparty/jvm/org/scala-lang/modules:scala-xml_2_11",
+    actual = "//3rdparty/jvm/org/scala-lang/modules:scala-xml",
 )
 
 bind(
     name = "io_bazel_rules_scala/dependency/scalatest/scalatest",
-    actual = "//3rdparty/jvm/org/scalatest:scalatest_2_11",
+    actual = "//3rdparty/jvm/org/scalatest:scalatest",
 )
 
 load("//:tools.bzl", "bazel_tools_repositories")
