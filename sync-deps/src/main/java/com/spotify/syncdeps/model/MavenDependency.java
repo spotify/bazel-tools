@@ -38,7 +38,7 @@ public abstract class MavenDependency implements Comparable<MavenDependency> {
 
   public abstract boolean neverLink();
 
-  public abstract boolean asFile();
+  public abstract MavenDependencyKind kind();
 
   @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
   public static MavenDependency create(
@@ -48,9 +48,9 @@ public abstract class MavenDependency implements Comparable<MavenDependency> {
       final ImmutableMap<MavenCoords, Boolean> dependencies,
       final boolean isPublic,
       final boolean neverLink,
-      final boolean asFile) {
+      final MavenDependencyKind kind) {
     return new AutoValue_MavenDependency(
-        coords, version, sha1, dependencies, isPublic, neverLink, asFile);
+        coords, version, sha1, dependencies, isPublic, neverLink, kind);
   }
 
   @Override

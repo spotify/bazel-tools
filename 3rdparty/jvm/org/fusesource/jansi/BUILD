@@ -1,7 +1,7 @@
-java_library(
+java_import(
     name = "jansi-native",
+    jars = ["//external:file/org/fusesource/jansi/jansi-native"],
     visibility = ["//visibility:public"],
-    exports = ["//external:jar/org/fusesource/jansi/jansi-native"],
     runtime_deps = [
         "//external:jar/org/fusesource/hawtjni/hawtjni-runtime",
     ],

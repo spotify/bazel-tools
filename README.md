@@ -134,6 +134,8 @@ options:
   mavenResolvers:
     - id: "default"
       url: https://repo.maven.apache.org/maven2/
+  # The Scala ABI to be used for dependencies with `kind: scala*`
+  scalaAbi: "2.11"
   # Dependencies to completely remove from the dependency graph, because they are not needed.
   excludedDependencies:
     - com.google.guava:guava-jdk5
@@ -164,6 +166,8 @@ maven:
 
       # The version for all of the artifacts/modules in this group.
       version: "2.9.1"
+      # The dependency kind; can be java, scala, or scala-macro
+      kind: java
 ```
 
 To add dependencies, modify the YAML file and then run the `sync-deps` tool.  This will download all
@@ -179,15 +183,16 @@ of the dependencies, and output a few files:
       - `artifact` - specifies the Maven coordinates of the artifact as
         `<groupId>:<artifactId>:<version>` etc.
       - `name` - specifies a name suitable for use in the `WORKSPACE` e.g. for a `maven_jar` rule.
-      - `bind` - specifies a name that the tool expects you to use as the name of a `bind` rule.
-        This gives the external dependency a slightly nicer external name.
-      - `actual` - specifies the target for the above `bind` rule.
+      - `jar` - specifies the path to the resolved ijar.
+      - `file` - specifies the path to the resolved JAR file.
+      - `bind_jar` - the system expects this to be re-bound to `jar`.
+      - `bind_file` - the system expects this to be re-bound to `file`.
       - `sha1` - (optional) specifies the SHA1 of the JAR if it is known.
 
     You are expected to call this function with a callback similar to the following:
 
     ```python
-    def declare_maven(name, artifact, bind, actual, sha1=None):
+    def declare_maven(name, artifact, jar, file, bind_jar, bind_file, sha1=None):
       if sha1 == None:
         # You can also fail here, if preferred
         print("%s does not have a sha1 checksum; integrity cannot be verified" % (artifact,))
@@ -195,7 +200,8 @@ of the dependencies, and output a few files:
       else:
         native.maven_jar(name=name, artifact=artifact, sha1=sha1)
 
-      native.bind(name=bind, actual=actual)
+      native.bind(name=bind_jar, actual=jar)
+      native.bind(name=bind_file, actual=file)
     ```
   - `3rdparty/jvm` - This directory contains `BUILD` files that group together artifacts with their
     transitive dependencies in an user-friendly manner.  This lets you refer to dependencies as e.g.

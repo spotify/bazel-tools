@@ -1,5 +1,5 @@
-java_library(
+java_import(
     name = "ivy",
+    jars = ["//external:file/org/apache/ivy/ivy"],
     visibility = ["//visibility:public"],
-    exports = ["//external:jar/org/apache/ivy/ivy"],
 )

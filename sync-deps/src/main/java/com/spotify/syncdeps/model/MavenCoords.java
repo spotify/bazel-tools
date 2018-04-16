@@ -15,18 +15,16 @@
  */
 package com.spotify.syncdeps.model;
 
-import com.google.auto.value.AutoValue;
-import com.google.common.base.Splitter;
-import com.google.common.collect.ComparisonChain;
+import static java.util.stream.Collectors.joining;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.auto.value.AutoValue;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ComparisonChain;
 import com.spotify.syncdeps.util.BazelUtils;
-
 import java.util.Iterator;
-
-import static java.util.stream.Collectors.joining;
 
 @AutoValue
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -42,8 +40,13 @@ public abstract class MavenCoords implements Comparable<MavenCoords> {
   @JsonProperty("artifactId")
   public abstract String artifactId();
 
-  public String artifactLabel() {
-    return BazelUtils.label(artifactId());
+  public String artifactLabel(final boolean stripScalaAbi) {
+    final String artifactId = artifactId();
+    if (stripScalaAbi) {
+      return BazelUtils.label(artifactId.substring(0, artifactId.lastIndexOf('_')));
+    } else {
+      return BazelUtils.label(artifactId);
+    }
   }
 
   public String artifactPackagePathSegment() {
@@ -64,6 +67,10 @@ public abstract class MavenCoords implements Comparable<MavenCoords> {
         .stream()
         .map(BazelUtils::packagePathSegment)
         .collect(joining("/"));
+  }
+
+  public MavenCoords withScalaAbi(final String scalaAbi) {
+    return create(groupId(), artifactId() + "_" + scalaAbi);
   }
 
   @JsonCreator

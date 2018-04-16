@@ -1,5 +1,5 @@
-java_library(
+java_import(
     name = "auto-value",
+    jars = ["//external:file/com/google/auto/value/auto-value"],
     visibility = ["//visibility:public"],
-    exports = ["//external:jar/com/google/auto/value/auto-value"],
 )

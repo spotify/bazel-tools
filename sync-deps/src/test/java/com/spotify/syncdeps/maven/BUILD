@@ -13,14 +13,17 @@
 # limitations under the License.
 licenses(["notice"])
 
-load("@io_bazel_rules_scala//scala:scala.bzl", "scala_library")
-
-scala_library(
-    name = "format",
-    srcs = glob(["*.scala"]),
-    visibility = ["//format:__subpackages__"],
+java_test(
+    name = "MavenDependenciesTest",
+    size = "small",
+    srcs = ["MavenDependenciesTest.java"],
     deps = [
-        "//3rdparty/jvm/com/geirsson:metaconfig-core",
-        "//3rdparty/jvm/com/geirsson:scalafmt-core",
+        "//3rdparty/jvm/com/google/guava",
+        "//3rdparty/jvm/com/google/jimfs",
+        "//3rdparty/jvm/com/squareup/okio",
+        "//3rdparty/jvm/org/hamcrest:java-hamcrest",
+        "//sync-deps/src/main/java/com/spotify/syncdeps/config",
+        "//sync-deps/src/main/java/com/spotify/syncdeps/maven",
+        "//sync-deps/src/main/java/com/spotify/syncdeps/model",
     ],
 )

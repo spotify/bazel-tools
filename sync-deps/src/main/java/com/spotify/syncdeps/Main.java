@@ -15,11 +15,15 @@
  */
 package com.spotify.syncdeps;
 
+import static com.google.common.collect.ImmutableMap.toImmutableMap;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.nio.file.attribute.PosixFilePermissions.asFileAttribute;
+import static java.nio.file.attribute.PosixFilePermissions.fromString;
+
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.hash.HashCode;
-
 import com.spotify.bazeltools.cliutils.Cli;
 import com.spotify.syncdeps.cli.Options;
 import com.spotify.syncdeps.config.Dependencies;
@@ -27,10 +31,6 @@ import com.spotify.syncdeps.maven.MavenDependencies;
 import com.spotify.syncdeps.model.MavenCoords;
 import com.spotify.syncdeps.model.MavenDependency;
 import com.spotify.syncdeps.util.PathUtils;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -47,11 +47,8 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import static com.google.common.collect.ImmutableMap.toImmutableMap;
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static java.nio.file.attribute.PosixFilePermissions.asFileAttribute;
-import static java.nio.file.attribute.PosixFilePermissions.fromString;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public final class Main {
 
@@ -80,7 +77,7 @@ public final class Main {
   private static void run(final Options options) throws IOException, ParseException {
     final Path relativeLockFile = options.workspaceDirectory().relativize(options.lockFile());
     if (options.verify()) {
-      LOG.info("Verifying integrity of @|bold {}|", relativeLockFile);
+      LOG.info("Verifying integrity of @|bold {}|@", relativeLockFile);
 
       final String lockContents = createLockContents(options);
       final boolean lockFileUpToDate =
@@ -184,7 +181,7 @@ public final class Main {
 
   private static Path writeNewJvmDirectory(
       final Options options, final ImmutableSet<MavenDependency> mavenDependencies)
-      throws IOException, ParseException {
+      throws IOException {
     final Path buildifier = options.buildifier();
     final Path newJvmDirectory =
         Files.createTempDirectory(options.thirdPartyDirectory(), "jvm-", DIR_PERMISSIONS);
@@ -227,6 +224,10 @@ public final class Main {
         final PrintWriter out = new PrintWriter(writer)) {
       boolean needsSeparator = false;
 
+      if (groupDependencies.stream().anyMatch(d -> d.kind().isScala())) {
+        out.printf("load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")\n");
+      }
+
       for (final MavenDependency dependency : groupDependencies) {
 
         if (needsSeparator) {
@@ -234,16 +235,27 @@ public final class Main {
         }
         needsSeparator = true;
 
-        out.printf("java_library(\n");
-        out.printf("    name = \"%s\",\n", dependency.coords().artifactLabel());
+        switch (dependency.kind()) {
+          case JAVA:
+            out.printf("java_import(\n");
+            break;
+          case SCALA:
+          case SCALA_MACRO:
+            out.printf("scala_import(\n");
+            break;
+        }
+
+        out.printf(
+            "    name = \"%s\",\n", dependency.coords().artifactLabel(dependency.kind().isScala()));
+
         if (dependency.isPublic()) {
           out.printf("    visibility = [\"//visibility:public\"],\n");
         } else {
           out.printf("    visibility = [\"//3rdparty/jvm:__subpackages__\"],\n");
         }
+
         out.printf(
-            "    exports = [\"//external:%s/%s/%s\"],\n",
-            dependency.asFile() ? "file" : "jar",
+            "    jars = [\"//external:file/%s/%s\"],\n",
             dependency.coords().groupRelativePackageName(),
             dependency.coords().artifactPackagePathSegment());
 
@@ -256,9 +268,9 @@ public final class Main {
         if (!transitiveDependencies.isEmpty()) {
           out.printf("    runtime_deps = [\n");
           writeDependencies(out, transitiveDependencies, dependenciesByCoords);
-
           out.printf("    ],\n");
         }
+
         out.printf(")\n");
       }
     } catch (IOException e) {
@@ -308,9 +320,11 @@ public final class Main {
     transitiveDependencies.forEach(
         (mavenCoords, isPublic) -> {
           if (isPublic) {
+            final MavenDependency mavenDependency = dependenciesByCoords.get(mavenCoords);
             out.printf(
                 "        \"//3rdparty/jvm/%s:%s\",\n",
-                mavenCoords.groupRelativePackageName(), mavenCoords.artifactLabel());
+                mavenCoords.groupRelativePackageName(),
+                mavenCoords.artifactLabel(mavenDependency.kind().isScala()));
           }
         });
   }

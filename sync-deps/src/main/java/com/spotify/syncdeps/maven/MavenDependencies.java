@@ -30,6 +30,7 @@ import com.google.common.io.Files;
 import com.spotify.syncdeps.config.Dependencies;
 import com.spotify.syncdeps.model.MavenCoords;
 import com.spotify.syncdeps.model.MavenDependency;
+import com.spotify.syncdeps.model.MavenDependencyKind;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -114,7 +115,7 @@ public final class MavenDependencies {
             .maven()
             .cellSet()
             .stream()
-            .flatMap(MavenDependencies::createCellDependencies)
+            .flatMap(c -> createCellDependencies(dependencyDescriptor.options().scalaAbi(), c))
             .collect(Collectors.toSet());
 
     final Map<MavenCoords, MavenDependency> leafDependenciesByCoords =
@@ -202,7 +203,9 @@ public final class MavenDependencies {
                 transitiveDependencies,
                 declaredDependency != null && declaredDependency.isPublic(),
                 declaredDependency != null && declaredDependency.neverLink(),
-                declaredDependency != null && declaredDependency.asFile());
+                declaredDependency == null
+                    ? MavenDependencyKind.defaultValue()
+                    : declaredDependency.kind());
 
         result.add(mavenDependency);
       }
@@ -219,8 +222,8 @@ public final class MavenDependencies {
     return MavenCoords.create(moduleRevisionId.getOrganisation(), moduleRevisionId.getName());
   }
 
-  private static Stream<MavenDependency> createCellDependencies(
-      final Table.Cell<String, String, Dependencies.Maven> cell) {
+  static Stream<MavenDependency> createCellDependencies(
+      final String scalaAbi, final Table.Cell<String, String, Dependencies.Maven> cell) {
     final String groupIdBase = cell.getRowKey();
     final String artifactIdBase = cell.getColumnKey();
     final Dependencies.Maven dependencySpec = cell.getValue();
@@ -233,13 +236,13 @@ public final class MavenDependencies {
         .map(
             coord ->
                 MavenDependency.create(
-                    coord,
+                    dependencySpec.kind().isScala() ? coord.withScalaAbi(scalaAbi) : coord,
                     version,
                     Optional.empty(),
                     ImmutableMap.of(),
                     /* isPublic= */ true,
                     /* neverLink= */ dependencySpec.neverLink(),
-                    /* asFile=*/ dependencySpec.asFile()));
+                    /* kind= */ dependencySpec.kind()));
   }
 
   private static Stream<MavenCoords> buildCoords(

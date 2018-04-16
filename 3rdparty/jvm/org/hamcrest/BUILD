@@ -1,5 +1,5 @@
-java_library(
+java_import(
     name = "java-hamcrest",
+    jars = ["//external:file/org/hamcrest/java-hamcrest"],
     visibility = ["//visibility:public"],
-    exports = ["//external:jar/org/hamcrest/java-hamcrest"],
 )

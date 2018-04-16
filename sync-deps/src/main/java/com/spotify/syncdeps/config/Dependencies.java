@@ -26,6 +26,7 @@ import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableTable;
 import com.google.common.collect.Table;
+import com.spotify.syncdeps.model.MavenDependencyKind;
 import com.spotify.syncdeps.model.MavenCoords;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -90,15 +91,19 @@ public abstract class Dependencies {
     @JsonProperty("excludedDependencies")
     public abstract ImmutableSet<MavenCoords> excludedDependencies();
 
+    @JsonProperty("scalaAbi")
+    public abstract String scalaAbi();
+
     @JsonCreator
     public static Options create(
         @JsonProperty("mavenResolvers") final ImmutableSet<MavenResolver> mavenResolvers,
-        @JsonProperty("excludedDependencies")
-            final ImmutableSet<MavenCoords> excludedDependencies) {
+        @JsonProperty("excludedDependencies") final ImmutableSet<MavenCoords> excludedDependencies,
+        @JsonProperty("scalaAbi") final String scalaAbi) {
       return builder()
           .mavenResolvers(mavenResolvers == null ? ImmutableSet.of() : mavenResolvers)
           .excludedDependencies(
               excludedDependencies == null ? ImmutableSet.of() : excludedDependencies)
+          .scalaAbi(scalaAbi == null ? "2.11" : scalaAbi)
           .build();
     }
 
@@ -132,6 +137,8 @@ public abstract class Dependencies {
         excludedDependenciesBuilder().addAll(excludedDependencies);
         return this;
       }
+
+      public abstract Builder scalaAbi(final String scalaAbi);
 
       public abstract Options build();
     }
@@ -169,15 +176,15 @@ public abstract class Dependencies {
     @JsonProperty("never-link")
     public abstract boolean neverLink();
 
-    @JsonProperty("file")
-    public abstract boolean asFile();
+    @JsonProperty("kind")
+    public abstract MavenDependencyKind kind();
 
     @JsonCreator
     public static Maven create(
         @JsonProperty("version") final String version,
         @JsonProperty("modules") final ImmutableSet<String> modules,
         @JsonProperty(value = "never-link", defaultValue = "false") final boolean neverLink,
-        @JsonProperty(value = "as-file", defaultValue = "false") final boolean asFile) {
+        @JsonProperty(value = "kind") final MavenDependencyKind kind) {
       final Builder builder = builder();
 
       if (version != null) {
@@ -189,13 +196,16 @@ public abstract class Dependencies {
       }
 
       builder.neverLink(neverLink);
-      builder.asFile(asFile);
+
+      if (kind != null) {
+        builder.kind(kind);
+      }
 
       return builder.build();
     }
 
     public static Builder builder() {
-      return new AutoValue_Dependencies_Maven.Builder();
+      return new AutoValue_Dependencies_Maven.Builder().kind(MavenDependencyKind.defaultValue());
     }
 
     @AutoValue.Builder
@@ -219,7 +229,7 @@ public abstract class Dependencies {
 
       public abstract Builder neverLink(final boolean neverLink);
 
-      public abstract Builder asFile(final boolean asFile);
+      public abstract Builder kind(final MavenDependencyKind kind);
 
       public abstract Maven build();
     }

@@ -1,7 +1,9 @@
-java_library(
-    name = "metaconfig-core_2_11",
+load("@io_bazel_rules_scala//scala:scala_import.bzl", "scala_import")
+
+scala_import(
+    name = "metaconfig-core",
+    jars = ["//external:file/com/geirsson/metaconfig-core_2.11"],
     visibility = ["//visibility:public"],
-    exports = ["//external:jar/com/geirsson/metaconfig-core_2.11"],
     runtime_deps = [
         "//3rdparty/jvm/org/scala-lang:scala-library",
         "//external:jar/com/lihaoyi/sourcecode_2.11",
@@ -11,24 +13,24 @@ java_library(
     ],
 )
 
-java_library(
-    name = "metaconfig-typesafe-config_2_11",
+scala_import(
+    name = "metaconfig-typesafe-config",
+    jars = ["//external:file/com/geirsson/metaconfig-typesafe-config_2.11"],
     visibility = ["//visibility:public"],
-    exports = ["//external:jar/com/geirsson/metaconfig-typesafe-config_2.11"],
     runtime_deps = [
-        "//3rdparty/jvm/com/geirsson:metaconfig-core_2_11",
+        "//3rdparty/jvm/com/geirsson:metaconfig-core",
         "//3rdparty/jvm/org/scala-lang:scala-library",
         "//external:jar/com/typesafe/config",
     ],
 )
 
-java_library(
-    name = "scalafmt-core_2_11",
+scala_import(
+    name = "scalafmt-core",
+    jars = ["//external:file/com/geirsson/scalafmt-core_2.11"],
     visibility = ["//visibility:public"],
-    exports = ["//external:jar/com/geirsson/scalafmt-core_2.11"],
     runtime_deps = [
-        "//3rdparty/jvm/com/geirsson:metaconfig-core_2_11",
-        "//3rdparty/jvm/com/geirsson:metaconfig-typesafe-config_2_11",
+        "//3rdparty/jvm/com/geirsson:metaconfig-core",
+        "//3rdparty/jvm/com/geirsson:metaconfig-typesafe-config",
         "//3rdparty/jvm/com/google/protobuf:protobuf-java",
         "//3rdparty/jvm/org/scala-lang:scala-library",
         "//external:jar/com/lihaoyi/fastparse-utils_2.11",

@@ -1,7 +1,7 @@
-java_library(
+java_import(
     name = "jimfs",
+    jars = ["//external:file/com/google/jimfs/jimfs"],
     visibility = ["//visibility:public"],
-    exports = ["//external:jar/com/google/jimfs/jimfs"],
     runtime_deps = [
         "//3rdparty/jvm/com/google/guava",
     ],

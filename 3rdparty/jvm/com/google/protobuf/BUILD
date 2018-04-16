@@ -1,5 +1,5 @@
-java_library(
+java_import(
     name = "protobuf-java",
+    jars = ["//external:file/com/google/protobuf/protobuf-java"],
     visibility = ["//visibility:public"],
-    exports = ["//external:jar/com/google/protobuf/protobuf-java"],
 )
