@@ -20,6 +20,7 @@ java_library(
     deps = [
         "//3rdparty/jvm/com/fasterxml/jackson/core:jackson-annotations",
         "//3rdparty/jvm/com/google/auto/value:auto-value",
+        "//3rdparty/jvm/com/google/code/findbugs:annotations",
         "//3rdparty/jvm/com/google/guava",
         "//3rdparty/tools:auto-value",
         "//sync-deps/src/main/java/com/spotify/syncdeps/util",
