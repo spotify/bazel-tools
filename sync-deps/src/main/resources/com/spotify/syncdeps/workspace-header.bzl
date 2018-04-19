@@ -3,7 +3,7 @@ load("@bazel_tools//tools/build_defs/repo:java.bzl", "java_import_external")
 
 MAVEN_RESOLVERS = ["%MAVEN_RESOLVERS%"]
 
-def _maven_callback(name, licenses, jar_path, jar_sha256, srcjar_path=None, srcjar_sha256=None, deps=[], runtime_deps=[], neverlink=False):
+def default_maven_callback(name, licenses, jar_path, jar_sha256, srcjar_path=None, srcjar_sha256=None, deps=[], runtime_deps=[], neverlink=False):
   java_import_external(
       name=name,
       licenses=licenses,
@@ -19,4 +19,4 @@ def _maven_callback(name, licenses, jar_path, jar_sha256, srcjar_path=None, srcj
 
 def maven_dependencies(callback=None):
   if callback == None:
-    callback = _maven_callback
+    callback = default_maven_callback
