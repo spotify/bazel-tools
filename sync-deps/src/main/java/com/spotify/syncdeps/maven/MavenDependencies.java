@@ -24,7 +24,6 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Table;
 import com.google.common.collect.TreeMultimap;
 import com.google.common.hash.HashCode;
-import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
 import com.google.common.io.Files;
 import com.spotify.syncdeps.config.Dependencies;
@@ -184,13 +183,23 @@ public final class MavenDependencies {
                     id.getName(),
                     id.getRevision()));
 
-        final Optional<HashCode> maybeSha1;
-        if (file.exists()) {
-          @SuppressWarnings("deprecation") // Yes, this hash function is broken but needed by Bazel
-          final HashFunction hashFunction = Hashing.sha1();
-          maybeSha1 = Optional.of(Files.asByteSource(file).hash(hashFunction));
+        final File sourceFile =
+            new File(
+                String.format(
+                    Locale.ROOT,
+                    "lib/%s/%s-%s-sources.jar",
+                    id.getOrganisation(),
+                    id.getName(),
+                    id.getRevision()));
+
+        final Optional<HashCode> sha256 =
+            Optional.of(Files.asByteSource(file).hash(Hashing.sha256()));
+
+        final Optional<HashCode> maybeSourceSha256;
+        if (sourceFile.exists()) {
+          maybeSourceSha256 = Optional.of(Files.asByteSource(sourceFile).hash(Hashing.sha256()));
         } else {
-          maybeSha1 = Optional.empty();
+          maybeSourceSha256 = Optional.empty();
         }
 
         final @Nullable MavenDependency declaredDependency = leafDependenciesByCoords.get(coords);
@@ -199,7 +208,8 @@ public final class MavenDependencies {
             MavenDependency.create(
                 coords,
                 version,
-                maybeSha1,
+                sha256,
+                maybeSourceSha256,
                 transitiveDependencies,
                 declaredDependency != null && declaredDependency.isPublic(),
                 declaredDependency != null && declaredDependency.neverLink(),
@@ -238,6 +248,7 @@ public final class MavenDependencies {
                 MavenDependency.create(
                     dependencySpec.kind().isScala() ? coord.withScalaAbi(scalaAbi) : coord,
                     version,
+                    Optional.empty(),
                     Optional.empty(),
                     ImmutableMap.of(),
                     /* isPublic= */ true,
@@ -309,6 +320,7 @@ public final class MavenDependencies {
     final DefaultDependencyDescriptor dependencyDescriptor =
         new DefaultDependencyDescriptor(moduleRevisionId, false);
     dependencyDescriptor.addDependencyConfiguration("default", "default");
+    dependencyDescriptor.addDependencyConfiguration("default", "sources");
     return dependencyDescriptor;
   }
 

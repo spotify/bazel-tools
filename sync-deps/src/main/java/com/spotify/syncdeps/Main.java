@@ -19,11 +19,13 @@ import static com.google.common.collect.ImmutableMap.toImmutableMap;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.nio.file.attribute.PosixFilePermissions.asFileAttribute;
 import static java.nio.file.attribute.PosixFilePermissions.fromString;
+import static java.util.stream.Collectors.joining;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.hash.HashCode;
+import com.google.common.io.Resources;
 import com.spotify.bazeltools.cliutils.Cli;
 import com.spotify.syncdeps.cli.Options;
 import com.spotify.syncdeps.config.Dependencies;
@@ -102,7 +104,8 @@ public final class Main {
       final Path relativeOutputFile = options.workspaceDirectory().relativize(outputFile);
       final Path relativeJvmDirectory = options.workspaceDirectory().relativize(jvmDirectory);
 
-      final Path newOutputFile = writeNewOutputFile(options, mavenDependencies);
+      final Path newOutputFile =
+          writeNewOutputFile(options, dependencies.options(), mavenDependencies);
       final Path newJvmDirectory = writeNewJvmDirectory(options, mavenDependencies);
 
       LOG.info("Updating @|bold {}|@", relativeJvmDirectory);
@@ -155,7 +158,9 @@ public final class Main {
   }
 
   private static Path writeNewOutputFile(
-      final Options options, final ImmutableSet<MavenDependency> mavenDependencies)
+      final Options options,
+      final Dependencies.Options dependencyOptions,
+      final ImmutableSet<MavenDependency> mavenDependencies)
       throws IOException {
     final Path newOutputFile =
         Files.createTempFile(
@@ -163,16 +168,45 @@ public final class Main {
 
     try (BufferedWriter writer = Files.newBufferedWriter(newOutputFile, UTF_8);
         final PrintWriter out = new PrintWriter(writer)) {
-      out.printf("def maven_dependencies(callback):\n");
+      final String header =
+          Resources.toString(Resources.getResource(Main.class, "workspace-header.bzl"), UTF_8);
+
+      final String mavenResolversList =
+          dependencyOptions
+              .mavenResolvers()
+              .stream()
+              .map(Dependencies.MavenResolver::url)
+              .map(url -> "\"" + url + "\"")
+              .collect(joining(", ", "[", "]"));
+      out.write(header.replace("[\"%MAVEN_RESOLVERS%\"]", mavenResolversList));
+
       for (final MavenDependency mavenDependency : mavenDependencies) {
+        // TODO: fix licenses
+        final String name = "\"" + mavenDependency.coords().workspaceName() + "\"";
+        final String jarPath = "\"" + mavenDependency.path(null) + "\"";
+        final String jarSha256 = mavenDependency.sha256().map(s -> "\"" + s + "\"").orElse("None");
+        final String srcjarPath;
+        if (mavenDependency.sourcesSha256().isPresent()) {
+          srcjarPath = "\"" + mavenDependency.path("sources") + "\"";
+        } else {
+          srcjarPath = "None";
+        }
+        final String srcjarSha256 =
+            mavenDependency.sourcesSha256().map(s -> "\"" + s + "\"").orElse("None");
+        final String deps =
+            mavenDependency
+                .dependencies()
+                .keySet()
+                .stream()
+                .map(MavenCoords::workspaceName)
+                .map(n -> "\"" + n + "\"")
+                .collect(joining(", ", "[", "]"));
+        final String neverlink = mavenDependency.neverLink() ? "True" : "False";
+
         out.printf(
-            "    callback(artifact=\"%1$s:%5$s\", name=\"%2$s\", jar=\"@%2$s//jar\", file=\"@%2$s//jar:file\", bind_jar=\"jar/%3$s/%4$s\", bind_file=\"file/%3$s/%4$s\", sha1=%6$s)\n",
-            mavenDependency.coords(),
-            mavenDependency.coords().workspaceName(),
-            mavenDependency.coords().groupRelativePackageName(),
-            mavenDependency.coords().artifactPackagePathSegment(),
-            mavenDependency.version(),
-            mavenDependency.sha1().map(s -> "\"" + s + "\"").orElse("None"));
+            "  callback(name=%1$s, licenses=[\"notice\"], jar_path=%2$s, jar_sha256=%3$s,"
+                + " srcjar_path=%4$s, srcjar_sha256=%5$s, deps=%6$s, neverlink=%7$s)\n",
+            name, jarPath, jarSha256, srcjarPath, srcjarSha256, deps, neverlink);
       }
     }
 
@@ -224,51 +258,21 @@ public final class Main {
         final PrintWriter out = new PrintWriter(writer)) {
       boolean needsSeparator = false;
 
-      if (groupDependencies.stream().anyMatch(d -> d.kind().isScala())) {
-        out.printf("load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")\n");
-      }
-
       for (final MavenDependency dependency : groupDependencies) {
 
         if (needsSeparator) {
           out.print('\n');
         }
         needsSeparator = true;
-
-        switch (dependency.kind()) {
-          case JAVA:
-            out.printf("java_import(\n");
-            break;
-          case SCALA:
-          case SCALA_MACRO:
-            out.printf("scala_import(\n");
-            break;
-        }
-
+        out.printf("alias(\n");
         out.printf(
             "    name = \"%s\",\n", dependency.coords().artifactLabel(dependency.kind().isScala()));
+        out.printf("    actual = \"@%s\",\n", dependency.coords().workspaceName());
 
         if (dependency.isPublic()) {
-          out.printf("    visibility = [\"//visibility:public\"],\n");
+          out.printf("    visibility=[\"//visibility:public\"],\n");
         } else {
-          out.printf("    visibility = [\"//3rdparty/jvm:__subpackages__\"],\n");
-        }
-
-        out.printf(
-            "    jars = [\"//external:file/%s/%s\"],\n",
-            dependency.coords().groupRelativePackageName(),
-            dependency.coords().artifactPackagePathSegment());
-
-        if (dependency.neverLink()) {
-          out.printf("    neverlink = 1,");
-        }
-
-        final ImmutableMap<MavenCoords, Boolean> transitiveDependencies = dependency.dependencies();
-
-        if (!transitiveDependencies.isEmpty()) {
-          out.printf("    runtime_deps = [\n");
-          writeDependencies(out, transitiveDependencies, dependenciesByCoords);
-          out.printf("    ],\n");
+          out.printf("    visibility=[\"//3rdparty:__subpackages__\"],\n");
         }
 
         out.printf(")\n");

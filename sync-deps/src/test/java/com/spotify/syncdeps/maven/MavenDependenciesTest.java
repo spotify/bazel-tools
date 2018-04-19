@@ -52,6 +52,7 @@ public class MavenDependenciesTest {
                     MavenCoords.create("a", "b"),
                     "1.0",
                     Optional.empty(),
+                    Optional.empty(),
                     ImmutableMap.of(),
                     /* isPublic= */ true,
                     /* neverLink= */ false,
@@ -79,6 +80,7 @@ public class MavenDependenciesTest {
                 MavenDependency.create(
                     MavenCoords.create("a", "b-c"),
                     "1.0",
+                    Optional.empty(),
                     Optional.empty(),
                     ImmutableMap.of(),
                     /* isPublic= */ true,
@@ -108,6 +110,7 @@ public class MavenDependenciesTest {
                     MavenCoords.create("a.c", "b-d"),
                     "1.0",
                     Optional.empty(),
+                    Optional.empty(),
                     ImmutableMap.of(),
                     /* isPublic= */ true,
                     /* neverLink= */ false,
@@ -132,6 +135,7 @@ public class MavenDependenciesTest {
                 MavenDependency.create(
                     MavenCoords.create("a", "b"),
                     "1.0",
+                    Optional.empty(),
                     Optional.empty(),
                     ImmutableMap.of(),
                     /* isPublic= */ true,
@@ -161,6 +165,7 @@ public class MavenDependenciesTest {
                     MavenCoords.create("a", "b_2.11"),
                     "1.0",
                     Optional.empty(),
+                    Optional.empty(),
                     ImmutableMap.of(),
                     /* isPublic= */ true,
                     /* neverLink= */ false,
@@ -188,6 +193,7 @@ public class MavenDependenciesTest {
                 MavenDependency.create(
                     MavenCoords.create("a", "b_2.11"),
                     "1.0",
+                    Optional.empty(),
                     Optional.empty(),
                     ImmutableMap.of(),
                     /* isPublic= */ true,

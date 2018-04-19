@@ -19,16 +19,21 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum MavenDependencyKind {
-  JAVA("java", false),
-  SCALA("scala", true),
-  SCALA_MACRO("scala-macro", true);
+  JAVA("java", true, false, false),
+  SCALA("scala", false, true, false),
+  SCALA_MACRO("scala-macro", false, true, false);
 
   private final String id;
+  private final boolean isJava;
   private final boolean isScala;
+  private final boolean isMacro;
 
-  MavenDependencyKind(final String id, final boolean isScala) {
+  MavenDependencyKind(
+      final String id, final boolean isJava, final boolean isScala, final boolean isMacro) {
     this.id = id;
+    this.isJava = isJava;
     this.isScala = isScala;
+    this.isMacro = isMacro;
   }
 
   public static MavenDependencyKind defaultValue() {
@@ -52,7 +57,15 @@ public enum MavenDependencyKind {
     return id;
   }
 
+  public boolean isJava() {
+    return isJava;
+  }
+
   public boolean isScala() {
     return isScala;
+  }
+
+  public boolean isMacro() {
+    return isMacro;
   }
 }

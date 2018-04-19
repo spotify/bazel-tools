@@ -19,13 +19,13 @@ java_library(
     visibility = ["//visibility:public"],
     deps = [
         "//3rdparty/jvm/com/google/auto/value:auto-value",
+        "//3rdparty/jvm/com/google/errorprone:error_prone_annotations",
         "//3rdparty/jvm/com/google/googlejavaformat:google-java-format",
         "//3rdparty/jvm/com/google/guava",
         "//3rdparty/jvm/net/sf/jopt-simple",
         "//3rdparty/jvm/org/slf4j:slf4j-api",
         "//3rdparty/tools:auto-value",
         "//cli-utils",
-        "//external:jar/com/google/errorprone/error_prone_annotations",
         "//format/src/main/scala/com/spotify/format",
     ],
 )

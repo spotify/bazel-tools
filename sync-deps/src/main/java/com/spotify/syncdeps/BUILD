@@ -29,5 +29,6 @@ java_library(
         "//sync-deps/src/main/java/com/spotify/syncdeps/maven",
         "//sync-deps/src/main/java/com/spotify/syncdeps/model",
         "//sync-deps/src/main/java/com/spotify/syncdeps/util",
+        "//sync-deps/src/main/resources",
     ],
 )
