@@ -1,26 +1,17 @@
-java_import(
+alias(
     name = "scala-compiler",
-    jars = ["//external:file/org/scala-lang/scala-compiler"],
+    actual = "@org_scala_lang_scala_compiler",
     visibility = ["//visibility:public"],
-    runtime_deps = [
-        "//3rdparty/jvm/org/scala-lang:scala-library",
-        "//3rdparty/jvm/org/scala-lang:scala-reflect",
-        "//external:jar/org/scala-lang/modules/scala-parser-combinators_2.11",
-        "//external:jar/org/scala-lang/modules/scala-xml_2.11",
-    ],
 )
 
-java_import(
+alias(
     name = "scala-library",
-    jars = ["//external:file/org/scala-lang/scala-library"],
+    actual = "@org_scala_lang_scala_library",
     visibility = ["//visibility:public"],
 )
 
-java_import(
+alias(
     name = "scala-reflect",
-    jars = ["//external:file/org/scala-lang/scala-reflect"],
+    actual = "@org_scala_lang_scala_reflect",
     visibility = ["//visibility:public"],
-    runtime_deps = [
-        "//3rdparty/jvm/org/scala-lang:scala-library",
-    ],
 )

@@ -1,9 +1,5 @@
-java_import(
+alias(
     name = "chalk",
-    jars = ["//external:file/com/github/tomas-langer/chalk"],
+    actual = "@com_github_tomas_langer_chalk",
     visibility = ["//visibility:public"],
-    runtime_deps = [
-        "//3rdparty/jvm/org/fusesource/jansi:jansi-native",
-        "//external:jar/org/fusesource/hawtjni/hawtjni-runtime",
-    ],
 )

@@ -1,8 +1,5 @@
-java_import(
+alias(
     name = "jansi-native",
-    jars = ["//external:file/org/fusesource/jansi/jansi-native"],
+    actual = "@org_fusesource_jansi_jansi_native",
     visibility = ["//visibility:public"],
-    runtime_deps = [
-        "//external:jar/org/fusesource/hawtjni/hawtjni-runtime",
-    ],
 )

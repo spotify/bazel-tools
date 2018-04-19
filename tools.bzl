@@ -13,7 +13,6 @@
 # limitations under the License.
 
 load("//3rdparty:workspace.bzl", "maven_dependencies")
-load("//3rdparty:load.bzl", "declare_maven")
 
 def bazel_tools_repositories():
     native.http_archive(
@@ -33,7 +32,7 @@ def bazel_tools_repositories():
         urls = ["https://github.com/dflemstr/buildtools/archive/121de4df0295e9b6412d871499943762ff70a736.zip"],
     )
 
-    maven_dependencies(declare_maven)
+    maven_dependencies()
 
     native.bind(
         name = "spotify_bazel_tools/dependency/buildtools/buildifier",

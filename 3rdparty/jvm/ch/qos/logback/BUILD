@@ -1,15 +1,11 @@
-java_import(
+alias(
     name = "logback-classic",
-    jars = ["//external:file/ch/qos/logback/logback-classic"],
+    actual = "@ch_qos_logback_logback_classic",
     visibility = ["//visibility:public"],
-    runtime_deps = [
-        "//3rdparty/jvm/ch/qos/logback:logback-core",
-        "//3rdparty/jvm/org/slf4j:slf4j-api",
-    ],
 )
 
-java_import(
+alias(
     name = "logback-core",
-    jars = ["//external:file/ch/qos/logback/logback-core"],
+    actual = "@ch_qos_logback_logback_core",
     visibility = ["//visibility:public"],
 )

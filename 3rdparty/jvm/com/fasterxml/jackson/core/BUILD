@@ -1,21 +1,17 @@
-java_import(
+alias(
     name = "jackson-annotations",
-    jars = ["//external:file/com/fasterxml/jackson/core/jackson-annotations"],
+    actual = "@com_fasterxml_jackson_core_jackson_annotations",
     visibility = ["//visibility:public"],
 )
 
-java_import(
+alias(
     name = "jackson-core",
-    jars = ["//external:file/com/fasterxml/jackson/core/jackson-core"],
+    actual = "@com_fasterxml_jackson_core_jackson_core",
     visibility = ["//visibility:public"],
 )
 
-java_import(
+alias(
     name = "jackson-databind",
-    jars = ["//external:file/com/fasterxml/jackson/core/jackson-databind"],
+    actual = "@com_fasterxml_jackson_core_jackson_databind",
     visibility = ["//visibility:public"],
-    runtime_deps = [
-        "//3rdparty/jvm/com/fasterxml/jackson/core:jackson-annotations",
-        "//3rdparty/jvm/com/fasterxml/jackson/core:jackson-core",
-    ],
 )

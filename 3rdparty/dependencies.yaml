@@ -64,6 +64,10 @@ maven:
     jsr305:
       version: "3.0.2"
 
+  com.google.errorprone:
+    error_prone_annotations:
+      version: "2.3.0"
+
   com.google.googlejavaformat:
     google-java-format:
       version: "1.4"
@@ -96,7 +100,7 @@ maven:
 
   org.fusesource.jansi:
     jansi-native:
-      version: "1.5"
+      version: "1.8"
 
   org.hamcrest:
     java-hamcrest:

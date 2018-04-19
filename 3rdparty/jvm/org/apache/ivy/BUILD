@@ -1,5 +1,5 @@
-java_import(
+alias(
     name = "ivy",
-    jars = ["//external:file/org/apache/ivy/ivy"],
+    actual = "@org_apache_ivy_ivy",
     visibility = ["//visibility:public"],
 )

@@ -1,5 +1,5 @@
-java_import(
+alias(
     name = "protobuf-java",
-    jars = ["//external:file/com/google/protobuf/protobuf-java"],
+    actual = "@com_google_protobuf_protobuf_java",
     visibility = ["//visibility:public"],
 )

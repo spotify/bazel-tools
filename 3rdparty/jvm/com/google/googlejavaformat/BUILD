@@ -1,9 +1,5 @@
-java_import(
+alias(
     name = "google-java-format",
-    jars = ["//external:file/com/google/googlejavaformat/google-java-format"],
+    actual = "@com_google_googlejavaformat_google_java_format",
     visibility = ["//visibility:public"],
-    runtime_deps = [
-        "//3rdparty/jvm/com/google/guava",
-        "//external:jar/com/google/errorprone/javac-shaded",
-    ],
 )

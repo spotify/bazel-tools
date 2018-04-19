@@ -1,5 +1,5 @@
-java_import(
+alias(
     name = "jopt-simple",
-    jars = ["//external:file/net/sf/jopt-simple/jopt-simple"],
+    actual = "@net_sf_jopt_simple_jopt_simple",
     visibility = ["//visibility:public"],
 )

@@ -1,5 +1,5 @@
-java_import(
+alias(
     name = "okio",
-    jars = ["//external:file/com/squareup/okio/okio"],
+    actual = "@com_squareup_okio_okio",
     visibility = ["//visibility:public"],
 )

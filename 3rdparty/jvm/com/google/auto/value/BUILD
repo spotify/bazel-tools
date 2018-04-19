@@ -1,5 +1,5 @@
-java_import(
+alias(
     name = "auto-value",
-    jars = ["//external:file/com/google/auto/value/auto-value"],
+    actual = "@com_google_auto_value_auto_value",
     visibility = ["//visibility:public"],
 )

@@ -1,9 +1,5 @@
-java_import(
+alias(
     name = "jackson-dataformat-yaml",
-    jars = ["//external:file/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml"],
+    actual = "@com_fasterxml_jackson_dataformat_jackson_dataformat_yaml",
     visibility = ["//visibility:public"],
-    runtime_deps = [
-        "//3rdparty/jvm/com/fasterxml/jackson/core:jackson-core",
-        "//external:jar/org/yaml/snakeyaml",
-    ],
 )

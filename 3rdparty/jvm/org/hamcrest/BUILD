@@ -1,5 +1,5 @@
-java_import(
+alias(
     name = "java-hamcrest",
-    jars = ["//external:file/org/hamcrest/java-hamcrest"],
+    actual = "@org_hamcrest_java_hamcrest",
     visibility = ["//visibility:public"],
 )
