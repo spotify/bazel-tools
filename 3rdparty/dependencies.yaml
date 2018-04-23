@@ -16,7 +16,7 @@ options:
   mavenResolvers:
     - id: "default"
       url: https://repo.maven.apache.org/maven2/
-  scalaAbi: "2.11"
+  scalaAbi: "2.12"
   excludedDependencies:
     - com.google.guava:guava-jdk5
     - org.slf4j:slf4j-log4j12
@@ -112,7 +112,7 @@ maven:
         - compiler
         - library
         - reflect
-      version: "2.11.12"
+      version: "2.12.5"
 
   org.slf4j:
     slf4j:
