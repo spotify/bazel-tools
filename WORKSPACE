@@ -20,11 +20,13 @@ http_archive(
     urls = ["https://github.com/bazelbuild/rules_go/archive/f668026feec298887e7114b01edf72b229829ec9.zip"],
 )
 
+rules_scala_version = "f105ef7e0eb00ae4b4a3fca372dc10c30514c3bb"  # branch master
+
 http_archive(
     name = "io_bazel_rules_scala",
-    sha256 = "e81aab0ff850ecda0e3a704f8c4c8a570875a833199313b51555125339724124",
-    strip_prefix = "rules_scala-e9e65ada59823c263352d10c30411f4739d5df25",  # branch master
-    urls = ["https://github.com/bazelbuild/rules_scala/archive/e9e65ada59823c263352d10c30411f4739d5df25.zip"],
+    sha256 = "bb3f651ac107084e481215cd9cb1fa5a3751c20aa72eddfb50149a3eebb492c8",
+    strip_prefix = "rules_scala-%s" % (rules_scala_version,),
+    urls = ["https://github.com/bazelbuild/rules_scala/archive/%s.zip" % (rules_scala_version,)],
 )
 
 http_archive(

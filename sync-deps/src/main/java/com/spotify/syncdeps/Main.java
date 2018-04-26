@@ -202,11 +202,12 @@ public final class Main {
                 .map(n -> "\"" + n + "\"")
                 .collect(joining(", ", "[", "]"));
         final String neverlink = mavenDependency.neverLink() ? "True" : "False";
+        final String isScala = mavenDependency.kind().isScala() ? "True" : "False";
 
         out.printf(
             "  callback(name=%1$s, licenses=[\"notice\"], jar_path=%2$s, jar_sha256=%3$s,"
-                + " srcjar_path=%4$s, srcjar_sha256=%5$s, deps=%6$s, neverlink=%7$s)\n",
-            name, jarPath, jarSha256, srcjarPath, srcjarSha256, deps, neverlink);
+                + " srcjar_path=%4$s, srcjar_sha256=%5$s, deps=%6$s, neverlink=%7$s, is_scala=%8$s)\n",
+            name, jarPath, jarSha256, srcjarPath, srcjarSha256, deps, neverlink, isScala);
       }
     }
 
