@@ -53,8 +53,8 @@ public abstract class MavenDependency implements Comparable<MavenDependency> {
         coords().artifactId(),
         version(),
         coords().artifactId(),
-        classifier == null ? "" : "-" + classifier,
-        version());
+        version(),
+        classifier == null ? "" : "-" + classifier);
   }
 
   @SuppressWarnings("OptionalUsedAsFieldOrParameterType")

@@ -187,7 +187,7 @@ public final class MavenDependencies {
             new File(
                 String.format(
                     Locale.ROOT,
-                    "lib/%s/%s-%s-sources.jar",
+                    "lib/%s/%s-sources-%s.jar",
                     id.getOrganisation(),
                     id.getName(),
                     id.getRevision()));
