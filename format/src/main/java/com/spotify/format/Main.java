@@ -162,25 +162,25 @@ public final class Main {
       final FormattingResult formattingResult,
       final boolean verify,
       final Set<Path> malformedPaths) {
-    if (verify) {
-      // Use hashing to avoid loading the file into memory... We should probably also do this for
-      // FormattingResult to be fair.
-      final HashCode oldHash;
-      try {
-        oldHash = MoreFiles.asByteSource(formattingResult.path()).hash(Hashing.sha256());
-      } catch (final IOException e) {
-        throw new UncheckedIOException("Could not hash contents of " + formattingResult.path(), e);
-      }
-      final HashCode newHash =
-          Hashing.sha256().hashBytes(formattingResult.contents().getBytes(StandardCharsets.UTF_8));
-      if (!oldHash.equals(newHash)) {
+    // Use hashing to avoid loading the file into memory... We should probably also do this for
+    // FormattingResult to be fair.
+    final HashCode oldHash;
+    try {
+      oldHash = MoreFiles.asByteSource(formattingResult.path()).hash(Hashing.sha256());
+    } catch (final IOException e) {
+      throw new UncheckedIOException("Could not hash contents of " + formattingResult.path(), e);
+    }
+    final HashCode newHash =
+        Hashing.sha256().hashBytes(formattingResult.contents().getBytes(StandardCharsets.UTF_8));
+    if (!oldHash.equals(newHash)) {
+      if (verify) {
         malformedPaths.add(formattingResult.path());
-      }
-    } else {
-      try {
-        Files.write(formattingResult.path(), formattingResult.contents().getBytes(UTF_8));
-      } catch (final IOException e) {
-        throw new UncheckedIOException("Could not write file " + formattingResult.path(), e);
+      } else {
+        try {
+          Files.write(formattingResult.path(), formattingResult.contents().getBytes(UTF_8));
+        } catch (final IOException e) {
+          throw new UncheckedIOException("Could not write file " + formattingResult.path(), e);
+        }
       }
     }
   }
