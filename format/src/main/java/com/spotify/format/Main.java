@@ -18,6 +18,7 @@ package com.spotify.format;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.auto.value.AutoValue;
+import com.google.common.collect.ImmutableList;
 import com.google.common.hash.HashCode;
 import com.google.common.hash.Hashing;
 import com.google.common.io.CharStreams;
@@ -27,6 +28,7 @@ import com.google.googlejavaformat.java.Formatter;
 import com.google.googlejavaformat.java.FormatterException;
 import com.google.googlejavaformat.java.JavaFormatterOptions;
 import com.spotify.bazeltools.cliutils.Cli;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -60,6 +62,7 @@ public final class Main {
     final OptionSpec<File> buildifierArgument =
         optionParser.accepts("buildifier").withRequiredArg().ofType(File.class);
     final OptionSpec<Void> verifyFlag = optionParser.accepts("verify");
+    final OptionSpec<Void> gitChanges = optionParser.accepts("git-changes");
 
     final AbstractOptionSpec<Void> helpFlag = optionParser.accepts("help").forHelp();
     final AbstractOptionSpec<Void> verboseFlag =
@@ -94,7 +97,7 @@ public final class Main {
     }
 
     try {
-      run(workspaceDirectory, buildifier, optionSet.has(verifyFlag));
+      run(workspaceDirectory, buildifier, optionSet.has(verifyFlag), optionSet.has(gitChanges));
     } catch (final Exception e) {
       LOG.error("A fatal error occurred", e);
       System.exit(1);
@@ -102,7 +105,10 @@ public final class Main {
   }
 
   private static void run(
-      final Path workspaceDirectory, final Path buildifier, final boolean verify)
+      final Path workspaceDirectory,
+      final Path buildifier,
+      final boolean verify,
+      final boolean gitChanges)
       throws IOException {
 
     final JavaFormatterOptions options =
@@ -111,8 +117,17 @@ public final class Main {
     final Formatter formatter = new Formatter(options);
     final Set<Path> malformattedPaths = new ConcurrentSkipListSet<>();
 
+    final Sources sources;
+    if (gitChanges) {
+      final ImmutableList<Path> paths = listGitChanges(workspaceDirectory);
+      sources = new GitChangesSources(paths);
+    } else {
+      sources = new AllSources();
+    }
+
     LOG.info("Processing Java files...");
-    try (final Stream<Path> javaFiles = findFilesMatching(workspaceDirectory, "glob:**/*.java")) {
+    try (final Stream<Path> javaFiles =
+        sources.findFilesMatching(workspaceDirectory, "glob:**/*" + ".java")) {
       javaFiles
           .parallel()
           .forEach(
@@ -121,7 +136,8 @@ public final class Main {
     }
 
     LOG.info("Processing Scala files...");
-    try (final Stream<Path> scalaFiles = findFilesMatching(workspaceDirectory, "glob:**/*.scala")) {
+    try (final Stream<Path> scalaFiles =
+        sources.findFilesMatching(workspaceDirectory, "glob:**/*.scala")) {
       scalaFiles
           .parallel()
           .forEach(
@@ -129,7 +145,8 @@ public final class Main {
     }
 
     LOG.info("Processing Bazel BUILD files...");
-    try (final Stream<Path> buildFiles = findFilesMatching(workspaceDirectory, "glob:**/BUILD")) {
+    try (final Stream<Path> buildFiles =
+        sources.findFilesMatching(workspaceDirectory, "glob:**/BUILD")) {
       buildFiles
           .parallel()
           .forEach(
@@ -139,7 +156,7 @@ public final class Main {
 
     LOG.info("Processing Bazel WORKSPACE files...");
     try (final Stream<Path> workspaceFiles =
-        findFilesMatching(workspaceDirectory, "glob:**/WORKSPACE")) {
+        sources.findFilesMatching(workspaceDirectory, "glob:**/WORKSPACE")) {
       workspaceFiles
           .parallel()
           .forEach(
@@ -250,6 +267,49 @@ public final class Main {
     return formattedSource;
   }
 
+  private static ImmutableList<Path> listGitChanges(final Path root) {
+    final Process process;
+    try {
+      process =
+          new ProcessBuilder()
+              .directory(root.toFile())
+              .command("git", "status", "--porcelain")
+              .redirectOutput(ProcessBuilder.Redirect.PIPE)
+              .redirectError(ProcessBuilder.Redirect.INHERIT)
+              .start();
+    } catch (IOException e) {
+      throw new UncheckedIOException("Unable to run git chagnes", e);
+    }
+
+    final int exitCode;
+    try {
+      exitCode = process.waitFor();
+    } catch (final InterruptedException e) {
+      throw new IllegalStateException("Interrupted while git changes", e);
+    }
+
+    if (exitCode != 0) {
+      throw new IllegalStateException("Unable list git changes exit code: " + exitCode);
+    }
+
+    final ImmutableList.Builder<Path> changes = ImmutableList.builder();
+    try (final BufferedReader reader =
+        new BufferedReader(new InputStreamReader(process.getInputStream(), UTF_8))) {
+      while (reader.ready()) {
+        final String line = reader.readLine();
+
+        if (!line.trim().isEmpty()) {
+          final String relativePath = line.substring(2).trim();
+          changes.add(root.resolve(relativePath).toAbsolutePath());
+        }
+      }
+    } catch (IOException e) {
+      throw new UncheckedIOException("Unable to read git output", e);
+    }
+
+    return changes.build();
+  }
+
   private static String readFile(final Path javaFile) {
     final String source;
     try {
@@ -260,12 +320,35 @@ public final class Main {
     return source;
   }
 
-  @MustBeClosed
-  private static Stream<Path> findFilesMatching(final Path directory, final String syntaxAndPattern)
-      throws IOException {
-    final PathMatcher matcher = directory.getFileSystem().getPathMatcher(syntaxAndPattern);
-    return Files.find(
-        directory, Integer.MAX_VALUE, (p, a) -> matcher.matches(p) && !a.isDirectory());
+  private interface Sources {
+    @MustBeClosed
+    Stream<Path> findFilesMatching(Path directory, String syntaxAndPattern) throws IOException;
+  }
+
+  private static class AllSources implements Sources {
+    @MustBeClosed
+    @Override
+    public Stream<Path> findFilesMatching(final Path directory, final String syntaxAndPattern)
+        throws IOException {
+      final PathMatcher matcher = directory.getFileSystem().getPathMatcher(syntaxAndPattern);
+      return Files.find(
+          directory, Integer.MAX_VALUE, (p, a) -> matcher.matches(p) && !a.isDirectory());
+    }
+  }
+
+  private static class GitChangesSources implements Sources {
+    private final ImmutableList<Path> sources;
+
+    private GitChangesSources(final ImmutableList<Path> sources) {
+      this.sources = sources;
+    }
+
+    @MustBeClosed
+    @Override
+    public Stream<Path> findFilesMatching(final Path directory, final String syntaxAndPattern) {
+      final PathMatcher matcher = directory.getFileSystem().getPathMatcher(syntaxAndPattern);
+      return sources.stream().filter(matcher::matches);
+    }
   }
 
   @AutoValue
