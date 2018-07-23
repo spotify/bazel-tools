@@ -48,7 +48,7 @@ maven:
         - core
         - typesafe-config
       kind: scala
-      version: "0.8.3"
+      version: "0.4.0"
 
   com.github.tomas-langer:
     chalk:
