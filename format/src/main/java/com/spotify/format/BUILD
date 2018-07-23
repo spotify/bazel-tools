@@ -18,7 +18,7 @@ java_library(
     srcs = glob(["*.java"]),
     visibility = ["//visibility:public"],
     deps = [
-        "//3rdparty/jvm/com/google/auto/value:auto-value",
+        "//3rdparty/jvm/com/google/auto/value:auto-value-annotations",
         "//3rdparty/jvm/com/google/errorprone:error_prone_annotations",
         "//3rdparty/jvm/com/google/googlejavaformat:google-java-format",
         "//3rdparty/jvm/com/google/guava",

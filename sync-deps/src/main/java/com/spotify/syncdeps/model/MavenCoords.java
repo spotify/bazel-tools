@@ -17,9 +17,6 @@ package com.spotify.syncdeps.model;
 
 import static java.util.stream.Collectors.joining;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.auto.value.AutoValue;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ComparisonChain;
@@ -27,17 +24,14 @@ import com.spotify.syncdeps.util.BazelUtils;
 import java.util.Iterator;
 
 @AutoValue
-@JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class MavenCoords implements Comparable<MavenCoords> {
 
   public static final Splitter DOT_SPLITTER = Splitter.on('.');
 
   MavenCoords() {}
 
-  @JsonProperty("groupId")
   public abstract String groupId();
 
-  @JsonProperty("artifactId")
   public abstract String artifactId();
 
   public String artifactLabel(final boolean stripScalaAbi) {
@@ -73,10 +67,7 @@ public abstract class MavenCoords implements Comparable<MavenCoords> {
     return create(groupId(), artifactId() + "_" + scalaAbi);
   }
 
-  @JsonCreator
-  public static MavenCoords create(
-      @JsonProperty("groupId") final String groupId,
-      @JsonProperty("artifactId") final String artifactId) {
+  public static MavenCoords create(final String groupId, final String artifactId) {
     return new AutoValue_MavenCoords(groupId, artifactId);
   }
 

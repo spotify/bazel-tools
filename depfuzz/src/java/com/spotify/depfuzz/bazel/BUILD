@@ -18,7 +18,7 @@ java_library(
     srcs = glob(["*.java"]),
     visibility = ["//depfuzz:__subpackages__"],
     deps = [
-        "//3rdparty/jvm/com/google/auto/value:auto-value",
+        "//3rdparty/jvm/com/google/auto/value:auto-value-annotations",
         "//3rdparty/jvm/com/google/guava",
         "//3rdparty/tools:auto-value",
         "@io_bazel//src/main/protobuf:build_java_proto",

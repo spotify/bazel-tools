@@ -37,18 +37,18 @@ maven:
         - core:databind
         - dataformat:dataformat-yaml
         - datatype:datatype-guava
-      version: "2.9.1"
+      version: "2.9.6"
 
   com.geirsson:
     scalafmt-core:
-      version: "1.3.0"
+      version: "1.5.1"
       kind: scala
     metaconfig:
       modules:
         - core
         - typesafe-config
       kind: scala
-      version: "0.4.0"
+      version: "0.8.3"
 
   com.github.tomas-langer:
     chalk:
@@ -56,7 +56,10 @@ maven:
 
   com.google.auto.value:
     auto-value:
-      version: "1.5.1"
+      modules:
+        - ""
+        - annotations
+      version: "1.6.2"
 
   com.google.code.findbugs:
     annotations:
@@ -66,33 +69,33 @@ maven:
 
   com.google.errorprone:
     error_prone_annotations:
-      version: "2.3.0"
+      version: "2.3.1"
 
   com.google.googlejavaformat:
     google-java-format:
-      version: "1.4"
+      version: "1.6"
 
   com.google.guava:
     guava:
-      version: "23.2-jre"
+      version: "23.6.1-jre"
 
   com.google.protobuf:
     protobuf:
       modules:
         - java
-      version: "3.5.0"
+      version: "3.6.0"
 
   com.google.jimfs:
     jimfs:
-      version: "1.0"
+      version: "1.1"
 
   com.squareup.okio:
     okio:
-      version: "1.13.0"
+      version: "1.15.0"
 
   net.sf.jopt-simple:
     jopt-simple:
-      version: "5.0.3"
+      version: "5.0.4"
 
   org.apache.ivy:
     ivy:
@@ -112,7 +115,7 @@ maven:
         - compiler
         - library
         - reflect
-      version: "2.12.5"
+      version: "2.12.6"
 
   org.slf4j:
     slf4j:

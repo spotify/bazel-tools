@@ -23,7 +23,7 @@ java_library(
         "//3rdparty/jvm/com/fasterxml/jackson/core:jackson-databind",
         "//3rdparty/jvm/com/fasterxml/jackson/dataformat:jackson-dataformat-yaml",
         "//3rdparty/jvm/com/fasterxml/jackson/datatype:jackson-datatype-guava",
-        "//3rdparty/jvm/com/google/auto/value:auto-value",
+        "//3rdparty/jvm/com/google/auto/value:auto-value-annotations",
         "//3rdparty/jvm/com/google/guava",
         "//3rdparty/tools:auto-value",
     ],

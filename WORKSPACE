@@ -13,28 +13,27 @@
 # limitations under the License.
 workspace(name = "spotify_bazel_tools")
 
+rules_go_version = "a966c425b0bab18338bc39bf69b8eecc615549ff"  # branch master
+
 http_archive(
     name = "io_bazel_rules_go",
-    sha256 = "4f95bc867830231b3fa0ab5325632f7865cbe8cef842d2b5a269b59a7df95279",
-    strip_prefix = "rules_go-f668026feec298887e7114b01edf72b229829ec9",  # branch master
-    urls = ["https://github.com/bazelbuild/rules_go/archive/f668026feec298887e7114b01edf72b229829ec9.zip"],
+    sha256 = "41eb89962dbf51287a287b7ce75260abe1150693948ad3c41d453331b608659b",
+    strip_prefix = "rules_go-%s" % (rules_go_version,),
+    urls = ["https://github.com/bazelbuild/rules_go/archive/%s.zip" % (rules_go_version,)],
 )
 
-rules_scala_version = "f105ef7e0eb00ae4b4a3fca372dc10c30514c3bb"  # branch master
+rules_scala_version = "64faf06a4932a9a1d3378b6ba1a6d77479cefef3"  # branch master
 
 http_archive(
     name = "io_bazel_rules_scala",
-    sha256 = "bb3f651ac107084e481215cd9cb1fa5a3751c20aa72eddfb50149a3eebb492c8",
+    sha256 = "df0c86f200c4b4aebf4ae9d546c0788cdda6d33accf191a92abfbb8e5f6ddd8a",
     strip_prefix = "rules_scala-%s" % (rules_scala_version,),
     urls = ["https://github.com/bazelbuild/rules_scala/archive/%s.zip" % (rules_scala_version,)],
 )
 
-http_archive(
-    name = "com_github_bazelbuild_buildtools",
-    sha256 = "5772dfbd67f6fc7ad8aa07fb5896858d4c65b8aee7a54ada69271b962d69535f",
-    strip_prefix = "buildtools-405641a50b8583dc9fe254b7a22ebc2002722d17",  # branch master
-    urls = ["https://github.com/bazelbuild/buildtools/archive/405641a50b8583dc9fe254b7a22ebc2002722d17.zip"],
-)
+load("//:tools.bzl", "bazel_tools_repositories")
+
+bazel_tools_repositories()
 
 load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")
 
@@ -49,42 +48,3 @@ scala_repositories()
 load("@io_bazel_rules_scala//scala:toolchains.bzl", "scala_register_toolchains")
 
 scala_register_toolchains()
-
-bind(
-    name = "io_bazel_rules_scala/dependency/com_google_protobuf/protobuf_java",
-    actual = "//3rdparty/jvm/com/google/protobuf:protobuf-java",
-)
-
-bind(
-    name = "io_bazel_rules_scala/dependency/scala/parser_combinators",
-    actual = "//3rdparty/jvm/org/scala-lang/modules:scala-parser-combinators",
-)
-
-bind(
-    name = "io_bazel_rules_scala/dependency/scala/scala_compiler",
-    actual = "//3rdparty/jvm/org/scala-lang:scala-compiler",
-)
-
-bind(
-    name = "io_bazel_rules_scala/dependency/scala/scala_library",
-    actual = "//3rdparty/jvm/org/scala-lang:scala-library",
-)
-
-bind(
-    name = "io_bazel_rules_scala/dependency/scala/scala_reflect",
-    actual = "//3rdparty/jvm/org/scala-lang:scala-reflect",
-)
-
-bind(
-    name = "io_bazel_rules_scala/dependency/scala/scala_xml",
-    actual = "//3rdparty/jvm/org/scala-lang/modules:scala-xml",
-)
-
-bind(
-    name = "io_bazel_rules_scala/dependency/scalatest/scalatest",
-    actual = "//3rdparty/jvm/org/scalatest:scalatest",
-)
-
-load("//:tools.bzl", "bazel_tools_repositories")
-
-bazel_tools_repositories()

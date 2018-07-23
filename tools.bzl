@@ -15,36 +15,79 @@
 load("//3rdparty:workspace.bzl", "maven_dependencies")
 
 def bazel_tools_repositories():
-    native.http_archive(
+    _maybe(
+        native.http_archive,
         name = "io_bazel",
-        sha256 = "255e1199c0876b9a8cc02d5ea569b6cfe1901d30428355817b7606ddecb04c15",
-        strip_prefix = "bazel-0.8.0",  # Should match current Bazel version
+        sha256 = "a0333e7e8ce885f85f52bbb239e36810ac340c211c550d10c499f098a2e925a8",
+        strip_prefix = "bazel-0.15.2",  # Should match current Bazel version
         urls = [
-            "http://bazel-mirror.storage.googleapis.com/github.com/bazelbuild/bazel/archive/0.8.0.tar.gz",
-            "https://github.com/bazelbuild/bazel/archive/0.8.0.tar.gz",
+            "http://bazel-mirror.storage.googleapis.com/github.com/bazelbuild/bazel/archive/0.15.2.tar.gz",
+            "https://github.com/bazelbuild/bazel/archive/0.15.2.tar.gz",
         ],
     )
 
-    native.http_archive(
-        name = "spotify_bazel_buildtools",
-        sha256 = "99bf4e70a8bf2992accb2e38103da03e121d207f205f9ecdbf7ccf91b0179d4d",
-        strip_prefix = "buildtools-121de4df0295e9b6412d871499943762ff70a736",  # branch superhack
-        urls = ["https://github.com/dflemstr/buildtools/archive/121de4df0295e9b6412d871499943762ff70a736.zip"],
+    bazelbuild_buildtools_version = "1f7a4641c80dd8027c676a723cef368bcf94e3b4"  # branch master
+
+    _maybe(
+        native.http_archive,
+        name = "com_github_bazelbuild_buildtools",
+        sha256 = "5fb3cd3ba4de02c082f29fc317c332f2184f780a24c087388ca57a4fa5f744ab",
+        strip_prefix = "buildtools-%s" % (bazelbuild_buildtools_version,),
+        urls = ["https://github.com/bazelbuild/buildtools/archive/%s.zip" % (bazelbuild_buildtools_version,)],
     )
 
     maven_dependencies()
 
     native.bind(
         name = "spotify_bazel_tools/dependency/buildtools/buildifier",
-        actual = "@spotify_bazel_buildtools//buildifier",
+        actual = "@com_github_bazelbuild_buildtools//buildifier",
     )
 
     native.bind(
         name = "spotify_bazel_tools/dependency/buildtools/buildozer",
-        actual = "@spotify_bazel_buildtools//buildozer",
+        actual = "@com_github_bazelbuild_buildtools//buildozer",
     )
 
     native.bind(
         name = "spotify_bazel_tools/dependency/buildtools/unused-deps",
-        actual = "@spotify_bazel_buildtools//unused_deps",
+        actual = "@com_github_bazelbuild_buildtools//unused_deps",
     )
+
+    native.bind(
+        name = "io_bazel_rules_scala/dependency/com_google_protobuf/protobuf_java",
+        actual = "//3rdparty/jvm/com/google/protobuf:protobuf-java",
+    )
+
+    native.bind(
+        name = "io_bazel_rules_scala/dependency/scala/parser_combinators",
+        actual = "//3rdparty/jvm/org/scala-lang/modules:scala-parser-combinators",
+    )
+
+    native.bind(
+        name = "io_bazel_rules_scala/dependency/scala/scala_compiler",
+        actual = "//3rdparty/jvm/org/scala-lang:scala-compiler",
+    )
+
+    native.bind(
+        name = "io_bazel_rules_scala/dependency/scala/scala_library",
+        actual = "//3rdparty/jvm/org/scala-lang:scala-library",
+    )
+
+    native.bind(
+        name = "io_bazel_rules_scala/dependency/scala/scala_reflect",
+        actual = "//3rdparty/jvm/org/scala-lang:scala-reflect",
+    )
+
+    native.bind(
+        name = "io_bazel_rules_scala/dependency/scala/scala_xml",
+        actual = "//3rdparty/jvm/org/scala-lang/modules:scala-xml",
+    )
+
+    native.bind(
+        name = "io_bazel_rules_scala/dependency/scalatest/scalatest",
+        actual = "//3rdparty/jvm/org/scalatest:scalatest",
+    )
+
+def _maybe(repo_rule, name, **kwargs):
+    if name not in native.existing_rules():
+        repo_rule(name = name, **kwargs)

@@ -332,9 +332,7 @@ public final class MavenDependencies {
   }
 
   private static RetrieveOptions createRetrieveOptions() {
-    final RetrieveOptions retrieveOptions = new RetrieveOptions();
-    retrieveOptions.setMakeSymlinksInMass(true);
-    return retrieveOptions;
+    return new RetrieveOptions();
   }
 
   private static void addResolvers(
