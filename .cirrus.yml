@@ -1,0 +1,18 @@
+test_task:
+  container:
+    matrix:
+      image: cirrusci/bazel:0.8.1
+      image: cirrusci/bazel:0.7.0
+      image: cirrusci/bazel:0.6.1
+  build_script: |
+    bazel build -k \
+      --spawn_strategy=remote \
+      --strategy=Javac=remote \
+      --strategy=Scalac=remote \
+      --genrule_strategy=remote \
+      --remote_rest_cache=http://$CIRRUS_HTTP_CACHE_HOST \
+      //...
+  test_script: bazel test -k //...
+  verify_script:
+    - format/run --verify
+    - sync-deps/run --verify
