@@ -32,3 +32,4 @@ script:
   - bazel --bazelrc=tools/bazel.travis.rc test -k //...
   - format/run --verify
   - sync-deps/run --verify
+  - ./integration-test
