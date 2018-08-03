@@ -32,6 +32,8 @@ import com.spotify.syncdeps.config.Dependencies;
 import com.spotify.syncdeps.maven.MavenDependencies;
 import com.spotify.syncdeps.model.MavenCoords;
 import com.spotify.syncdeps.model.MavenDependency;
+import com.spotify.syncdeps.model.PypiDependency;
+import com.spotify.syncdeps.pypi.PypiDependencies;
 import com.spotify.syncdeps.util.PathUtils;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -76,7 +78,8 @@ public final class Main {
     }
   }
 
-  private static void run(final Options options) throws IOException, ParseException {
+  private static void run(final Options options)
+      throws IOException, ParseException, InterruptedException {
     final Path relativeLockFile = options.workspaceDirectory().relativize(options.lockFile());
     if (options.verify()) {
       LOG.info("Verifying integrity of @|bold {}|@", relativeLockFile);
@@ -95,22 +98,36 @@ public final class Main {
       LOG.info("Reading dependency graph");
       final Dependencies dependencies = Dependencies.parseYaml(options.inputFile());
 
-      LOG.info("Resolving dependencies");
+      LOG.info("Resolving pypi dependencies");
+      // TODO(dflemstr): use bootstrapped pip
+      final ImmutableSet<PypiDependency> pypiDependencies =
+          PypiDependencies.resolveDependencies(options.pip(), dependencies);
+      LOG.info("Resolved {} pypi dependencies", pypiDependencies.size());
+
+      LOG.info("Resolving maven dependencies");
       final ImmutableSet<MavenDependency> mavenDependencies =
           MavenDependencies.resolveDependencies(dependencies);
+      LOG.info("Resolved {} maven dependencies", mavenDependencies.size());
 
       final Path outputFile = options.outputFile();
-      final Path jvmDirectory = options.thirdPartyDirectory().resolve("jvm");
+      final Path jvmDirectory = options.jvmDirectory();
+      final Path pypiDirectory = options.pypiDirectory();
       final Path relativeOutputFile = options.workspaceDirectory().relativize(outputFile);
       final Path relativeJvmDirectory = options.workspaceDirectory().relativize(jvmDirectory);
+      final Path relativePypiDirectory = options.workspaceDirectory().relativize(pypiDirectory);
 
       final Path newOutputFile =
-          writeNewOutputFile(options, dependencies.options(), mavenDependencies);
+          writeNewOutputFile(options, dependencies.options(), mavenDependencies, pypiDependencies);
       final Path newJvmDirectory = writeNewJvmDirectory(options, mavenDependencies);
+      final Path newPypiDirectory = writeNewPypiDirectory(options, pypiDependencies);
 
       LOG.info("Updating @|bold {}|@", relativeJvmDirectory);
       PathUtils.syncRecursive(newJvmDirectory, jvmDirectory);
       PathUtils.removeRecursive(newJvmDirectory);
+
+      LOG.info("Updating @|bold {}|@", relativePypiDirectory);
+      PathUtils.syncRecursive(newPypiDirectory, pypiDirectory);
+      PathUtils.removeRecursive(newPypiDirectory);
 
       LOG.info("Updating @|bold {}|@", relativeOutputFile);
       Files.deleteIfExists(outputFile);
@@ -126,9 +143,12 @@ public final class Main {
   private static String createLockContents(final Options options) throws IOException {
     final StringWriter stringWriter = new StringWriter();
     try (final Stream<Path> jvmFiles = Files.walk(options.jvmDirectory());
+        final Stream<Path> pypiFiles = Files.walk(options.pypiDirectory());
         final PrintWriter out = new PrintWriter(stringWriter)) {
       out.println("version\t1");
-      Stream.concat(Stream.of(options.inputFile(), options.outputFile()), jvmFiles)
+      Stream.concat(
+              Stream.concat(Stream.of(options.inputFile(), options.outputFile()), jvmFiles),
+              pypiFiles)
           .sorted()
           .forEachOrdered(file -> describeFile(options.workspaceDirectory(), file, out));
     }
@@ -160,7 +180,8 @@ public final class Main {
   private static Path writeNewOutputFile(
       final Options options,
       final Dependencies.Options dependencyOptions,
-      final ImmutableSet<MavenDependency> mavenDependencies)
+      final ImmutableSet<MavenDependency> mavenDependencies,
+      final ImmutableSet<PypiDependency> pypiDependencies)
       throws IOException {
     final Path newOutputFile =
         Files.createTempFile(
@@ -179,6 +200,11 @@ public final class Main {
               .map(url -> "\"" + url + "\"")
               .collect(joining(", ", "[", "]"));
       out.write(header.replace("[\"%MAVEN_RESOLVERS%\"]", mavenResolversList));
+
+      out.write("\n");
+      out.write("def maven_dependencies(callback=None):\n");
+      out.write("  if callback == None:\n");
+      out.write("    callback = default_maven_callback\n");
 
       for (final MavenDependency mavenDependency : mavenDependencies) {
         // TODO: fix licenses
@@ -209,9 +235,70 @@ public final class Main {
                 + " srcjar_path=%4$s, srcjar_sha256=%5$s, deps=%6$s, neverlink=%7$s, is_scala=%8$s)\n",
             name, jarPath, jarSha256, srcjarPath, srcjarSha256, deps, neverlink, isScala);
       }
+
+      out.write("\n");
+      out.write("def pypi_dependencies(callback=None):\n");
+      out.write("  if callback == None:\n");
+      out.write("    callback = default_pypi_callback\n");
+
+      for (final PypiDependency pypiDependency : pypiDependencies) {
+        final String name = "\"" + pypiDependency.name() + "\"";
+        final String url = "\"" + pypiDependency.url() + "\"";
+        final String sha256 = pypiDependency.sha256().map(s -> "\"" + s + "\"").orElse("None");
+        final String isBinary = pypiDependency.isBinary() ? "True" : "False";
+        final String main = pypiDependency.main().map(s -> "\"" + s + "\"").orElse("None");
+
+        final String deps =
+            pypiDependency
+                .dependencies()
+                .keySet()
+                .stream()
+                .map(n -> "\"" + n + "\"")
+                .collect(joining(", ", "[", "]"));
+
+        out.printf(
+            "  callback(name=%1s, url=%2s, sha256=%3s, is_binary=%4s, main=%5s, deps=%6s)\n",
+            name, url, sha256, isBinary, main, deps);
+      }
     }
 
     return newOutputFile;
+  }
+
+  private static Path writeNewPypiDirectory(
+      final Options options, final ImmutableSet<PypiDependency> pypiDependencies)
+      throws IOException {
+    final Path buildifier = options.buildifier();
+    final Path newPypiDirectory =
+        Files.createTempDirectory(options.thirdPartyDirectory(), "pypi-", DIR_PERMISSIONS);
+    final Path buildFile = newPypiDirectory.resolve("BUILD");
+
+    try (final Writer writer = Files.newBufferedWriter(buildFile, UTF_8);
+        final PrintWriter out = new PrintWriter(writer)) {
+      boolean needsSeparator = false;
+
+      for (final PypiDependency dependency : pypiDependencies) {
+        if (needsSeparator) {
+          out.print('\n');
+        }
+        needsSeparator = true;
+        out.printf("alias(\n");
+        out.printf("    name = \"%s\",\n", dependency.name());
+        out.printf("    actual = \"@%s\",\n", dependency.name());
+
+        if (dependency.isPublic()) {
+          out.printf("    visibility=[\"//visibility:public\"],\n");
+        } else {
+          out.printf("    visibility=[\"//3rdparty:__subpackages__\"],\n");
+        }
+
+        out.printf(")\n");
+      }
+    }
+
+    runBuildifier(buildifier, buildFile);
+
+    return newPypiDirectory;
   }
 
   private static Path writeNewJvmDirectory(
@@ -282,6 +369,10 @@ public final class Main {
       throw new UncheckedIOException("Could not write file " + buildFile, e);
     }
 
+    runBuildifier(buildifier, buildFile);
+  }
+
+  private static void runBuildifier(final Path buildifier, final Path buildFile) {
     final Process process;
     try {
       process =

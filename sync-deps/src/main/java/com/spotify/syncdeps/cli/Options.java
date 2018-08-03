@@ -34,6 +34,8 @@ public abstract class Options {
 
   public abstract Path buildifier();
 
+  public abstract Path pip();
+
   public abstract boolean verify();
 
   public abstract boolean verbose();
@@ -58,6 +60,10 @@ public abstract class Options {
     return thirdPartyDirectory().resolve("jvm");
   }
 
+  public Path pypiDirectory() {
+    return thirdPartyDirectory().resolve("pypi");
+  }
+
   public static Options parse(final String... args) throws IOException {
     final OptionParser parser = new OptionParser();
 
@@ -70,6 +76,7 @@ public abstract class Options {
             .ofType(File.class);
     final OptionSpec<File> buildifierArgument =
         parser.accepts("buildifier").withRequiredArg().ofType(File.class);
+    final OptionSpec<File> pipArgument = parser.accepts("pip").withRequiredArg().ofType(File.class);
     final OptionSpec<Void> verifyFlag = parser.accepts("verify");
 
     final OptionSet optionSet = parser.parse(args);
@@ -81,6 +88,7 @@ public abstract class Options {
 
     final Path workspaceDirectory;
     final Path buildifier;
+    final Path pip;
 
     if (optionSet.has(workspaceDirectoryArgument)) {
       workspaceDirectory = optionSet.valueOf(workspaceDirectoryArgument).toPath().normalize();
@@ -94,20 +102,28 @@ public abstract class Options {
       throw new IllegalStateException("Missing mandatory flag --buildifier");
     }
 
+    if (optionSet.has(pipArgument)) {
+      pip = optionSet.valueOf(pipArgument).toPath();
+    } else {
+      pip = Paths.get("/usr/bin/pip");
+    }
+
     final boolean verify = optionSet.has(verifyFlag);
     final boolean verbose = optionSet.has(verboseFlag);
 
-    return create(workspaceDirectory, buildifier, verify, verbose);
+    return create(workspaceDirectory, buildifier, pip, verify, verbose);
   }
 
   public static Options create(
       final Path workspaceDirectory,
       final Path buildifier,
+      final Path pip,
       final boolean verify,
       final boolean verbose) {
     return builder()
         .workspaceDirectory(workspaceDirectory)
         .buildifier(buildifier)
+        .pip(pip)
         .verify(verify)
         .verbose(verbose)
         .build();
@@ -125,6 +141,8 @@ public abstract class Options {
     public abstract Builder workspaceDirectory(final Path workspaceDirectory);
 
     public abstract Builder buildifier(final Path buildifier);
+
+    public abstract Builder pip(final Path pip);
 
     public abstract Builder verify(final boolean verify);
 

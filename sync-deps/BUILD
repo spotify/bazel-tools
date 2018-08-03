@@ -19,8 +19,11 @@ java_binary(
     args = [
         "--buildifier",
         "$(location //external:spotify_bazel_tools/dependency/buildtools/buildifier)",
+        "--pip",
+        "$(location //3rdparty/pypi:pip)",
     ],
     data = [
+        "//3rdparty/pypi:pip",
         "//external:spotify_bazel_tools/dependency/buildtools/buildifier",
     ],
     main_class = "com.spotify.syncdeps.Main",
