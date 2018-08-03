@@ -4,24 +4,77 @@ load("@io_bazel_rules_scala//scala:scala_maven_import_external.bzl", "scala_impo
 
 MAVEN_RESOLVERS = ["https://repo.maven.apache.org/maven2/"]
 
-def default_maven_callback(name, licenses, jar_path, jar_sha256, srcjar_path=None, srcjar_sha256=None, deps=[], runtime_deps=[], neverlink=False, is_scala=False):
-  if is_scala:
-    macro = scala_import_external
-  else:
-    macro = java_import_external
+def default_maven_callback(name, licenses, jar_path, jar_sha256, srcjar_path = None, srcjar_sha256 = None, deps = [], runtime_deps = [], neverlink = False, is_scala = False):
+    if is_scala:
+        macro = scala_import_external
+    else:
+        macro = java_import_external
 
-  macro(
-      name=name,
-      licenses=licenses,
-      jar_urls=[resolver + jar_path for resolver in MAVEN_RESOLVERS],
-      jar_sha256=jar_sha256,
-      srcjar_urls=[] if srcjar_path == None or is_scala else [resolver + srcjar_path for resolver in MAVEN_RESOLVERS],
-      srcjar_sha256=None if is_scala else srcjar_sha256,
-      deps=["@" + d for d in deps],
-      runtime_deps=runtime_deps,
-      neverlink=neverlink,
-      default_visibility=["//visibility:public"],
-  )
+    macro(
+        name = name,
+        licenses = licenses,
+        jar_urls = [resolver + jar_path for resolver in MAVEN_RESOLVERS],
+        jar_sha256 = jar_sha256,
+        srcjar_urls = [] if srcjar_path == None or is_scala else [resolver + srcjar_path for resolver in MAVEN_RESOLVERS],
+        srcjar_sha256 = None if is_scala else srcjar_sha256,
+        deps = ["@" + d for d in deps],
+        runtime_deps = runtime_deps,
+        neverlink = neverlink,
+        default_visibility = ["//visibility:public"],
+    )
+
+def default_pypi_callback(name, url, sha256, is_binary = False, main = None, deps = []):
+    if is_binary and main == None:
+        fail("pypi dependency has is_binary=True but main is not set")
+
+    dependencies = ",".join(["\"@" + d + "\"" for d in deps])
+
+    if is_binary:
+        build_file_content = """
+load("@subpar//:subpar.bzl", "par_binary")
+
+alias(
+    name = "{name}",
+    actual = "{name}_binary",
+    visibility = ["//visibility:public"],
+)
+
+par_binary(
+    name = "{name}_binary",
+    srcs = glob(["**/*.py"]),
+    main = "{main}",
+    legacy_create_init = False,
+    data = glob(["**/*"], exclude=["**/*.py", "**/* *", "BUILD", "WORKSPACE"]),
+    imports = ["."],
+    deps = [{dependencies}],
+)
+""".format(
+        name = name,
+        main = main,
+        dependencies = dependencies,
+    )
+    else:
+        build_file_content = """
+py_library(
+    name = "{name}",
+    srcs = glob(["**/*.py"]),{main}
+    data = glob(["**/*"], exclude=["**/*.py", "**/* *", "BUILD", "WORKSPACE"]),
+    visibility = ["//visibility:public"],
+    imports = ["."],
+    deps = [{dependencies}],
+)
+""".format(
+        name = name,
+        dependencies = dependencies,
+    )
+
+    native.new_http_archive(
+        name = name,
+        type = "zip",
+        urls = [url],
+        sha256 = sha256,
+        build_file_content = build_file_content,
+    )
 
 def maven_dependencies(callback=None):
   if callback == None:
@@ -34,7 +87,7 @@ def maven_dependencies(callback=None):
   callback(name="com_fasterxml_jackson_dataformat_jackson_dataformat_yaml", licenses=["notice"], jar_path="com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.9.6/jackson-dataformat-yaml-2.9.6.jar", jar_sha256="0450f6b1e60c2cc710533c24351adc29db102cb114246321379c54b8a8253ad8", srcjar_path="com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.9.6/jackson-dataformat-yaml-2.9.6-sources.jar", srcjar_sha256="f5895b5b5dd2279f0a6ed72c4073e7e4bb5ed74ed55358324a62a70cfc723988", deps=["com_fasterxml_jackson_core_jackson_core", "org_yaml_snakeyaml"], neverlink=False, is_scala=False)
   callback(name="com_fasterxml_jackson_datatype_jackson_datatype_guava", licenses=["notice"], jar_path="com/fasterxml/jackson/datatype/jackson-datatype-guava/2.9.6/jackson-datatype-guava-2.9.6.jar", jar_sha256="a94fbdd2ac6e7e1726593f018dcfd6a54d5d8b524b145bcb6819615431f0f3ea", srcjar_path="com/fasterxml/jackson/datatype/jackson-datatype-guava/2.9.6/jackson-datatype-guava-2.9.6-sources.jar", srcjar_sha256="b5c17d6172da492ff6e4a6766d04136b9cbdd618a0bbb04f061950d258e93d7b", deps=["com_fasterxml_jackson_core_jackson_core", "com_fasterxml_jackson_core_jackson_databind", "com_google_guava_guava"], neverlink=False, is_scala=False)
   callback(name="com_geirsson_metaconfig_core_2_12", licenses=["notice"], jar_path="com/geirsson/metaconfig-core_2.12/0.4.0/metaconfig-core_2.12-0.4.0.jar", jar_sha256="6bd25189a12b1edbf1511c44783e611a9edd738841901b9243803ff9c696c78a", srcjar_path="com/geirsson/metaconfig-core_2.12/0.4.0/metaconfig-core_2.12-0.4.0-sources.jar", srcjar_sha256="f9ca3ea8723afe3e9213a5664cf8bc3b212d3e7cf861f1d0a96621d89270d532", deps=["com_lihaoyi_sourcecode_2_12", "org_scala_lang_scala_library", "org_scalameta_common_2_12", "org_scalameta_inputs_2_12", "org_scalameta_io_2_12"], neverlink=False, is_scala=True)
-  callback(name="com_geirsson_metaconfig_typesafe_config_2_12", licenses=["notice"], jar_path="com/geirsson/metaconfig-typesafe-config_2.12/0.4.0/metaconfig-typesafe-config_2.12-0.4.0.jar", jar_sha256="e8f6f38738a96c4c09dbf5e5c687000556a0920b63e8e4fc19bb6cbc6d8dcfbd", srcjar_path="com/geirsson/metaconfig-typesafe-config_2.12/0.4.0/metaconfig-typesafe-config_2.12-0.4.0-sources.jar", srcjar_sha256="3c0bf468508f0f0f6b82c0ce72c996235eb7568f996fb1d1b1253c548e018170", deps=["com_geirsson_metaconfig_core_2_12", "com_typesafe_config", "org_scala_lang_scala_library"], neverlink=False, is_scala=True)
+  callback(name="com_geirsson_metaconfig_typesafe_config_2_12", licenses=["notice"], jar_path="com/geirsson/metaconfig-typesafe-config_2.12/0.4.0/metaconfig-typesafe-config_2.12-0.4.0.jar", jar_sha256="e8f6f38738a96c4c09dbf5e5c687000556a0920b63e8e4fc19bb6cbc6d8dcfbd", srcjar_path="com/geirsson/metaconfig-typesafe-config_2.12/0.4.0/metaconfig-typesafe-config_2.12-0.4.0-sources.jar", srcjar_sha256="3c0bf468508f0f0f6b82c0ce72c996235eb7568f996fb1d1b1253c548e018170", deps=["com_geirsson_metaconfig_core_2_12", "com_lihaoyi_sourcecode_2_12", "com_typesafe_config", "org_scala_lang_scala_library", "org_scalameta_common_2_12", "org_scalameta_inputs_2_12", "org_scalameta_io_2_12"], neverlink=False, is_scala=True)
   callback(name="com_geirsson_scalafmt_core_2_12", licenses=["notice"], jar_path="com/geirsson/scalafmt-core_2.12/1.5.1/scalafmt-core_2.12-1.5.1.jar", jar_sha256="808649767cdba809b8e239e3c0f7195f09e04de06dd6281f3471e90a8ca79f55", srcjar_path="com/geirsson/scalafmt-core_2.12/1.5.1/scalafmt-core_2.12-1.5.1-sources.jar", srcjar_sha256="0a996288cf2b0955e74a8ec6aef6714b4b468b42cef717d2c922f59482822b7c", deps=["com_geirsson_metaconfig_core_2_12", "com_geirsson_metaconfig_typesafe_config_2_12", "com_google_protobuf_protobuf_java", "com_lihaoyi_fastparse_utils_2_12", "com_lihaoyi_fastparse_2_12", "com_lihaoyi_scalaparse_2_12", "com_lihaoyi_sourcecode_2_12", "com_trueaccord_lenses_lenses_2_12", "com_trueaccord_scalapb_scalapb_runtime_2_12", "org_scala_lang_scala_library", "org_scalameta_common_2_12", "org_scalameta_dialects_2_12", "org_scalameta_inline_2_12", "org_scalameta_inputs_2_12", "org_scalameta_parsers_2_12", "org_scalameta_quasiquotes_2_12", "org_scalameta_scalameta_2_12", "org_scalameta_semantic_2_12", "org_scalameta_tokenizers_2_12", "org_scalameta_tokens_2_12", "org_scalameta_transversers_2_12", "org_scalameta_trees_2_12"], neverlink=False, is_scala=True)
   callback(name="com_github_tomas_langer_chalk", licenses=["notice"], jar_path="com/github/tomas-langer/chalk/1.0.2/chalk-1.0.2.jar", jar_sha256="1bbdca6337a288e28a650e50d0121cfad69065b4ef9ff19c2974e5e78cee5eb6", srcjar_path="com/github/tomas-langer/chalk/1.0.2/chalk-1.0.2-sources.jar", srcjar_sha256="a7bedcd7adb4a934682c78c527c6b15e9c06d976e614a1f1185c559a3019870c", deps=["org_fusesource_hawtjni_hawtjni_runtime", "org_fusesource_jansi_jansi_native"], neverlink=False, is_scala=False)
   callback(name="com_google_auto_value_auto_value", licenses=["notice"], jar_path="com/google/auto/value/auto-value/1.6.2/auto-value-1.6.2.jar", jar_sha256="edbe65a5c53e3d4f5cb10b055d4884ae7705a7cd697be4b2a5d8427761b8ba12", srcjar_path="com/google/auto/value/auto-value/1.6.2/auto-value-1.6.2-sources.jar", srcjar_sha256="d9959ea21834ec9e213378d719b2a7f705efca9b01667cd28718a47683dc273a", deps=[], neverlink=False, is_scala=False)
@@ -83,3 +136,8 @@ def maven_dependencies(callback=None):
   callback(name="org_scalameta_trees_2_12", licenses=["notice"], jar_path="org/scalameta/trees_2.12/1.7.0/trees_2.12-1.7.0.jar", jar_sha256="68e115214da0ff306e5bd7e1333680dddb51f72fd5783fe8a686c829208ef84c", srcjar_path=None, srcjar_sha256=None, deps=["com_lihaoyi_fastparse_utils_2_12", "com_lihaoyi_fastparse_2_12", "com_lihaoyi_scalaparse_2_12", "com_lihaoyi_sourcecode_2_12", "org_scala_lang_scala_library", "org_scalameta_common_2_12", "org_scalameta_dialects_2_12", "org_scalameta_inputs_2_12", "org_scalameta_tokenizers_2_12", "org_scalameta_tokens_2_12"], neverlink=False, is_scala=False)
   callback(name="org_slf4j_slf4j_api", licenses=["notice"], jar_path="org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar", jar_sha256="18c4a0095d5c1da6b817592e767bb23d29dd2f560ad74df75ff3961dbde25b79", srcjar_path="org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25-sources.jar", srcjar_sha256="c4bc93180a4f0aceec3b057a2514abe04a79f06c174bbed910a2afb227b79366", deps=[], neverlink=False, is_scala=False)
   callback(name="org_yaml_snakeyaml", licenses=["notice"], jar_path="org/yaml/snakeyaml/1.18/snakeyaml-1.18.jar", jar_sha256="81bf4c29d0275dace75fadb5febf5384553422816256023efa83b2b15a9ced60", srcjar_path=None, srcjar_sha256=None, deps=[], neverlink=False, is_scala=False)
+
+def pypi_dependencies(callback=None):
+  if callback == None:
+    callback = default_pypi_callback
+  callback(name="pip", url="https://files.pythonhosted.org/packages/0f/74/ecd13431bcc456ed390b44c8a6e917c1820365cbebcb6a8974d1cd045ab4/pip-10.0.1-py2.py3-none-any.whl", sha256="717cdffb2833be8409433a93746744b59505f42146e8d37de6c62b430e25d6d7", is_binary=True, main="pip/__main__.py", deps=    [])

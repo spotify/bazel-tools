@@ -4,25 +4,74 @@ load("@io_bazel_rules_scala//scala:scala_maven_import_external.bzl", "scala_impo
 
 MAVEN_RESOLVERS = ["%MAVEN_RESOLVERS%"]
 
-def default_maven_callback(name, licenses, jar_path, jar_sha256, srcjar_path=None, srcjar_sha256=None, deps=[], runtime_deps=[], neverlink=False, is_scala=False):
-  if is_scala:
-    macro = scala_import_external
-  else:
-    macro = java_import_external
+def default_maven_callback(name, licenses, jar_path, jar_sha256, srcjar_path = None, srcjar_sha256 = None, deps = [], runtime_deps = [], neverlink = False, is_scala = False):
+    if is_scala:
+        macro = scala_import_external
+    else:
+        macro = java_import_external
 
-  macro(
-      name=name,
-      licenses=licenses,
-      jar_urls=[resolver + jar_path for resolver in MAVEN_RESOLVERS],
-      jar_sha256=jar_sha256,
-      srcjar_urls=[] if srcjar_path == None or is_scala else [resolver + srcjar_path for resolver in MAVEN_RESOLVERS],
-      srcjar_sha256=None if is_scala else srcjar_sha256,
-      deps=["@" + d for d in deps],
-      runtime_deps=runtime_deps,
-      neverlink=neverlink,
-      default_visibility=["//visibility:public"],
-  )
+    macro(
+        name = name,
+        licenses = licenses,
+        jar_urls = [resolver + jar_path for resolver in MAVEN_RESOLVERS],
+        jar_sha256 = jar_sha256,
+        srcjar_urls = [] if srcjar_path == None or is_scala else [resolver + srcjar_path for resolver in MAVEN_RESOLVERS],
+        srcjar_sha256 = None if is_scala else srcjar_sha256,
+        deps = ["@" + d for d in deps],
+        runtime_deps = runtime_deps,
+        neverlink = neverlink,
+        default_visibility = ["//visibility:public"],
+    )
 
-def maven_dependencies(callback=None):
-  if callback == None:
-    callback = default_maven_callback
+def default_pypi_callback(name, url, sha256, is_binary = False, main = None, deps = []):
+    if is_binary and main == None:
+        fail("pypi dependency has is_binary=True but main is not set")
+
+    dependencies = ",".join(["\"@" + d + "\"" for d in deps])
+
+    if is_binary:
+        build_file_content = """
+load("@subpar//:subpar.bzl", "par_binary")
+
+alias(
+    name = "{name}",
+    actual = "{name}_binary",
+    visibility = ["//visibility:public"],
+)
+
+par_binary(
+    name = "{name}_binary",
+    srcs = glob(["**/*.py"]),
+    main = "{main}",
+    legacy_create_init = False,
+    data = glob(["**/*"], exclude=["**/*.py", "**/* *", "BUILD", "WORKSPACE"]),
+    imports = ["."],
+    deps = [{dependencies}],
+)
+""".format(
+        name = name,
+        main = main,
+        dependencies = dependencies,
+    )
+    else:
+        build_file_content = """
+py_library(
+    name = "{name}",
+    srcs = glob(["**/*.py"]),{main}
+    data = glob(["**/*"], exclude=["**/*.py", "**/* *", "BUILD", "WORKSPACE"]),
+    visibility = ["//visibility:public"],
+    imports = ["."],
+    deps = [{dependencies}],
+)
+""".format(
+        name = name,
+        dependencies = dependencies,
+    )
+
+    native.new_http_archive(
+        name = name,
+        type = "zip",
+        urls = [url],
+        sha256 = sha256,
+        build_file_content = build_file_content,
+    )

@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("//3rdparty:workspace.bzl", "maven_dependencies")
+load("//3rdparty:workspace.bzl", "maven_dependencies", "pypi_dependencies")
 
 def bazel_tools_repositories():
     _maybe(
@@ -36,7 +36,19 @@ def bazel_tools_repositories():
         urls = ["https://github.com/bazelbuild/buildtools/archive/%s.zip" % (bazelbuild_buildtools_version,)],
     )
 
+    subpar_version = "07ff5feb7c7b113eea593eb6ec50b51099cf0261"  # branch master
+
+    _maybe(
+        native.http_archive,
+        name = "subpar",
+        sha256 = "ce61acb5d11d80c4512a1829d3addb1292f90f4651406b7331e11c011055ddd6",
+        strip_prefix = "subpar-%s" % (subpar_version,),
+        urls = ["https://github.com/google/subpar/archive/%s.zip" % (subpar_version,)],
+    )
+
     maven_dependencies()
+
+    pypi_dependencies()
 
     native.bind(
         name = "spotify_bazel_tools/dependency/buildtools/buildifier",

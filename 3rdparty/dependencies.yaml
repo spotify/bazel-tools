@@ -16,6 +16,11 @@ options:
   mavenResolvers:
     - id: "default"
       url: https://repo.maven.apache.org/maven2/
+  pypiResolvers:
+    - id: "default"
+      url: https://pypi.org/simple/
+  pythonPlatform: any
+  pythonVersion: 3
   scalaAbi: "2.12"
   excludedDependencies:
     - com.google.guava:guava-jdk5
@@ -122,3 +127,9 @@ maven:
       modules:
         - api
       version: "1.7.25"
+
+pypi:
+  pip:
+    version: "10.0.1"
+    binary: true
+    main: "pip/__main__.py"

@@ -1,4 +1,4 @@
-# Copyright 2016-2017 Spotify AB
+# Copyright 2016-2018 Spotify AB
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,22 +14,19 @@
 licenses(["notice"])
 
 java_library(
-    name = "syncdeps",
+    name = "pypi",
     srcs = glob(["*.java"]),
-    data = [
-        "//3rdparty:dependencies.yaml",
-    ],
-    visibility = ["//visibility:public"],
+    visibility = ["//sync-deps:__subpackages__"],
     deps = [
+        "//3rdparty/jvm/com/fasterxml/jackson/core:jackson-core",
+        "//3rdparty/jvm/com/fasterxml/jackson/core:jackson-databind",
+        "//3rdparty/jvm/com/google/auto/value:auto-value-annotations",
+        "//3rdparty/jvm/com/google/code/findbugs:annotations",
         "//3rdparty/jvm/com/google/guava",
+        "//3rdparty/jvm/org/apache/ivy",
         "//3rdparty/jvm/org/slf4j:slf4j-api",
-        "//cli-utils",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/cli",
+        "//3rdparty/tools:auto-value",
         "//sync-deps/src/main/java/com/spotify/syncdeps/config",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/maven",
         "//sync-deps/src/main/java/com/spotify/syncdeps/model",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/pypi",
-        "//sync-deps/src/main/java/com/spotify/syncdeps/util",
-        "//sync-deps/src/main/resources",
     ],
 )
