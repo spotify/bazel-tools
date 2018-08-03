@@ -35,7 +35,7 @@ load("@subpar//:subpar.bzl", "par_binary")
 
 alias(
     name = "{name}",
-    actual = "{name}_binary.par",
+    actual = "{name}_binary",
     visibility = ["//visibility:public"],
 )
 
