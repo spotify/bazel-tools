@@ -33,7 +33,8 @@ http_archive(
 )
 ```
 
-You additionally need to add Go and Scala support by adding the official plugins for that, e.g.:
+You additionally need to add Go, Scala and Subpar support by adding the official plugins for that,
+e.g.:
 
 ```python
 # current SHA1 of branch master
@@ -52,6 +53,16 @@ http_archive(
     sha256 = "<fill in SHA256>",
     strip_prefix = "rules_scala-%s" % (rules_scala_version,),
     urls = ["https://github.com/bazelbuild/rules_scala/archive/%s.zip" % (rules_scala_version,)],
+)
+
+# current SHA1 of branch master
+subpar_version = "<fill in SHA1>"
+
+http_archive(
+    name = "subpar",
+    sha256 = "<fill in SHA256>",
+    strip_prefix = "subpar-%s" % (subpar_version,),
+    urls = ["https://github.com/google/subpar/archive/%s.zip" % (subpar_version,)],
 )
 
 load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")
