@@ -21,6 +21,14 @@ options:
     - com.google.guava:guava-jdk5
     - org.slf4j:slf4j-log4j12
 
+github:
+  io_bazel_rules_go:
+    repo: bazelbuild/rules_go
+    ref: master
+  io_bazel_rules_scala:
+    repo: bazelbuild/rules_scala
+    ref: master
+
 maven:
   ch.qos.logback:
     logback:

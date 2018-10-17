@@ -26,7 +26,7 @@ import java.util.Iterator;
 @AutoValue
 public abstract class MavenCoords implements Comparable<MavenCoords> {
 
-  public static final Splitter DOT_SPLITTER = Splitter.on('.');
+  private static final Splitter DOT_SPLITTER = Splitter.on('.');
 
   MavenCoords() {}
 
