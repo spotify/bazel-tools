@@ -8,7 +8,10 @@ os:
   - osx
 
 env:
-  - V=0.14.0
+  - V=0.15.2
+  - V=0.16.1
+  - V=0.17.2
+  - V=0.18.0
 
 before_install:
   - OS=linux

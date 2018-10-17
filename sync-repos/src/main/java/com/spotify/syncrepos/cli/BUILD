@@ -13,9 +13,12 @@
 # limitations under the License.
 licenses(["notice"])
 
+load("//tools:java.bzl", "JAVACOPTS")
+
 java_library(
     name = "cli",
     srcs = ["Options.java"],
+    javacopts = JAVACOPTS,
     visibility = ["//sync-repos:__subpackages__"],
     deps = [
         "//3rdparty/jvm/com/google/auto/value:auto-value-annotations",

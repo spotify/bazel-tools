@@ -43,7 +43,7 @@ public abstract class Rule {
   }
 
   @Override
-  public String toString() {
+  public final String toString() {
     return raw();
   }
 

@@ -13,6 +13,8 @@
 # limitations under the License.
 licenses(["notice"])
 
+load("//tools:java.bzl", "JAVACOPTS")
+
 java_binary(
     name = "depfuzz",
     args = [
@@ -25,6 +27,7 @@ java_binary(
         "//external:spotify_bazel_tools/dependency/buildtools/buildozer",
         "//external:spotify_bazel_tools/dependency/buildtools/unused-deps",
     ],
+    javacopts = JAVACOPTS,
     main_class = "com.spotify.depfuzz.Main",
     runtime_deps = [
         "//depfuzz/src/java/com/spotify/depfuzz",

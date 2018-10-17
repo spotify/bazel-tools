@@ -13,9 +13,12 @@
 # limitations under the License.
 licenses(["notice"])
 
+load("//tools:java.bzl", "JAVACOPTS")
+
 java_library(
     name = "config",
     srcs = glob(["*.java"]),
+    javacopts = JAVACOPTS,
     visibility = ["//sync-deps:__subpackages__"],
     deps = [
         "//3rdparty/jvm/com/fasterxml/jackson/core:jackson-annotations",

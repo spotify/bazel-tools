@@ -77,7 +77,7 @@ public abstract class MavenCoords implements Comparable<MavenCoords> {
   }
 
   @Override
-  public String toString() {
+  public final String toString() {
     return groupId() + ":" + artifactId();
   }
 

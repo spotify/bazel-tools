@@ -13,10 +13,13 @@
 # limitations under the License.
 licenses(["notice"])
 
+load("//tools:java.bzl", "JAVACOPTS")
+
 java_test(
     name = "PathUtilsTest",
     size = "small",
     srcs = ["PathUtilsTest.java"],
+    javacopts = JAVACOPTS,
     deps = [
         "//3rdparty/jvm/com/google/guava",
         "//3rdparty/jvm/com/google/jimfs",

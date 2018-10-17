@@ -13,6 +13,8 @@
 # limitations under the License.
 licenses(["notice"])
 
+load("//tools:java.bzl", "JAVACOPTS")
+
 java_binary(
     name = "format",
     args = [
@@ -22,6 +24,7 @@ java_binary(
     data = [
         "//external:spotify_bazel_tools/dependency/buildtools/buildifier",
     ],
+    javacopts = JAVACOPTS,
     main_class = "com.spotify.format.Main",
     runtime_deps = [
         "//format/src/main/java/com/spotify/format",

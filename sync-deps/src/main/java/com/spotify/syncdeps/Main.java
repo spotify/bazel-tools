@@ -15,7 +15,6 @@
  */
 package com.spotify.syncdeps;
 
-import static com.google.common.collect.ImmutableMap.toImmutableMap;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.nio.file.attribute.PosixFilePermissions.asFileAttribute;
 import static java.nio.file.attribute.PosixFilePermissions.fromString;
@@ -46,7 +45,6 @@ import java.nio.file.attribute.PosixFilePermission;
 import java.text.ParseException;
 import java.util.List;
 import java.util.Set;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.slf4j.Logger;
@@ -221,11 +219,6 @@ public final class Main {
     final Path newJvmDirectory =
         Files.createTempDirectory(options.thirdPartyDirectory(), "jvm-", DIR_PERMISSIONS);
 
-    final ImmutableMap<MavenCoords, MavenDependency> dependenciesByCoords =
-        mavenDependencies
-            .stream()
-            .collect(toImmutableMap(MavenDependency::coords, Function.identity()));
-
     mavenDependencies
         .stream()
         // Only write BUILD files for public dependencies; private ones are inlined
@@ -233,8 +226,7 @@ public final class Main {
         .collect(Collectors.groupingBy(d -> d.coords().groupId()))
         .forEach(
             (groupId, groupDependencies) ->
-                writeJvmGroup(
-                    newJvmDirectory, buildifier, groupId, groupDependencies, dependenciesByCoords));
+                writeJvmGroup(newJvmDirectory, buildifier, groupId, groupDependencies));
     return newJvmDirectory;
   }
 
@@ -242,8 +234,7 @@ public final class Main {
       final Path newJvmDirectory,
       final Path buildifier,
       final String groupId,
-      final List<MavenDependency> groupDependencies,
-      final ImmutableMap<MavenCoords, MavenDependency> dependenciesByCoords) {
+      final List<MavenDependency> groupDependencies) {
     final Path groupIdDir = newJvmDirectory.resolve(MavenCoords.groupRelativePackageName(groupId));
 
     if (!Files.exists(groupIdDir)) {

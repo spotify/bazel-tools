@@ -13,9 +13,12 @@
 # limitations under the License.
 licenses(["notice"])
 
+load("//tools:java.bzl", "JAVACOPTS")
+
 java_binary(
     name = "sync-repos",
     srcs = glob(["src/main/java/**/*.java"]),
+    javacopts = JAVACOPTS,
     main_class = "com.spotify.syncrepos.Main",
     runtime_deps = [
         "//3rdparty/jvm/ch/qos/logback:logback-classic",

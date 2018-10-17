@@ -13,12 +13,15 @@
 # limitations under the License.
 licenses(["notice"])
 
+load("//tools:java.bzl", "JAVACOPTS")
+
 java_library(
     name = "syncdeps",
     srcs = glob(["*.java"]),
     data = [
         "//3rdparty:dependencies.yaml",
     ],
+    javacopts = JAVACOPTS,
     visibility = ["//visibility:public"],
     deps = [
         "//3rdparty/jvm/com/google/guava",
