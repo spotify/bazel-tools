@@ -4,25 +4,26 @@ load("@io_bazel_rules_scala//scala:scala_maven_import_external.bzl", "scala_impo
 
 MAVEN_RESOLVERS = ["%MAVEN_RESOLVERS%"]
 
-def default_maven_callback(name, licenses, jar_path, jar_sha256, srcjar_path=None, srcjar_sha256=None, deps=[], runtime_deps=[], neverlink=False, is_scala=False):
-  if is_scala:
-    macro = scala_import_external
-  else:
-    macro = java_import_external
+def default_maven_callback(name, licenses, jar_path, jar_sha256, srcjar_path = None, srcjar_sha256 = None, deps = [], runtime_deps = [], neverlink = False, is_scala = False):
+    if is_scala:
+        macro = scala_import_external
+    else:
+        macro = java_import_external
 
-  macro(
-      name=name,
-      licenses=licenses,
-      jar_urls=[resolver + jar_path for resolver in MAVEN_RESOLVERS],
-      jar_sha256=jar_sha256,
-      srcjar_urls=[] if srcjar_path == None or is_scala else [resolver + srcjar_path for resolver in MAVEN_RESOLVERS],
-      srcjar_sha256=None if is_scala else srcjar_sha256,
-      deps=["@" + d for d in deps],
-      runtime_deps=runtime_deps,
-      neverlink=neverlink,
-      default_visibility=["//visibility:public"],
-  )
+    _maybe(
+        macro,
+        name = name,
+        licenses = licenses,
+        jar_urls = [resolver + jar_path for resolver in MAVEN_RESOLVERS],
+        jar_sha256 = jar_sha256,
+        srcjar_urls = [] if srcjar_path == None or is_scala else [resolver + srcjar_path for resolver in MAVEN_RESOLVERS],
+        srcjar_sha256 = None if is_scala else srcjar_sha256,
+        deps = ["@" + d for d in deps],
+        runtime_deps = runtime_deps,
+        neverlink = neverlink,
+        default_visibility = ["//visibility:public"],
+    )
 
-def maven_dependencies(callback=None):
-  if callback == None:
-    callback = default_maven_callback
+def _maybe(repo_rule, name, **kwargs):
+    if name not in native.existing_rules():
+        repo_rule(name = name, **kwargs)

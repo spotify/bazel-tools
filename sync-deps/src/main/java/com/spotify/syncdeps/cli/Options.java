@@ -46,8 +46,12 @@ public abstract class Options {
     return thirdPartyDirectory().resolve("dependencies.lock");
   }
 
-  public Path outputFile() {
+  public Path workspaceFile() {
     return thirdPartyDirectory().resolve("workspace.bzl");
+  }
+
+  public Path repositoryFile() {
+    return thirdPartyDirectory().resolve("repositories.bzl");
   }
 
   public Path thirdPartyDirectory() {

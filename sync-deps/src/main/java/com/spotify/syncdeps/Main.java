@@ -28,7 +28,9 @@ import com.google.common.io.Resources;
 import com.spotify.bazeltools.cliutils.Cli;
 import com.spotify.syncdeps.cli.Options;
 import com.spotify.syncdeps.config.Dependencies;
+import com.spotify.syncdeps.github.GitHubDependencies;
 import com.spotify.syncdeps.maven.MavenDependencies;
+import com.spotify.syncdeps.model.GitHubDependency;
 import com.spotify.syncdeps.model.MavenCoords;
 import com.spotify.syncdeps.model.MavenDependency;
 import com.spotify.syncdeps.util.PathUtils;
@@ -74,7 +76,8 @@ public final class Main {
     }
   }
 
-  private static void run(final Options options) throws IOException, ParseException {
+  private static void run(final Options options)
+      throws IOException, ParseException, InterruptedException {
     final Path relativeLockFile = options.workspaceDirectory().relativize(options.lockFile());
     if (options.verify()) {
       LOG.info("Verifying integrity of @|bold {}|@", relativeLockFile);
@@ -96,23 +99,32 @@ public final class Main {
       LOG.info("Resolving dependencies");
       final ImmutableSet<MavenDependency> mavenDependencies =
           MavenDependencies.resolveDependencies(dependencies);
+      final ImmutableSet<GitHubDependency> gitHubDependencies =
+          GitHubDependencies.resolveDependencies(dependencies);
 
-      final Path outputFile = options.outputFile();
+      final Path workspaceFile = options.workspaceFile();
+      final Path repositoryFile = options.repositoryFile();
       final Path jvmDirectory = options.thirdPartyDirectory().resolve("jvm");
-      final Path relativeOutputFile = options.workspaceDirectory().relativize(outputFile);
+      final Path relativeWorkspaceFile = options.workspaceDirectory().relativize(workspaceFile);
+      final Path relativeRepositoryFile = options.workspaceDirectory().relativize(repositoryFile);
       final Path relativeJvmDirectory = options.workspaceDirectory().relativize(jvmDirectory);
 
-      final Path newOutputFile =
-          writeNewOutputFile(options, dependencies.options(), mavenDependencies);
+      final Path newWorkspaceFile =
+          writeNewWorkspaceFile(options, dependencies.options(), mavenDependencies);
+      final Path newRepositoryFile = writeNewRepositoryFile(options, gitHubDependencies);
       final Path newJvmDirectory = writeNewJvmDirectory(options, mavenDependencies);
 
       LOG.info("Updating @|bold {}|@", relativeJvmDirectory);
       PathUtils.syncRecursive(newJvmDirectory, jvmDirectory);
       PathUtils.removeRecursive(newJvmDirectory);
 
-      LOG.info("Updating @|bold {}|@", relativeOutputFile);
-      Files.deleteIfExists(outputFile);
-      Files.move(newOutputFile, outputFile);
+      LOG.info("Updating @|bold {}|@", relativeWorkspaceFile);
+      Files.deleteIfExists(workspaceFile);
+      Files.move(newWorkspaceFile, workspaceFile);
+
+      LOG.info("Updating @|bold {}|@", relativeRepositoryFile);
+      Files.deleteIfExists(repositoryFile);
+      Files.move(newRepositoryFile, repositoryFile);
 
       LOG.info("Updating @|bold {}|@", relativeLockFile);
       Files.write(options.lockFile(), createLockContents(options).getBytes(UTF_8));
@@ -126,7 +138,9 @@ public final class Main {
     try (final Stream<Path> jvmFiles = Files.walk(options.jvmDirectory());
         final PrintWriter out = new PrintWriter(stringWriter)) {
       out.println("version\t1");
-      Stream.concat(Stream.of(options.inputFile(), options.outputFile()), jvmFiles)
+      Stream.concat(
+              Stream.of(options.inputFile(), options.workspaceFile(), options.repositoryFile()),
+              jvmFiles)
           .sorted()
           .forEachOrdered(file -> describeFile(options.workspaceDirectory(), file, out));
     }
@@ -155,14 +169,14 @@ public final class Main {
     }
   }
 
-  private static Path writeNewOutputFile(
+  private static Path writeNewWorkspaceFile(
       final Options options,
       final Dependencies.Options dependencyOptions,
       final ImmutableSet<MavenDependency> mavenDependencies)
       throws IOException {
     final Path newOutputFile =
         Files.createTempFile(
-            options.outputFile().getParent(), "workspace-", ".bzl", FILE_PERMISSIONS);
+            options.workspaceFile().getParent(), "workspace-", ".bzl", FILE_PERMISSIONS);
 
     try (BufferedWriter writer = Files.newBufferedWriter(newOutputFile, UTF_8);
         final PrintWriter out = new PrintWriter(writer)) {
@@ -177,6 +191,12 @@ public final class Main {
               .map(url -> "\"" + url + "\"")
               .collect(joining(", ", "[", "]"));
       out.write(header.replace("[\"%MAVEN_RESOLVERS%\"]", mavenResolversList));
+
+      out.println();
+      out.println();
+      out.println("def maven_dependencies(callback=None):");
+      out.println("    if callback == None:");
+      out.println("        callback = default_maven_callback");
 
       for (final MavenDependency mavenDependency : mavenDependencies) {
         // TODO: fix licenses
@@ -203,9 +223,43 @@ public final class Main {
         final String isScala = mavenDependency.kind().isScala() ? "True" : "False";
 
         out.printf(
-            "  callback(name=%1$s, licenses=[\"notice\"], jar_path=%2$s, jar_sha256=%3$s,"
+            "    callback(name=%1$s, licenses=[\"notice\"], jar_path=%2$s, jar_sha256=%3$s,"
                 + " srcjar_path=%4$s, srcjar_sha256=%5$s, deps=%6$s, neverlink=%7$s, is_scala=%8$s)\n",
             name, jarPath, jarSha256, srcjarPath, srcjarSha256, deps, neverlink, isScala);
+      }
+    }
+
+    return newOutputFile;
+  }
+
+  private static Path writeNewRepositoryFile(
+      final Options options, final ImmutableSet<GitHubDependency> gitHubDependencies)
+      throws IOException {
+    final Path newOutputFile =
+        Files.createTempFile(
+            options.repositoryFile().getParent(), "repository-", ".bzl", FILE_PERMISSIONS);
+
+    try (BufferedWriter writer = Files.newBufferedWriter(newOutputFile, UTF_8);
+        final PrintWriter out = new PrintWriter(writer)) {
+      final String header =
+          Resources.toString(Resources.getResource(Main.class, "repository-header.bzl"), UTF_8);
+
+      out.write(header);
+
+      out.println();
+      out.println();
+      out.println("def github_dependencies(callback=None):");
+      out.println("    if callback == None:");
+      out.println("        callback = default_github_callback");
+
+      for (final GitHubDependency dependency : gitHubDependencies) {
+        final String name = "\"" + dependency.name() + "\"";
+        final String repository = "\"" + dependency.repository() + "\"";
+        final String commit = "\"" + dependency.commit() + "\"";
+        final String sha256 = "\"" + dependency.sha256() + "\"";
+        out.printf(
+            "    callback(name=%1$s, repository=%2$s, commit=%3$s, sha256=%4$s)\n",
+            name, repository, commit, sha256);
       }
     }
 

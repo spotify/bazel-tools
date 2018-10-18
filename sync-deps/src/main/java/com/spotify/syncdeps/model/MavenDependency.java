@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
 
 @AutoValue
 public abstract class MavenDependency implements Comparable<MavenDependency> {
+  MavenDependency() {}
 
   public abstract MavenCoords coords();
 

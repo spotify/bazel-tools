@@ -29,6 +29,7 @@ java_library(
         "//cli-utils",
         "//sync-deps/src/main/java/com/spotify/syncdeps/cli",
         "//sync-deps/src/main/java/com/spotify/syncdeps/config",
+        "//sync-deps/src/main/java/com/spotify/syncdeps/github",
         "//sync-deps/src/main/java/com/spotify/syncdeps/maven",
         "//sync-deps/src/main/java/com/spotify/syncdeps/model",
         "//sync-deps/src/main/java/com/spotify/syncdeps/util",

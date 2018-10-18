@@ -11,26 +11,21 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-workspace(name = "spotify_bazel_tools")
+licenses(["notice"])
 
-load("//3rdparty:repositories.bzl", "github_dependencies")
+load("//tools:java.bzl", "JAVACOPTS")
 
-github_dependencies()
-
-load("//:tools.bzl", "bazel_tools_repositories")
-
-bazel_tools_repositories()
-
-load("@io_bazel_rules_go//go:def.bzl", "go_register_toolchains", "go_rules_dependencies")
-
-go_rules_dependencies()
-
-go_register_toolchains()
-
-load("@io_bazel_rules_scala//scala:scala.bzl", "scala_repositories")
-
-scala_repositories()
-
-load("@io_bazel_rules_scala//scala:toolchains.bzl", "scala_register_toolchains")
-
-scala_register_toolchains()
+java_library(
+    name = "github",
+    srcs = glob(["*.java"]),
+    javacopts = JAVACOPTS,
+    visibility = ["//sync-deps:__subpackages__"],
+    deps = [
+        "//3rdparty/jvm/com/google/code/findbugs:annotations",
+        "//3rdparty/jvm/com/google/guava",
+        "//3rdparty/jvm/org/apache/ivy",
+        "//3rdparty/jvm/org/slf4j:slf4j-api",
+        "//sync-deps/src/main/java/com/spotify/syncdeps/config",
+        "//sync-deps/src/main/java/com/spotify/syncdeps/model",
+    ],
+)

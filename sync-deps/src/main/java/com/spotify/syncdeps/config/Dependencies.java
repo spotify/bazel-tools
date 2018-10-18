@@ -23,13 +23,15 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import com.google.auto.value.AutoValue;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableTable;
 import com.google.common.collect.Table;
-import com.spotify.syncdeps.model.MavenDependencyKind;
 import com.spotify.syncdeps.model.MavenCoords;
+import com.spotify.syncdeps.model.MavenDependencyKind;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.Map;
 import java.util.Optional;
 
 @AutoValue
@@ -44,6 +46,9 @@ public abstract class Dependencies {
   @JsonProperty("maven")
   public abstract ImmutableTable<String, String, Maven> maven();
 
+  @JsonProperty("github")
+  public abstract ImmutableMap<String, GitHub> github();
+
   public static Dependencies parseYaml(final Path path) throws IOException {
     final ObjectMapper mapper =
         new ObjectMapper(new YAMLFactory()).registerModule(new GuavaModule());
@@ -54,8 +59,13 @@ public abstract class Dependencies {
   public static Dependencies create(
       @JsonProperty("options") final Options options,
       @JsonDeserialize(using = TableDeserializer.class) @JsonProperty("maven")
-          final ImmutableTable<String, String, Maven> maven) {
-    return builder().options(options).maven(maven == null ? ImmutableTable.of() : maven).build();
+          final ImmutableTable<String, String, Maven> maven,
+      @JsonProperty("github") final ImmutableMap<String, GitHub> github) {
+    return builder()
+        .options(options)
+        .maven(maven == null ? ImmutableTable.of() : maven)
+        .github(github == null ? ImmutableMap.of() : github)
+        .build();
   }
 
   public static Builder builder() {
@@ -73,6 +83,13 @@ public abstract class Dependencies {
 
     public Builder maven(final Table<String, String, Maven> maven) {
       mavenBuilder().putAll(maven);
+      return this;
+    }
+
+    public abstract ImmutableMap.Builder<String, GitHub> githubBuilder();
+
+    public Builder github(final Map<String, GitHub> github) {
+      githubBuilder().putAll(github);
       return this;
     }
 
@@ -232,6 +249,25 @@ public abstract class Dependencies {
       public abstract Builder kind(final MavenDependencyKind kind);
 
       public abstract Maven build();
+    }
+  }
+
+  @AutoValue
+  @JsonIgnoreProperties(ignoreUnknown = true)
+  public abstract static class GitHub {
+
+    GitHub() {}
+
+    @JsonProperty("repo")
+    public abstract String repo();
+
+    @JsonProperty("ref")
+    public abstract String ref();
+
+    @JsonCreator
+    public static GitHub create(
+        @JsonProperty("repo") final String repo, @JsonProperty("ref") final String ref) {
+      return new AutoValue_Dependencies_GitHub(repo, ref);
     }
   }
 }
