@@ -22,6 +22,12 @@ options:
     - org.slf4j:slf4j-log4j12
 
 github:
+  io_bazel:
+    repo: bazelbuild/bazel
+    ref: 0.18.0
+  com_github_bazelbuild_buildtools:
+    repo: bazelbuild/buildtools
+    ref: master
   io_bazel_rules_go:
     repo: bazelbuild/rules_go
     ref: master

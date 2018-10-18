@@ -19,6 +19,7 @@ import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
 import java.util.stream.Stream;
 import org.slf4j.Logger;
@@ -41,19 +42,35 @@ public final class GitHubDependencies {
 
       LOG.info("Checking for updates to @|bold {}|@ ref @|bold {}|@", repo, ref);
       final String cloneUrl = "git@github.com:" + repo;
-      final Path tempDirectory = Files.createTempDirectory("sync-deps");
+      final Path repoDirectory =
+          Paths.get(System.getProperty("user.home"), ".cache", "bazel", "github", repo);
 
-      final Process cloneProcess =
-          new ProcessBuilder("git", "clone", cloneUrl, tempDirectory.toString())
-              .redirectErrorStream(true)
-              .start();
+      final Process updateProcess;
+      if (Files.exists(repoDirectory)) {
+        final Process setRemoteProcess =
+            new ProcessBuilder("git", "remote", "set-url", "origin", cloneUrl)
+                .directory(repoDirectory.toFile())
+                .redirectErrorStream(true)
+                .start();
+        awaitProcess(setRemoteProcess);
 
-      awaitProcess(cloneProcess);
+        updateProcess =
+            new ProcessBuilder("git", "fetch", "origin")
+                .directory(repoDirectory.toFile())
+                .redirectErrorStream(true)
+                .start();
+      } else {
+        updateProcess =
+            new ProcessBuilder("git", "clone", cloneUrl, repoDirectory.toString())
+                .redirectErrorStream(true)
+                .start();
+      }
+      awaitProcess(updateProcess);
 
       final Process process =
           new ProcessBuilder("git", "rev-parse", ref)
               .redirectOutput(ProcessBuilder.Redirect.PIPE)
-              .directory(tempDirectory.toFile())
+              .directory(repoDirectory.toFile())
               .start();
 
       final String commit =
@@ -68,6 +85,7 @@ public final class GitHubDependencies {
 
       final String url = String.format(ROOT, "https://github.com/%s/archive/%s.zip", repo, commit);
 
+      LOG.info("Computing sha256 for @|bold {}|@ commit @|bold {}|@", repo, commit);
       // TODO: should we use some fancier HTTP library?
       final HashCode sha256;
       try (final InputStream input = URI.create(url).toURL().openStream()) {
