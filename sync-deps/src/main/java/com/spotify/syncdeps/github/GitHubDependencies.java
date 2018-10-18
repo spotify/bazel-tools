@@ -41,7 +41,7 @@ public final class GitHubDependencies {
       final String ref = spec.ref();
 
       LOG.info("Checking for updates to @|bold {}|@ ref @|bold {}|@", repo, ref);
-      final String cloneUrl = "git@github.com:" + repo;
+      final String cloneUrl = "https://github.com/" + repo + ".git";
       final Path repoDirectory =
           Paths.get(System.getProperty("user.home"), ".cache", "bazel", "github", repo);
 
