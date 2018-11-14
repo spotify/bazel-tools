@@ -43,7 +43,7 @@ public final class GitHubDependencies {
       LOG.info("Checking for updates to @|bold {}|@ ref @|bold {}|@", repo, ref);
       final String cloneUrl = "https://github.com/" + repo + ".git";
       final Path repoDirectory =
-          Paths.get(System.getProperty("user.home"), ".cache", "bazel", "github", repo);
+          Paths.get(System.getProperty("user.home"), ".cache", "bazel", "github", repo + ".git");
 
       final Process updateProcess;
       if (Files.exists(repoDirectory)) {
@@ -55,13 +55,13 @@ public final class GitHubDependencies {
         awaitProcess(setRemoteProcess);
 
         updateProcess =
-            new ProcessBuilder("git", "fetch", "origin")
+            new ProcessBuilder("git", "fetch", "--prune", "origin")
                 .directory(repoDirectory.toFile())
                 .redirectErrorStream(true)
                 .start();
       } else {
         updateProcess =
-            new ProcessBuilder("git", "clone", cloneUrl, repoDirectory.toString())
+            new ProcessBuilder("git", "clone", "--mirror", cloneUrl, repoDirectory.toString())
                 .redirectErrorStream(true)
                 .start();
       }

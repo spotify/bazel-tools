@@ -19,6 +19,6 @@ def github_dependencies(callback=None):
     if callback == None:
         callback = default_github_callback
     callback(name="io_bazel", repository="bazelbuild/bazel", commit="d13df477d2d8327335bd9ba20b166bcb4b0e9f27", sha256="48ce670c27be53f4beb4fe0eb27126c4725aa84cf5da068b58c997c6f50d8896")
-    callback(name="com_github_bazelbuild_buildtools", repository="bazelbuild/buildtools", commit="90fd34a8dffeb3b823c4ddefad93cc67d099e738", sha256="0f77ab75936a72f142abbb32a3850bf7c8e9d9d2e23fb28cf070530dd78efd79")
-    callback(name="io_bazel_rules_go", repository="bazelbuild/rules_go", commit="8a59dc6c0e7954e4219a54fb43035c4eb6133b61", sha256="f9439f0eb02bb6c9bc1c634d29dcf6c4c12f4d7b9e238cfd60905611ce30f94b")
-    callback(name="io_bazel_rules_scala", repository="bazelbuild/rules_scala", commit="e8328761275fe782c25d098a376ad13cc9e36899", sha256="ed0e80910d477c3b1e89a51b84a5a0b457f1dd42e601cc8759ccb09b08c96e8d")
+    callback(name="com_github_bazelbuild_buildtools", repository="bazelbuild/buildtools", commit="24319b44bd24deb7079cb2cb5a568d3d4dfca2bc", sha256="4d5c65186647a89b93fc160cf75854aa6f03b6f974f186a846a62349d5990f7d")
+    callback(name="io_bazel_rules_go", repository="bazelbuild/rules_go", commit="109c520465fcb418f2c4be967f3744d959ad66d3", sha256="c9c876a58ddf7d9856097e1df33c62fd2beefee0e7339573c1363daf7271dacd")
+    callback(name="io_bazel_rules_scala", repository="bazelbuild/rules_scala", commit="4be50865a332aef46c46c94b345c320c3353e9e1", sha256="6f2be4982047c351de7ecc2215c40cedcc3174a8320e954277dafd0c4f352ce0")
