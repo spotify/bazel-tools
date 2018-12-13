@@ -12,11 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("//3rdparty:workspace.bzl", "maven_dependencies")
 
 def bazel_tools_repositories():
     _maybe(
-        native.http_archive,
+        http_archive,
         name = "io_bazel",
         sha256 = "a0333e7e8ce885f85f52bbb239e36810ac340c211c550d10c499f098a2e925a8",
         strip_prefix = "bazel-0.15.2",  # Should match current Bazel version
@@ -29,7 +30,7 @@ def bazel_tools_repositories():
     bazelbuild_buildtools_version = "1f7a4641c80dd8027c676a723cef368bcf94e3b4"  # branch master
 
     _maybe(
-        native.http_archive,
+        http_archive,
         name = "com_github_bazelbuild_buildtools",
         sha256 = "5fb3cd3ba4de02c082f29fc317c332f2184f780a24c087388ca57a4fa5f744ab",
         strip_prefix = "buildtools-%s" % (bazelbuild_buildtools_version,),
