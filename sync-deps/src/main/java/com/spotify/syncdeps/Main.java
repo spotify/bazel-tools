@@ -99,8 +99,13 @@ public final class Main {
       LOG.info("Resolving dependencies");
       final ImmutableSet<MavenDependency> mavenDependencies =
           MavenDependencies.resolveDependencies(dependencies);
-      final ImmutableSet<GitHubDependency> gitHubDependencies =
-          GitHubDependencies.resolveDependencies(dependencies);
+
+      final ImmutableSet<GitHubDependency> gitHubDependencies;
+      if (options.syncGithub()) {
+        gitHubDependencies = GitHubDependencies.resolveDependencies(dependencies);
+      } else {
+        gitHubDependencies = null;
+      }
 
       final Path workspaceFile = options.workspaceFile();
       final Path repositoryFile = options.repositoryFile();
@@ -111,7 +116,14 @@ public final class Main {
 
       final Path newWorkspaceFile =
           writeNewWorkspaceFile(options, dependencies.options(), mavenDependencies);
-      final Path newRepositoryFile = writeNewRepositoryFile(options, gitHubDependencies);
+
+      final Path newRepositoryFile;
+      if (gitHubDependencies != null) {
+        newRepositoryFile = writeNewRepositoryFile(options, gitHubDependencies);
+      } else {
+        newRepositoryFile = null;
+      }
+
       final Path newJvmDirectory = writeNewJvmDirectory(options, mavenDependencies);
 
       LOG.info("Updating @|bold {}|@", relativeJvmDirectory);
@@ -122,9 +134,11 @@ public final class Main {
       Files.deleteIfExists(workspaceFile);
       Files.move(newWorkspaceFile, workspaceFile);
 
-      LOG.info("Updating @|bold {}|@", relativeRepositoryFile);
-      Files.deleteIfExists(repositoryFile);
-      Files.move(newRepositoryFile, repositoryFile);
+      if (newRepositoryFile != null) {
+        LOG.info("Updating @|bold {}|@", relativeRepositoryFile);
+        Files.deleteIfExists(repositoryFile);
+        Files.move(newRepositoryFile, repositoryFile);
+      }
 
       LOG.info("Updating @|bold {}|@", relativeLockFile);
       Files.write(options.lockFile(), createLockContents(options).getBytes(UTF_8));

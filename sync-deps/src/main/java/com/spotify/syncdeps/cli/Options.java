@@ -38,6 +38,8 @@ public abstract class Options {
 
   public abstract boolean verbose();
 
+  public abstract boolean syncGithub();
+
   public Path inputFile() {
     return thirdPartyDirectory().resolve("dependencies.yaml");
   }
@@ -67,6 +69,7 @@ public abstract class Options {
 
     final OptionSpec<Void> helpFlag = parser.accepts("help").forHelp();
     final OptionSpec<Void> verboseFlag = parser.acceptsAll(Arrays.asList("verbose", "v"));
+    final OptionSpec<Void> syncGithubFlag = parser.acceptsAll(Arrays.asList("sync-github", "g"));
     final OptionSpec<File> workspaceDirectoryArgument =
         parser
             .acceptsAll(Arrays.asList("workspace-directory", "w"))
@@ -100,20 +103,23 @@ public abstract class Options {
 
     final boolean verify = optionSet.has(verifyFlag);
     final boolean verbose = optionSet.has(verboseFlag);
+    final boolean syncGithub = optionSet.has(syncGithubFlag);
 
-    return create(workspaceDirectory, buildifier, verify, verbose);
+    return create(workspaceDirectory, buildifier, verify, verbose, syncGithub);
   }
 
   public static Options create(
       final Path workspaceDirectory,
       final Path buildifier,
       final boolean verify,
-      final boolean verbose) {
+      final boolean verbose,
+      final boolean syncGithub) {
     return builder()
         .workspaceDirectory(workspaceDirectory)
         .buildifier(buildifier)
         .verify(verify)
         .verbose(verbose)
+        .syncGithub(syncGithub)
         .build();
   }
 
@@ -133,6 +139,8 @@ public abstract class Options {
     public abstract Builder verify(final boolean verify);
 
     public abstract Builder verbose(final boolean verbose);
+
+    public abstract Builder syncGithub(final boolean syncGithub);
 
     public abstract Options build();
   }
