@@ -273,7 +273,7 @@ public final class Main {
       process =
           new ProcessBuilder()
               .directory(root.toFile())
-              .command("git", "status", "--porcelain")
+              .command("git", "status", "--porcelain", "--no-renames")
               .redirectOutput(ProcessBuilder.Redirect.PIPE)
               .redirectError(ProcessBuilder.Redirect.INHERIT)
               .start();
@@ -296,10 +296,10 @@ public final class Main {
     try (final BufferedReader reader =
         new BufferedReader(new InputStreamReader(process.getInputStream(), UTF_8))) {
       while (reader.ready()) {
-        final String line = reader.readLine();
+        final String line = reader.readLine().trim();
 
-        if (!line.trim().isEmpty()) {
-          final String relativePath = line.substring(2).trim();
+        if (!line.isEmpty()) {
+          final String relativePath = line.substring(line.indexOf(' ') + 1);
           changes.add(root.resolve(relativePath).toAbsolutePath());
         }
       }
