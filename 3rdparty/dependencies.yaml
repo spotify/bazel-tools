@@ -24,19 +24,19 @@ options:
 github:
   io_bazel:
     repo: bazelbuild/bazel
-    ref: 0.28.0
+    tag: 0.28.0
   com_github_bazelbuild_buildtools:
     repo: bazelbuild/buildtools
-    ref: master
+    branch: master
   io_bazel_rules_go:
     repo: bazelbuild/rules_go
-    ref: master
+    branch: master
   io_bazel_rules_scala:
     repo: bazelbuild/rules_scala
-    ref: master
+    branch: master
   rules_jvm_external:
     repo: bazelbuild/rules_jvm_external
-    ref: 2.3
+    tag: 2.3
 
 maven:
   ch.qos.logback:

@@ -17,7 +17,7 @@ package com.spotify.syncdeps.model;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ComparisonChain;
-import com.google.common.hash.HashCode;
+import java.util.Optional;
 
 @AutoValue
 public abstract class GitHubDependency implements Comparable<GitHubDependency> {
@@ -27,14 +27,20 @@ public abstract class GitHubDependency implements Comparable<GitHubDependency> {
 
   public abstract String repository();
 
-  public abstract String commit();
+  public abstract Optional<String> commit();
 
-  public abstract HashCode sha256();
+  public abstract Optional<String> branch();
+
+  public abstract Optional<String> tag();
 
   @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
   public static GitHubDependency create(
-      final String name, final String repository, String commit, final HashCode sha256) {
-    return new AutoValue_GitHubDependency(name, repository, commit, sha256);
+      final String name,
+      final String repository,
+      final Optional<String> commit,
+      final Optional<String> branch,
+      final Optional<String> tag) {
+    return new AutoValue_GitHubDependency(name, repository, commit, branch, tag);
   }
 
   @Override

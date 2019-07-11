@@ -13,17 +13,21 @@
 # limitations under the License.
 workspace(name = "spotify_bazel_tools")
 
-load("//3rdparty:repositories.bzl", "github_dependencies")
+load("//3rdparty:repositories.bzl", "repositories")
 
-github_dependencies()
+repositories()
 
-load("//:tools.bzl", "bazel_tools_repositories")
+load("//3rdparty:workspace.bzl", "maven_dependencies")
 
-bazel_tools_repositories()
+maven_dependencies()
 
 load("@maven//:defs.bzl", "pinned_maven_install")
 
 pinned_maven_install()
+
+load("//:tools.bzl", "bazel_tools_repositories")
+
+bazel_tools_repositories()
 
 load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
 

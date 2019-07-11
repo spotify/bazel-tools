@@ -36,6 +36,7 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 @AutoValue
@@ -265,13 +266,24 @@ public abstract class Dependencies {
     @JsonProperty("repo")
     public abstract String repo();
 
-    @JsonProperty("ref")
-    public abstract String ref();
+    @JsonProperty("commit")
+    public abstract Optional<String> commit();
 
+    @JsonProperty("branch")
+    public abstract Optional<String> branch();
+
+    @JsonProperty("tag")
+    public abstract Optional<String> tag();
+
+    @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
     @JsonCreator
     public static GitHub create(
-        @JsonProperty("repo") final String repo, @JsonProperty("ref") final String ref) {
-      return new AutoValue_Dependencies_GitHub(repo, ref);
+        @JsonProperty("repo") final String repo,
+        @JsonProperty("commit") final String commit,
+        @JsonProperty("branch") final String branch,
+        @JsonProperty("tag") final String tag) {
+      return new AutoValue_Dependencies_GitHub(
+          repo, Optional.ofNullable(commit), Optional.ofNullable(branch), Optional.ofNullable(tag));
     }
   }
 

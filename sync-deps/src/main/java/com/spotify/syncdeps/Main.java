@@ -27,7 +27,6 @@ import com.google.common.io.Resources;
 import com.spotify.bazeltools.cliutils.Cli;
 import com.spotify.syncdeps.cli.Options;
 import com.spotify.syncdeps.config.Dependencies;
-import com.spotify.syncdeps.github.GitHubDependencies;
 import com.spotify.syncdeps.model.GitHubDependency;
 import com.spotify.syncdeps.model.MavenCoords;
 import com.spotify.syncdeps.model.MavenDependency;
@@ -100,12 +99,17 @@ public final class Main {
       final ImmutableSet<MavenCoords> mavenExcludedDependencies =
           dependencies.options().excludedDependencies();
 
-      final ImmutableSet<GitHubDependency> gitHubDependencies;
-      if (options.syncGithub()) {
-        gitHubDependencies = GitHubDependencies.resolveDependencies(dependencies);
-      } else {
-        gitHubDependencies = null;
-      }
+      final ImmutableSet<GitHubDependency> gitHubDependencies =
+          dependencies.github().entrySet().stream()
+              .map(
+                  e ->
+                      GitHubDependency.create(
+                          e.getKey(),
+                          e.getValue().repo(),
+                          e.getValue().commit(),
+                          e.getValue().branch(),
+                          e.getValue().tag()))
+              .collect(ImmutableSet.toImmutableSet());
 
       final Path workspaceFile = options.workspaceFile();
       final Path repositoryFile = options.repositoryFile();
@@ -118,12 +122,7 @@ public final class Main {
           writeNewWorkspaceFile(
               options, dependencies.options(), mavenDependencies, mavenExcludedDependencies);
 
-      final Path newRepositoryFile;
-      if (gitHubDependencies != null) {
-        newRepositoryFile = writeNewRepositoryFile(options, gitHubDependencies);
-      } else {
-        newRepositoryFile = null;
-      }
+      final Path newRepositoryFile = writeNewRepositoryFile(options, gitHubDependencies);
 
       final Path newJvmDirectory = writeNewJvmDirectory(options, mavenDependencies);
 
@@ -150,11 +149,24 @@ public final class Main {
       Files.move(
           options.workspaceDirectory().resolve("maven_install.json"), options.mavenInstallFile());
 
-      if (newRepositoryFile != null) {
-        LOG.info("Updating @|bold {}|@", relativeRepositoryFile);
-        Files.deleteIfExists(repositoryFile);
-        Files.move(newRepositoryFile, repositoryFile);
+      LOG.info("Running bazel sync...");
+      Files.write(options.resolvedFile(), "resolved = []\n".getBytes(UTF_8));
+      if (0
+          != new ProcessBuilder(
+                  "bazel",
+                  "sync",
+                  "--experimental_repository_resolved_file=" + options.resolvedFile())
+              .directory(options.workspaceDirectory().toFile())
+              .inheritIO()
+              .start()
+              .waitFor()) {
+        LOG.error("Failed to run bazel sync (see console output for more info)");
+        System.exit(1);
       }
+
+      LOG.info("Updating @|bold {}|@", relativeRepositoryFile);
+      Files.deleteIfExists(repositoryFile);
+      Files.move(newRepositoryFile, repositoryFile);
 
       LOG.info("Updating @|bold {}|@", relativeLockFile);
       Files.write(options.lockFile(), createLockContents(options).getBytes(UTF_8));
@@ -173,6 +185,7 @@ public final class Main {
                   options.inputFile(),
                   options.workspaceFile(),
                   options.repositoryFile(),
+                  options.resolvedFile(),
                   options.mavenInstallFile()),
               jvmFiles)
           .sorted()
@@ -278,18 +291,31 @@ public final class Main {
 
       out.println();
       out.println();
-      out.println("def github_dependencies(callback=None):");
-      out.println("    if callback == None:");
-      out.println("        callback = default_github_callback");
+      out.println("def repositories(github_callback=None):");
+      out.println("    _frozen_repos()");
+      out.println("    if github_callback == None:");
+      out.println("        github_callback = default_github_callback");
 
       for (final GitHubDependency dependency : gitHubDependencies) {
-        final String name = "\"" + dependency.name() + "\"";
-        final String repository = "\"" + dependency.repository() + "\"";
-        final String commit = "\"" + dependency.commit() + "\"";
-        final String sha256 = "\"" + dependency.sha256() + "\"";
-        out.printf(
-            "    callback(name=%1$s, repository=%2$s, commit=%3$s, sha256=%4$s)\n",
-            name, repository, commit, sha256);
+        final String name = dependency.name();
+        final String repository = dependency.repository();
+        if (dependency.commit().isPresent()) {
+          out.printf(
+              "    github_callback(name=\"%1$s\", repository=\"%2$s\", commit=\"%3$s\")\n",
+              name, repository, dependency.commit().get());
+        } else if (dependency.tag().isPresent()) {
+          out.printf(
+              "    github_callback(name=\"%1$s\", repository=\"%2$s\", tag=\"%3$s\")\n",
+              name, repository, dependency.tag().get());
+        } else if (dependency.branch().isPresent()) {
+          out.printf(
+              "    github_callback(name=\"%1$s\", repository=\"%2$s\", branch=\"%3$s\")\n",
+              name, repository, dependency.branch().get());
+        } else {
+          out.printf(
+              "    github_callback(name=\"%1$s\", repository=\"%2$s\", branch=\"master\")\n",
+              name, repository);
+        }
       }
     }
 
