@@ -23,7 +23,6 @@ java_library(
     deps = [
         "//3rdparty/jvm/com/google/code/findbugs:annotations",
         "//3rdparty/jvm/com/google/guava",
-        "//3rdparty/jvm/org/apache/ivy",
         "//3rdparty/jvm/org/slf4j:slf4j-api",
         "//sync-deps/src/main/java/com/spotify/syncdeps/config",
         "//sync-deps/src/main/java/com/spotify/syncdeps/model",

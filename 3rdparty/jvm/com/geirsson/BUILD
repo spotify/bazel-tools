@@ -1,17 +1,19 @@
+load("@rules_jvm_external//:defs.bzl", "artifact")
+
+alias(
+    name = "scalafmt-core",
+    actual = artifact("com.geirsson:scalafmt-core_2.12:1.5.1"),
+    visibility = ["//visibility:public"],
+)
+
 alias(
     name = "metaconfig-core",
-    actual = "@com_geirsson_metaconfig_core_2_12",
+    actual = artifact("com.geirsson:metaconfig-core_2.12:0.4.0"),
     visibility = ["//visibility:public"],
 )
 
 alias(
     name = "metaconfig-typesafe-config",
-    actual = "@com_geirsson_metaconfig_typesafe_config_2_12",
-    visibility = ["//visibility:public"],
-)
-
-alias(
-    name = "scalafmt-core",
-    actual = "@com_geirsson_scalafmt_core_2_12",
+    actual = artifact("com.geirsson:metaconfig-typesafe-config_2.12:0.4.0"),
     visibility = ["//visibility:public"],
 )

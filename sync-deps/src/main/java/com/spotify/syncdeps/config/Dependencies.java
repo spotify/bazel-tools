@@ -23,16 +23,20 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import com.google.auto.value.AutoValue;
+import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableTable;
 import com.google.common.collect.Table;
 import com.spotify.syncdeps.model.MavenCoords;
+import com.spotify.syncdeps.model.MavenDependency;
 import com.spotify.syncdeps.model.MavenDependencyKind;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
-import java.util.Optional;
+import java.util.stream.Stream;
 
 @AutoValue
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -185,7 +189,7 @@ public abstract class Dependencies {
     Maven() {}
 
     @JsonProperty("version")
-    public abstract Optional<String> version();
+    public abstract String version();
 
     @JsonProperty("modules")
     public abstract ImmutableSet<String> modules();
@@ -268,6 +272,72 @@ public abstract class Dependencies {
     public static GitHub create(
         @JsonProperty("repo") final String repo, @JsonProperty("ref") final String ref) {
       return new AutoValue_Dependencies_GitHub(repo, ref);
+    }
+  }
+
+  public ImmutableSet<MavenDependency> toMavenLeafDependencies() {
+    return this.maven().cellSet().stream()
+        .flatMap(c -> createCellDependencies(this.options().scalaAbi(), c))
+        .collect(ImmutableSet.toImmutableSet());
+  }
+
+  static Stream<MavenDependency> createCellDependencies(
+      final String scalaAbi, final Table.Cell<String, String, Dependencies.Maven> cell) {
+    final String groupIdBase = cell.getRowKey();
+    final String artifactIdBase = cell.getColumnKey();
+    final Dependencies.Maven dependencySpec = cell.getValue();
+    assert dependencySpec != null;
+
+    return buildCoords(groupIdBase, artifactIdBase, dependencySpec.modules())
+        .map(
+            coord ->
+                MavenDependency.create(
+                    dependencySpec.kind().isScala() ? coord.withScalaAbi(scalaAbi) : coord,
+                    dependencySpec.version(),
+                    dependencySpec.neverLink(),
+                    dependencySpec.kind()));
+  }
+
+  private static Stream<MavenCoords> buildCoords(
+      final String groupIdBase, final String artifactIdBase, final ImmutableSet<String> modules) {
+    if (modules.isEmpty()) {
+      return Stream.of(MavenCoords.create(groupIdBase, artifactIdBase));
+    } else {
+      return modules.stream().map(spec -> formatSpec(groupIdBase, artifactIdBase, spec));
+    }
+  }
+
+  private static MavenCoords formatSpec(
+      final String groupIdBase, final String artifactIdBase, final String spec) {
+    if (spec.contains(":")) {
+      final List<String> parts = Splitter.on(':').limit(2).splitToList(spec);
+      final String groupIdFragment = parts.get(0);
+      final String artifactIdFragment = parts.get(1);
+
+      final String groupId;
+      if (groupIdFragment.isEmpty()) {
+        groupId = groupIdBase;
+      } else {
+        groupId = String.format(Locale.ROOT, "%s.%s", groupIdBase, groupIdFragment);
+      }
+
+      final String artifactId;
+      if (artifactIdFragment.isEmpty()) {
+        artifactId = artifactIdBase;
+      } else {
+        artifactId = String.format(Locale.ROOT, "%s-%s", artifactIdBase, artifactIdFragment);
+      }
+
+      return MavenCoords.create(groupId, artifactId);
+    } else {
+      final String artifactId;
+      if (spec.isEmpty()) {
+        artifactId = artifactIdBase;
+      } else {
+        artifactId = String.format(Locale.ROOT, "%s-%s", artifactIdBase, spec);
+      }
+
+      return MavenCoords.create(groupIdBase, artifactId);
     }
   }
 }

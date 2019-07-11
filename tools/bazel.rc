@@ -1,1 +1,2 @@
 build --proto_toolchain_for_java=//:protobuf_java_toolchain
+build --incompatible_string_join_requires_strings=false

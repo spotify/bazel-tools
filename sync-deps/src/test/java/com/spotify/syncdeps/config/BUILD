@@ -15,16 +15,16 @@ licenses(["notice"])
 
 load("//tools:java.bzl", "JAVACOPTS")
 
-java_library(
-    name = "maven",
-    srcs = glob(["*.java"]),
+java_test(
+    name = "DependenciesTest",
+    size = "small",
+    srcs = ["DependenciesTest.java"],
     javacopts = JAVACOPTS,
-    visibility = ["//sync-deps:__subpackages__"],
     deps = [
-        "//3rdparty/jvm/com/google/code/findbugs:annotations",
         "//3rdparty/jvm/com/google/guava",
-        "//3rdparty/jvm/org/apache/ivy",
-        "//3rdparty/jvm/org/slf4j:slf4j-api",
+        "//3rdparty/jvm/com/google/jimfs",
+        "//3rdparty/jvm/com/squareup/okio",
+        "//3rdparty/jvm/org/hamcrest:java-hamcrest",
         "//sync-deps/src/main/java/com/spotify/syncdeps/config",
         "//sync-deps/src/main/java/com/spotify/syncdeps/model",
     ],

@@ -1,11 +1,13 @@
+load("@rules_jvm_external//:defs.bzl", "artifact")
+
 alias(
     name = "annotations",
-    actual = "@com_google_code_findbugs_annotations",
+    actual = artifact("com.google.code.findbugs:annotations:3.0.1"),
     visibility = ["//visibility:public"],
 )
 
 alias(
     name = "jsr305",
-    actual = "@com_google_code_findbugs_jsr305",
+    actual = artifact("com.google.code.findbugs:jsr305:3.0.2"),
     visibility = ["//visibility:public"],
 )

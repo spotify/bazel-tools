@@ -56,6 +56,10 @@ public abstract class Options {
     return thirdPartyDirectory().resolve("repositories.bzl");
   }
 
+  public Path mavenInstallFile() {
+    return thirdPartyDirectory().resolve("maven-install.json");
+  }
+
   public Path thirdPartyDirectory() {
     return workspaceDirectory().resolve("3rdparty");
   }

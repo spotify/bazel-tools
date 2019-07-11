@@ -1,15 +1,13 @@
 JAVACOPTS = [
     "-Xlint:cast",
-    # TODO(dflemstr): Enable this again after all of the Kind fixes.
-    # "-Xlint:deprecation",
+    "-Xlint:deprecation",
     "-Xlint:divzero",
     "-Xlint:empty",
     "-Xlint:fallthrough",
     "-Xlint:finally",
     "-Xlint:overrides",
     "-Xlint:path",
-    # TODO(dflemstr): Enable this again once we know what to do about Ontology @Memoized
-    # "-Xlint:serial",
+    "-Xlint:serial",
     "-Xlint:unchecked",
     "-Xlint:-options",
     "-XepAllDisabledChecksAsWarnings",
@@ -23,5 +21,5 @@ JAVACOPTS = [
     "-Xep:Java7ApiChecker:OFF",
     # We prefer to use a vendor-neutral @Immutable annotation
     "-Xep:ImmutableRefactoring:OFF",
-    "-Werror",
+    #"-Werror",
 ]

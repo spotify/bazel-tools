@@ -1,5 +1,7 @@
+load("@rules_jvm_external//:defs.bzl", "artifact")
+
 alias(
     name = "protobuf-java",
-    actual = "@com_google_protobuf_protobuf_java",
+    actual = artifact("com.google.protobuf:protobuf-java:3.8.0"),
     visibility = ["//visibility:public"],
 )

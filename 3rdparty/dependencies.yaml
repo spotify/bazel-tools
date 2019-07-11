@@ -24,7 +24,7 @@ options:
 github:
   io_bazel:
     repo: bazelbuild/bazel
-    ref: 0.18.0
+    ref: 0.28.0
   com_github_bazelbuild_buildtools:
     repo: bazelbuild/buildtools
     ref: master
@@ -34,6 +34,9 @@ github:
   io_bazel_rules_scala:
     repo: bazelbuild/rules_scala
     ref: master
+  rules_jvm_external:
+    repo: bazelbuild/rules_jvm_external
+    ref: 2.3
 
 maven:
   ch.qos.logback:
@@ -97,7 +100,7 @@ maven:
     protobuf:
       modules:
         - java
-      version: "3.6.0"
+      version: "3.8.0"
 
   com.google.jimfs:
     jimfs:
@@ -110,14 +113,6 @@ maven:
   net.sf.jopt-simple:
     jopt-simple:
       version: "5.0.4"
-
-  org.apache.ivy:
-    ivy:
-      version: "2.4.0"
-
-  org.fusesource.jansi:
-    jansi-native:
-      version: "1.8"
 
   org.hamcrest:
     java-hamcrest:

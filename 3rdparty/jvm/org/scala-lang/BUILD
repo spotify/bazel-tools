@@ -1,17 +1,19 @@
+load("@rules_jvm_external//:defs.bzl", "artifact")
+
 alias(
     name = "scala-compiler",
-    actual = "@org_scala_lang_scala_compiler",
+    actual = artifact("org.scala-lang:scala-compiler:2.12.6"),
     visibility = ["//visibility:public"],
 )
 
 alias(
     name = "scala-library",
-    actual = "@org_scala_lang_scala_library",
+    actual = artifact("org.scala-lang:scala-library:2.12.6"),
     visibility = ["//visibility:public"],
 )
 
 alias(
     name = "scala-reflect",
-    actual = "@org_scala_lang_scala_reflect",
+    actual = artifact("org.scala-lang:scala-reflect:2.12.6"),
     visibility = ["//visibility:public"],
 )

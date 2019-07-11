@@ -21,7 +21,6 @@ import static java.nio.file.attribute.PosixFilePermissions.fromString;
 import static java.util.stream.Collectors.joining;
 
 import com.google.common.base.Strings;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.hash.HashCode;
 import com.google.common.io.Resources;
@@ -29,7 +28,6 @@ import com.spotify.bazeltools.cliutils.Cli;
 import com.spotify.syncdeps.cli.Options;
 import com.spotify.syncdeps.config.Dependencies;
 import com.spotify.syncdeps.github.GitHubDependencies;
-import com.spotify.syncdeps.maven.MavenDependencies;
 import com.spotify.syncdeps.model.GitHubDependency;
 import com.spotify.syncdeps.model.MavenCoords;
 import com.spotify.syncdeps.model.MavenDependency;
@@ -98,7 +96,9 @@ public final class Main {
 
       LOG.info("Resolving dependencies");
       final ImmutableSet<MavenDependency> mavenDependencies =
-          MavenDependencies.resolveDependencies(dependencies);
+          dependencies.toMavenLeafDependencies();
+      final ImmutableSet<MavenCoords> mavenExcludedDependencies =
+          dependencies.options().excludedDependencies();
 
       final ImmutableSet<GitHubDependency> gitHubDependencies;
       if (options.syncGithub()) {
@@ -115,7 +115,8 @@ public final class Main {
       final Path relativeJvmDirectory = options.workspaceDirectory().relativize(jvmDirectory);
 
       final Path newWorkspaceFile =
-          writeNewWorkspaceFile(options, dependencies.options(), mavenDependencies);
+          writeNewWorkspaceFile(
+              options, dependencies.options(), mavenDependencies, mavenExcludedDependencies);
 
       final Path newRepositoryFile;
       if (gitHubDependencies != null) {
@@ -186,7 +187,8 @@ public final class Main {
   private static Path writeNewWorkspaceFile(
       final Options options,
       final Dependencies.Options dependencyOptions,
-      final ImmutableSet<MavenDependency> mavenDependencies)
+      final ImmutableSet<MavenDependency> mavenDependencies,
+      final ImmutableSet<MavenCoords> mavenExcludedDependencies)
       throws IOException {
     final Path newOutputFile =
         Files.createTempFile(
@@ -198,49 +200,44 @@ public final class Main {
           Resources.toString(Resources.getResource(Main.class, "workspace-header.bzl"), UTF_8);
 
       final String mavenResolversList =
-          dependencyOptions
-              .mavenResolvers()
-              .stream()
+          dependencyOptions.mavenResolvers().stream()
               .map(Dependencies.MavenResolver::url)
               .map(url -> "\"" + url + "\"")
-              .collect(joining(", ", "[", "]"));
-      out.write(header.replace("[\"%MAVEN_RESOLVERS%\"]", mavenResolversList));
+              .collect(joining(",\n            ", "[\n            ", "\n        ]"));
 
+      final String artifactsList =
+          mavenDependencies.stream()
+              .map(
+                  d ->
+                      String.format(
+                          "maven.artifact(group = \"%s\", artifact = \"%s\", version = \"%s\", neverlink = %s)",
+                          d.coords().groupId(),
+                          d.coords().artifactId(),
+                          d.version(),
+                          d.neverLink() ? "True" : "False"))
+              .collect(joining(",\n            ", "[\n            ", "\n        ]"));
+
+      final String excludedArtifactsList =
+          mavenExcludedDependencies.stream()
+              .map(
+                  coords ->
+                      String.format(
+                          "maven.exclusion(group = \"%s\", artifact = \"%s\")",
+                          coords.groupId(), coords.artifactId()))
+              .collect(joining(",\n            ", "[\n            ", "\n        ]"));
+
+      out.write(header);
       out.println();
-      out.println();
-      out.println("def maven_dependencies(callback=None):");
-      out.println("    if callback == None:");
-      out.println("        callback = default_maven_callback");
-
-      for (final MavenDependency mavenDependency : mavenDependencies) {
-        // TODO: fix licenses
-        final String name = "\"" + mavenDependency.coords().workspaceName() + "\"";
-        final String jarPath = "\"" + mavenDependency.path(null) + "\"";
-        final String jarSha256 = mavenDependency.sha256().map(s -> "\"" + s + "\"").orElse("None");
-        final String srcjarPath;
-        if (mavenDependency.sourcesSha256().isPresent()) {
-          srcjarPath = "\"" + mavenDependency.path("sources") + "\"";
-        } else {
-          srcjarPath = "None";
-        }
-        final String srcjarSha256 =
-            mavenDependency.sourcesSha256().map(s -> "\"" + s + "\"").orElse("None");
-        final String deps =
-            mavenDependency
-                .dependencies()
-                .keySet()
-                .stream()
-                .map(MavenCoords::workspaceName)
-                .map(n -> "\"" + n + "\"")
-                .collect(joining(", ", "[", "]"));
-        final String neverlink = mavenDependency.neverLink() ? "True" : "False";
-        final String isScala = mavenDependency.kind().isScala() ? "True" : "False";
-
-        out.printf(
-            "    callback(name=%1$s, licenses=[\"notice\"], jar_path=%2$s, jar_sha256=%3$s,"
-                + " srcjar_path=%4$s, srcjar_sha256=%5$s, deps=%6$s, neverlink=%7$s, is_scala=%8$s)\n",
-            name, jarPath, jarSha256, srcjarPath, srcjarSha256, deps, neverlink, isScala);
-      }
+      out.println("def maven_dependencies(install=None):");
+      out.println("    if install == None:");
+      out.println("        install = default_install");
+      out.printf(
+          "    install(%n"
+              + "        artifacts=%s,%n"
+              + "        repositories=%s,%n"
+              + "        excluded_artifacts=%s,%n"
+              + "    )%n",
+          artifactsList, mavenResolversList, excludedArtifactsList);
     }
 
     return newOutputFile;
@@ -287,10 +284,7 @@ public final class Main {
     final Path newJvmDirectory =
         Files.createTempDirectory(options.thirdPartyDirectory(), "jvm-", DIR_PERMISSIONS);
 
-    mavenDependencies
-        .stream()
-        // Only write BUILD files for public dependencies; private ones are inlined
-        .filter(MavenDependency::isPublic)
+    mavenDependencies.stream()
         .collect(Collectors.groupingBy(d -> d.coords().groupId()))
         .forEach(
             (groupId, groupDependencies) ->
@@ -316,25 +310,15 @@ public final class Main {
     final Path buildFile = groupIdDir.resolve("BUILD");
     try (final Writer writer = Files.newBufferedWriter(buildFile, UTF_8);
         final PrintWriter out = new PrintWriter(writer)) {
-      boolean needsSeparator = false;
+      out.println("load(\"@rules_jvm_external//:defs.bzl\", \"artifact\")");
 
       for (final MavenDependency dependency : groupDependencies) {
-
-        if (needsSeparator) {
-          out.print('\n');
-        }
-        needsSeparator = true;
+        out.print('\n');
         out.printf("alias(\n");
         out.printf(
             "    name = \"%s\",\n", dependency.coords().artifactLabel(dependency.kind().isScala()));
-        out.printf("    actual = \"@%s\",\n", dependency.coords().workspaceName());
-
-        if (dependency.isPublic()) {
-          out.printf("    visibility=[\"//visibility:public\"],\n");
-        } else {
-          out.printf("    visibility=[\"//3rdparty:__subpackages__\"],\n");
-        }
-
+        out.printf("    actual = artifact(\"%s\"),\n", dependency);
+        out.printf("    visibility=[\"//visibility:public\"],\n");
         out.printf(")\n");
       }
     } catch (IOException e) {
@@ -362,42 +346,6 @@ public final class Main {
     if (exitCode != 0) {
       throw new IllegalStateException("Could not run buildifier on " + buildFile);
     }
-  }
-
-  private static void writeDependencies(
-      final PrintWriter out,
-      final ImmutableMap<MavenCoords, Boolean> transitiveDependencies,
-      final ImmutableMap<MavenCoords, MavenDependency> dependenciesByCoords) {
-    // Add all non-public dependencies as JAR references
-    transitiveDependencies.forEach(
-        (mavenCoords, isPublic) -> {
-          if (!isPublic) {
-            printWorkspaceJarReference(out, mavenCoords);
-
-            // ... but we need to also add the transitive dependencies of that dependency
-            writeDependencies(
-                out, dependenciesByCoords.get(mavenCoords).dependencies(), dependenciesByCoords);
-          }
-        });
-
-    // Add all public dependencies as references to their public //3rdparty/jvm paths
-    transitiveDependencies.forEach(
-        (mavenCoords, isPublic) -> {
-          if (isPublic) {
-            final MavenDependency mavenDependency = dependenciesByCoords.get(mavenCoords);
-            out.printf(
-                "        \"//3rdparty/jvm/%s:%s\",\n",
-                mavenCoords.groupRelativePackageName(),
-                mavenCoords.artifactLabel(mavenDependency.kind().isScala()));
-          }
-        });
-  }
-
-  private static void printWorkspaceJarReference(
-      final PrintWriter out, final MavenCoords mavenCoords) {
-    out.printf(
-        "         \"//external:jar/%s/%s\",\n",
-        mavenCoords.groupRelativePackageName(), mavenCoords.artifactPackagePathSegment());
   }
 
   private static Path readLink(final Path path) {

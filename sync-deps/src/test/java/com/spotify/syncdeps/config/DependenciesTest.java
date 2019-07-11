@@ -13,30 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.spotify.syncdeps.maven;
+package com.spotify.syncdeps.config;
 
 import static com.google.common.collect.ImmutableList.toImmutableList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Table;
-import com.spotify.syncdeps.config.Dependencies;
 import com.spotify.syncdeps.model.MavenCoords;
 import com.spotify.syncdeps.model.MavenDependency;
 import com.spotify.syncdeps.model.MavenDependencyKind;
-import java.util.Optional;
 import java.util.stream.Stream;
 import javax.annotation.Nullable;
 import org.junit.Test;
 
-public class MavenDependenciesTest {
+public class DependenciesTest {
   @Test
   public void testCreateCellDependencies_simple() {
     final Stream<MavenDependency> dependencies =
-        MavenDependencies.createCellDependencies(
+        Dependencies.createCellDependencies(
             "2.11",
             SimpleCell.create(
                 "a",
@@ -51,10 +48,6 @@ public class MavenDependenciesTest {
                 MavenDependency.create(
                     MavenCoords.create("a", "b"),
                     "1.0",
-                    Optional.empty(),
-                    Optional.empty(),
-                    ImmutableMap.of(),
-                    /* isPublic= */ true,
                     /* neverLink= */ false,
                     MavenDependencyKind.JAVA))));
   }
@@ -62,7 +55,7 @@ public class MavenDependenciesTest {
   @Test
   public void testCreateCellDependencies_normalModule() {
     final Stream<MavenDependency> dependencies =
-        MavenDependencies.createCellDependencies(
+        Dependencies.createCellDependencies(
             "2.11",
             SimpleCell.create(
                 "a",
@@ -80,10 +73,6 @@ public class MavenDependenciesTest {
                 MavenDependency.create(
                     MavenCoords.create("a", "b-c"),
                     "1.0",
-                    Optional.empty(),
-                    Optional.empty(),
-                    ImmutableMap.of(),
-                    /* isPublic= */ true,
                     /* neverLink= */ false,
                     MavenDependencyKind.JAVA))));
   }
@@ -91,7 +80,7 @@ public class MavenDependenciesTest {
   @Test
   public void testCreateCellDependencies_groupModule() {
     final Stream<MavenDependency> dependencies =
-        MavenDependencies.createCellDependencies(
+        Dependencies.createCellDependencies(
             "2.11",
             SimpleCell.create(
                 "a",
@@ -109,10 +98,6 @@ public class MavenDependenciesTest {
                 MavenDependency.create(
                     MavenCoords.create("a.c", "b-d"),
                     "1.0",
-                    Optional.empty(),
-                    Optional.empty(),
-                    ImmutableMap.of(),
-                    /* isPublic= */ true,
                     /* neverLink= */ false,
                     MavenDependencyKind.JAVA))));
   }
@@ -120,7 +105,7 @@ public class MavenDependenciesTest {
   @Test
   public void testCreateCellDependencies_emptyModule() {
     final Stream<MavenDependency> dependencies =
-        MavenDependencies.createCellDependencies(
+        Dependencies.createCellDependencies(
             "2.11",
             SimpleCell.create(
                 "a",
@@ -135,10 +120,6 @@ public class MavenDependenciesTest {
                 MavenDependency.create(
                     MavenCoords.create("a", "b"),
                     "1.0",
-                    Optional.empty(),
-                    Optional.empty(),
-                    ImmutableMap.of(),
-                    /* isPublic= */ true,
                     /* neverLink= */ false,
                     MavenDependencyKind.JAVA))));
   }
@@ -146,7 +127,7 @@ public class MavenDependenciesTest {
   @Test
   public void testCreateCellDependencies_scala() {
     final Stream<MavenDependency> dependencies =
-        MavenDependencies.createCellDependencies(
+        Dependencies.createCellDependencies(
             "2.11",
             SimpleCell.create(
                 "a",
@@ -164,10 +145,6 @@ public class MavenDependenciesTest {
                 MavenDependency.create(
                     MavenCoords.create("a", "b_2.11"),
                     "1.0",
-                    Optional.empty(),
-                    Optional.empty(),
-                    ImmutableMap.of(),
-                    /* isPublic= */ true,
                     /* neverLink= */ false,
                     MavenDependencyKind.SCALA))));
   }
@@ -175,7 +152,7 @@ public class MavenDependenciesTest {
   @Test
   public void testCreateCellDependencies_scalaMacro() {
     final Stream<MavenDependency> dependencies =
-        MavenDependencies.createCellDependencies(
+        Dependencies.createCellDependencies(
             "2.11",
             SimpleCell.create(
                 "a",
@@ -193,10 +170,6 @@ public class MavenDependenciesTest {
                 MavenDependency.create(
                     MavenCoords.create("a", "b_2.11"),
                     "1.0",
-                    Optional.empty(),
-                    Optional.empty(),
-                    ImmutableMap.of(),
-                    /* isPublic= */ true,
                     /* neverLink= */ false,
                     MavenDependencyKind.SCALA_MACRO))));
   }
