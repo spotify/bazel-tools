@@ -135,6 +135,21 @@ public final class Main {
       Files.deleteIfExists(workspaceFile);
       Files.move(newWorkspaceFile, workspaceFile);
 
+      LOG.info("Pinning maven dependencies...");
+      if (0
+          != new ProcessBuilder("bazel", "run", "@unpinned_maven//:pin")
+              .directory(options.workspaceDirectory().toFile())
+              .inheritIO()
+              .start()
+              .waitFor()) {
+        LOG.error("Failed to pin maven dependencies (see console output for more info)");
+        System.exit(1);
+      }
+
+      Files.deleteIfExists(options.mavenInstallFile());
+      Files.move(
+          options.workspaceDirectory().resolve("maven_install.json"), options.mavenInstallFile());
+
       if (newRepositoryFile != null) {
         LOG.info("Updating @|bold {}|@", relativeRepositoryFile);
         Files.deleteIfExists(repositoryFile);
@@ -154,7 +169,11 @@ public final class Main {
         final PrintWriter out = new PrintWriter(stringWriter)) {
       out.println("version\t1");
       Stream.concat(
-              Stream.of(options.inputFile(), options.workspaceFile(), options.repositoryFile()),
+              Stream.of(
+                  options.inputFile(),
+                  options.workspaceFile(),
+                  options.repositoryFile(),
+                  options.mavenInstallFile()),
               jvmFiles)
           .sorted()
           .forEachOrdered(file -> describeFile(options.workspaceDirectory(), file, out));

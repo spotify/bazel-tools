@@ -8,6 +8,7 @@ def default_install(artifacts, repositories, excluded_artifacts = []):
         fetch_sources = True,
         repositories = repositories,
         excluded_artifacts = excluded_artifacts,
+        maven_install_json = "//3rdparty:maven-install.json",
     )
 
 def maven_dependencies(install=None):

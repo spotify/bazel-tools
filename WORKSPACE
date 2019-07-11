@@ -21,6 +21,10 @@ load("//:tools.bzl", "bazel_tools_repositories")
 
 bazel_tools_repositories()
 
+load("@maven//:defs.bzl", "pinned_maven_install")
+
+pinned_maven_install()
+
 load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
 
 go_rules_dependencies()
