@@ -43,7 +43,7 @@ resolved = [
         "original_rule_class": "local_repository",
         "original_attributes": {
             "name": "bazel_tools",
-            "path": "/home/dflemstr/.cache/bazel/_bazel_dflemstr/install/99a7a698f576d17c0b88a878bda06cdf/_embedded_binaries/embedded_tools"
+            "path": "/home/dflemstr/.cache/bazel/_bazel_dflemstr/install/5973ac9b834efa5e25bad57ae2fa4650/_embedded_binaries/embedded_tools"
         },
         "native": "local_repository(name = \"bazel_tools\", path = __embedded_dir__ + \"/\" + \"embedded_tools\")"
     },
@@ -81,7 +81,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'com_github_bazelbuild_buildtools' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:252:18):\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:19:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:8:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:38:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'com_github_bazelbuild_buildtools' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:181:18):\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:19:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:8:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:38:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "com_github_bazelbuild_buildtools",
             "remote": "https://github.com/bazelbuild/buildtools.git",
@@ -90,11 +90,11 @@ resolved = [
         "repositories": [
             {
                 "rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-                "output_tree_hash": "c9c13cac631b361d98e404c0b37d435b2f84094eac001ec2a59b8805c5ee6782",
+                "output_tree_hash": "ae92bfd39c4bffea5fed7a1cb077173439b8a2c8a76942e18f576ce68e8478ba",
                 "attributes": {
                     "remote": "https://github.com/bazelbuild/buildtools.git",
-                    "commit": "cb043c505543a77814d6aff39a4a3a78061fa4c9",
-                    "shallow_since": "1562767385 +0300",
+                    "commit": "a3b05f3d9cc5b708b6f53199d637525e108633f0",
+                    "shallow_since": "1567707685 +0200",
                     "init_submodules": False,
                     "verbose": False,
                     "strip_prefix": "",
@@ -111,20 +111,20 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'io_bazel' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:252:18):\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:19:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:8:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:37:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:181:18):\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:19:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:8:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:37:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "io_bazel",
             "remote": "https://github.com/bazelbuild/bazel.git",
-            "tag": "0.28.0"
+            "tag": "0.29.0"
         },
         "repositories": [
             {
                 "rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-                "output_tree_hash": "f06395d182a35cd91e0077c8f5b5ec83e27091ebf1a4ca55d9558eabc5ca1d4b",
+                "output_tree_hash": "ac87d91b91ab7385502124744b6e7548db077bf1fbb20e3e326f43afeb1b30cb",
                 "attributes": {
                     "remote": "https://github.com/bazelbuild/bazel.git",
-                    "commit": "18cd9048526f067a4950c6ddbf4b1b3604760af0",
-                    "shallow_since": "1562775062 +0200",
+                    "commit": "5a9fa49ec8ea0d8e6fa085190e1187302a9b4fff",
+                    "shallow_since": "1567002548 -0400",
                     "init_submodules": False,
                     "verbose": False,
                     "strip_prefix": "",
@@ -141,7 +141,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_go' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:252:18):\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:19:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:8:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:39:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_go' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:181:18):\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:19:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:8:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:39:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "io_bazel_rules_go",
             "remote": "https://github.com/bazelbuild/rules_go.git",
@@ -150,11 +150,11 @@ resolved = [
         "repositories": [
             {
                 "rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-                "output_tree_hash": "8ae2ae1405e8644ca375ac9200c6a74d97627c2d71474c56d855b51a0de09334",
+                "output_tree_hash": "d1a404e8c34431be093a3b39a4c74791514fe791d86d475529138d36e8859b3b",
                 "attributes": {
                     "remote": "https://github.com/bazelbuild/rules_go.git",
-                    "commit": "d475f375b041daca853610baa32823d361535fba",
-                    "shallow_since": "1562800394 -0400",
+                    "commit": "ef986148e6571a9d53a6deba104c225a3cb127df",
+                    "shallow_since": "1567625963 -0400",
                     "init_submodules": False,
                     "verbose": False,
                     "strip_prefix": "",
@@ -171,7 +171,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:252:18):\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:19:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:8:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:40:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:181:18):\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:19:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:8:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:40:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala",
             "remote": "https://github.com/bazelbuild/rules_scala.git",
@@ -180,11 +180,11 @@ resolved = [
         "repositories": [
             {
                 "rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-                "output_tree_hash": "425cf9d0216dfeaf2f5006dc7675670f146a61b01ab81968b060f5cf328a8885",
+                "output_tree_hash": "112d326dd3ebc849c557c7207a6944290fa13143f34d4749e7c594d0870ddace",
                 "attributes": {
                     "remote": "https://github.com/bazelbuild/rules_scala.git",
-                    "commit": "8092d5f6165a8d9c4797d5f089c1ba4eee3326b1",
-                    "shallow_since": "1561863522 +0300",
+                    "commit": "f4a24fe2f76e1b1f2b24757f7740a2699692951f",
+                    "shallow_since": "1567698918 +0300",
                     "init_submodules": False,
                     "verbose": False,
                     "strip_prefix": "",
@@ -201,20 +201,20 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'rules_jvm_external' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:252:18):\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:19:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:8:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:41:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'rules_jvm_external' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:181:18):\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:19:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:8:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:41:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "rules_jvm_external",
             "remote": "https://github.com/bazelbuild/rules_jvm_external.git",
-            "tag": "2.3"
+            "branch": "master"
         },
         "repositories": [
             {
                 "rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-                "output_tree_hash": "bfc662a1c1960bffbd83bdc9850d59b29832238de67e03ad67e63960a41bc4a4",
+                "output_tree_hash": "b9b76dbde3c0a5bff8af0602bdac1cc2faf4ef94bd0beef45fc1f3a60408a309",
                 "attributes": {
                     "remote": "https://github.com/bazelbuild/rules_jvm_external.git",
-                    "commit": "0a67f52558976208ea85d49ea36cfd708dad30da",
-                    "shallow_since": "1562251604 +0200",
+                    "commit": "3567f2a00d0c1abcf3e5cf93a4f7f4dcd319aa15",
+                    "shallow_since": "1566922160 -0400",
                     "init_submodules": False,
                     "verbose": False,
                     "strip_prefix": "",
@@ -231,7 +231,7 @@ resolved = [
     },
     {
         "original_rule_class": "@rules_jvm_external//:coursier.bzl%pinned_coursier_fetch",
-        "definition_information": "Call stack for the definition of repository 'maven' which is a pinned_coursier_fetch (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/rules_jvm_external/coursier.bzl:789:25):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/rules_jvm_external/defs.bzl:92:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:6:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:17:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:22:1",
+        "definition_information": "Call stack for the definition of repository 'maven' which is a pinned_coursier_fetch (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/rules_jvm_external/coursier.bzl:860:25):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/rules_jvm_external/defs.bzl:102:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:6:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:18:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:22:1",
         "original_attributes": {
             "name": "maven",
             "artifacts": [
@@ -265,12 +265,13 @@ resolved = [
             ],
             "fetch_sources": True,
             "generate_compat_repositories": False,
-            "maven_install_json": "//3rdparty:maven-install.json"
+            "maven_install_json": "//3rdparty:maven-install.json",
+            "override_targets": {}
         },
         "repositories": [
             {
                 "rule_class": "@rules_jvm_external//:coursier.bzl%pinned_coursier_fetch",
-                "output_tree_hash": "91de0238dada1d273f145d6f8481dc935c6a3ad549a56ef04970596de1ccb9be",
+                "output_tree_hash": "e7d153824f314af486151a6006016a3010852a1eff8fa8e4e65d7ba3af1f5ee0",
                 "attributes": {
                     "name": "maven",
                     "artifacts": [
@@ -304,14 +305,15 @@ resolved = [
                     ],
                     "fetch_sources": True,
                     "generate_compat_repositories": False,
-                    "maven_install_json": "//3rdparty:maven-install.json"
+                    "maven_install_json": "//3rdparty:maven-install.json",
+                    "override_targets": {}
                 }
             }
         ]
     },
     {
         "original_rule_class": "@rules_jvm_external//:coursier.bzl%coursier_fetch",
-        "definition_information": "Call stack for the definition of repository 'unpinned_maven' which is a coursier_fetch (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/rules_jvm_external/coursier.bzl:801:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/rules_jvm_external/defs.bzl:75:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:6:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:17:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:22:1",
+        "definition_information": "Call stack for the definition of repository 'unpinned_maven' which is a coursier_fetch (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/rules_jvm_external/coursier.bzl:873:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/rules_jvm_external/defs.bzl:83:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:6:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:18:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:22:1",
         "original_attributes": {
             "name": "unpinned_maven",
             "repositories": [
@@ -353,12 +355,14 @@ resolved = [
                 "{ \"group\": \"com.google.guava\", \"artifact\": \"guava-jdk5\" }",
                 "{ \"group\": \"org.slf4j\", \"artifact\": \"slf4j-log4j12\" }"
             ],
-            "generate_compat_repositories": False
+            "generate_compat_repositories": False,
+            "version_conflict_policy": "pinned",
+            "override_targets": {}
         },
         "repositories": [
             {
                 "rule_class": "@rules_jvm_external//:coursier.bzl%coursier_fetch",
-                "output_tree_hash": "321f51904911d493bd40a8cadf8ecf48fa40b9e765e4e0f539715254f4fcfab6",
+                "output_tree_hash": "6b95c42d39e833ead36157f0da7193c48761f06d8bb52650f2d3211b2abe22c6",
                 "attributes": {
                     "name": "unpinned_maven",
                     "repositories": [
@@ -400,7 +404,9 @@ resolved = [
                         "{ \"group\": \"com.google.guava\", \"artifact\": \"guava-jdk5\" }",
                         "{ \"group\": \"org.slf4j\", \"artifact\": \"slf4j-log4j12\" }"
                     ],
-                    "generate_compat_repositories": False
+                    "generate_compat_repositories": False,
+                    "version_conflict_policy": "pinned",
+                    "override_targets": {}
                 }
             }
         ]
@@ -3451,7 +3457,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'bazel_skylib' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:252:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:189:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:51:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'bazel_skylib' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:181:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:188:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:50:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "bazel_skylib",
             "remote": "https://github.com/bazelbuild/bazel-skylib",
@@ -3482,7 +3488,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'com_github_gogo_protobuf' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:252:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:189:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:124:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'com_github_gogo_protobuf' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:181:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:188:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:123:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "com_github_gogo_protobuf",
             "remote": "https://github.com/gogo/protobuf",
@@ -3521,7 +3527,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'com_github_golang_protobuf' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:252:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:189:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:93:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'com_github_golang_protobuf' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:181:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:188:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:92:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "com_github_golang_protobuf",
             "remote": "https://github.com/golang/protobuf",
@@ -3562,7 +3568,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'com_github_mwitkow_go_proto_validators' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:252:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:189:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:110:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'com_github_mwitkow_go_proto_validators' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:181:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:188:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:109:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "com_github_mwitkow_go_proto_validators",
             "remote": "https://github.com/mwitkow/go-proto-validators",
@@ -3601,7 +3607,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'go_googleapis' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:252:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:189:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:162:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'go_googleapis' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:181:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:188:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:161:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "go_googleapis",
             "remote": "https://github.com/googleapis/googleapis",
@@ -3651,21 +3657,21 @@ resolved = [
         "definition_information": "Call stack for the definition of repository 'go_sdk' which is a _go_download_sdk (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/sdk.bzl:80:20):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/sdk.bzl:93:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/sdk.bzl:261:13\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:36:1",
         "original_attributes": {
             "name": "go_sdk",
-            "version": "1.12.7"
+            "version": "1.13"
         },
         "repositories": [
             {
                 "rule_class": "@io_bazel_rules_go//go/private:sdk.bzl%_go_download_sdk",
                 "attributes": {
                     "name": "go_sdk",
-                    "version": "1.12.7"
+                    "version": "1.13"
                 }
             }
         ]
     },
     {
         "original_rule_class": "@io_bazel_rules_go//proto:gogo.bzl%gogo_special_proto",
-        "definition_information": "Call stack for the definition of repository 'gogo_special_proto' which is a gogo_special_proto (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/proto/gogo.bzl:34:22):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:189:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:136:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'gogo_special_proto' which is a gogo_special_proto (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/proto/gogo.bzl:34:22):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:188:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:135:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "gogo_special_proto"
         },
@@ -3681,7 +3687,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_go//go/private:compat/compat_repo.bzl%_go_rules_compat",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_go_compat' which is a _go_rules_compat (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/compat/compat_repo.bzl:33:20):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/compat/compat_repo.bzl:55:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:189:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:45:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_go_compat' which is a _go_rules_compat (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/compat/compat_repo.bzl:33:20):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/compat/compat_repo.bzl:55:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:188:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:44:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "io_bazel_rules_go_compat",
             "impl": "@io_bazel_rules_go//go/private:compat/v25.bzl"
@@ -3689,7 +3695,7 @@ resolved = [
         "repositories": [
             {
                 "rule_class": "@io_bazel_rules_go//go/private:compat/compat_repo.bzl%_go_rules_compat",
-                "output_tree_hash": "e4cc1f8a56348e70afa41035703ad4cfde6b60392ddfc346193b0ea9ad06ecd1",
+                "output_tree_hash": "c8f63fa58ee94283d3bdd66d1aa3b56da1b0f7ceaa25e19bdb6e2e4c3048f7bc",
                 "attributes": {
                     "name": "io_bazel_rules_go_compat",
                     "impl": "@io_bazel_rules_go//go/private:compat/v25.bzl"
@@ -3699,7 +3705,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_go//go/private:nogo.bzl%go_register_nogo",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_nogo' which is a go_register_nogo (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/nogo.bzl:33:20):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:189:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:181:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_nogo' which is a go_register_nogo (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/nogo.bzl:33:20):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:188:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:180:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "io_bazel_rules_nogo",
             "nogo": "@io_bazel_rules_go//:default_nogo"
@@ -3717,7 +3723,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'org_golang_google_genproto' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:252:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:189:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:145:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'org_golang_google_genproto' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:181:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:188:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:144:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "org_golang_google_genproto",
             "remote": "https://github.com/google/go-genproto",
@@ -3756,7 +3762,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'org_golang_x_tools' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:252:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:189:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:61:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'org_golang_x_tools' which is a git_repository (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/git.bzl:181:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:188:9\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_go/go/private/repositories.bzl:60:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "org_golang_x_tools",
             "remote": "https://go.googlesource.com/tools",
@@ -3797,7 +3803,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'com_google_protobuf' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala.bzl:519:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_protobuf' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:134:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "com_google_protobuf",
             "url": "https://github.com/protocolbuffers/protobuf/archive/b4f193788c9f0f05d7e0879ea96cd738630e5d51.tar.gz",
@@ -3846,7 +3852,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_guava' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala.bzl:484:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_guava' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:125:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_guava",
             "rule_name": "scala_import",
@@ -3856,7 +3862,7 @@ resolved = [
             "jar_urls": [
                 "http://central.maven.org/maven2/com/google/guava/guava/21.0/guava-21.0.jar"
             ],
-            "jar_sha256": "972139718abc8a4893fa78cba8cf7b2c903f35c97aaf44fa3031b0669948b480",
+            "artifact_sha256": "972139718abc8a4893fa78cba8cf7b2c903f35c97aaf44fa3031b0669948b480",
             "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
         },
         "repositories": [
@@ -3872,7 +3878,7 @@ resolved = [
                     "jar_urls": [
                         "http://central.maven.org/maven2/com/google/guava/guava/21.0/guava-21.0.jar"
                     ],
-                    "jar_sha256": "972139718abc8a4893fa78cba8cf7b2c903f35c97aaf44fa3031b0669948b480",
+                    "artifact_sha256": "972139718abc8a4893fa78cba8cf7b2c903f35c97aaf44fa3031b0669948b480",
                     "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
                 }
             }
@@ -3880,75 +3886,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_org_jacoco_org_jacoco_core' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala.bzl:492:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
-        "original_attributes": {
-            "name": "io_bazel_rules_scala_org_jacoco_org_jacoco_core",
-            "rule_name": "scala_import",
-            "licenses": [
-                "notice"
-            ],
-            "jar_urls": [
-                "http://central.maven.org/maven2/org/jacoco/org.jacoco.core/0.7.5.201505241946/org.jacoco.core-0.7.5.201505241946.jar"
-            ],
-            "jar_sha256": "ecf1ad8192926438d0748bfcc3f09bebc7387d2a4184bb3a171a26084677e808",
-            "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
-        },
-        "repositories": [
-            {
-                "rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-                "output_tree_hash": "51c0164c0da3ddec395cb3bf3634a081151c1ff73aa15bf01fe02a2eb74ef99b",
-                "attributes": {
-                    "name": "io_bazel_rules_scala_org_jacoco_org_jacoco_core",
-                    "rule_name": "scala_import",
-                    "licenses": [
-                        "notice"
-                    ],
-                    "jar_urls": [
-                        "http://central.maven.org/maven2/org/jacoco/org.jacoco.core/0.7.5.201505241946/org.jacoco.core-0.7.5.201505241946.jar"
-                    ],
-                    "jar_sha256": "ecf1ad8192926438d0748bfcc3f09bebc7387d2a4184bb3a171a26084677e808",
-                    "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
-                }
-            }
-        ]
-    },
-    {
-        "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_org_ow2_asm_asm_debug_all' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala.bzl:500:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
-        "original_attributes": {
-            "name": "io_bazel_rules_scala_org_ow2_asm_asm_debug_all",
-            "rule_name": "scala_import",
-            "licenses": [
-                "notice"
-            ],
-            "jar_urls": [
-                "http://central.maven.org/maven2/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1.jar"
-            ],
-            "jar_sha256": "4734de5b515a454b0096db6971fb068e5f70e6f10bbee2b3bd2fdfe5d978ed57",
-            "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
-        },
-        "repositories": [
-            {
-                "rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-                "output_tree_hash": "c4a7b13ad7cd5741978a6b5dd4868700c64f360028edc62c764f9f3c07405bd8",
-                "attributes": {
-                    "name": "io_bazel_rules_scala_org_ow2_asm_asm_debug_all",
-                    "rule_name": "scala_import",
-                    "licenses": [
-                        "notice"
-                    ],
-                    "jar_urls": [
-                        "http://central.maven.org/maven2/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1.jar"
-                    ],
-                    "jar_sha256": "4734de5b515a454b0096db6971fb068e5f70e6f10bbee2b3bd2fdfe5d978ed57",
-                    "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
-                }
-            }
-        ]
-    },
-    {
-        "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_compiler' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_cross_version.bzl:67:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala.bzl:423:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_compiler' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_cross_version.bzl:67:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:64:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_scala_compiler",
             "rule_name": "scala_import",
@@ -3958,7 +3896,7 @@ resolved = [
             "jar_urls": [
                 "http://central.maven.org/maven2/org/scala-lang/scala-compiler/2.11.12/scala-compiler-2.11.12.jar"
             ],
-            "jar_sha256": "3e892546b72ab547cb77de4d840bcfd05c853e73390fed7370a8f19acb0735a0",
+            "artifact_sha256": "3e892546b72ab547cb77de4d840bcfd05c853e73390fed7370a8f19acb0735a0",
             "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
         },
         "repositories": [
@@ -3974,7 +3912,7 @@ resolved = [
                     "jar_urls": [
                         "http://central.maven.org/maven2/org/scala-lang/scala-compiler/2.11.12/scala-compiler-2.11.12.jar"
                     ],
-                    "jar_sha256": "3e892546b72ab547cb77de4d840bcfd05c853e73390fed7370a8f19acb0735a0",
+                    "artifact_sha256": "3e892546b72ab547cb77de4d840bcfd05c853e73390fed7370a8f19acb0735a0",
                     "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
                 }
             }
@@ -3982,7 +3920,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_library' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_cross_version.bzl:60:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala.bzl:423:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_library' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_cross_version.bzl:60:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:64:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_scala_library",
             "rule_name": "scala_import",
@@ -3992,7 +3930,7 @@ resolved = [
             "jar_urls": [
                 "http://central.maven.org/maven2/org/scala-lang/scala-library/2.11.12/scala-library-2.11.12.jar"
             ],
-            "jar_sha256": "0b3d6fd42958ee98715ba2ec5fe221f4ca1e694d7c981b0ae0cd68e97baf6dce",
+            "artifact_sha256": "0b3d6fd42958ee98715ba2ec5fe221f4ca1e694d7c981b0ae0cd68e97baf6dce",
             "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
         },
         "repositories": [
@@ -4008,7 +3946,7 @@ resolved = [
                     "jar_urls": [
                         "http://central.maven.org/maven2/org/scala-lang/scala-library/2.11.12/scala-library-2.11.12.jar"
                     ],
-                    "jar_sha256": "0b3d6fd42958ee98715ba2ec5fe221f4ca1e694d7c981b0ae0cd68e97baf6dce",
+                    "artifact_sha256": "0b3d6fd42958ee98715ba2ec5fe221f4ca1e694d7c981b0ae0cd68e97baf6dce",
                     "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
                 }
             }
@@ -4016,7 +3954,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_parser_combinators' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala.bzl:463:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_parser_combinators' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:104:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_scala_parser_combinators",
             "rule_name": "scala_import",
@@ -4026,7 +3964,7 @@ resolved = [
             "jar_urls": [
                 "http://central.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.4/scala-parser-combinators_2.11-1.0.4.jar"
             ],
-            "jar_sha256": "0dfaafce29a9a245b0a9180ec2c1073d2bd8f0330f03a9f1f6a74d1bc83f62d6",
+            "artifact_sha256": "0dfaafce29a9a245b0a9180ec2c1073d2bd8f0330f03a9f1f6a74d1bc83f62d6",
             "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
         },
         "repositories": [
@@ -4042,7 +3980,7 @@ resolved = [
                     "jar_urls": [
                         "http://central.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.4/scala-parser-combinators_2.11-1.0.4.jar"
                     ],
-                    "jar_sha256": "0dfaafce29a9a245b0a9180ec2c1073d2bd8f0330f03a9f1f6a74d1bc83f62d6",
+                    "artifact_sha256": "0dfaafce29a9a245b0a9180ec2c1073d2bd8f0330f03a9f1f6a74d1bc83f62d6",
                     "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
                 }
             }
@@ -4050,7 +3988,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_reflect' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_cross_version.bzl:74:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala.bzl:423:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_reflect' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_cross_version.bzl:74:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:64:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_scala_reflect",
             "rule_name": "scala_import",
@@ -4060,7 +3998,7 @@ resolved = [
             "jar_urls": [
                 "http://central.maven.org/maven2/org/scala-lang/scala-reflect/2.11.12/scala-reflect-2.11.12.jar"
             ],
-            "jar_sha256": "6ba385b450a6311a15c918cf8688b9af9327c6104f0ecbd35933cfcd3095fe04",
+            "artifact_sha256": "6ba385b450a6311a15c918cf8688b9af9327c6104f0ecbd35933cfcd3095fe04",
             "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
         },
         "repositories": [
@@ -4076,7 +4014,7 @@ resolved = [
                     "jar_urls": [
                         "http://central.maven.org/maven2/org/scala-lang/scala-reflect/2.11.12/scala-reflect-2.11.12.jar"
                     ],
-                    "jar_sha256": "6ba385b450a6311a15c918cf8688b9af9327c6104f0ecbd35933cfcd3095fe04",
+                    "artifact_sha256": "6ba385b450a6311a15c918cf8688b9af9327c6104f0ecbd35933cfcd3095fe04",
                     "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
                 }
             }
@@ -4084,7 +4022,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_xml' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala.bzl:452:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_xml' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:93:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_scala_xml",
             "rule_name": "scala_import",
@@ -4094,7 +4032,7 @@ resolved = [
             "jar_urls": [
                 "http://central.maven.org/maven2/org/scala-lang/modules/scala-xml_2.11/1.0.5/scala-xml_2.11-1.0.5.jar"
             ],
-            "jar_sha256": "767e11f33eddcd506980f0ff213f9d553a6a21802e3be1330345f62f7ee3d50f",
+            "artifact_sha256": "767e11f33eddcd506980f0ff213f9d553a6a21802e3be1330345f62f7ee3d50f",
             "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
         },
         "repositories": [
@@ -4110,7 +4048,7 @@ resolved = [
                     "jar_urls": [
                         "http://central.maven.org/maven2/org/scala-lang/modules/scala-xml_2.11/1.0.5/scala-xml_2.11-1.0.5.jar"
                     ],
-                    "jar_sha256": "767e11f33eddcd506980f0ff213f9d553a6a21802e3be1330345f62f7ee3d50f",
+                    "artifact_sha256": "767e11f33eddcd506980f0ff213f9d553a6a21802e3be1330345f62f7ee3d50f",
                     "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
                 }
             }
@@ -4118,7 +4056,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scalactic' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala.bzl:441:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scalactic' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:82:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_scalactic",
             "rule_name": "scala_import",
@@ -4128,7 +4066,7 @@ resolved = [
             "jar_urls": [
                 "http://central.maven.org/maven2/org/scalactic/scalactic_2.11/3.0.5/scalactic_2.11-3.0.5.jar"
             ],
-            "jar_sha256": "84723064f5716f38990fe6e65468aa39700c725484efceef015771d267341cf2",
+            "artifact_sha256": "84723064f5716f38990fe6e65468aa39700c725484efceef015771d267341cf2",
             "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
         },
         "repositories": [
@@ -4144,7 +4082,7 @@ resolved = [
                     "jar_urls": [
                         "http://central.maven.org/maven2/org/scalactic/scalactic_2.11/3.0.5/scalactic_2.11-3.0.5.jar"
                     ],
-                    "jar_sha256": "84723064f5716f38990fe6e65468aa39700c725484efceef015771d267341cf2",
+                    "artifact_sha256": "84723064f5716f38990fe6e65468aa39700c725484efceef015771d267341cf2",
                     "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
                 }
             }
@@ -4152,7 +4090,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scalatest' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala.bzl:431:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scalatest' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:72:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_scalatest",
             "rule_name": "scala_import",
@@ -4162,7 +4100,7 @@ resolved = [
             "jar_urls": [
                 "http://central.maven.org/maven2/org/scalatest/scalatest_2.11/3.0.5/scalatest_2.11-3.0.5.jar"
             ],
-            "jar_sha256": "2aafeb41257912cbba95f9d747df9ecdc7ff43f039d35014b4c2a8eb7ed9ba2f",
+            "artifact_sha256": "2aafeb41257912cbba95f9d747df9ecdc7ff43f039d35014b4c2a8eb7ed9ba2f",
             "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
         },
         "repositories": [
@@ -4178,52 +4116,15 @@ resolved = [
                     "jar_urls": [
                         "http://central.maven.org/maven2/org/scalatest/scalatest_2.11/3.0.5/scalatest_2.11-3.0.5.jar"
                     ],
-                    "jar_sha256": "2aafeb41257912cbba95f9d747df9ecdc7ff43f039d35014b4c2a8eb7ed9ba2f",
+                    "artifact_sha256": "2aafeb41257912cbba95f9d747df9ecdc7ff43f039d35014b4c2a8eb7ed9ba2f",
                     "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
                 }
             }
         ]
     },
     {
-        "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'java_stub_template' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala.bzl:511:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
-        "original_attributes": {
-            "name": "java_stub_template",
-            "urls": [
-                "https://github.com/bazelbuild/rules_scala/archive/8b8271e3ee5709e1340b19790d0b396a0ff3dd0f.tar.gz"
-            ],
-            "sha256": "1859a37dccaee8c56b98869bf1f22f6f5b909606aff74ddcfd59e9757a038dd5",
-            "strip_prefix": "rules_scala-8b8271e3ee5709e1340b19790d0b396a0ff3dd0f/java_stub_template"
-        },
-        "repositories": [
-            {
-                "rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-                "output_tree_hash": "cb992e4ddab9d55c326f99a9a6badb69da3846822eb5298eb624ab4ff7bf2c2e",
-                "attributes": {
-                    "url": "",
-                    "urls": [
-                        "https://github.com/bazelbuild/rules_scala/archive/8b8271e3ee5709e1340b19790d0b396a0ff3dd0f.tar.gz"
-                    ],
-                    "sha256": "1859a37dccaee8c56b98869bf1f22f6f5b909606aff74ddcfd59e9757a038dd5",
-                    "canonical_id": "",
-                    "strip_prefix": "rules_scala-8b8271e3ee5709e1340b19790d0b396a0ff3dd0f/java_stub_template",
-                    "type": "",
-                    "patches": [],
-                    "patch_tool": "patch",
-                    "patch_args": [
-                        "-p0"
-                    ],
-                    "patch_cmds": [],
-                    "build_file_content": "",
-                    "workspace_file_content": "",
-                    "name": "java_stub_template"
-                }
-            }
-        ]
-    },
-    {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'scalac_rules_commons_io' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala.bzl:476:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'scalac_rules_commons_io' which is a jvm_import_external (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:117:5\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "scalac_rules_commons_io",
             "rule_name": "scala_import",
@@ -4233,7 +4134,7 @@ resolved = [
             "jar_urls": [
                 "http://central.maven.org/maven2/commons-io/commons-io/2.6/commons-io-2.6.jar"
             ],
-            "jar_sha256": "f877d304660ac2a142f3865badfc971dec7ed73c747c7f8d5d2f5139ca736513",
+            "artifact_sha256": "f877d304660ac2a142f3865badfc971dec7ed73c747c7f8d5d2f5139ca736513",
             "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
         },
         "repositories": [
@@ -4249,7 +4150,7 @@ resolved = [
                     "jar_urls": [
                         "http://central.maven.org/maven2/commons-io/commons-io/2.6/commons-io-2.6.jar"
                     ],
-                    "jar_sha256": "f877d304660ac2a142f3865badfc971dec7ed73c747c7f8d5d2f5139ca736513",
+                    "artifact_sha256": "f877d304660ac2a142f3865badfc971dec7ed73c747c7f8d5d2f5139ca736513",
                     "rule_load": "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")"
                 }
             }
@@ -4257,7 +4158,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'zlib' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/scala.bzl:528:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'zlib' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:143:9\n - /home/dflemstr/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "zlib",
             "urls": [
@@ -4447,13 +4348,13 @@ resolved = [
         "original_attributes": {
             "name": "local_jdk",
             "path": "/usr/lib/jvm/java-8-jdk",
-            "build_file": "/home/dflemstr/.cache/bazel/_bazel_dflemstr/install/99a7a698f576d17c0b88a878bda06cdf/_embedded_binaries/jdk.BUILD"
+            "build_file": "/home/dflemstr/.cache/bazel/_bazel_dflemstr/install/5973ac9b834efa5e25bad57ae2fa4650/_embedded_binaries/jdk.BUILD"
         },
         "native": "new_local_repository(name = \"local_jdk\", path = \"/usr/lib/jvm/java-8-jdk\", build_file = __embedded_dir__ + \"/\" + \"jdk.BUILD\")"
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remote_java_tools_darwin' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /DEFAULT.WORKSPACE.SUFFIX:245:1",
+        "definition_information": "Call stack for the definition of repository 'remote_java_tools_darwin' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /DEFAULT.WORKSPACE.SUFFIX:255:1",
         "original_attributes": {
             "name": "remote_java_tools_darwin",
             "urls": [
@@ -4489,7 +4390,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remote_java_tools_linux' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /DEFAULT.WORKSPACE.SUFFIX:229:1",
+        "definition_information": "Call stack for the definition of repository 'remote_java_tools_linux' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /DEFAULT.WORKSPACE.SUFFIX:239:1",
         "original_attributes": {
             "name": "remote_java_tools_linux",
             "urls": [
@@ -4525,7 +4426,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remote_java_tools_windows' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /DEFAULT.WORKSPACE.SUFFIX:237:1",
+        "definition_information": "Call stack for the definition of repository 'remote_java_tools_windows' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /DEFAULT.WORKSPACE.SUFFIX:247:1",
         "original_attributes": {
             "name": "remote_java_tools_windows",
             "urls": [
@@ -4758,7 +4659,46 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remotejdk11_macos' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /DEFAULT.WORKSPACE.SUFFIX:209:1",
+        "definition_information": "Call stack for the definition of repository 'remotejdk11_linux_aarch64' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /DEFAULT.WORKSPACE.SUFFIX:209:1",
+        "original_attributes": {
+            "name": "remotejdk11_linux_aarch64",
+            "urls": [
+                "https://mirror.bazel.build/openjdk/azul-zulu11.31.15-ca-jdk11.0.3/zulu11.31.15-ca-jdk11.0.3-linux_aarch64.tar.gz"
+            ],
+            "sha256": "3b0d91611b1bdc4d409afcf9eab4f0e7f4ae09f88fc01bd9f2b48954882ae69b",
+            "strip_prefix": "zulu11.31.15-ca-jdk11.0.3-linux_aarch64",
+            "build_file": "@local_jdk//:BUILD.bazel"
+        },
+        "repositories": [
+            {
+                "rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
+                "output_tree_hash": "b3e9e0b1c43aa49aff5f61c1be3c4980a69244007ef76e168c6fc4fead90d290",
+                "attributes": {
+                    "url": "",
+                    "urls": [
+                        "https://mirror.bazel.build/openjdk/azul-zulu11.31.15-ca-jdk11.0.3/zulu11.31.15-ca-jdk11.0.3-linux_aarch64.tar.gz"
+                    ],
+                    "sha256": "3b0d91611b1bdc4d409afcf9eab4f0e7f4ae09f88fc01bd9f2b48954882ae69b",
+                    "canonical_id": "",
+                    "strip_prefix": "zulu11.31.15-ca-jdk11.0.3-linux_aarch64",
+                    "type": "",
+                    "patches": [],
+                    "patch_tool": "patch",
+                    "patch_args": [
+                        "-p0"
+                    ],
+                    "patch_cmds": [],
+                    "build_file": "@local_jdk//:BUILD.bazel",
+                    "build_file_content": "",
+                    "workspace_file_content": "",
+                    "name": "remotejdk11_linux_aarch64"
+                }
+            }
+        ]
+    },
+    {
+        "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
+        "definition_information": "Call stack for the definition of repository 'remotejdk11_macos' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /DEFAULT.WORKSPACE.SUFFIX:219:1",
         "original_attributes": {
             "name": "remotejdk11_macos",
             "urls": [
@@ -4797,7 +4737,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remotejdk11_win' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /DEFAULT.WORKSPACE.SUFFIX:219:1",
+        "definition_information": "Call stack for the definition of repository 'remotejdk11_win' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /DEFAULT.WORKSPACE.SUFFIX:229:1",
         "original_attributes": {
             "name": "remotejdk11_win",
             "urls": [
@@ -4994,20 +4934,20 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'android_tools' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /DEFAULT.WORKSPACE.SUFFIX:267:1",
+        "definition_information": "Call stack for the definition of repository 'android_tools' which is a http_archive (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/build_defs/repo/http.bzl:237:16):\n - /DEFAULT.WORKSPACE.SUFFIX:277:1",
         "original_attributes": {
             "name": "android_tools",
-            "url": "https://mirror.bazel.build/bazel_android_tools/android_tools_pkg-0.4.tar.gz",
-            "sha256": "331e7706f2bcae8a68057d8ddd3e3f1574bca26c67c65802fc4a8ac6164fa912"
+            "url": "https://mirror.bazel.build/bazel_android_tools/android_tools_pkg-0.7.tar.gz",
+            "sha256": "a8e48f2fdee2c34b31f45bd47ce050a75ac774f19e0a1f6694fa49fc11d88718"
         },
         "repositories": [
             {
                 "rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-                "output_tree_hash": "53d05d7480b16311a481ad07a6c8114b8c8a6646016a1217e10fb3ca279bfb92",
+                "output_tree_hash": "4eedada700d6987b951ce931c48c02676ce10414883e4744e16b48db07963fe3",
                 "attributes": {
-                    "url": "https://mirror.bazel.build/bazel_android_tools/android_tools_pkg-0.4.tar.gz",
+                    "url": "https://mirror.bazel.build/bazel_android_tools/android_tools_pkg-0.7.tar.gz",
                     "urls": [],
-                    "sha256": "331e7706f2bcae8a68057d8ddd3e3f1574bca26c67c65802fc4a8ac6164fa912",
+                    "sha256": "a8e48f2fdee2c34b31f45bd47ce050a75ac774f19e0a1f6694fa49fc11d88718",
                     "canonical_id": "",
                     "strip_prefix": "",
                     "type": "",
@@ -5025,15 +4965,23 @@ resolved = [
         ]
     },
     {
+        "original_rule_class": "local_repository",
+        "original_attributes": {
+            "name": "platforms",
+            "path": "/home/dflemstr/.cache/bazel/_bazel_dflemstr/install/5973ac9b834efa5e25bad57ae2fa4650/_embedded_binaries/platforms"
+        },
+        "native": "local_repository(name = \"platforms\", path = __embedded_dir__ + \"/\" + \"platforms\")"
+    },
+    {
         "original_rule_class": "@bazel_tools//tools/cpp:cc_configure.bzl%cc_autoconf",
-        "definition_information": "Call stack for the definition of repository 'local_config_cc' which is a cc_autoconf (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/cpp/cc_configure.bzl:121:15):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/cpp/cc_configure.bzl:162:5\n - /DEFAULT.WORKSPACE.SUFFIX:293:1",
+        "definition_information": "Call stack for the definition of repository 'local_config_cc' which is a cc_autoconf (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/cpp/cc_configure.bzl:121:15):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/cpp/cc_configure.bzl:164:5\n - /DEFAULT.WORKSPACE.SUFFIX:315:1",
         "original_attributes": {
             "name": "local_config_cc"
         },
         "repositories": [
             {
                 "rule_class": "@bazel_tools//tools/cpp:cc_configure.bzl%cc_autoconf",
-                "output_tree_hash": "0c57972e5b92e883c9a718362865e3286144ea7696ef440e9cfc85890a1f1a2f",
+                "output_tree_hash": "91c9ad1c4147d50d4d11f8099479b4ec1bacdd8c60c2be2ab048574becb38239",
                 "attributes": {
                     "name": "local_config_cc"
                 }
@@ -5042,14 +4990,14 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/cpp:cc_configure.bzl%cc_autoconf_toolchains",
-        "definition_information": "Call stack for the definition of repository 'local_config_cc_toolchains' which is a cc_autoconf_toolchains (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/cpp/cc_configure.bzl:79:26):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/cpp/cc_configure.bzl:161:5\n - /DEFAULT.WORKSPACE.SUFFIX:293:1",
+        "definition_information": "Call stack for the definition of repository 'local_config_cc_toolchains' which is a cc_autoconf_toolchains (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/cpp/cc_configure.bzl:79:26):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/cpp/cc_configure.bzl:163:5\n - /DEFAULT.WORKSPACE.SUFFIX:315:1",
         "original_attributes": {
             "name": "local_config_cc_toolchains"
         },
         "repositories": [
             {
                 "rule_class": "@bazel_tools//tools/cpp:cc_configure.bzl%cc_autoconf_toolchains",
-                "output_tree_hash": "b49ed07ecd31233cf835f6d7c50619050854cc5f1a25d775c6cd85412f90876a",
+                "output_tree_hash": "07929ac4f60869dd69a6acd28be731d05548fad7997efffa5adfc43bcb13ab2b",
                 "attributes": {
                     "name": "local_config_cc_toolchains"
                 }
@@ -5058,7 +5006,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/osx:xcode_configure.bzl%xcode_autoconf",
-        "definition_information": "Call stack for the definition of repository 'local_config_xcode' which is a xcode_autoconf (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/osx/xcode_configure.bzl:242:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/osx/xcode_configure.bzl:252:5\n - /DEFAULT.WORKSPACE.SUFFIX:296:1",
+        "definition_information": "Call stack for the definition of repository 'local_config_xcode' which is a xcode_autoconf (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/osx/xcode_configure.bzl:242:18):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/osx/xcode_configure.bzl:252:5\n - /DEFAULT.WORKSPACE.SUFFIX:318:1",
         "original_attributes": {
             "name": "local_config_xcode",
             "xcode_locator": "@bazel_tools//tools/osx:xcode_locator.m"
@@ -5076,7 +5024,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/sh:sh_configure.bzl%sh_config",
-        "definition_information": "Call stack for the definition of repository 'local_config_sh' which is a sh_config (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/sh/sh_configure.bzl:72:13):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/sh/sh_configure.bzl:83:5\n - /DEFAULT.WORKSPACE.SUFFIX:299:1",
+        "definition_information": "Call stack for the definition of repository 'local_config_sh' which is a sh_config (rule definition at /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/sh/sh_configure.bzl:72:13):\n - /home/dflemstr/.cache/bazel/_bazel_dflemstr/54f16cd4becd383432475ebe0420229d/external/bazel_tools/tools/sh/sh_configure.bzl:83:5\n - /DEFAULT.WORKSPACE.SUFFIX:321:1",
         "original_attributes": {
             "name": "local_config_sh"
         },
@@ -5093,85 +5041,51 @@ resolved = [
     {
         "original_rule_class": "register_toolchains",
         "original_attributes": {
-            "name": "//external/toolchains",
+            "name": "//external/register_toolchains",
             "*args": [
                 "@go_sdk//:go_android_386",
-                "@go_sdk//:go_android_386_cgo",
                 "@go_sdk//:go_android_amd64",
-                "@go_sdk//:go_android_amd64_cgo",
                 "@go_sdk//:go_android_arm",
-                "@go_sdk//:go_android_arm_cgo",
                 "@go_sdk//:go_android_arm64",
-                "@go_sdk//:go_android_arm64_cgo",
                 "@go_sdk//:go_darwin_386",
                 "@go_sdk//:go_darwin_amd64",
-                "@go_sdk//:go_darwin_amd64_cgo",
                 "@go_sdk//:go_darwin_arm",
-                "@go_sdk//:go_darwin_arm_cgo",
                 "@go_sdk//:go_darwin_arm64",
-                "@go_sdk//:go_darwin_arm64_cgo",
                 "@go_sdk//:go_dragonfly_amd64",
-                "@go_sdk//:go_dragonfly_amd64_cgo",
                 "@go_sdk//:go_freebsd_386",
-                "@go_sdk//:go_freebsd_386_cgo",
                 "@go_sdk//:go_freebsd_amd64",
-                "@go_sdk//:go_freebsd_amd64_cgo",
                 "@go_sdk//:go_freebsd_arm",
-                "@go_sdk//:go_freebsd_arm_cgo",
                 "@go_sdk//:go_linux_386",
-                "@go_sdk//:go_linux_386_cgo",
                 "@go_sdk//:go_linux_amd64",
-                "@go_sdk//:go_linux_amd64_cgo",
                 "@go_sdk//:go_linux_arm",
-                "@go_sdk//:go_linux_arm_cgo",
                 "@go_sdk//:go_linux_arm64",
-                "@go_sdk//:go_linux_arm64_cgo",
                 "@go_sdk//:go_linux_mips",
-                "@go_sdk//:go_linux_mips_cgo",
                 "@go_sdk//:go_linux_mips64",
-                "@go_sdk//:go_linux_mips64_cgo",
                 "@go_sdk//:go_linux_mips64le",
-                "@go_sdk//:go_linux_mips64le_cgo",
                 "@go_sdk//:go_linux_mipsle",
-                "@go_sdk//:go_linux_mipsle_cgo",
                 "@go_sdk//:go_linux_ppc64",
                 "@go_sdk//:go_linux_ppc64le",
-                "@go_sdk//:go_linux_ppc64le_cgo",
                 "@go_sdk//:go_linux_s390x",
-                "@go_sdk//:go_linux_s390x_cgo",
                 "@go_sdk//:go_nacl_386",
                 "@go_sdk//:go_nacl_amd64p32",
                 "@go_sdk//:go_nacl_arm",
                 "@go_sdk//:go_netbsd_386",
-                "@go_sdk//:go_netbsd_386_cgo",
                 "@go_sdk//:go_netbsd_amd64",
-                "@go_sdk//:go_netbsd_amd64_cgo",
                 "@go_sdk//:go_netbsd_arm",
-                "@go_sdk//:go_netbsd_arm_cgo",
                 "@go_sdk//:go_openbsd_386",
-                "@go_sdk//:go_openbsd_386_cgo",
                 "@go_sdk//:go_openbsd_amd64",
-                "@go_sdk//:go_openbsd_amd64_cgo",
                 "@go_sdk//:go_openbsd_arm",
-                "@go_sdk//:go_openbsd_arm_cgo",
                 "@go_sdk//:go_plan9_386",
                 "@go_sdk//:go_plan9_amd64",
                 "@go_sdk//:go_plan9_arm",
                 "@go_sdk//:go_solaris_amd64",
-                "@go_sdk//:go_solaris_amd64_cgo",
                 "@go_sdk//:go_windows_386",
-                "@go_sdk//:go_windows_386_cgo",
                 "@go_sdk//:go_windows_amd64",
-                "@go_sdk//:go_windows_amd64_cgo",
                 "@go_sdk//:go_js_wasm",
                 "@go_sdk//:go_ios_arm",
-                "@go_sdk//:go_ios_arm_cgo",
                 "@go_sdk//:go_ios_arm64",
-                "@go_sdk//:go_ios_arm64_cgo",
                 "@go_sdk//:go_ios_386",
-                "@go_sdk//:go_ios_386_cgo",
                 "@go_sdk//:go_ios_amd64",
-                "@go_sdk//:go_ios_amd64_cgo",
                 "@io_bazel_rules_scala//scala:default_toolchain",
                 "@bazel_tools//tools/jdk:all",
                 "@bazel_tools//tools/python:autodetecting_toolchain",
@@ -5179,6 +5093,14 @@ resolved = [
                 "@local_config_sh//:local_sh_toolchain"
             ]
         },
-        "native": "register_toolchains(\"@go_sdk//:go_android_386\", \"@go_sdk//:go_android_386_cgo\", \"@go_sdk//:go_android_amd64\", \"@go_sdk//:go_android_amd64_cgo\", \"@go_sdk//:go_android_arm\", \"@go_sdk//:go_android_arm_cgo\", \"@go_sdk//:go_android_arm64\", \"@go_sdk//:go_android_arm64_cgo\", \"@go_sdk//:go_darwin_386\", \"@go_sdk//:go_darwin_amd64\", \"@go_sdk//:go_darwin_amd64_cgo\", \"@go_sdk//:go_darwin_arm\", \"@go_sdk//:go_darwin_arm_cgo\", \"@go_sdk//:go_darwin_arm64\", \"@go_sdk//:go_darwin_arm64_cgo\", \"@go_sdk//:go_dragonfly_amd64\", \"@go_sdk//:go_dragonfly_amd64_cgo\", \"@go_sdk//:go_freebsd_386\", \"@go_sdk//:go_freebsd_386_cgo\", \"@go_sdk//:go_freebsd_amd64\", \"@go_sdk//:go_freebsd_amd64_cgo\", \"@go_sdk//:go_freebsd_arm\", \"@go_sdk//:go_freebsd_arm_cgo\", \"@go_sdk//:go_linux_386\", \"@go_sdk//:go_linux_386_cgo\", \"@go_sdk//:go_linux_amd64\", \"@go_sdk//:go_linux_amd64_cgo\", \"@go_sdk//:go_linux_arm\", \"@go_sdk//:go_linux_arm_cgo\", \"@go_sdk//:go_linux_arm64\", \"@go_sdk//:go_linux_arm64_cgo\", \"@go_sdk//:go_linux_mips\", \"@go_sdk//:go_linux_mips_cgo\", \"@go_sdk//:go_linux_mips64\", \"@go_sdk//:go_linux_mips64_cgo\", \"@go_sdk//:go_linux_mips64le\", \"@go_sdk//:go_linux_mips64le_cgo\", \"@go_sdk//:go_linux_mipsle\", \"@go_sdk//:go_linux_mipsle_cgo\", \"@go_sdk//:go_linux_ppc64\", \"@go_sdk//:go_linux_ppc64le\", \"@go_sdk//:go_linux_ppc64le_cgo\", \"@go_sdk//:go_linux_s390x\", \"@go_sdk//:go_linux_s390x_cgo\", \"@go_sdk//:go_nacl_386\", \"@go_sdk//:go_nacl_amd64p32\", \"@go_sdk//:go_nacl_arm\", \"@go_sdk//:go_netbsd_386\", \"@go_sdk//:go_netbsd_386_cgo\", \"@go_sdk//:go_netbsd_amd64\", \"@go_sdk//:go_netbsd_amd64_cgo\", \"@go_sdk//:go_netbsd_arm\", \"@go_sdk//:go_netbsd_arm_cgo\", \"@go_sdk//:go_openbsd_386\", \"@go_sdk//:go_openbsd_386_cgo\", \"@go_sdk//:go_openbsd_amd64\", \"@go_sdk//:go_openbsd_amd64_cgo\", \"@go_sdk//:go_openbsd_arm\", \"@go_sdk//:go_openbsd_arm_cgo\", \"@go_sdk//:go_plan9_386\", \"@go_sdk//:go_plan9_amd64\", \"@go_sdk//:go_plan9_arm\", \"@go_sdk//:go_solaris_amd64\", \"@go_sdk//:go_solaris_amd64_cgo\", \"@go_sdk//:go_windows_386\", \"@go_sdk//:go_windows_386_cgo\", \"@go_sdk//:go_windows_amd64\", \"@go_sdk//:go_windows_amd64_cgo\", \"@go_sdk//:go_js_wasm\", \"@go_sdk//:go_ios_arm\", \"@go_sdk//:go_ios_arm_cgo\", \"@go_sdk//:go_ios_arm64\", \"@go_sdk//:go_ios_arm64_cgo\", \"@go_sdk//:go_ios_386\", \"@go_sdk//:go_ios_386_cgo\", \"@go_sdk//:go_ios_amd64\", \"@go_sdk//:go_ios_amd64_cgo\", \"@io_bazel_rules_scala//scala:default_toolchain\", \"@bazel_tools//tools/jdk:all\", \"@bazel_tools//tools/python:autodetecting_toolchain\", \"@local_config_cc_toolchains//:all\", \"@local_config_sh//:local_sh_toolchain\")"
+        "native": "register_toolchains(\"@go_sdk//:go_android_386\", \"@go_sdk//:go_android_amd64\", \"@go_sdk//:go_android_arm\", \"@go_sdk//:go_android_arm64\", \"@go_sdk//:go_darwin_386\", \"@go_sdk//:go_darwin_amd64\", \"@go_sdk//:go_darwin_arm\", \"@go_sdk//:go_darwin_arm64\", \"@go_sdk//:go_dragonfly_amd64\", \"@go_sdk//:go_freebsd_386\", \"@go_sdk//:go_freebsd_amd64\", \"@go_sdk//:go_freebsd_arm\", \"@go_sdk//:go_linux_386\", \"@go_sdk//:go_linux_amd64\", \"@go_sdk//:go_linux_arm\", \"@go_sdk//:go_linux_arm64\", \"@go_sdk//:go_linux_mips\", \"@go_sdk//:go_linux_mips64\", \"@go_sdk//:go_linux_mips64le\", \"@go_sdk//:go_linux_mipsle\", \"@go_sdk//:go_linux_ppc64\", \"@go_sdk//:go_linux_ppc64le\", \"@go_sdk//:go_linux_s390x\", \"@go_sdk//:go_nacl_386\", \"@go_sdk//:go_nacl_amd64p32\", \"@go_sdk//:go_nacl_arm\", \"@go_sdk//:go_netbsd_386\", \"@go_sdk//:go_netbsd_amd64\", \"@go_sdk//:go_netbsd_arm\", \"@go_sdk//:go_openbsd_386\", \"@go_sdk//:go_openbsd_amd64\", \"@go_sdk//:go_openbsd_arm\", \"@go_sdk//:go_plan9_386\", \"@go_sdk//:go_plan9_amd64\", \"@go_sdk//:go_plan9_arm\", \"@go_sdk//:go_solaris_amd64\", \"@go_sdk//:go_windows_386\", \"@go_sdk//:go_windows_amd64\", \"@go_sdk//:go_js_wasm\", \"@go_sdk//:go_ios_arm\", \"@go_sdk//:go_ios_arm64\", \"@go_sdk//:go_ios_386\", \"@go_sdk//:go_ios_amd64\", \"@io_bazel_rules_scala//scala:default_toolchain\", \"@bazel_tools//tools/jdk:all\", \"@bazel_tools//tools/python:autodetecting_toolchain\", \"@local_config_cc_toolchains//:all\", \"@local_config_sh//:local_sh_toolchain\")"
+    },
+    {
+        "original_rule_class": "register_execution_platforms",
+        "original_attributes": {
+            "name": "//external/register_execution_platforms",
+            "*args": []
+        },
+        "native": "register_execution_platforms()"
     }
 ]

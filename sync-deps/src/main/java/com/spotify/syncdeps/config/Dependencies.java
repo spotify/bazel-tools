@@ -116,16 +116,21 @@ public abstract class Dependencies {
     @JsonProperty("scalaAbi")
     public abstract String scalaAbi();
 
+    @JsonProperty("versionConflictPolicy")
+    public abstract Optional<String> versionConflictPolicy();
+
     @JsonCreator
     public static Options create(
         @JsonProperty("mavenResolvers") final ImmutableSet<MavenResolver> mavenResolvers,
         @JsonProperty("excludedDependencies") final ImmutableSet<MavenCoords> excludedDependencies,
-        @JsonProperty("scalaAbi") final String scalaAbi) {
+        @JsonProperty("scalaAbi") final String scalaAbi,
+        @JsonProperty("versionConflictPolicy") final String versionConflictPolicy) {
       return builder()
           .mavenResolvers(mavenResolvers == null ? ImmutableSet.of() : mavenResolvers)
           .excludedDependencies(
               excludedDependencies == null ? ImmutableSet.of() : excludedDependencies)
           .scalaAbi(scalaAbi == null ? "2.11" : scalaAbi)
+          .versionConflictPolicy(Optional.ofNullable(versionConflictPolicy))
           .build();
     }
 
@@ -161,6 +166,8 @@ public abstract class Dependencies {
       }
 
       public abstract Builder scalaAbi(final String scalaAbi);
+
+      public abstract Builder versionConflictPolicy(final Optional<String> versionConflictPolicy);
 
       public abstract Options build();
     }
@@ -288,7 +295,9 @@ public abstract class Dependencies {
   }
 
   public ImmutableSet<MavenDependency> toMavenLeafDependencies() {
-    return this.maven().cellSet().stream()
+    return this.maven()
+        .cellSet()
+        .stream()
         .flatMap(c -> createCellDependencies(this.options().scalaAbi(), c))
         .collect(ImmutableSet.toImmutableSet());
   }

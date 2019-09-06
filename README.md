@@ -140,6 +140,9 @@ options:
   excludedDependencies:
     - com.google.guava:guava-jdk5
     - org.slf4j:slf4j-log4j12
+  # Treat the specific versions in this file as "pinned" (do not use later versions)
+  # See this for more info: https://github.com/bazelbuild/rules_jvm_external#resolving-user-specified-and-transitive-dependency-version-conflicts
+  versionConflictPolicy: "pinned"
 
 # Dependencies to be fetched from Maven repositories
 maven:

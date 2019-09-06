@@ -2,13 +2,14 @@
 load("@rules_jvm_external//:defs.bzl", "maven_install")
 load("@rules_jvm_external//:specs.bzl", "maven")
 
-def default_install(artifacts, repositories, excluded_artifacts = []):
+def default_install(artifacts, repositories, excluded_artifacts = [], version_conflict_policy = None, **kwargs):
     maven_install(
         artifacts = artifacts,
         fetch_sources = True,
         repositories = repositories,
         excluded_artifacts = excluded_artifacts,
         maven_install_json = "//3rdparty:maven-install.json",
+        version_conflict_policy = version_conflict_policy,
     )
 
 def maven_dependencies(install=None):
@@ -51,4 +52,5 @@ def maven_dependencies(install=None):
             maven.exclusion(group = "com.google.guava", artifact = "guava-jdk5"),
             maven.exclusion(group = "org.slf4j", artifact = "slf4j-log4j12")
         ],
+        version_conflict_policy="pinned",
     )

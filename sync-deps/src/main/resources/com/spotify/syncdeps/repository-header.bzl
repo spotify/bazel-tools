@@ -3,7 +3,7 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 load("//3rdparty:resolved.bzl", "resolved")
 
-def default_github_callback(name, repository, commit = None, branch = None, tag = None, sha256 = None):
+def default_github_callback(name, repository, commit = None, branch = None, tag = None, sha256 = None, **kwargs):
     repo_name = repository.split("/")[-1]
     _maybe(
         git_repository,
