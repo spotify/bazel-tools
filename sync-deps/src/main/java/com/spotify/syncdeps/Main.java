@@ -100,7 +100,10 @@ public final class Main {
           dependencies.options().excludedDependencies();
 
       final ImmutableSet<GitHubDependency> gitHubDependencies =
-          dependencies.github().entrySet().stream()
+          dependencies
+              .github()
+              .entrySet()
+              .stream()
               .map(
                   e ->
                       GitHubDependency.create(
@@ -232,13 +235,16 @@ public final class Main {
           Resources.toString(Resources.getResource(Main.class, "workspace-header.bzl"), UTF_8);
 
       final String mavenResolversList =
-          dependencyOptions.mavenResolvers().stream()
+          dependencyOptions
+              .mavenResolvers()
+              .stream()
               .map(Dependencies.MavenResolver::url)
               .map(url -> "\"" + url + "\"")
               .collect(joining(",\n            ", "[\n            ", "\n        ]"));
 
       final String artifactsList =
-          mavenDependencies.stream()
+          mavenDependencies
+              .stream()
               .map(
                   d ->
                       String.format(
@@ -250,7 +256,8 @@ public final class Main {
               .collect(joining(",\n            ", "[\n            ", "\n        ]"));
 
       final String excludedArtifactsList =
-          mavenExcludedDependencies.stream()
+          mavenExcludedDependencies
+              .stream()
               .map(
                   coords ->
                       String.format(
@@ -267,9 +274,15 @@ public final class Main {
           "    install(%n"
               + "        artifacts=%s,%n"
               + "        repositories=%s,%n"
-              + "        excluded_artifacts=%s,%n"
-              + "    )%n",
+              + "        excluded_artifacts=%s,%n",
           artifactsList, mavenResolversList, excludedArtifactsList);
+
+      if (dependencyOptions.versionConflictPolicy().isPresent()) {
+        out.printf(
+            "        version_conflict_policy=\"%s\",%n",
+            dependencyOptions.versionConflictPolicy().get());
+      }
+      out.printf("    )%n");
     }
 
     return newOutputFile;
@@ -329,7 +342,8 @@ public final class Main {
     final Path newJvmDirectory =
         Files.createTempDirectory(options.thirdPartyDirectory(), "jvm-", DIR_PERMISSIONS);
 
-    mavenDependencies.stream()
+    mavenDependencies
+        .stream()
         .collect(Collectors.groupingBy(d -> d.coords().groupId()))
         .forEach(
             (groupId, groupDependencies) ->

@@ -20,11 +20,12 @@ options:
   excludedDependencies:
     - com.google.guava:guava-jdk5
     - org.slf4j:slf4j-log4j12
+  versionConflictPolicy: "pinned"
 
 github:
   io_bazel:
     repo: bazelbuild/bazel
-    tag: 0.28.0
+    tag: 0.29.0
   com_github_bazelbuild_buildtools:
     repo: bazelbuild/buildtools
     branch: master
@@ -36,7 +37,7 @@ github:
     branch: master
   rules_jvm_external:
     repo: bazelbuild/rules_jvm_external
-    tag: 2.3
+    branch: master
 
 maven:
   ch.qos.logback:

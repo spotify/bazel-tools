@@ -3,7 +3,7 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 load("//3rdparty:resolved.bzl", "resolved")
 
-def default_github_callback(name, repository, commit = None, branch = None, tag = None, sha256 = None):
+def default_github_callback(name, repository, commit = None, branch = None, tag = None, sha256 = None, **kwargs):
     repo_name = repository.split("/")[-1]
     _maybe(
         git_repository,
@@ -34,8 +34,8 @@ def repositories(github_callback=None):
     _frozen_repos()
     if github_callback == None:
         github_callback = default_github_callback
-    github_callback(name="io_bazel", repository="bazelbuild/bazel", tag="0.28.0")
+    github_callback(name="io_bazel", repository="bazelbuild/bazel", tag="0.29.0")
     github_callback(name="com_github_bazelbuild_buildtools", repository="bazelbuild/buildtools", branch="master")
     github_callback(name="io_bazel_rules_go", repository="bazelbuild/rules_go", branch="master")
     github_callback(name="io_bazel_rules_scala", repository="bazelbuild/rules_scala", branch="master")
-    github_callback(name="rules_jvm_external", repository="bazelbuild/rules_jvm_external", tag="2.3")
+    github_callback(name="rules_jvm_external", repository="bazelbuild/rules_jvm_external", branch="master")
