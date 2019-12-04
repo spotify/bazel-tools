@@ -282,22 +282,33 @@ public abstract class Dependencies {
     @JsonProperty("tag")
     public abstract Optional<String> tag();
 
+    @JsonProperty("release")
+    public abstract Optional<String> release();
+
+    @JsonProperty("stripPrefix")
+    public abstract Optional<String> stripPrefix();
+
     @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
     @JsonCreator
     public static GitHub create(
         @JsonProperty("repo") final String repo,
         @JsonProperty("commit") final String commit,
         @JsonProperty("branch") final String branch,
-        @JsonProperty("tag") final String tag) {
+        @JsonProperty("tag") final String tag,
+        @JsonProperty("release") final String release,
+        @JsonProperty("stripPrefix") final String stripPrefix) {
       return new AutoValue_Dependencies_GitHub(
-          repo, Optional.ofNullable(commit), Optional.ofNullable(branch), Optional.ofNullable(tag));
+          repo,
+          Optional.ofNullable(commit),
+          Optional.ofNullable(branch),
+          Optional.ofNullable(tag),
+          Optional.ofNullable(release),
+          Optional.ofNullable(stripPrefix));
     }
   }
 
   public ImmutableSet<MavenDependency> toMavenLeafDependencies() {
-    return this.maven()
-        .cellSet()
-        .stream()
+    return this.maven().cellSet().stream()
         .flatMap(c -> createCellDependencies(this.options().scalaAbi(), c))
         .collect(ImmutableSet.toImmutableSet());
   }

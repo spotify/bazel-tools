@@ -100,10 +100,7 @@ public final class Main {
           dependencies.options().excludedDependencies();
 
       final ImmutableSet<GitHubDependency> gitHubDependencies =
-          dependencies
-              .github()
-              .entrySet()
-              .stream()
+          dependencies.github().entrySet().stream()
               .map(
                   e ->
                       GitHubDependency.create(
@@ -111,7 +108,9 @@ public final class Main {
                           e.getValue().repo(),
                           e.getValue().commit(),
                           e.getValue().branch(),
-                          e.getValue().tag()))
+                          e.getValue().tag(),
+                          e.getValue().release(),
+                          e.getValue().stripPrefix()))
               .collect(ImmutableSet.toImmutableSet());
 
       final Path workspaceFile = options.workspaceFile();
@@ -231,16 +230,13 @@ public final class Main {
           Resources.toString(Resources.getResource(Main.class, "workspace-header.bzl"), UTF_8);
 
       final String mavenResolversList =
-          dependencyOptions
-              .mavenResolvers()
-              .stream()
+          dependencyOptions.mavenResolvers().stream()
               .map(Dependencies.MavenResolver::url)
               .map(url -> "\"" + url + "\"")
               .collect(joining(",\n            ", "[\n            ", "\n        ]"));
 
       final String artifactsList =
-          mavenDependencies
-              .stream()
+          mavenDependencies.stream()
               .map(
                   d ->
                       String.format(
@@ -252,8 +248,7 @@ public final class Main {
               .collect(joining(",\n            ", "[\n            ", "\n        ]"));
 
       final String excludedArtifactsList =
-          mavenExcludedDependencies
-              .stream()
+          mavenExcludedDependencies.stream()
               .map(
                   coords ->
                       String.format(
@@ -312,14 +307,22 @@ public final class Main {
           out.printf(
               "    github_callback(name=\"%1$s\", repository=\"%2$s\", commit=\"%3$s\")\n",
               name, repository, dependency.commit().get());
-        } else if (dependency.tag().isPresent()) {
-          out.printf(
-              "    github_callback(name=\"%1$s\", repository=\"%2$s\", tag=\"%3$s\")\n",
-              name, repository, dependency.tag().get());
         } else if (dependency.branch().isPresent()) {
           out.printf(
               "    github_callback(name=\"%1$s\", repository=\"%2$s\", branch=\"%3$s\")\n",
               name, repository, dependency.branch().get());
+        } else if (dependency.tag().isPresent() && dependency.release().isPresent()) {
+          out.printf(
+              "    github_callback(name=\"%1$s\", repository=\"%2$s\", tag=\"%3$s\", release=\"%4$s\", strip_prefix=%5$s)\n",
+              name,
+              repository,
+              dependency.tag().get(),
+              dependency.release().get(),
+              dependency.stripPrefix().map(sp -> "\"" + sp + "\"").orElse("None"));
+        } else if (dependency.tag().isPresent()) {
+          out.printf(
+              "    github_callback(name=\"%1$s\", repository=\"%2$s\", tag=\"%3$s\")\n",
+              name, repository, dependency.tag().get());
         } else {
           out.printf(
               "    github_callback(name=\"%1$s\", repository=\"%2$s\", branch=\"master\")\n",
@@ -338,8 +341,7 @@ public final class Main {
     final Path newJvmDirectory =
         Files.createTempDirectory(options.thirdPartyDirectory(), "jvm-", DIR_PERMISSIONS);
 
-    mavenDependencies
-        .stream()
+    mavenDependencies.stream()
         .collect(Collectors.groupingBy(d -> d.coords().groupId()))
         .forEach(
             (groupId, groupDependencies) ->

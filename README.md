@@ -79,17 +79,17 @@ If you want to customize the dependencies, you can instead bind your own version
 ```python
 bind(
     name = "spotify_bazel_tools/dependency/buildtools/buildifier",
-    actual = "@com_github_bazelbuild_buildtools//buildifier",
+    actual = "@io_bazel_buildtools//buildifier",
 )
 
 bind(
     name = "spotify_bazel_tools/dependency/buildtools/buildozer",
-    actual = "@com_github_bazelbuild_buildtools//buildozer",
+    actual = "@io_bazel_buildtools//buildozer",
 )
 
 bind(
     name = "spotify_bazel_tools/dependency/buildtools/unused_deps",
-    actual = "@com_github_bazelbuild_buildtools//unused_deps",
+    actual = "@io_bazel_buildtools//unused_deps",
 )
 
 # ...and declare your own maven dependencies for Java dependencies, maybe by copy-pasting the
@@ -143,6 +143,25 @@ options:
   # Treat the specific versions in this file as "pinned" (do not use later versions)
   # See this for more info: https://github.com/bazelbuild/rules_jvm_external#resolving-user-specified-and-transitive-dependency-version-conflicts
   versionConflictPolicy: "pinned"
+
+# Dependencies to be fetched from GitHub repositories
+github:
+  # The Bazel target name used to refer to the repo
+  # repo in combination with either commit, branch, tag or tag+release(+stripPrefix)
+  io_bazel:
+    # The org/repo identifier
+    repo: bazelbuild/bazel
+    # The git commit
+    commit: dbc504c8a033f06041ba42c219b983f475972583
+    # The git branch
+    branch: master
+    # The git tag
+    tag: 1.2.1
+
+    # The release artifact name (has to be used together with a tag)
+    release: bazel-1.2.1-dist.zip
+    # Any top level directory to strip out after extracting the release
+    #stripPrefix: bazel-1.2.1-dist
 
 # Dependencies to be fetched from Maven repositories
 maven:
