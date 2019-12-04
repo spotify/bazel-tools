@@ -3,16 +3,27 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 load("//3rdparty:resolved.bzl", "resolved")
 
-def default_github_callback(name, repository, commit = None, branch = None, tag = None, sha256 = None, **kwargs):
+def default_github_callback(name, repository, commit = None, branch = None, tag = None, release = None, strip_prefix = None, sha256 = None, **kwargs):
     repo_name = repository.split("/")[-1]
-    _maybe(
-        git_repository,
-        name = name,
-        commit = commit,
-        branch = branch,
-        tag = tag,
-        remote = "https://github.com/%s.git" % (repository,),
-    )
+
+    if tag != None and release != None:
+        _maybe(
+            http_archive,
+            name = name,
+            sha256 = sha256,
+            strip_prefix = strip_prefix,
+            url = "https://github.com/%s/releases/download/%s/%s" % (repository, tag, release),
+        )
+    else:
+        _maybe(
+            git_repository,
+            name = name,
+            commit = commit,
+            branch = branch,
+            tag = tag,
+            release = release,
+            remote = "https://github.com/%s.git" % repository,
+        )
 
 def _maybe(repo_rule, **kwargs):
     if kwargs["name"] not in native.existing_rules():
@@ -35,7 +46,7 @@ def repositories(github_callback=None):
     if github_callback == None:
         github_callback = default_github_callback
     github_callback(name="io_bazel", repository="bazelbuild/bazel", tag="1.2.1")
-    github_callback(name="com_github_bazelbuild_buildtools", repository="bazelbuild/buildtools", branch="master")
+    github_callback(name="io_bazel_buildtools", repository="bazelbuild/buildtools", branch="master")
     github_callback(name="io_bazel_rules_go", repository="bazelbuild/rules_go", branch="master")
     github_callback(name="io_bazel_rules_scala", repository="bazelbuild/rules_scala", branch="master")
     github_callback(name="rules_python", repository="bazelbuild/rules_python", branch="master")

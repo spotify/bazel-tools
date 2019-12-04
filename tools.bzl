@@ -30,7 +30,7 @@ def bazel_tools_repositories():
 
     _maybe(
         http_archive,
-        name = "com_github_bazelbuild_buildtools",
+        name = "io_bazel_buildtools",
         sha256 = "df7f345aaf9a5a25ca52d9aae90fbb680fea51e0ffd27d6332a7a6529c59a250",
         strip_prefix = "buildtools-%s" % bazelbuild_buildtools_version,
         url = "https://github.com/bazelbuild/buildtools/archive/%s.zip" % bazelbuild_buildtools_version,
@@ -40,17 +40,17 @@ def bazel_tools_repositories():
 
     native.bind(
         name = "spotify_bazel_tools/dependency/buildtools/buildifier",
-        actual = "@com_github_bazelbuild_buildtools//buildifier",
+        actual = "@io_bazel_buildtools//buildifier",
     )
 
     native.bind(
         name = "spotify_bazel_tools/dependency/buildtools/buildozer",
-        actual = "@com_github_bazelbuild_buildtools//buildozer",
+        actual = "@io_bazel_buildtools//buildozer",
     )
 
     native.bind(
         name = "spotify_bazel_tools/dependency/buildtools/unused-deps",
-        actual = "@com_github_bazelbuild_buildtools//unused_deps",
+        actual = "@io_bazel_buildtools//unused_deps",
     )
 
     native.bind(

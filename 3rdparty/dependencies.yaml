@@ -26,7 +26,7 @@ github:
   io_bazel:
     repo: bazelbuild/bazel
     tag: 1.2.1
-  com_github_bazelbuild_buildtools:
+  io_bazel_buildtools:
     repo: bazelbuild/buildtools
     branch: master
   io_bazel_rules_go:

@@ -3534,6 +3534,41 @@ resolved = [
         ]
     },
     {
+        "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_buildtools' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/tools.bzl:93:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/tools.bzl:31:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:30:1",
+        "original_attributes": {
+            "name": "io_bazel_buildtools",
+            "url": "https://github.com/bazelbuild/buildtools/archive/77355e5628b4bfffa932bc8645ea165d9f5c486d.zip",
+            "sha256": "df7f345aaf9a5a25ca52d9aae90fbb680fea51e0ffd27d6332a7a6529c59a250",
+            "strip_prefix": "buildtools-77355e5628b4bfffa932bc8645ea165d9f5c486d"
+        },
+        "repositories": [
+            {
+                "rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
+                "output_tree_hash": "9bc8e7f6327771bce5111882e38657376ddee80896259e1c98f0510e9b53221c",
+                "attributes": {
+                    "url": "https://github.com/bazelbuild/buildtools/archive/77355e5628b4bfffa932bc8645ea165d9f5c486d.zip",
+                    "urls": [],
+                    "sha256": "df7f345aaf9a5a25ca52d9aae90fbb680fea51e0ffd27d6332a7a6529c59a250",
+                    "netrc": "",
+                    "canonical_id": "",
+                    "strip_prefix": "buildtools-77355e5628b4bfffa932bc8645ea165d9f5c486d",
+                    "type": "",
+                    "patches": [],
+                    "patch_tool": "",
+                    "patch_args": [
+                        "-p0"
+                    ],
+                    "patch_cmds": [],
+                    "patch_cmds_win": [],
+                    "build_file_content": "",
+                    "workspace_file_content": "",
+                    "name": "io_bazel_buildtools"
+                }
+            }
+        ]
+    },
+    {
         "original_rule_class": "bind",
         "original_attributes": {
             "name": "io_bazel_rules_scala/dependency/com_google_protobuf/protobuf_java",
@@ -3593,25 +3628,25 @@ resolved = [
         "original_rule_class": "bind",
         "original_attributes": {
             "name": "spotify_bazel_tools/dependency/buildtools/buildifier",
-            "actual": "@com_github_bazelbuild_buildtools//buildifier:buildifier"
+            "actual": "@io_bazel_buildtools//buildifier:buildifier"
         },
-        "native": "bind(name = \"spotify_bazel_tools/dependency/buildtools/buildifier\", actual = \"@com_github_bazelbuild_buildtools//buildifier:buildifier\")"
+        "native": "bind(name = \"spotify_bazel_tools/dependency/buildtools/buildifier\", actual = \"@io_bazel_buildtools//buildifier:buildifier\")"
     },
     {
         "original_rule_class": "bind",
         "original_attributes": {
             "name": "spotify_bazel_tools/dependency/buildtools/buildozer",
-            "actual": "@com_github_bazelbuild_buildtools//buildozer:buildozer"
+            "actual": "@io_bazel_buildtools//buildozer:buildozer"
         },
-        "native": "bind(name = \"spotify_bazel_tools/dependency/buildtools/buildozer\", actual = \"@com_github_bazelbuild_buildtools//buildozer:buildozer\")"
+        "native": "bind(name = \"spotify_bazel_tools/dependency/buildtools/buildozer\", actual = \"@io_bazel_buildtools//buildozer:buildozer\")"
     },
     {
         "original_rule_class": "bind",
         "original_attributes": {
             "name": "spotify_bazel_tools/dependency/buildtools/unused-deps",
-            "actual": "@com_github_bazelbuild_buildtools//unused_deps:unused_deps"
+            "actual": "@io_bazel_buildtools//unused_deps:unused_deps"
         },
-        "native": "bind(name = \"spotify_bazel_tools/dependency/buildtools/unused-deps\", actual = \"@com_github_bazelbuild_buildtools//unused_deps:unused_deps\")"
+        "native": "bind(name = \"spotify_bazel_tools/dependency/buildtools/unused-deps\", actual = \"@io_bazel_buildtools//unused_deps:unused_deps\")"
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
