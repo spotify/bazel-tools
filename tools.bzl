@@ -19,15 +19,15 @@ def bazel_tools_repositories():
     _maybe(
         http_archive,
         name = "io_bazel",
-        sha256 = "a0333e7e8ce885f85f52bbb239e36810ac340c211c550d10c499f098a2e925a8",
-        strip_prefix = "bazel-0.15.2",  # Should match current Bazel version
+        sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        strip_prefix = "bazel-1.2.1",  # Should match current Bazel version
         urls = [
-            "http://bazel-mirror.storage.googleapis.com/github.com/bazelbuild/bazel/archive/0.15.2.tar.gz",
-            "https://github.com/bazelbuild/bazel/archive/0.15.2.tar.gz",
+            "http://bazel-mirror.storage.googleapis.com/github.com/bazelbuild/bazel/archive/1.2.1.tar.gz",
+            "https://github.com/bazelbuild/bazel/archive/1.2.1.tar.gz",
         ],
     )
 
-    bazelbuild_buildtools_version = "1f7a4641c80dd8027c676a723cef368bcf94e3b4"  # branch master
+    bazelbuild_buildtools_version = "77355e5628b4bfffa932bc8645ea165d9f5c486d"  # branch master
 
     _maybe(
         http_archive,

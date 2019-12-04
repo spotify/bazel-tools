@@ -34,8 +34,9 @@ def repositories(github_callback=None):
     _frozen_repos()
     if github_callback == None:
         github_callback = default_github_callback
-    github_callback(name="io_bazel", repository="bazelbuild/bazel", tag="0.29.0")
+    github_callback(name="io_bazel", repository="bazelbuild/bazel", tag="1.2.1")
     github_callback(name="com_github_bazelbuild_buildtools", repository="bazelbuild/buildtools", branch="master")
     github_callback(name="io_bazel_rules_go", repository="bazelbuild/rules_go", branch="master")
     github_callback(name="io_bazel_rules_scala", repository="bazelbuild/rules_scala", branch="master")
+    github_callback(name="rules_python", repository="bazelbuild/rules_python", branch="master")
     github_callback(name="rules_jvm_external", repository="bazelbuild/rules_jvm_external", branch="master")
