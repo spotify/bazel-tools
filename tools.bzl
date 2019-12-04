@@ -21,8 +21,7 @@ def bazel_tools_repositories():
     _maybe(
         http_archive,
         name = "io_bazel",
-        sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        strip_prefix = "bazel-%s" % bazel_version,  # Should match current Bazel version
+        sha256 = "255da49d0f012bc4f2c1d6d3ccdbe578e22fe97b8d124e1629a486fe2a09d3e1",
         url = "https://github.com/bazelbuild/bazel/releases/download/%s/bazel-%s-dist.zip" % (bazel_version, bazel_version),
     )
 

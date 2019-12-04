@@ -19,27 +19,27 @@ http_archive(
     url = "https://github.com/bazelbuild/rules_jvm_external/archive/%s.zip" % rules_jvm_external_version,
 )
 
-rules_go_version = "a966c425b0bab18338bc39bf69b8eecc615549ff"  # branch master
+rules_go_version = "a667c18bef6ec5a11f1cbf40b219d541c48e942e"  # branch master
 
 http_archive(
     name = "io_bazel_rules_go",
-    sha256 = "41eb89962dbf51287a287b7ce75260abe1150693948ad3c41d453331b608659b",
-    strip_prefix = "rules_go-%s" % (rules_go_version,),
-    urls = ["https://github.com/bazelbuild/rules_go/archive/%s.zip" % (rules_go_version,)],
+    sha256 = "03fe1d6c9a5b8c554170e9a618101d7b5e07e7f638ccd45d5cd6ae9a44b32123",
+    strip_prefix = "rules_go-%s" % rules_go_version,
+    urls = ["https://github.com/bazelbuild/rules_go/archive/%s.zip" % rules_go_version],
 )
 
-rules_scala_version = "64faf06a4932a9a1d3378b6ba1a6d77479cefef3"  # branch master
+rules_scala_version = "886bc9cf6d299545510b39b4872bbb5dc7526cb3"  # branch master
 
 http_archive(
     name = "io_bazel_rules_scala",
-    sha256 = "df0c86f200c4b4aebf4ae9d546c0788cdda6d33accf191a92abfbb8e5f6ddd8a",
-    strip_prefix = "rules_scala-%s" % (rules_scala_version,),
-    urls = ["https://github.com/bazelbuild/rules_scala/archive/%s.zip" % (rules_scala_version,)],
+    sha256 = "4fdf8506af2e2f1c32605b1f1d20928370640948aa144ef97b8e3bf77404320c",
+    strip_prefix = "rules_scala-%s" % rules_scala_version,
+    urls = ["https://github.com/bazelbuild/rules_scala/archive/%s.zip" % rules_scala_version],
 )
 '''
 
 WORKSPACE_TEMPLATE_SUFFIX = '''
-load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")
+load("@io_bazel_rules_go//go:deps.bzl", "go_rules_dependencies", "go_register_toolchains")
 
 go_rules_dependencies()
 
@@ -74,6 +74,10 @@ def main():
                 '\n',
                 'load("@spotify_bazel_tools//:tools.bzl", "bazel_tools_repositories")\n',
                 'bazel_tools_repositories()\n',
+                'load("@spotify_bazel_tools//3rdparty:repositories.bzl", "repositories")\n',
+                'repositories()\n',
+                'load("@spotify_bazel_tools//3rdparty:workspace.bzl", "maven_dependencies")\n',
+                'maven_dependencies()\n',
             ])
             f.write(WORKSPACE_TEMPLATE_SUFFIX)
 
@@ -82,13 +86,10 @@ def main():
         third_party_dir = path.join(d, '3rdparty')
         os.mkdir(third_party_dir)
 
-        shutil.copyfile(path.join('3rdparty', 'dependencies.yaml'),
-                        path.join(third_party_dir, 'dependencies.yaml'))
-
-        subprocess.check_call(['bazel', 'run', '@spotify_bazel_tools//sync-deps', '--', '-w', d],
-                              cwd=d)
-        subprocess.check_call(['bazel', 'run', '@spotify_bazel_tools//format', '--', '-w', d],
-                              cwd=d)
+        shutil.copyfile(path.join('3rdparty', 'dependencies.yaml'), path.join(third_party_dir, 'dependencies.yaml'))
+        shutil.copyfile(path.join('3rdparty', 'maven-install.json'), path.join(third_party_dir, 'maven-install.json'))
+        subprocess.check_call(['bazel', 'run', '@spotify_bazel_tools//sync-deps', '--', '-w', d], cwd=d)
+        subprocess.check_call(['bazel', 'run', '@spotify_bazel_tools//format', '--', '-w', d], cwd=d)
     finally:
         subprocess.check_call(['bazel', 'shutdown'], cwd=d)
         shutil.rmtree(d)

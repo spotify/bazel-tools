@@ -43,7 +43,7 @@ resolved = [
         "original_rule_class": "local_repository",
         "original_attributes": {
             "name": "bazel_tools",
-            "path": "/var/tmp/_bazel/install/7dbd2bc10323e6ff08dd6e9d1ec7e5c1/embedded_tools"
+            "path": "/var/tmp/_bazel_smandrean/install/7dbd2bc10323e6ff08dd6e9d1ec7e5c1/embedded_tools"
         },
         "native": "local_repository(name = \"bazel_tools\", path = __embedded_dir__ + \"/\" + \"embedded_tools\")"
     },
@@ -81,7 +81,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'io_bazel' which is a git_repository (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:48:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:48:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "io_bazel",
             "remote": "https://github.com/bazelbuild/bazel.git",
@@ -112,7 +112,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_buildtools' which is a git_repository (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:49:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_buildtools' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:49:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "io_bazel_buildtools",
             "remote": "https://github.com/bazelbuild/buildtools.git",
@@ -143,7 +143,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_go' which is a git_repository (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:50:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_go' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:50:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "io_bazel_rules_go",
             "remote": "https://github.com/bazelbuild/rules_go.git",
@@ -174,7 +174,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala' which is a git_repository (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:51:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:51:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala",
             "remote": "https://github.com/bazelbuild/rules_scala.git",
@@ -205,7 +205,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'rules_jvm_external' which is a git_repository (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:53:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'rules_jvm_external' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:53:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "rules_jvm_external",
             "remote": "https://github.com/bazelbuild/rules_jvm_external.git",
@@ -236,7 +236,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'rules_python' which is a git_repository (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - ~/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:52:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'rules_python' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:52:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "rules_python",
             "remote": "https://github.com/bazelbuild/rules_python.git",
@@ -267,7 +267,7 @@ resolved = [
     },
     {
         "original_rule_class": "@rules_jvm_external//:coursier.bzl%pinned_coursier_fetch",
-        "definition_information": "Call stack for the definition of repository 'maven' which is a pinned_coursier_fetch (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/rules_jvm_external/coursier.bzl:613:25):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/rules_jvm_external/defs.bzl:111:9\n - ~/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:6:5\n - ~/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:18:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:22:1",
+        "definition_information": "Call stack for the definition of repository 'maven' which is a pinned_coursier_fetch (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/rules_jvm_external/coursier.bzl:613:25):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/rules_jvm_external/defs.bzl:111:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:6:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:18:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:22:1",
         "original_attributes": {
             "name": "maven",
             "artifacts": [
@@ -351,7 +351,7 @@ resolved = [
     },
     {
         "original_rule_class": "@rules_jvm_external//:coursier.bzl%coursier_fetch",
-        "definition_information": "Call stack for the definition of repository 'unpinned_maven' which is a coursier_fetch (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/rules_jvm_external/coursier.bzl:634:18):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/rules_jvm_external/defs.bzl:89:5\n - ~/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:6:5\n - ~/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:18:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:22:1",
+        "definition_information": "Call stack for the definition of repository 'unpinned_maven' which is a coursier_fetch (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/rules_jvm_external/coursier.bzl:634:18):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/rules_jvm_external/defs.bzl:89:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:6:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/workspace.bzl:18:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:22:1",
         "original_attributes": {
             "name": "unpinned_maven",
             "repositories": [
@@ -457,7 +457,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'ch_qos_logback_logback_classic_1_2_3' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:3:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'ch_qos_logback_logback_classic_1_2_3' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:3:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "ch_qos_logback_logback_classic_1_2_3",
             "sha256": "fb53f8539e7fcb8f093a56e138112056ec1dc809ebb020b59d8a36a5ebac37e0",
@@ -484,7 +484,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'ch_qos_logback_logback_classic_jar_sources_1_2_3' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:8:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'ch_qos_logback_logback_classic_jar_sources_1_2_3' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:8:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "ch_qos_logback_logback_classic_jar_sources_1_2_3",
             "sha256": "480cb5e99519271c9256716d4be1a27054047435ff72078d9deae5c6a19f63eb",
@@ -511,7 +511,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'ch_qos_logback_logback_core_1_2_3' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:13:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'ch_qos_logback_logback_core_1_2_3' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:13:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "ch_qos_logback_logback_core_1_2_3",
             "sha256": "5946d837fe6f960c02a53eda7a6926ecc3c758bbdd69aa453ee429f858217f22",
@@ -538,7 +538,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'ch_qos_logback_logback_core_jar_sources_1_2_3' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:18:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'ch_qos_logback_logback_core_jar_sources_1_2_3' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:18:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "ch_qos_logback_logback_core_jar_sources_1_2_3",
             "sha256": "1f69b6b638ec551d26b10feeade5a2b77abe347f9759da95022f0da9a63a9971",
@@ -565,7 +565,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_core_jackson_annotations_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:23:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_core_jackson_annotations_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:23:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_fasterxml_jackson_core_jackson_annotations_2_9_6",
             "sha256": "4d1ce5575ad53bee8caae4c15016878e2c3ea47276e675a35ea6bdde3bb0e653",
@@ -592,7 +592,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_core_jackson_annotations_jar_sources_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:28:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_core_jackson_annotations_jar_sources_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:28:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_fasterxml_jackson_core_jackson_annotations_jar_sources_2_9_6",
             "sha256": "022ac1b2a3ff015f380d0f8e89b7c08488605f8201227ce9c6a9bb92107414cc",
@@ -619,7 +619,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_core_jackson_core_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:33:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_core_jackson_core_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:33:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_fasterxml_jackson_core_jackson_core_2_9_6",
             "sha256": "fab8746aedd6427788ee390ea04d438ec141bff7eb3476f8bdd5d9110fb2718a",
@@ -646,7 +646,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_core_jackson_core_jar_sources_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:38:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_core_jackson_core_jar_sources_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:38:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_fasterxml_jackson_core_jackson_core_jar_sources_2_9_6",
             "sha256": "8aff614c41c49fb02ac7444dc1a9518f1f9fc5b7c744ada59825225858a0336d",
@@ -673,7 +673,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_core_jackson_databind_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:43:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_core_jackson_databind_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:43:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_fasterxml_jackson_core_jackson_databind_2_9_6",
             "sha256": "657e3e979446d61f88432b9c50f0ccd9c1fe4f1c822d533f5572e4c0d172a125",
@@ -700,7 +700,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_core_jackson_databind_jar_sources_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:48:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_core_jackson_databind_jar_sources_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:48:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_fasterxml_jackson_core_jackson_databind_jar_sources_2_9_6",
             "sha256": "0f867b675f1f641d06517c2c2232b1fcc21bc6d81a5d09cb8fc6102b13d7e881",
@@ -727,7 +727,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_dataformat_jackson_dataformat_yaml_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:53:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_dataformat_jackson_dataformat_yaml_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:53:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_fasterxml_jackson_dataformat_jackson_dataformat_yaml_2_9_6",
             "sha256": "0450f6b1e60c2cc710533c24351adc29db102cb114246321379c54b8a8253ad8",
@@ -754,7 +754,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_dataformat_jackson_dataformat_yaml_jar_sources_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:58:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_dataformat_jackson_dataformat_yaml_jar_sources_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:58:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_fasterxml_jackson_dataformat_jackson_dataformat_yaml_jar_sources_2_9_6",
             "sha256": "f5895b5b5dd2279f0a6ed72c4073e7e4bb5ed74ed55358324a62a70cfc723988",
@@ -781,7 +781,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_datatype_jackson_datatype_guava_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:63:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_datatype_jackson_datatype_guava_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:63:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_fasterxml_jackson_datatype_jackson_datatype_guava_2_9_6",
             "sha256": "a94fbdd2ac6e7e1726593f018dcfd6a54d5d8b524b145bcb6819615431f0f3ea",
@@ -808,7 +808,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_datatype_jackson_datatype_guava_jar_sources_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:68:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_fasterxml_jackson_datatype_jackson_datatype_guava_jar_sources_2_9_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:68:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_fasterxml_jackson_datatype_jackson_datatype_guava_jar_sources_2_9_6",
             "sha256": "b5c17d6172da492ff6e4a6766d04136b9cbdd618a0bbb04f061950d258e93d7b",
@@ -835,7 +835,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_geirsson_metaconfig_core_2_12_0_4_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:73:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_geirsson_metaconfig_core_2_12_0_4_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:73:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_geirsson_metaconfig_core_2_12_0_4_0",
             "sha256": "6bd25189a12b1edbf1511c44783e611a9edd738841901b9243803ff9c696c78a",
@@ -862,7 +862,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_geirsson_metaconfig_core_2_12_jar_sources_0_4_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:78:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_geirsson_metaconfig_core_2_12_jar_sources_0_4_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:78:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_geirsson_metaconfig_core_2_12_jar_sources_0_4_0",
             "sha256": "f9ca3ea8723afe3e9213a5664cf8bc3b212d3e7cf861f1d0a96621d89270d532",
@@ -889,7 +889,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_geirsson_metaconfig_typesafe_config_2_12_0_4_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:83:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_geirsson_metaconfig_typesafe_config_2_12_0_4_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:83:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_geirsson_metaconfig_typesafe_config_2_12_0_4_0",
             "sha256": "e8f6f38738a96c4c09dbf5e5c687000556a0920b63e8e4fc19bb6cbc6d8dcfbd",
@@ -916,7 +916,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_geirsson_metaconfig_typesafe_config_2_12_jar_sources_0_4_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:88:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_geirsson_metaconfig_typesafe_config_2_12_jar_sources_0_4_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:88:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_geirsson_metaconfig_typesafe_config_2_12_jar_sources_0_4_0",
             "sha256": "3c0bf468508f0f0f6b82c0ce72c996235eb7568f996fb1d1b1253c548e018170",
@@ -943,7 +943,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_geirsson_scalafmt_core_2_12_1_5_1' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:93:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_geirsson_scalafmt_core_2_12_1_5_1' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:93:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_geirsson_scalafmt_core_2_12_1_5_1",
             "sha256": "808649767cdba809b8e239e3c0f7195f09e04de06dd6281f3471e90a8ca79f55",
@@ -970,7 +970,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_geirsson_scalafmt_core_2_12_jar_sources_1_5_1' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:98:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_geirsson_scalafmt_core_2_12_jar_sources_1_5_1' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:98:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_geirsson_scalafmt_core_2_12_jar_sources_1_5_1",
             "sha256": "0a996288cf2b0955e74a8ec6aef6714b4b468b42cef717d2c922f59482822b7c",
@@ -997,7 +997,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_github_tomas_langer_chalk_1_0_2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:103:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_github_tomas_langer_chalk_1_0_2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:103:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_github_tomas_langer_chalk_1_0_2",
             "sha256": "1bbdca6337a288e28a650e50d0121cfad69065b4ef9ff19c2974e5e78cee5eb6",
@@ -1024,7 +1024,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_github_tomas_langer_chalk_jar_sources_1_0_2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:108:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_github_tomas_langer_chalk_jar_sources_1_0_2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:108:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_github_tomas_langer_chalk_jar_sources_1_0_2",
             "sha256": "a7bedcd7adb4a934682c78c527c6b15e9c06d976e614a1f1185c559a3019870c",
@@ -1051,7 +1051,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_auto_value_auto_value_1_6_2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:123:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_auto_value_auto_value_1_6_2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:123:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_auto_value_auto_value_1_6_2",
             "sha256": "edbe65a5c53e3d4f5cb10b055d4884ae7705a7cd697be4b2a5d8427761b8ba12",
@@ -1078,7 +1078,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_auto_value_auto_value_annotations_1_6_2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:113:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_auto_value_auto_value_annotations_1_6_2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:113:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_auto_value_auto_value_annotations_1_6_2",
             "sha256": "b48b04ddba40e8ac33bf036f06fc43995fc5084bd94bdaace807ce27d3bea3fb",
@@ -1105,7 +1105,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_auto_value_auto_value_annotations_jar_sources_1_6_2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:118:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_auto_value_auto_value_annotations_jar_sources_1_6_2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:118:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_auto_value_auto_value_annotations_jar_sources_1_6_2",
             "sha256": "9cca705ffd696133e998e289defcc332be5196dbcb6813fcd317b14775a24612",
@@ -1132,7 +1132,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_auto_value_auto_value_jar_sources_1_6_2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:128:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_auto_value_auto_value_jar_sources_1_6_2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:128:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_auto_value_auto_value_jar_sources_1_6_2",
             "sha256": "d9959ea21834ec9e213378d719b2a7f705efca9b01667cd28718a47683dc273a",
@@ -1159,7 +1159,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_code_findbugs_annotations_3_0_1' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:133:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_code_findbugs_annotations_3_0_1' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:133:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_code_findbugs_annotations_3_0_1",
             "sha256": "6b47ff0a6de0ce17cbedc3abb0828ca5bce3009d53ea47b3723ff023c4742f79",
@@ -1186,7 +1186,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_code_findbugs_annotations_jar_sources_3_0_1' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:138:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_code_findbugs_annotations_jar_sources_3_0_1' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:138:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_code_findbugs_annotations_jar_sources_3_0_1",
             "sha256": "1a64119813ca80a6ebef047190a4f62ee4ad44afe786e92d698ba7aa730ffc0a",
@@ -1213,7 +1213,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_code_findbugs_jsr305_3_0_2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:143:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_code_findbugs_jsr305_3_0_2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:143:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_code_findbugs_jsr305_3_0_2",
             "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7",
@@ -1240,7 +1240,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_code_findbugs_jsr305_jar_sources_3_0_2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:148:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_code_findbugs_jsr305_jar_sources_3_0_2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:148:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_code_findbugs_jsr305_jar_sources_3_0_2",
             "sha256": "1c9e85e272d0708c6a591dc74828c71603053b48cc75ae83cce56912a2aa063b",
@@ -1267,7 +1267,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_errorprone_error_prone_annotations_2_3_1' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:153:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_errorprone_error_prone_annotations_2_3_1' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:153:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_errorprone_error_prone_annotations_2_3_1",
             "sha256": "10a5949aa0f95c8de4fd47edfe20534d2acefd8c224f8afea1f607e112816120",
@@ -1294,7 +1294,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_errorprone_error_prone_annotations_jar_sources_2_3_1' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:158:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_errorprone_error_prone_annotations_jar_sources_2_3_1' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:158:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_errorprone_error_prone_annotations_jar_sources_2_3_1",
             "sha256": "0fe3db0b12e624afd1dbeba85421fa58c362f9caf55f1869d7683b8744c53616",
@@ -1321,7 +1321,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_errorprone_javac_shaded_9_181_r4173_1' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:163:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_errorprone_javac_shaded_9_181_r4173_1' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:163:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_errorprone_javac_shaded_9_181_r4173_1",
             "sha256": "ae6f663a36bac1855076072afd650cdc0076b08f8129fbff504e73e74095a021",
@@ -1348,7 +1348,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_errorprone_javac_shaded_jar_sources_9_181_r4173_1' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:168:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_errorprone_javac_shaded_jar_sources_9_181_r4173_1' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:168:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_errorprone_javac_shaded_jar_sources_9_181_r4173_1",
             "sha256": "b6487292a495b2c44f6975b797f8eb80290609a995c792519ee116c71fc1663b",
@@ -1375,7 +1375,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_googlejavaformat_google_java_format_1_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:173:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_googlejavaformat_google_java_format_1_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:173:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_googlejavaformat_google_java_format_1_6",
             "sha256": "fdb408913d3120ab4dd7e631f5857fe8b1bda2fba4dcc26b253dd6eab5b48020",
@@ -1402,7 +1402,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_googlejavaformat_google_java_format_jar_sources_1_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:178:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_googlejavaformat_google_java_format_jar_sources_1_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:178:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_googlejavaformat_google_java_format_jar_sources_1_6",
             "sha256": "3ce9a79d45b8208f63ee5b6dce80780caf2796dd3bac8d6346bbe52327690ee5",
@@ -1429,7 +1429,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_guava_guava_23_6_1_jre' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:183:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_guava_guava_23_6_1_jre' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:183:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_guava_guava_23_6_1_jre",
             "sha256": "9987480e19dba2cc76984c96926a7e9ffbfed3c3fc4ee57e2ae040721d61d5df",
@@ -1456,7 +1456,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_guava_guava_jar_sources_23_6_1_jre' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:188:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_guava_guava_jar_sources_23_6_1_jre' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:188:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_guava_guava_jar_sources_23_6_1_jre",
             "sha256": "36a4a0c6bc406a961eff0771a5edaf01a6ea3512192bba3d1f5ac64d395acca0",
@@ -1483,7 +1483,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_j2objc_j2objc_annotations_1_1' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:193:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_j2objc_j2objc_annotations_1_1' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:193:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_j2objc_j2objc_annotations_1_1",
             "sha256": "2994a7eb78f2710bd3d3bfb639b2c94e219cedac0d4d084d516e78c16dddecf6",
@@ -1510,7 +1510,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_j2objc_j2objc_annotations_jar_sources_1_1' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:198:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_j2objc_j2objc_annotations_jar_sources_1_1' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:198:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_j2objc_j2objc_annotations_jar_sources_1_1",
             "sha256": "2cd9022a77151d0b574887635cdfcdf3b78155b602abc89d7f8e62aba55cfb4f",
@@ -1537,7 +1537,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_jimfs_jimfs_1_1' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:203:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_jimfs_jimfs_1_1' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:203:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_jimfs_jimfs_1_1",
             "sha256": "c4828e28d7c0a930af9387510b3bada7daa5c04d7c25a75c7b8b081f1c257ddd",
@@ -1564,7 +1564,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_jimfs_jimfs_jar_sources_1_1' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:208:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_jimfs_jimfs_jar_sources_1_1' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:208:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_jimfs_jimfs_jar_sources_1_1",
             "sha256": "adebb53450d2313d6927db5155c9be85336109e8f8c0af106ec2a30bc37e64ce",
@@ -1591,7 +1591,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_protobuf_protobuf_java_3_8_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:213:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_protobuf_protobuf_java_3_8_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:213:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_protobuf_protobuf_java_3_8_0",
             "sha256": "94ba90a869ddad07eb49afaa8f39e676c2554b5b1c417ad9e1188257e79be60f",
@@ -1618,7 +1618,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_google_protobuf_protobuf_java_jar_sources_3_8_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:218:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_protobuf_protobuf_java_jar_sources_3_8_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:218:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_google_protobuf_protobuf_java_jar_sources_3_8_0",
             "sha256": "1982b2a96f752cf0d64c3066b5e9e4016f9cc825591f3d1a9c40a017203fcb2f",
@@ -1645,7 +1645,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_fastparse_2_12_0_4_2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:233:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_fastparse_2_12_0_4_2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:233:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_lihaoyi_fastparse_2_12_0_4_2",
             "sha256": "43f57787179e902137167ba107e665272a0764f1addb3f452136f15bad5b21a8",
@@ -1672,7 +1672,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_fastparse_2_12_jar_sources_0_4_2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:238:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_fastparse_2_12_jar_sources_0_4_2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:238:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_lihaoyi_fastparse_2_12_jar_sources_0_4_2",
             "sha256": "8e242feb1704b8483969c726056c46e5ba2bb659c943d336ae3948b3a507707d",
@@ -1699,7 +1699,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_fastparse_utils_2_12_0_4_2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:223:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_fastparse_utils_2_12_0_4_2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:223:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_lihaoyi_fastparse_utils_2_12_0_4_2",
             "sha256": "0da40d3c89d3f7009ac2f6e32b11d8cdd379b40a2f09ce08669b4695f558e101",
@@ -1726,7 +1726,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_fastparse_utils_2_12_jar_sources_0_4_2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:228:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_fastparse_utils_2_12_jar_sources_0_4_2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:228:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_lihaoyi_fastparse_utils_2_12_jar_sources_0_4_2",
             "sha256": "1eb227bc9659ce84b40d2d258c9ea3e8b8246f362241f43422266e05cabc902d",
@@ -1753,7 +1753,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_scalaparse_2_12_0_4_2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:243:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_scalaparse_2_12_0_4_2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:243:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_lihaoyi_scalaparse_2_12_0_4_2",
             "sha256": "148c9ea912639404faef7c8e607260787384ae9a2973120c71e440f78c3b5082",
@@ -1780,7 +1780,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_scalaparse_2_12_jar_sources_0_4_2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:248:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_scalaparse_2_12_jar_sources_0_4_2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:248:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_lihaoyi_scalaparse_2_12_jar_sources_0_4_2",
             "sha256": "faeabf3ef43474e8eb45a704a2490e1aa1fb7dfc49cfb8e458d1f51318a55bb9",
@@ -1807,7 +1807,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_sourcecode_2_12_0_1_3' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:253:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_sourcecode_2_12_0_1_3' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:253:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_lihaoyi_sourcecode_2_12_0_1_3",
             "sha256": "3ba3aca0d46496a3304798db8c8d79eedbdf29846b988a0a65207cc13408deca",
@@ -1834,7 +1834,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_sourcecode_2_12_jar_sources_0_1_3' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:258:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_lihaoyi_sourcecode_2_12_jar_sources_0_1_3' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:258:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_lihaoyi_sourcecode_2_12_jar_sources_0_1_3",
             "sha256": "5e20864291d9ef92841282606d99434b7af938619689218180717cb72851f7da",
@@ -1861,7 +1861,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_squareup_okio_okio_1_15_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:263:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_squareup_okio_okio_1_15_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:263:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_squareup_okio_okio_1_15_0",
             "sha256": "693fa319a7e8843300602b204023b7674f106ebcb577f2dd5807212b66118bd2",
@@ -1888,7 +1888,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_squareup_okio_okio_jar_sources_1_15_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:268:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_squareup_okio_okio_jar_sources_1_15_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:268:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_squareup_okio_okio_jar_sources_1_15_0",
             "sha256": "a15f2a8344920da8a68eb4a59089eae1adde5bac1805875ca381cb5b3d96e912",
@@ -1915,7 +1915,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_trueaccord_lenses_lenses_2_12_0_4_10' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:273:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_trueaccord_lenses_lenses_2_12_0_4_10' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:273:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_trueaccord_lenses_lenses_2_12_0_4_10",
             "sha256": "2c4d6218d81eb682927ddccb386c8c3577e4cdf098130fc25bae4c9f9d312e16",
@@ -1942,7 +1942,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_trueaccord_lenses_lenses_2_12_jar_sources_0_4_10' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:278:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_trueaccord_lenses_lenses_2_12_jar_sources_0_4_10' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:278:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_trueaccord_lenses_lenses_2_12_jar_sources_0_4_10",
             "sha256": "ee3896f145d5ac5ea9966a702fe30641caa1670bf6a5f74376ba75fd2273c558",
@@ -1969,7 +1969,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_trueaccord_scalapb_scalapb_runtime_2_12_0_6_0_pre2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:283:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_trueaccord_scalapb_scalapb_runtime_2_12_0_6_0_pre2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:283:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_trueaccord_scalapb_scalapb_runtime_2_12_0_6_0_pre2",
             "sha256": "07bc456f05bb654db0cae9361bd6240d5892f3066534fd5e46b6922f2cbdb1c7",
@@ -1996,7 +1996,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_trueaccord_scalapb_scalapb_runtime_2_12_jar_sources_0_6_0_pre2' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:288:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_trueaccord_scalapb_scalapb_runtime_2_12_jar_sources_0_6_0_pre2' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:288:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_trueaccord_scalapb_scalapb_runtime_2_12_jar_sources_0_6_0_pre2",
             "sha256": "d14e202e4583e9c5b8808e090284a7bf362feab80918846f039b744d169a7ecc",
@@ -2023,7 +2023,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_typesafe_config_1_2_1' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:293:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_typesafe_config_1_2_1' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:293:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_typesafe_config_1_2_1",
             "sha256": "c160fbd78f51a0c2375a794e435ce2112524a6871f64d0331895e9e26ee8b9ee",
@@ -2050,7 +2050,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'com_typesafe_config_jar_sources_1_2_1' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:298:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'com_typesafe_config_jar_sources_1_2_1' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:298:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "com_typesafe_config_jar_sources_1_2_1",
             "sha256": "78a8a2728fd5236b24a9bed7c253729887848ff5d3af5f9ef02e85be5fc43bba",
@@ -2077,7 +2077,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'net_jcip_jcip_annotations_1_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:303:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'net_jcip_jcip_annotations_1_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:303:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "net_jcip_jcip_annotations_1_0",
             "sha256": "be5805392060c71474bf6c9a67a099471274d30b83eef84bfc4e0889a4f1dcc0",
@@ -2104,7 +2104,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'net_jcip_jcip_annotations_jar_sources_1_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:308:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'net_jcip_jcip_annotations_jar_sources_1_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:308:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "net_jcip_jcip_annotations_jar_sources_1_0",
             "sha256": "e3ad6ae439e3cf8a25372de838efaa1a95f8ef9b5053d5d94fafe89c8c09814e",
@@ -2131,7 +2131,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'net_sf_jopt_simple_jopt_simple_5_0_4' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:313:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'net_sf_jopt_simple_jopt_simple_5_0_4' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:313:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "net_sf_jopt_simple_jopt_simple_5_0_4",
             "sha256": "df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28",
@@ -2158,7 +2158,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'net_sf_jopt_simple_jopt_simple_jar_sources_5_0_4' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:318:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'net_sf_jopt_simple_jopt_simple_jar_sources_5_0_4' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:318:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "net_sf_jopt_simple_jopt_simple_jar_sources_5_0_4",
             "sha256": "06b283801a5a94ef697b7f2c79a048c4e2f848b3daddda61cab74d882bdd97a5",
@@ -2185,7 +2185,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_checkerframework_checker_compat_qual_2_0_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:323:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_checkerframework_checker_compat_qual_2_0_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:323:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_checkerframework_checker_compat_qual_2_0_0",
             "sha256": "a40b2ce6d8551e5b90b1bf637064303f32944d61b52ab2014e38699df573941b",
@@ -2212,7 +2212,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_checkerframework_checker_compat_qual_jar_sources_2_0_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:328:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_checkerframework_checker_compat_qual_jar_sources_2_0_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:328:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_checkerframework_checker_compat_qual_jar_sources_2_0_0",
             "sha256": "8e287b29415fac2c0b9eb04f30224d9d2ad33c23b7a7ce8d23d1f197f0eb5074",
@@ -2239,7 +2239,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_codehaus_mojo_animal_sniffer_annotations_1_14' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:333:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_codehaus_mojo_animal_sniffer_annotations_1_14' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:333:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_codehaus_mojo_animal_sniffer_annotations_1_14",
             "sha256": "2068320bd6bad744c3673ab048f67e30bef8f518996fa380033556600669905d",
@@ -2266,7 +2266,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_codehaus_mojo_animal_sniffer_annotations_jar_sources_1_14' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:338:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_codehaus_mojo_animal_sniffer_annotations_jar_sources_1_14' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:338:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_codehaus_mojo_animal_sniffer_annotations_jar_sources_1_14",
             "sha256": "d821ae1f706db2c1b9c88d4b7b0746b01039dac63762745ef3fe5579967dd16b",
@@ -2293,7 +2293,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_fusesource_hawtjni_hawtjni_runtime_1_11' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:343:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_fusesource_hawtjni_hawtjni_runtime_1_11' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:343:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_fusesource_hawtjni_hawtjni_runtime_1_11",
             "sha256": "cd702bfb80bc859ff9f89bfbcc5f3709dfbb2817160f1254c5f486e1e582af3b",
@@ -2320,7 +2320,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_fusesource_hawtjni_hawtjni_runtime_jar_sources_1_11' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:348:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_fusesource_hawtjni_hawtjni_runtime_jar_sources_1_11' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:348:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_fusesource_hawtjni_hawtjni_runtime_jar_sources_1_11",
             "sha256": "2d9b0be42c6a5cb82e6d3fe412210e38b1e52c8a3cecb8f4d0640b5e6ec8486d",
@@ -2347,7 +2347,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_fusesource_jansi_jansi_native_1_5' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:353:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_fusesource_jansi_jansi_native_1_5' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:353:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_fusesource_jansi_jansi_native_1_5",
             "sha256": "068c02045c1ee9d8eb86a45a18d677d736b2fa7fbf6061413cc6abf839a4e651",
@@ -2374,7 +2374,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_fusesource_jansi_jansi_native_jar_sources_1_5' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:358:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_fusesource_jansi_jansi_native_jar_sources_1_5' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:358:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_fusesource_jansi_jansi_native_jar_sources_1_5",
             "sha256": "d9aaeafcbbd0eb14da32596466968459f826f43cdb3af592816086d1d12baf28",
@@ -2401,7 +2401,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_fusesource_jansi_jansi_native_jar_windows32_1_5' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:363:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_fusesource_jansi_jansi_native_jar_windows32_1_5' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:363:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_fusesource_jansi_jansi_native_jar_windows32_1_5",
             "sha256": "4b36697f65369a5a05680d31d0fcd90d77c541b81c0fdef9e3eee5743c5df528",
@@ -2428,7 +2428,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_fusesource_jansi_jansi_native_jar_windows64_1_5' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:368:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_fusesource_jansi_jansi_native_jar_windows64_1_5' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:368:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_fusesource_jansi_jansi_native_jar_windows64_1_5",
             "sha256": "cac96b26e85836334fc523df00b80197c4ba2e1f71337793ccbb6a587afa88f6",
@@ -2455,7 +2455,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_hamcrest_java_hamcrest_2_0_0_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:373:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_hamcrest_java_hamcrest_2_0_0_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:373:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_hamcrest_java_hamcrest_2_0_0_0",
             "sha256": "09bc7044d57a497846e2480250e7a72ff3ae58efefc8c3a9ceecd0f4e092851c",
@@ -2482,7 +2482,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_hamcrest_java_hamcrest_jar_sources_2_0_0_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:378:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_hamcrest_java_hamcrest_jar_sources_2_0_0_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:378:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_hamcrest_java_hamcrest_jar_sources_2_0_0_0",
             "sha256": "2ad13be4d6d61cd4cc2bdafb434b7214d1f489b1cc9426335dbfc55329eca675",
@@ -2509,7 +2509,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scala_lang_modules_scala_xml_2_12_1_0_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:383:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scala_lang_modules_scala_xml_2_12_1_0_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:383:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scala_lang_modules_scala_xml_2_12_1_0_6",
             "sha256": "7cc3b6ceb56e879cb977e8e043f4bfe2e062f78795efd7efa09f85003cb3230a",
@@ -2536,7 +2536,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scala_lang_modules_scala_xml_2_12_jar_sources_1_0_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:388:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scala_lang_modules_scala_xml_2_12_jar_sources_1_0_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:388:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scala_lang_modules_scala_xml_2_12_jar_sources_1_0_6",
             "sha256": "a7e8aac79394df396afda98b35537791809d815ce15ab2224f7d31e50c753922",
@@ -2563,7 +2563,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scala_lang_scala_compiler_2_12_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:393:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scala_lang_scala_compiler_2_12_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:393:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scala_lang_scala_compiler_2_12_6",
             "sha256": "3023b07cc02f2b0217b2c04f8e636b396130b3a8544a8dfad498a19c3e57a863",
@@ -2590,7 +2590,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scala_lang_scala_compiler_jar_sources_2_12_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:398:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scala_lang_scala_compiler_jar_sources_2_12_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:398:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scala_lang_scala_compiler_jar_sources_2_12_6",
             "sha256": "d3e9d7cc7b50c89676481959cebbf231275863c9f74102de28250dc92ffd4a6f",
@@ -2617,7 +2617,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scala_lang_scala_library_2_12_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:403:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scala_lang_scala_library_2_12_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:403:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scala_lang_scala_library_2_12_6",
             "sha256": "f81d7144f0ce1b8123335b72ba39003c4be2870767aca15dd0888ba3dab65e98",
@@ -2644,7 +2644,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scala_lang_scala_library_jar_sources_2_12_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:408:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scala_lang_scala_library_jar_sources_2_12_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:408:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scala_lang_scala_library_jar_sources_2_12_6",
             "sha256": "e1b905fd404095bcff7e26e750c396c7b4b193044f60555147142d24427aeaf6",
@@ -2671,7 +2671,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scala_lang_scala_reflect_2_12_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:413:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scala_lang_scala_reflect_2_12_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:413:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scala_lang_scala_reflect_2_12_6",
             "sha256": "ffa70d522fc9f9deec14358aa674e6dd75c9dfa39d4668ef15bb52f002ce99fa",
@@ -2698,7 +2698,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scala_lang_scala_reflect_jar_sources_2_12_6' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:418:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scala_lang_scala_reflect_jar_sources_2_12_6' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:418:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scala_lang_scala_reflect_jar_sources_2_12_6",
             "sha256": "f30b396d82485470a6f9b1aef955cb70426f8c0cd72b00c37cb68b363f4939de",
@@ -2725,7 +2725,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_common_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:423:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_common_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:423:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_common_2_12_1_7_0",
             "sha256": "87445943f1dff51a063b95660ed0bf5b3f2d28a9260aa7c38cfec7d1b684e826",
@@ -2752,7 +2752,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_common_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:428:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_common_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:428:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_common_2_12_jar_sources_1_7_0",
             "sha256": "c8137b4a06ad56c736a00b605447dd19849b84185f93f824d7ee8d729a44b193",
@@ -2779,7 +2779,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_dialects_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:433:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_dialects_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:433:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_dialects_2_12_1_7_0",
             "sha256": "14cb63ebdae50463ef00dd4c3c07dfcb1b5aa7a30b3fc744046010a568f023e8",
@@ -2806,7 +2806,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_dialects_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:438:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_dialects_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:438:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_dialects_2_12_jar_sources_1_7_0",
             "sha256": "405bede88f1ab3bc57d2740508e5a1975d0d578959919a21f37c38c185219a13",
@@ -2833,7 +2833,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_inline_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:443:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_inline_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:443:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_inline_2_12_1_7_0",
             "sha256": "34af09bc3946dc00a276b54f790ffa2ba6ce40fc695dfa3cac74af2ea4416788",
@@ -2860,7 +2860,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_inline_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:448:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_inline_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:448:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_inline_2_12_jar_sources_1_7_0",
             "sha256": "d4b82276c7c2c865bbac98212b872d76865692a08353542a05b6bdfd17dce51b",
@@ -2887,7 +2887,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_inputs_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:453:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_inputs_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:453:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_inputs_2_12_1_7_0",
             "sha256": "2f8582bba795c8997ea44210fb9c32b97e8e617336f10f01a3f85d206af2efe6",
@@ -2914,7 +2914,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_inputs_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:458:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_inputs_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:458:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_inputs_2_12_jar_sources_1_7_0",
             "sha256": "00876d6018a9e6d4ebe04452f8359ccd1404ffae614013b4f91a545a0509f2da",
@@ -2941,7 +2941,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_io_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:463:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_io_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:463:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_io_2_12_1_7_0",
             "sha256": "7884cf043a6ad61b36352e42a4c6b4c9eace83ebaed54d8072725710009ddc58",
@@ -2968,7 +2968,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_io_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:468:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_io_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:468:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_io_2_12_jar_sources_1_7_0",
             "sha256": "e503cd739e2f496a499899e43490c5924bb32f64242b281c48f1e563f2c9efcf",
@@ -2995,7 +2995,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_parsers_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:473:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_parsers_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:473:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_parsers_2_12_1_7_0",
             "sha256": "fc1625dfe09ec108fda13d39f681a6499876f55f4763ddb124d3275e7084d340",
@@ -3022,7 +3022,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_parsers_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:478:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_parsers_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:478:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_parsers_2_12_jar_sources_1_7_0",
             "sha256": "35513d8a11716937a0e43ab805984491ebef58a873019b451a027c942fa8d720",
@@ -3049,7 +3049,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_quasiquotes_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:483:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_quasiquotes_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:483:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_quasiquotes_2_12_1_7_0",
             "sha256": "d3a7144f273dfdeaa21afdfaf437739fd3622855d82d0eead37c3236be25b8fc",
@@ -3076,7 +3076,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_quasiquotes_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:488:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_quasiquotes_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:488:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_quasiquotes_2_12_jar_sources_1_7_0",
             "sha256": "48f8b9630aafb13e16f67ffc937db012036a334911528b95ebcab59f66e584fa",
@@ -3103,7 +3103,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_scalameta_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:493:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_scalameta_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:493:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_scalameta_2_12_1_7_0",
             "sha256": "a981b3a6180912bd33f1ec92bb3a880c452f1eb491f9e456e80d4ac527a7f7c2",
@@ -3130,7 +3130,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_scalameta_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:498:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_scalameta_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:498:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_scalameta_2_12_jar_sources_1_7_0",
             "sha256": "6c8205a7f415a28d3cb047dd22a2fcfc037331a9ebd7d44691aac7f3a0d15128",
@@ -3157,7 +3157,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_semantic_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:503:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_semantic_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:503:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_semantic_2_12_1_7_0",
             "sha256": "475788dca2cb7f3b53391c65b23885b8bbb8c3c8c932bce178e8e185ba4d012a",
@@ -3184,7 +3184,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_semantic_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:508:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_semantic_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:508:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_semantic_2_12_jar_sources_1_7_0",
             "sha256": "f8ec633ab3a6bea4dc5075b5fd27eece0f773e33d77b06241fb88ff444f507c2",
@@ -3211,7 +3211,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_tokenizers_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:513:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_tokenizers_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:513:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_tokenizers_2_12_1_7_0",
             "sha256": "5057840f62c90eb4cba66b97f6b8815a8f757ba214481668cbc3998b01b0cb7a",
@@ -3238,7 +3238,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_tokenizers_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:518:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_tokenizers_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:518:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_tokenizers_2_12_jar_sources_1_7_0",
             "sha256": "8e051f7627820d3dd39b290209202dac3b558dd0dc6dcd50d936683fc6e05701",
@@ -3265,7 +3265,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_tokens_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:523:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_tokens_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:523:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_tokens_2_12_1_7_0",
             "sha256": "8dc25ef61eb7ef76e5ecf25f897e8d835f10d6451c33a0fe3b2fd2b31c7d7bf8",
@@ -3292,7 +3292,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_tokens_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:528:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_tokens_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:528:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_tokens_2_12_jar_sources_1_7_0",
             "sha256": "c7facec3faa933e583bd8db27262ac4b8efaba33795c9b8528f51efa3c37bc1f",
@@ -3319,7 +3319,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_transversers_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:533:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_transversers_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:533:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_transversers_2_12_1_7_0",
             "sha256": "b45fe5f0284ec77737778831685f43d5b434121a88c488ff1ec6e82e53eb5536",
@@ -3346,7 +3346,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_transversers_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:538:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_transversers_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:538:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_transversers_2_12_jar_sources_1_7_0",
             "sha256": "f1b75119ecb65bc29989370b8b82da4945112dfd1c216ead5e4c7253638f8539",
@@ -3373,7 +3373,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_trees_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:543:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_trees_2_12_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:543:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_trees_2_12_1_7_0",
             "sha256": "68e115214da0ff306e5bd7e1333680dddb51f72fd5783fe8a686c829208ef84c",
@@ -3400,7 +3400,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_scalameta_trees_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:548:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_scalameta_trees_2_12_jar_sources_1_7_0' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:548:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_scalameta_trees_2_12_jar_sources_1_7_0",
             "sha256": "c76f8f57ec044ac22be27dc76063ce836d2358cb011e913b5e1f36efb2bdc792",
@@ -3427,7 +3427,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_slf4j_slf4j_api_1_7_25' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:553:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_slf4j_slf4j_api_1_7_25' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:553:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_slf4j_slf4j_api_1_7_25",
             "sha256": "18c4a0095d5c1da6b817592e767bb23d29dd2f560ad74df75ff3961dbde25b79",
@@ -3454,7 +3454,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_slf4j_slf4j_api_jar_sources_1_7_25' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:558:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_slf4j_slf4j_api_jar_sources_1_7_25' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:558:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_slf4j_slf4j_api_jar_sources_1_7_25",
             "sha256": "c4bc93180a4f0aceec3b057a2514abe04a79f06c174bbed910a2afb227b79366",
@@ -3481,7 +3481,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_yaml_snakeyaml_1_18' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:563:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_yaml_snakeyaml_1_18' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:563:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_yaml_snakeyaml_1_18",
             "sha256": "81bf4c29d0275dace75fadb5febf5384553422816256023efa83b2b15a9ced60",
@@ -3508,7 +3508,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_file",
-        "definition_information": "Call stack for the definition of repository 'org_yaml_snakeyaml_jar_sources_1_18' which is a http_file (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:568:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
+        "definition_information": "Call stack for the definition of repository 'org_yaml_snakeyaml_jar_sources_1_18' which is a http_file (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:372:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/maven/defs.bzl:568:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:26:1",
         "original_attributes": {
             "name": "org_yaml_snakeyaml_jar_sources_1_18",
             "sha256": "76a7b11358ea5ed67e49de701566a785c25c9ba8b86fca62ce0840838b81f4e7",
@@ -3615,7 +3615,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'bazel_skylib' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:67:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'bazel_skylib' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:67:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "bazel_skylib",
             "urls": [
@@ -3655,7 +3655,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'com_github_gogo_protobuf' which is a git_repository (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:142:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'com_github_gogo_protobuf' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:142:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "com_github_gogo_protobuf",
             "remote": "https://github.com/gogo/protobuf",
@@ -3695,7 +3695,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'com_github_golang_protobuf' which is a git_repository (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:111:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'com_github_golang_protobuf' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:111:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "com_github_golang_protobuf",
             "remote": "https://github.com/golang/protobuf",
@@ -3737,7 +3737,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'com_github_mwitkow_go_proto_validators' which is a git_repository (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:128:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'com_github_mwitkow_go_proto_validators' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:128:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "com_github_mwitkow_go_proto_validators",
             "remote": "https://github.com/mwitkow/go-proto-validators",
@@ -3777,7 +3777,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'go_googleapis' which is a git_repository (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:179:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'go_googleapis' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:179:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "go_googleapis",
             "remote": "https://github.com/googleapis/googleapis",
@@ -3823,7 +3823,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_go//go/private:sdk.bzl%_go_download_sdk",
-        "definition_information": "Call stack for the definition of repository 'go_sdk' which is a _go_download_sdk (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/sdk.bzl:80:20):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/sdk.bzl:93:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/sdk.bzl:261:13\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:36:1",
+        "definition_information": "Call stack for the definition of repository 'go_sdk' which is a _go_download_sdk (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/sdk.bzl:80:20):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/sdk.bzl:93:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/sdk.bzl:261:13\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:36:1",
         "original_attributes": {
             "name": "go_sdk",
             "version": "1.13.4"
@@ -3841,7 +3841,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_go//proto:gogo.bzl%gogo_special_proto",
-        "definition_information": "Call stack for the definition of repository 'gogo_special_proto' which is a gogo_special_proto (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/proto/gogo.bzl:34:22):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:154:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'gogo_special_proto' which is a gogo_special_proto (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/proto/gogo.bzl:34:22):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:154:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "gogo_special_proto"
         },
@@ -3857,7 +3857,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_go//go/private:compat/compat_repo.bzl%_go_rules_compat",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_go_compat' which is a _go_rules_compat (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/compat/compat_repo.bzl:62:20):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/compat/compat_repo.bzl:79:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:45:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_go_compat' which is a _go_rules_compat (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/compat/compat_repo.bzl:62:20):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/compat/compat_repo.bzl:79:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:45:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "io_bazel_rules_go_compat",
             "impl": "@io_bazel_rules_go//go/private:compat/v25.bzl",
@@ -3877,7 +3877,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_go//go/private:nogo.bzl%go_register_nogo",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_nogo' which is a go_register_nogo (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/nogo.bzl:33:20):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:197:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_nogo' which is a go_register_nogo (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/nogo.bzl:33:20):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:197:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "io_bazel_rules_nogo",
             "nogo": "@io_bazel_rules_go//:default_nogo"
@@ -3895,7 +3895,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'org_golang_google_genproto' which is a git_repository (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:163:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'org_golang_google_genproto' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:163:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "org_golang_google_genproto",
             "remote": "https://github.com/google/go-genproto",
@@ -3934,7 +3934,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'org_golang_x_tools' which is a git_repository (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:78:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'org_golang_x_tools' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:78:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "org_golang_x_tools",
             "remote": "https://go.googlesource.com/tools",
@@ -3978,7 +3978,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'platforms' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:53:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
+        "definition_information": "Call stack for the definition of repository 'platforms' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:205:9\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_go/go/private/repositories.bzl:53:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:34:1",
         "original_attributes": {
             "name": "platforms",
             "urls": [
@@ -4019,7 +4019,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'com_google_protobuf' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:134:9\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'com_google_protobuf' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:134:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "com_google_protobuf",
             "urls": [
@@ -4076,7 +4076,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_guava' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:125:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_guava' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:125:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_guava",
             "rule_name": "scala_import",
@@ -4110,7 +4110,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_compiler' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_cross_version.bzl:67:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:64:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_compiler' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_cross_version.bzl:67:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:64:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_scala_compiler",
             "rule_name": "scala_import",
@@ -4144,7 +4144,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_library' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_cross_version.bzl:60:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:64:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_library' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_cross_version.bzl:60:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:64:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_scala_library",
             "rule_name": "scala_import",
@@ -4178,7 +4178,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_parser_combinators' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:104:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_parser_combinators' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:104:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_scala_parser_combinators",
             "rule_name": "scala_import",
@@ -4212,7 +4212,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_reflect' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_cross_version.bzl:74:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:64:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_reflect' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_cross_version.bzl:74:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:64:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_scala_reflect",
             "rule_name": "scala_import",
@@ -4246,7 +4246,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_xml' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:93:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scala_xml' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:93:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_scala_xml",
             "rule_name": "scala_import",
@@ -4280,7 +4280,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scalactic' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:82:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scalactic' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:82:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_scalactic",
             "rule_name": "scala_import",
@@ -4314,7 +4314,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scalatest' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:72:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala_scalatest' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:72:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala_scalatest",
             "rule_name": "scala_import",
@@ -4348,7 +4348,7 @@ resolved = [
     },
     {
         "original_rule_class": "@io_bazel_rules_scala//scala:scala_maven_import_external.bzl%jvm_import_external",
-        "definition_information": "Call stack for the definition of repository 'scalac_rules_commons_io' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:117:5\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'scalac_rules_commons_io' which is a jvm_import_external (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:207:23):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:276:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/scala_maven_import_external.bzl:240:5\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:117:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "scalac_rules_commons_io",
             "rule_name": "scala_import",
@@ -4382,7 +4382,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'zlib' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:146:9\n - ~/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
+        "definition_information": "Call stack for the definition of repository 'zlib' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/io_bazel_rules_scala/scala/private/macros/scala_repositories.bzl:146:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:40:1",
         "original_attributes": {
             "name": "zlib",
             "urls": [
@@ -4425,7 +4425,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remote_coverage_tools' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /DEFAULT.WORKSPACE.SUFFIX:9:1",
+        "definition_information": "Call stack for the definition of repository 'remote_coverage_tools' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /DEFAULT.WORKSPACE.SUFFIX:9:1",
         "original_attributes": {
             "name": "remote_coverage_tools",
             "urls": [
@@ -4577,14 +4577,14 @@ resolved = [
         "original_rule_class": "new_local_repository",
         "original_attributes": {
             "name": "local_jdk",
-            "path": "~/.sdkman/candidates/java/8.0.222.j9-adpt",
-            "build_file": "/var/tmp/_bazel/install/7dbd2bc10323e6ff08dd6e9d1ec7e5c1/jdk.BUILD"
+            "path": "/Users/smandrean/.sdkman/candidates/java/8.0.222.j9-adpt",
+            "build_file": "/var/tmp/_bazel_smandrean/install/7dbd2bc10323e6ff08dd6e9d1ec7e5c1/jdk.BUILD"
         },
-        "native": "new_local_repository(name = \"local_jdk\", path = \"~/.sdkman/candidates/java/8.0.222.j9-adpt\", build_file = __embedded_dir__ + \"/\" + \"jdk.BUILD\")"
+        "native": "new_local_repository(name = \"local_jdk\", path = \"/Users/smandrean/.sdkman/candidates/java/8.0.222.j9-adpt\", build_file = __embedded_dir__ + \"/\" + \"jdk.BUILD\")"
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remote_java_tools_darwin' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:280:1",
+        "definition_information": "Call stack for the definition of repository 'remote_java_tools_darwin' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:280:1",
         "original_attributes": {
             "name": "remote_java_tools_darwin",
             "urls": [
@@ -4624,7 +4624,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remote_java_tools_linux' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:260:1",
+        "definition_information": "Call stack for the definition of repository 'remote_java_tools_linux' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:260:1",
         "original_attributes": {
             "name": "remote_java_tools_linux",
             "urls": [
@@ -4664,7 +4664,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remote_java_tools_windows' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:270:1",
+        "definition_information": "Call stack for the definition of repository 'remote_java_tools_windows' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:270:1",
         "original_attributes": {
             "name": "remote_java_tools_windows",
             "urls": [
@@ -4704,7 +4704,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remotejdk10_linux' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:168:1",
+        "definition_information": "Call stack for the definition of repository 'remotejdk10_linux' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:168:1",
         "original_attributes": {
             "name": "remotejdk10_linux",
             "urls": [
@@ -4745,7 +4745,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remotejdk10_linux_aarch64' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:203:1",
+        "definition_information": "Call stack for the definition of repository 'remotejdk10_linux_aarch64' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:203:1",
         "original_attributes": {
             "name": "remotejdk10_linux_aarch64",
             "urls": [
@@ -4788,7 +4788,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remotejdk10_macos' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:179:1",
+        "definition_information": "Call stack for the definition of repository 'remotejdk10_macos' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:179:1",
         "original_attributes": {
             "name": "remotejdk10_macos",
             "urls": [
@@ -4829,7 +4829,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remotejdk10_win' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:190:1",
+        "definition_information": "Call stack for the definition of repository 'remotejdk10_win' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:190:1",
         "original_attributes": {
             "name": "remotejdk10_win",
             "urls": [
@@ -4870,7 +4870,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remotejdk11_linux' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:216:1",
+        "definition_information": "Call stack for the definition of repository 'remotejdk11_linux' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:216:1",
         "original_attributes": {
             "name": "remotejdk11_linux",
             "urls": [
@@ -4911,7 +4911,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remotejdk11_linux_aarch64' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:227:1",
+        "definition_information": "Call stack for the definition of repository 'remotejdk11_linux_aarch64' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:227:1",
         "original_attributes": {
             "name": "remotejdk11_linux_aarch64",
             "urls": [
@@ -4952,7 +4952,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remotejdk11_macos' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:238:1",
+        "definition_information": "Call stack for the definition of repository 'remotejdk11_macos' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:238:1",
         "original_attributes": {
             "name": "remotejdk11_macos",
             "urls": [
@@ -4993,7 +4993,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remotejdk11_win' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:249:1",
+        "definition_information": "Call stack for the definition of repository 'remotejdk11_win' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:249:1",
         "original_attributes": {
             "name": "remotejdk11_win",
             "urls": [
@@ -5034,7 +5034,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remotejdk_linux' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:120:1",
+        "definition_information": "Call stack for the definition of repository 'remotejdk_linux' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:120:1",
         "original_attributes": {
             "name": "remotejdk_linux",
             "urls": [
@@ -5075,7 +5075,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remotejdk_linux_aarch64' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:155:1",
+        "definition_information": "Call stack for the definition of repository 'remotejdk_linux_aarch64' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:155:1",
         "original_attributes": {
             "name": "remotejdk_linux_aarch64",
             "urls": [
@@ -5118,7 +5118,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remotejdk_macos' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:131:1",
+        "definition_information": "Call stack for the definition of repository 'remotejdk_macos' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:131:1",
         "original_attributes": {
             "name": "remotejdk_macos",
             "urls": [
@@ -5159,7 +5159,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'remotejdk_win' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:142:1",
+        "definition_information": "Call stack for the definition of repository 'remotejdk_win' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:142:1",
         "original_attributes": {
             "name": "remotejdk_win",
             "urls": [
@@ -5200,7 +5200,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'rules_cc' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:302:1",
+        "definition_information": "Call stack for the definition of repository 'rules_cc' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:302:1",
         "original_attributes": {
             "name": "rules_cc",
             "urls": [
@@ -5241,7 +5241,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'rules_java' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:290:1",
+        "definition_information": "Call stack for the definition of repository 'rules_java' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:290:1",
         "original_attributes": {
             "name": "rules_java",
             "urls": [
@@ -5282,7 +5282,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'rules_proto' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:314:1",
+        "definition_information": "Call stack for the definition of repository 'rules_proto' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/utils.bzl:205:9\n - /DEFAULT.WORKSPACE.SUFFIX:314:1",
         "original_attributes": {
             "name": "rules_proto",
             "urls": [
@@ -5323,7 +5323,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-        "definition_information": "Call stack for the definition of repository 'android_tools' which is a http_archive (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /DEFAULT.WORKSPACE.SUFFIX:343:1",
+        "definition_information": "Call stack for the definition of repository 'android_tools' which is a http_archive (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/http.bzl:292:16):\n - /DEFAULT.WORKSPACE.SUFFIX:343:1",
         "original_attributes": {
             "name": "android_tools",
             "url": "https://mirror.bazel.build/bazel_android_tools/android_tools_pkg-0.12.tar.gz",
@@ -5364,7 +5364,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/cpp:cc_configure.bzl%cc_autoconf",
-        "definition_information": "Call stack for the definition of repository 'local_config_cc' which is a cc_autoconf (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/cpp/cc_configure.bzl:143:15):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/cpp/cc_configure.bzl:179:5\n - /DEFAULT.WORKSPACE.SUFFIX:385:1",
+        "definition_information": "Call stack for the definition of repository 'local_config_cc' which is a cc_autoconf (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/cpp/cc_configure.bzl:143:15):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/cpp/cc_configure.bzl:179:5\n - /DEFAULT.WORKSPACE.SUFFIX:385:1",
         "original_attributes": {
             "name": "local_config_cc"
         },
@@ -5380,7 +5380,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/cpp:cc_configure.bzl%cc_autoconf_toolchains",
-        "definition_information": "Call stack for the definition of repository 'local_config_cc_toolchains' which is a cc_autoconf_toolchains (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/cpp/cc_configure.bzl:79:26):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/cpp/cc_configure.bzl:178:5\n - /DEFAULT.WORKSPACE.SUFFIX:385:1",
+        "definition_information": "Call stack for the definition of repository 'local_config_cc_toolchains' which is a cc_autoconf_toolchains (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/cpp/cc_configure.bzl:79:26):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/cpp/cc_configure.bzl:178:5\n - /DEFAULT.WORKSPACE.SUFFIX:385:1",
         "original_attributes": {
             "name": "local_config_cc_toolchains"
         },
@@ -5396,7 +5396,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/osx:xcode_configure.bzl%xcode_autoconf",
-        "definition_information": "Call stack for the definition of repository 'local_config_xcode' which is a xcode_autoconf (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/osx/xcode_configure.bzl:254:18):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/osx/xcode_configure.bzl:264:5\n - /DEFAULT.WORKSPACE.SUFFIX:388:1",
+        "definition_information": "Call stack for the definition of repository 'local_config_xcode' which is a xcode_autoconf (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/osx/xcode_configure.bzl:254:18):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/osx/xcode_configure.bzl:264:5\n - /DEFAULT.WORKSPACE.SUFFIX:388:1",
         "original_attributes": {
             "name": "local_config_xcode",
             "xcode_locator": "@bazel_tools//tools/osx:xcode_locator.m"
@@ -5414,7 +5414,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/sh:sh_configure.bzl%sh_config",
-        "definition_information": "Call stack for the definition of repository 'local_config_sh' which is a sh_config (rule definition at /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/sh/sh_configure.bzl:72:13):\n - /private/var/tmp/_bazel/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/sh/sh_configure.bzl:83:5\n - /DEFAULT.WORKSPACE.SUFFIX:391:1",
+        "definition_information": "Call stack for the definition of repository 'local_config_sh' which is a sh_config (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/sh/sh_configure.bzl:72:13):\n - /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/sh/sh_configure.bzl:83:5\n - /DEFAULT.WORKSPACE.SUFFIX:391:1",
         "original_attributes": {
             "name": "local_config_sh"
         },
