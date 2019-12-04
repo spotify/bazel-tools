@@ -28,8 +28,8 @@ spotify_bazel_tools_version="<fill in SHA1>"
 http_archive(
     name = "spotify_bazel_tools",
     sha256 = "<fill in SHA256>",
-    strip_prefix = "bazel-tools-%s" % (spotify_bazel_tools_version,),
-    urls = ["https://github.com/spotify/bazel-tools/archive/%s.zip" % (spotify_bazel_tools_version,)],
+    strip_prefix = "bazel-tools-%s" % spotify_bazel_tools_version,
+    url = "https://github.com/spotify/bazel-tools/archive/%s.zip" % spotify_bazel_tools_version,
 )
 ```
 
@@ -41,8 +41,8 @@ rules_go_version="<fill in SHA1>"
 http_archive(
     name = "io_bazel_rules_go",
     sha256 = "<fill in SHA256>",
-    strip_prefix = "rules_go-%s" % (rules_go_version,),
-    urls = ["https://github.com/bazelbuild/rules_go/archive/%s.zip" % (rules_go_version,)],
+    strip_prefix = "rules_go-%s" % rules_go_version,
+    url = "https://github.com/bazelbuild/rules_go/archive/%s.zip" % rules_go_version,
 )
 
 # current SHA1 of branch master
@@ -50,8 +50,8 @@ rules_scala_version="<fill in SHA1>"
 http_archive(
     name = "io_bazel_rules_scala",
     sha256 = "<fill in SHA256>",
-    strip_prefix = "rules_scala-%s" % (rules_scala_version,),
-    urls = ["https://github.com/bazelbuild/rules_scala/archive/%s.zip" % (rules_scala_version,)],
+    strip_prefix = "rules_scala-%s" % rules_scala_version,
+    url = "https://github.com/bazelbuild/rules_scala/archive/%s.zip" % rules_scala_version,
 )
 
 load("@io_bazel_rules_go//go:deps.bzl", "go_rules_dependencies", "go_register_toolchains")
@@ -217,7 +217,7 @@ of the dependencies, and output a few files:
     def declare_maven(name, artifact, jar, file, bind_jar, bind_file, sha1=None):
       if sha1 == None:
         # You can also fail here, if preferred
-        print("%s does not have a sha1 checksum; integrity cannot be verified" % (artifact,))
+        print("%s does not have a sha1 checksum; integrity cannot be verified" % artifact)
         native.maven_jar(name=name, artifact=artifact)
       else:
         native.maven_jar(name=name, artifact=artifact, sha1=sha1)

@@ -8,6 +8,17 @@ import tempfile
 from os import path
 
 WORKSPACE_TEMPLATE_PREFIX = '''
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+rules_jvm_external_version = "9503caa708227b5ec75237a59a3827c4a2f4070a" # branch master
+
+http_archive(
+    name = "rules_jvm_external",
+    sha256 = "f2daf13a1607e9e60cc00ba8b686592f0eae3de4fa63a8fdc9b73063841a3605",
+    strip_prefix = "rules_jvm_external-%s" % rules_jvm_external_version,
+    url = "https://github.com/bazelbuild/rules_jvm_external/archive/%s.zip" % rules_jvm_external_version,
+)
+
 rules_go_version = "a966c425b0bab18338bc39bf69b8eecc615549ff"  # branch master
 
 http_archive(

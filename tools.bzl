@@ -16,15 +16,14 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("//3rdparty:workspace.bzl", "maven_dependencies")
 
 def bazel_tools_repositories():
+    bazel_version = "1.2.1"
+
     _maybe(
         http_archive,
         name = "io_bazel",
         sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        strip_prefix = "bazel-1.2.1",  # Should match current Bazel version
-        urls = [
-            "http://bazel-mirror.storage.googleapis.com/github.com/bazelbuild/bazel/archive/1.2.1.tar.gz",
-            "https://github.com/bazelbuild/bazel/archive/1.2.1.tar.gz",
-        ],
+        strip_prefix = "bazel-%s" % bazel_version,  # Should match current Bazel version
+        url = "https://github.com/bazelbuild/bazel/releases/download/%s/bazel-%s-dist.zip" % (bazel_version, bazel_version),
     )
 
     bazelbuild_buildtools_version = "77355e5628b4bfffa932bc8645ea165d9f5c486d"  # branch master
@@ -32,9 +31,9 @@ def bazel_tools_repositories():
     _maybe(
         http_archive,
         name = "com_github_bazelbuild_buildtools",
-        sha256 = "5fb3cd3ba4de02c082f29fc317c332f2184f780a24c087388ca57a4fa5f744ab",
-        strip_prefix = "buildtools-%s" % (bazelbuild_buildtools_version,),
-        urls = ["https://github.com/bazelbuild/buildtools/archive/%s.zip" % (bazelbuild_buildtools_version,)],
+        sha256 = "df7f345aaf9a5a25ca52d9aae90fbb680fea51e0ffd27d6332a7a6529c59a250",
+        strip_prefix = "buildtools-%s" % bazelbuild_buildtools_version,
+        url = "https://github.com/bazelbuild/buildtools/archive/%s.zip" % bazelbuild_buildtools_version,
     )
 
     maven_dependencies()
