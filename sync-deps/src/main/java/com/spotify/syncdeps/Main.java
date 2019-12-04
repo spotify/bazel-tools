@@ -148,10 +148,6 @@ public final class Main {
         System.exit(1);
       }
 
-      Files.deleteIfExists(options.mavenInstallFile());
-      Files.move(
-          options.workspaceDirectory().resolve("maven_install.json"), options.mavenInstallFile());
-
       LOG.info("Running bazel sync...");
       Files.write(options.resolvedFile(), "resolved = []\n".getBytes(UTF_8));
       if (0
