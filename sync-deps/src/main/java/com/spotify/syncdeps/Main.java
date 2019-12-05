@@ -100,7 +100,10 @@ public final class Main {
           dependencies.options().excludedDependencies();
 
       final ImmutableSet<GitHubDependency> gitHubDependencies =
-          dependencies.github().entrySet().stream()
+          dependencies
+              .github()
+              .entrySet()
+              .stream()
               .map(
                   e ->
                       GitHubDependency.create(
@@ -108,7 +111,9 @@ public final class Main {
                           e.getValue().repo(),
                           e.getValue().commit(),
                           e.getValue().branch(),
-                          e.getValue().tag()))
+                          e.getValue().tag(),
+                          e.getValue().release(),
+                          e.getValue().stripPrefix()))
               .collect(ImmutableSet.toImmutableSet());
 
       final Path workspaceFile = options.workspaceFile();
@@ -144,10 +149,6 @@ public final class Main {
         LOG.error("Failed to pin maven dependencies (see console output for more info)");
         System.exit(1);
       }
-
-      Files.deleteIfExists(options.mavenInstallFile());
-      Files.move(
-          options.workspaceDirectory().resolve("maven_install.json"), options.mavenInstallFile());
 
       LOG.info("Running bazel sync...");
       Files.write(options.resolvedFile(), "resolved = []\n".getBytes(UTF_8));
@@ -232,44 +233,54 @@ public final class Main {
           Resources.toString(Resources.getResource(Main.class, "workspace-header.bzl"), UTF_8);
 
       final String mavenResolversList =
-          dependencyOptions.mavenResolvers().stream()
+          dependencyOptions
+              .mavenResolvers()
+              .stream()
               .map(Dependencies.MavenResolver::url)
-              .map(url -> "\"" + url + "\"")
-              .collect(joining(",\n            ", "[\n            ", "\n        ]"));
+              .map(url -> "\"" + url + "\",")
+              .collect(joining("\n            ", "[\n            ", "\n        ]"));
 
       final String artifactsList =
-          mavenDependencies.stream()
+          mavenDependencies
+              .stream()
               .map(
                   d ->
                       String.format(
-                          "maven.artifact(group = \"%s\", artifact = \"%s\", version = \"%s\", neverlink = %s)",
+                          "maven.artifact(group = \"%s\", artifact = \"%s\", version = \"%s\", neverlink = %s),",
                           d.coords().groupId(),
                           d.coords().artifactId(),
                           d.version(),
                           d.neverLink() ? "True" : "False"))
-              .collect(joining(",\n            ", "[\n            ", "\n        ]"));
+              .collect(joining("\n            ", "[\n            ", "\n        ]"));
 
       final String excludedArtifactsList =
-          mavenExcludedDependencies.stream()
+          mavenExcludedDependencies
+              .stream()
               .map(
                   coords ->
                       String.format(
-                          "maven.exclusion(group = \"%s\", artifact = \"%s\")",
+                          "maven.exclusion(group = \"%s\", artifact = \"%s\"),",
                           coords.groupId(), coords.artifactId()))
-              .collect(joining(",\n            ", "[\n            ", "\n        ]"));
+              .collect(joining("\n            ", "[\n            ", "\n        ]"));
 
       out.write(header);
       out.println();
-      out.println("def maven_dependencies(install=None):");
+      out.println("def maven_dependencies(install = None):");
       out.println("    if install == None:");
       out.println("        install = default_install");
       out.printf(
           "    install(%n"
-              + "        artifacts=%s,%n"
-              + "        repositories=%s,%n"
-              + "        excluded_artifacts=%s,%n"
-              + "    )%n",
+              + "        artifacts = %s,%n"
+              + "        repositories = %s,%n"
+              + "        excluded_artifacts = %s,%n",
           artifactsList, mavenResolversList, excludedArtifactsList);
+
+      if (dependencyOptions.versionConflictPolicy().isPresent()) {
+        out.printf(
+            "        version_conflict_policy = \"%s\",%n",
+            dependencyOptions.versionConflictPolicy().get());
+      }
+      out.printf("    )%n");
     }
 
     return newOutputFile;
@@ -290,8 +301,7 @@ public final class Main {
       out.write(header);
 
       out.println();
-      out.println();
-      out.println("def repositories(github_callback=None):");
+      out.println("def repositories(github_callback = None):");
       out.println("    _frozen_repos()");
       out.println("    if github_callback == None:");
       out.println("        github_callback = default_github_callback");
@@ -301,19 +311,27 @@ public final class Main {
         final String repository = dependency.repository();
         if (dependency.commit().isPresent()) {
           out.printf(
-              "    github_callback(name=\"%1$s\", repository=\"%2$s\", commit=\"%3$s\")\n",
+              "    github_callback(name = \"%1$s\", repository = \"%2$s\", commit = \"%3$s\")\n",
               name, repository, dependency.commit().get());
-        } else if (dependency.tag().isPresent()) {
-          out.printf(
-              "    github_callback(name=\"%1$s\", repository=\"%2$s\", tag=\"%3$s\")\n",
-              name, repository, dependency.tag().get());
         } else if (dependency.branch().isPresent()) {
           out.printf(
-              "    github_callback(name=\"%1$s\", repository=\"%2$s\", branch=\"%3$s\")\n",
+              "    github_callback(name = \"%1$s\", repository = \"%2$s\", branch = \"%3$s\")\n",
               name, repository, dependency.branch().get());
+        } else if (dependency.tag().isPresent() && dependency.release().isPresent()) {
+          out.printf(
+              "    github_callback(name = \"%1$s\", repository = \"%2$s\", tag = \"%3$s\", release = \"%4$s\", strip_prefix = %5$s)\n",
+              name,
+              repository,
+              dependency.tag().get(),
+              dependency.release().get(),
+              dependency.stripPrefix().map(sp -> "\"" + sp + "\"").orElse("None"));
+        } else if (dependency.tag().isPresent()) {
+          out.printf(
+              "    github_callback(name = \"%1$s\", repository = \"%2$s\", tag = \"%3$s\")\n",
+              name, repository, dependency.tag().get());
         } else {
           out.printf(
-              "    github_callback(name=\"%1$s\", repository=\"%2$s\", branch=\"master\")\n",
+              "    github_callback(name = \"%1$s\", repository = \"%2$s\", branch = \"master\")\n",
               name, repository);
         }
       }
@@ -329,7 +347,8 @@ public final class Main {
     final Path newJvmDirectory =
         Files.createTempDirectory(options.thirdPartyDirectory(), "jvm-", DIR_PERMISSIONS);
 
-    mavenDependencies.stream()
+    mavenDependencies
+        .stream()
         .collect(Collectors.groupingBy(d -> d.coords().groupId()))
         .forEach(
             (groupId, groupDependencies) ->
@@ -363,7 +382,7 @@ public final class Main {
         out.printf(
             "    name = \"%s\",\n", dependency.coords().artifactLabel(dependency.kind().isScala()));
         out.printf("    actual = artifact(\"%s\"),\n", dependency);
-        out.printf("    visibility=[\"//visibility:public\"],\n");
+        out.printf("    visibility = [\"//visibility:public\"],\n");
         out.printf(")\n");
       }
     } catch (IOException e) {

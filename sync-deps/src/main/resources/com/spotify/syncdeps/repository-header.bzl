@@ -3,16 +3,27 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 load("//3rdparty:resolved.bzl", "resolved")
 
-def default_github_callback(name, repository, commit = None, branch = None, tag = None, sha256 = None):
+def default_github_callback(name, repository, commit = None, branch = None, tag = None, release = None, strip_prefix = None, sha256 = None, **kwargs):
     repo_name = repository.split("/")[-1]
-    _maybe(
-        git_repository,
-        name = name,
-        commit = commit,
-        branch = branch,
-        tag = tag,
-        remote = "https://github.com/%s.git" % (repository,),
-    )
+
+    if tag != None and release != None:
+        _maybe(
+            http_archive,
+            name = name,
+            sha256 = sha256,
+            strip_prefix = strip_prefix,
+            url = "https://github.com/%s/releases/download/%s/%s" % (repository, tag, release),
+        )
+    else:
+        _maybe(
+            git_repository,
+            name = name,
+            commit = commit,
+            branch = branch,
+            tag = tag,
+            release = release,
+            remote = "https://github.com/%s.git" % repository,
+        )
 
 def _maybe(repo_rule, **kwargs):
     if kwargs["name"] not in native.existing_rules():

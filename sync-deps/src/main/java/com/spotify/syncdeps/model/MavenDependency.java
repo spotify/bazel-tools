@@ -31,7 +31,10 @@ public abstract class MavenDependency implements Comparable<MavenDependency> {
   public abstract MavenDependencyKind kind();
 
   public static MavenDependency create(
-      final MavenCoords coords, final String version, final boolean neverLink, final MavenDependencyKind kind) {
+      final MavenCoords coords,
+      final String version,
+      final boolean neverLink,
+      final MavenDependencyKind kind) {
     return new AutoValue_MavenDependency(coords, version, neverLink, kind);
   }
 

@@ -20,23 +20,27 @@ options:
   excludedDependencies:
     - com.google.guava:guava-jdk5
     - org.slf4j:slf4j-log4j12
+  versionConflictPolicy: "pinned"
 
 github:
   io_bazel:
     repo: bazelbuild/bazel
-    tag: 0.28.0
-  com_github_bazelbuild_buildtools:
+    tag: 1.2.1
+  io_bazel_buildtools:
     repo: bazelbuild/buildtools
-    branch: master
+    commit: 77355e5628b4bfffa932bc8645ea165d9f5c486d
   io_bazel_rules_go:
     repo: bazelbuild/rules_go
-    branch: master
+    commit: a667c18bef6ec5a11f1cbf40b219d541c48e942e
   io_bazel_rules_scala:
     repo: bazelbuild/rules_scala
-    branch: master
+    commit: 886bc9cf6d299545510b39b4872bbb5dc7526cb3
+  rules_python:
+    repo: bazelbuild/rules_python
+    commit: 94677401bc56ed5d756f50b441a6a5c7f735a6d4
   rules_jvm_external:
     repo: bazelbuild/rules_jvm_external
-    tag: 2.3
+    commit: 9503caa708227b5ec75237a59a3827c4a2f4070a
 
 maven:
   ch.qos.logback:

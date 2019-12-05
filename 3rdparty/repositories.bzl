@@ -3,16 +3,27 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 load("//3rdparty:resolved.bzl", "resolved")
 
-def default_github_callback(name, repository, commit = None, branch = None, tag = None, sha256 = None):
+def default_github_callback(name, repository, commit = None, branch = None, tag = None, release = None, strip_prefix = None, sha256 = None, **kwargs):
     repo_name = repository.split("/")[-1]
-    _maybe(
-        git_repository,
-        name = name,
-        commit = commit,
-        branch = branch,
-        tag = tag,
-        remote = "https://github.com/%s.git" % (repository,),
-    )
+
+    if tag != None and release != None:
+        _maybe(
+            http_archive,
+            name = name,
+            sha256 = sha256,
+            strip_prefix = strip_prefix,
+            url = "https://github.com/%s/releases/download/%s/%s" % (repository, tag, release),
+        )
+    else:
+        _maybe(
+            git_repository,
+            name = name,
+            commit = commit,
+            branch = branch,
+            tag = tag,
+            release = release,
+            remote = "https://github.com/%s.git" % repository,
+        )
 
 def _maybe(repo_rule, **kwargs):
     if kwargs["name"] not in native.existing_rules():
@@ -29,13 +40,13 @@ def _frozen_repos():
             elif rule_class == "@bazel_tools//tools/build_defs/repo:http.bzl%http_file":
                 _maybe(http_file, **(repo["attributes"]))
 
-
-def repositories(github_callback=None):
+def repositories(github_callback = None):
     _frozen_repos()
     if github_callback == None:
         github_callback = default_github_callback
-    github_callback(name="io_bazel", repository="bazelbuild/bazel", tag="0.28.0")
-    github_callback(name="com_github_bazelbuild_buildtools", repository="bazelbuild/buildtools", branch="master")
-    github_callback(name="io_bazel_rules_go", repository="bazelbuild/rules_go", branch="master")
-    github_callback(name="io_bazel_rules_scala", repository="bazelbuild/rules_scala", branch="master")
-    github_callback(name="rules_jvm_external", repository="bazelbuild/rules_jvm_external", tag="2.3")
+    github_callback(name = "io_bazel", repository = "bazelbuild/bazel", tag = "1.2.1")
+    github_callback(name = "io_bazel_buildtools", repository = "bazelbuild/buildtools", commit = "77355e5628b4bfffa932bc8645ea165d9f5c486d")
+    github_callback(name = "io_bazel_rules_go", repository = "bazelbuild/rules_go", commit = "a667c18bef6ec5a11f1cbf40b219d541c48e942e")
+    github_callback(name = "io_bazel_rules_scala", repository = "bazelbuild/rules_scala", commit = "886bc9cf6d299545510b39b4872bbb5dc7526cb3")
+    github_callback(name = "rules_python", repository = "bazelbuild/rules_python", commit = "94677401bc56ed5d756f50b441a6a5c7f735a6d4")
+    github_callback(name = "rules_jvm_external", repository = "bazelbuild/rules_jvm_external", commit = "9503caa708227b5ec75237a59a3827c4a2f4070a")

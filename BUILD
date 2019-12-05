@@ -1,3 +1,5 @@
+load("@rules_proto//proto:defs.bzl", "proto_lang_toolchain")
+
 # Copyright 2016-2017 Spotify AB
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,8 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 licenses(["notice"])
-
-load("@bazel_tools//tools/jdk:default_java_toolchain.bzl", "default_java_toolchain")
 
 exports_files(["tools.bzl"])
 

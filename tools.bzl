@@ -16,42 +16,40 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("//3rdparty:workspace.bzl", "maven_dependencies")
 
 def bazel_tools_repositories():
+    bazel_version = "1.2.1"
+
     _maybe(
         http_archive,
         name = "io_bazel",
-        sha256 = "a0333e7e8ce885f85f52bbb239e36810ac340c211c550d10c499f098a2e925a8",
-        strip_prefix = "bazel-0.15.2",  # Should match current Bazel version
-        urls = [
-            "http://bazel-mirror.storage.googleapis.com/github.com/bazelbuild/bazel/archive/0.15.2.tar.gz",
-            "https://github.com/bazelbuild/bazel/archive/0.15.2.tar.gz",
-        ],
+        sha256 = "255da49d0f012bc4f2c1d6d3ccdbe578e22fe97b8d124e1629a486fe2a09d3e1",
+        url = "https://github.com/bazelbuild/bazel/releases/download/%s/bazel-%s-dist.zip" % (bazel_version, bazel_version),
     )
 
-    bazelbuild_buildtools_version = "1f7a4641c80dd8027c676a723cef368bcf94e3b4"  # branch master
+    bazelbuild_buildtools_version = "77355e5628b4bfffa932bc8645ea165d9f5c486d"  # branch master
 
     _maybe(
         http_archive,
-        name = "com_github_bazelbuild_buildtools",
-        sha256 = "5fb3cd3ba4de02c082f29fc317c332f2184f780a24c087388ca57a4fa5f744ab",
-        strip_prefix = "buildtools-%s" % (bazelbuild_buildtools_version,),
-        urls = ["https://github.com/bazelbuild/buildtools/archive/%s.zip" % (bazelbuild_buildtools_version,)],
+        name = "io_bazel_buildtools",
+        sha256 = "df7f345aaf9a5a25ca52d9aae90fbb680fea51e0ffd27d6332a7a6529c59a250",
+        strip_prefix = "buildtools-%s" % bazelbuild_buildtools_version,
+        url = "https://github.com/bazelbuild/buildtools/archive/%s.zip" % bazelbuild_buildtools_version,
     )
 
     maven_dependencies()
 
     native.bind(
         name = "spotify_bazel_tools/dependency/buildtools/buildifier",
-        actual = "@com_github_bazelbuild_buildtools//buildifier",
+        actual = "@io_bazel_buildtools//buildifier",
     )
 
     native.bind(
         name = "spotify_bazel_tools/dependency/buildtools/buildozer",
-        actual = "@com_github_bazelbuild_buildtools//buildozer",
+        actual = "@io_bazel_buildtools//buildozer",
     )
 
     native.bind(
         name = "spotify_bazel_tools/dependency/buildtools/unused-deps",
-        actual = "@com_github_bazelbuild_buildtools//unused_deps",
+        actual = "@io_bazel_buildtools//unused_deps",
     )
 
     native.bind(

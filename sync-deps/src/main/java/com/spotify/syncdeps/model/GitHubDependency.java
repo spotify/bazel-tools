@@ -33,14 +33,21 @@ public abstract class GitHubDependency implements Comparable<GitHubDependency> {
 
   public abstract Optional<String> tag();
 
+  public abstract Optional<String> release();
+
+  public abstract Optional<String> stripPrefix();
+
   @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
   public static GitHubDependency create(
       final String name,
       final String repository,
       final Optional<String> commit,
       final Optional<String> branch,
-      final Optional<String> tag) {
-    return new AutoValue_GitHubDependency(name, repository, commit, branch, tag);
+      final Optional<String> tag,
+      final Optional<String> release,
+      final Optional<String> stripPrefix) {
+    return new AutoValue_GitHubDependency(
+        name, repository, commit, branch, tag, release, stripPrefix);
   }
 
   @Override

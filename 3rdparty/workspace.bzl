@@ -2,20 +2,21 @@
 load("@rules_jvm_external//:defs.bzl", "maven_install")
 load("@rules_jvm_external//:specs.bzl", "maven")
 
-def default_install(artifacts, repositories, excluded_artifacts = []):
+def default_install(artifacts, repositories, excluded_artifacts = [], version_conflict_policy = None, **kwargs):
     maven_install(
         artifacts = artifacts,
         fetch_sources = True,
         repositories = repositories,
         excluded_artifacts = excluded_artifacts,
-        maven_install_json = "//3rdparty:maven-install.json",
+        maven_install_json = "@spotify_bazel_tools//3rdparty:maven-install.json",
+        version_conflict_policy = version_conflict_policy,
     )
 
-def maven_dependencies(install=None):
+def maven_dependencies(install = None):
     if install == None:
         install = default_install
     install(
-        artifacts=[
+        artifacts = [
             maven.artifact(group = "ch.qos.logback", artifact = "logback-classic", version = "1.2.3", neverlink = False),
             maven.artifact(group = "ch.qos.logback", artifact = "logback-core", version = "1.2.3", neverlink = False),
             maven.artifact(group = "com.fasterxml.jackson.core", artifact = "jackson-annotations", version = "2.9.6", neverlink = False),
@@ -42,13 +43,14 @@ def maven_dependencies(install=None):
             maven.artifact(group = "org.scala-lang", artifact = "scala-compiler", version = "2.12.6", neverlink = False),
             maven.artifact(group = "org.scala-lang", artifact = "scala-library", version = "2.12.6", neverlink = False),
             maven.artifact(group = "org.scala-lang", artifact = "scala-reflect", version = "2.12.6", neverlink = False),
-            maven.artifact(group = "org.slf4j", artifact = "slf4j-api", version = "1.7.25", neverlink = False)
+            maven.artifact(group = "org.slf4j", artifact = "slf4j-api", version = "1.7.25", neverlink = False),
         ],
-        repositories=[
-            "https://repo.maven.apache.org/maven2/"
+        repositories = [
+            "https://repo.maven.apache.org/maven2/",
         ],
-        excluded_artifacts=[
+        excluded_artifacts = [
             maven.exclusion(group = "com.google.guava", artifact = "guava-jdk5"),
-            maven.exclusion(group = "org.slf4j", artifact = "slf4j-log4j12")
+            maven.exclusion(group = "org.slf4j", artifact = "slf4j-log4j12"),
         ],
+        version_conflict_policy = "pinned",
     )

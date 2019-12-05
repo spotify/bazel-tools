@@ -28,8 +28,8 @@ spotify_bazel_tools_version="<fill in SHA1>"
 http_archive(
     name = "spotify_bazel_tools",
     sha256 = "<fill in SHA256>",
-    strip_prefix = "bazel-tools-%s" % (spotify_bazel_tools_version,),
-    urls = ["https://github.com/spotify/bazel-tools/archive/%s.zip" % (spotify_bazel_tools_version,)],
+    strip_prefix = "bazel-tools-%s" % spotify_bazel_tools_version,
+    url = "https://github.com/spotify/bazel-tools/archive/%s.zip" % spotify_bazel_tools_version,
 )
 ```
 
@@ -41,8 +41,8 @@ rules_go_version="<fill in SHA1>"
 http_archive(
     name = "io_bazel_rules_go",
     sha256 = "<fill in SHA256>",
-    strip_prefix = "rules_go-%s" % (rules_go_version,),
-    urls = ["https://github.com/bazelbuild/rules_go/archive/%s.zip" % (rules_go_version,)],
+    strip_prefix = "rules_go-%s" % rules_go_version,
+    url = "https://github.com/bazelbuild/rules_go/archive/%s.zip" % rules_go_version,
 )
 
 # current SHA1 of branch master
@@ -50,8 +50,8 @@ rules_scala_version="<fill in SHA1>"
 http_archive(
     name = "io_bazel_rules_scala",
     sha256 = "<fill in SHA256>",
-    strip_prefix = "rules_scala-%s" % (rules_scala_version,),
-    urls = ["https://github.com/bazelbuild/rules_scala/archive/%s.zip" % (rules_scala_version,)],
+    strip_prefix = "rules_scala-%s" % rules_scala_version,
+    url = "https://github.com/bazelbuild/rules_scala/archive/%s.zip" % rules_scala_version,
 )
 
 load("@io_bazel_rules_go//go:deps.bzl", "go_rules_dependencies", "go_register_toolchains")
@@ -79,17 +79,17 @@ If you want to customize the dependencies, you can instead bind your own version
 ```python
 bind(
     name = "spotify_bazel_tools/dependency/buildtools/buildifier",
-    actual = "@com_github_bazelbuild_buildtools//buildifier",
+    actual = "@io_bazel_buildtools//buildifier",
 )
 
 bind(
     name = "spotify_bazel_tools/dependency/buildtools/buildozer",
-    actual = "@com_github_bazelbuild_buildtools//buildozer",
+    actual = "@io_bazel_buildtools//buildozer",
 )
 
 bind(
     name = "spotify_bazel_tools/dependency/buildtools/unused_deps",
-    actual = "@com_github_bazelbuild_buildtools//unused_deps",
+    actual = "@io_bazel_buildtools//unused_deps",
 )
 
 # ...and declare your own maven dependencies for Java dependencies, maybe by copy-pasting the
@@ -140,6 +140,28 @@ options:
   excludedDependencies:
     - com.google.guava:guava-jdk5
     - org.slf4j:slf4j-log4j12
+  # Treat the specific versions in this file as "pinned" (do not use later versions)
+  # See this for more info: https://github.com/bazelbuild/rules_jvm_external#resolving-user-specified-and-transitive-dependency-version-conflicts
+  versionConflictPolicy: "pinned"
+
+# Dependencies to be fetched from GitHub repositories
+github:
+  # The Bazel target name used to refer to the repo
+  # repo in combination with either commit, branch, tag or tag+release(+stripPrefix)
+  io_bazel:
+    # The org/repo identifier
+    repo: bazelbuild/bazel
+    # The git commit
+    commit: dbc504c8a033f06041ba42c219b983f475972583
+    # The git branch
+    branch: master
+    # The git tag
+    tag: 1.2.1
+
+    # The release artifact name (has to be used together with a tag)
+    release: bazel-1.2.1-dist.zip
+    # Any top level directory to strip out after extracting the release
+    #stripPrefix: bazel-1.2.1-dist
 
 # Dependencies to be fetched from Maven repositories
 maven:
@@ -195,7 +217,7 @@ of the dependencies, and output a few files:
     def declare_maven(name, artifact, jar, file, bind_jar, bind_file, sha1=None):
       if sha1 == None:
         # You can also fail here, if preferred
-        print("%s does not have a sha1 checksum; integrity cannot be verified" % (artifact,))
+        print("%s does not have a sha1 checksum; integrity cannot be verified" % artifact)
         native.maven_jar(name=name, artifact=artifact)
       else:
         native.maven_jar(name=name, artifact=artifact, sha1=sha1)

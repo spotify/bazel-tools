@@ -1,3 +1,5 @@
+load("@rules_java//java:defs.bzl", "java_plugin")
+
 # Copyright 2016-2017 Spotify AB
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
