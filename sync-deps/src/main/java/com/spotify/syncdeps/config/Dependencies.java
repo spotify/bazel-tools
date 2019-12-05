@@ -308,7 +308,9 @@ public abstract class Dependencies {
   }
 
   public ImmutableSet<MavenDependency> toMavenLeafDependencies() {
-    return this.maven().cellSet().stream()
+    return this.maven()
+        .cellSet()
+        .stream()
         .flatMap(c -> createCellDependencies(this.options().scalaAbi(), c))
         .collect(ImmutableSet.toImmutableSet());
   }
