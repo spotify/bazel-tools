@@ -13,4 +13,7 @@
 # limitations under the License.
 licenses(["notice"])
 
-exports_files(["dependencies.yaml", "maven-install.json"])
+exports_files([
+    "dependencies.yaml",
+    "maven-install.json",
+])
