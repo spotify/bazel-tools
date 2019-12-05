@@ -81,7 +81,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'io_bazel' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:48:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:47:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "io_bazel",
             "remote": "https://github.com/bazelbuild/bazel.git",
@@ -112,7 +112,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_buildtools' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:49:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_buildtools' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:48:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "io_bazel_buildtools",
             "remote": "https://github.com/bazelbuild/buildtools.git",
@@ -143,7 +143,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_go' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:50:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_go' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:49:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "io_bazel_rules_go",
             "remote": "https://github.com/bazelbuild/rules_go.git",
@@ -174,7 +174,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:51:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'io_bazel_rules_scala' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:50:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "io_bazel_rules_scala",
             "remote": "https://github.com/bazelbuild/rules_scala.git",
@@ -205,7 +205,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'rules_jvm_external' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:53:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'rules_jvm_external' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:52:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "rules_jvm_external",
             "remote": "https://github.com/bazelbuild/rules_jvm_external.git",
@@ -236,7 +236,7 @@ resolved = [
     },
     {
         "original_rule_class": "@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-        "definition_information": "Call stack for the definition of repository 'rules_python' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:52:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
+        "definition_information": "Call stack for the definition of repository 'rules_python' which is a git_repository (rule definition at /private/var/tmp/_bazel_smandrean/94181bd310b9c3bf8fc0403fe06b6f7c/external/bazel_tools/tools/build_defs/repo/git.bzl:195:18):\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:30:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:18:9\n - /Users/smandrean/src/github.com/spotify/bazel-tools/3rdparty/repositories.bzl:51:5\n - /Users/smandrean/src/github.com/spotify/bazel-tools/WORKSPACE:18:1",
         "original_attributes": {
             "name": "rules_python",
             "remote": "https://github.com/bazelbuild/rules_python.git",
