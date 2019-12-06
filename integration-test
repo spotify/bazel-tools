@@ -90,7 +90,6 @@ def main():
             ])
             f.write(WORKSPACE_TEMPLATE_SUFFIX)
 
-        print(d)
         third_party_dir = path.join(d, '3rdparty')
         os.mkdir(third_party_dir)
         shutil.copyfile(path.join('3rdparty', 'BUILD'), path.join(third_party_dir, 'BUILD'))
@@ -103,7 +102,7 @@ def main():
         subprocess.check_call(['bazel', 'run', '@spotify_bazel_tools//format', '--', '-w', d], cwd=d)
     finally:
         subprocess.check_call(['bazel', 'shutdown'], cwd=d)
-        #shutil.rmtree(d)
+        shutil.rmtree(d)
 
 
 if __name__ == '__main__':
