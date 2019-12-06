@@ -40,7 +40,7 @@ github:
     commit: 94677401bc56ed5d756f50b441a6a5c7f735a6d4
   rules_jvm_external:
     repo: bazelbuild/rules_jvm_external
-    commit: 9503caa708227b5ec75237a59a3827c4a2f4070a
+    tag: 3.0
 
 maven:
   ch.qos.logback:
