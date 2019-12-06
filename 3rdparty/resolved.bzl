@@ -301,7 +301,7 @@ resolved = [
             ],
             "fetch_sources": True,
             "generate_compat_repositories": False,
-            "maven_install_json": "@spotify_bazel_tools//3rdparty:maven-install.json",
+            "maven_install_json": "//3rdparty:maven-install.json",
             "override_targets": {},
             "strict_visibility": False
         },
@@ -342,7 +342,7 @@ resolved = [
                     ],
                     "fetch_sources": True,
                     "generate_compat_repositories": False,
-                    "maven_install_json": "@spotify_bazel_tools//3rdparty:maven-install.json",
+                    "maven_install_json": "//3rdparty:maven-install.json",
                     "override_targets": {},
                     "strict_visibility": False
                 }
@@ -395,7 +395,7 @@ resolved = [
             ],
             "generate_compat_repositories": False,
             "version_conflict_policy": "pinned",
-            "maven_install_json": "@spotify_bazel_tools//3rdparty:maven-install.json",
+            "maven_install_json": "//3rdparty:maven-install.json",
             "override_targets": {},
             "strict_visibility": False,
             "resolve_timeout": 600
@@ -447,7 +447,7 @@ resolved = [
                     ],
                     "generate_compat_repositories": False,
                     "version_conflict_policy": "pinned",
-                    "maven_install_json": "@spotify_bazel_tools//3rdparty:maven-install.json",
+                    "maven_install_json": "//3rdparty:maven-install.json",
                     "override_targets": {},
                     "strict_visibility": False,
                     "resolve_timeout": 600
