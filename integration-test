@@ -10,16 +10,16 @@ from os import path
 WORKSPACE_TEMPLATE_PREFIX = '''
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-rules_jvm_external_version = "9503caa708227b5ec75237a59a3827c4a2f4070a" # branch master
+rules_jvm_external_version = "3.0" # branch master
 
 http_archive(
     name = "rules_jvm_external",
-    sha256 = "f2daf13a1607e9e60cc00ba8b686592f0eae3de4fa63a8fdc9b73063841a3605",
+    sha256 = "62133c125bf4109dfd9d2af64830208356ce4ef8b165a6ef15bbff7460b35c3a",
     strip_prefix = "rules_jvm_external-%s" % rules_jvm_external_version,
     url = "https://github.com/bazelbuild/rules_jvm_external/archive/%s.zip" % rules_jvm_external_version,
 )
 
-rules_go_version = "a667c18bef6ec5a11f1cbf40b219d541c48e942e"  # branch master
+rules_go_version = "a667c18bef6ec5a11f1cbf40b219d541c48e942e"
 
 http_archive(
     name = "io_bazel_rules_go",
@@ -28,13 +28,22 @@ http_archive(
     urls = ["https://github.com/bazelbuild/rules_go/archive/%s.zip" % rules_go_version],
 )
 
-rules_scala_version = "886bc9cf6d299545510b39b4872bbb5dc7526cb3"  # branch master
+rules_scala_version = "886bc9cf6d299545510b39b4872bbb5dc7526cb3"
 
 http_archive(
     name = "io_bazel_rules_scala",
     sha256 = "4fdf8506af2e2f1c32605b1f1d20928370640948aa144ef97b8e3bf77404320c",
     strip_prefix = "rules_scala-%s" % rules_scala_version,
     urls = ["https://github.com/bazelbuild/rules_scala/archive/%s.zip" % rules_scala_version],
+)
+
+rules_python_version = "38f86fb55b698c51e8510c807489c9f4e047480e"
+
+http_archive(
+    name = "rules_python",
+    sha256 = "7d64815f4b22400bed0f1b9da663037e1578573446b7bc78f20f24b2b5459bb9",
+    strip_prefix = "rules_python-%s" % rules_python_version,
+    urls = ["https://github.com/bazelbuild/rules_python/archive/%s.zip" % rules_python_version],
 )
 '''
 
@@ -81,18 +90,20 @@ def main():
             ])
             f.write(WORKSPACE_TEMPLATE_SUFFIX)
 
-        subprocess.check_call(['bazel', 'build', '@spotify_bazel_tools//...'], cwd=d)
-
+        print(d)
         third_party_dir = path.join(d, '3rdparty')
         os.mkdir(third_party_dir)
-
+        shutil.copyfile(path.join('3rdparty', 'BUILD'), path.join(third_party_dir, 'BUILD'))
         shutil.copyfile(path.join('3rdparty', 'dependencies.yaml'), path.join(third_party_dir, 'dependencies.yaml'))
         shutil.copyfile(path.join('3rdparty', 'maven-install.json'), path.join(third_party_dir, 'maven-install.json'))
+
+        subprocess.check_call(['bazel', 'build', '@spotify_bazel_tools//...'], cwd=d)
+
         subprocess.check_call(['bazel', 'run', '@spotify_bazel_tools//sync-deps', '--', '-w', d], cwd=d)
         subprocess.check_call(['bazel', 'run', '@spotify_bazel_tools//format', '--', '-w', d], cwd=d)
     finally:
         subprocess.check_call(['bazel', 'shutdown'], cwd=d)
-        shutil.rmtree(d)
+        #shutil.rmtree(d)
 
 
 if __name__ == '__main__':
