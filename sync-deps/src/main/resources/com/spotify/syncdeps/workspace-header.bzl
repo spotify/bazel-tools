@@ -8,6 +8,6 @@ def default_install(artifacts, repositories, excluded_artifacts = [], version_co
         fetch_sources = True,
         repositories = repositories,
         excluded_artifacts = excluded_artifacts,
-        maven_install_json = "@spotify_bazel_tools//3rdparty:maven-install.json",
+        maven_install_json = "//3rdparty:maven-install.json",
         version_conflict_policy = version_conflict_policy,
     )
