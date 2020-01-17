@@ -28,11 +28,11 @@ http_archive(
     urls = ["https://github.com/bazelbuild/rules_go/archive/%s.zip" % rules_go_version],
 )
 
-rules_scala_version = "886bc9cf6d299545510b39b4872bbb5dc7526cb3"
+rules_scala_version = "6c16cff213b76a4126bdc850956046da5db1daaa"
 
 http_archive(
     name = "io_bazel_rules_scala",
-    sha256 = "4fdf8506af2e2f1c32605b1f1d20928370640948aa144ef97b8e3bf77404320c",
+    sha256 = "132cf8eeaab67f3142cec17152b8415901e7fa8396dd585d6334eec21bf7419d",
     strip_prefix = "rules_scala-%s" % rules_scala_version,
     urls = ["https://github.com/bazelbuild/rules_scala/archive/%s.zip" % rules_scala_version],
 )
