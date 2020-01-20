@@ -47,6 +47,6 @@ def repositories(github_callback = None):
     github_callback(name = "io_bazel", repository = "bazelbuild/bazel", tag = "1.2.1")
     github_callback(name = "io_bazel_buildtools", repository = "bazelbuild/buildtools", commit = "77355e5628b4bfffa932bc8645ea165d9f5c486d")
     github_callback(name = "io_bazel_rules_go", repository = "bazelbuild/rules_go", commit = "a667c18bef6ec5a11f1cbf40b219d541c48e942e")
-    github_callback(name = "io_bazel_rules_scala", repository = "bazelbuild/rules_scala", commit = "886bc9cf6d299545510b39b4872bbb5dc7526cb3")
+    github_callback(name = "io_bazel_rules_scala", repository = "bazelbuild/rules_scala", commit = "6c16cff213b76a4126bdc850956046da5db1daaa")
     github_callback(name = "rules_python", repository = "bazelbuild/rules_python", commit = "94677401bc56ed5d756f50b441a6a5c7f735a6d4")
     github_callback(name = "rules_jvm_external", repository = "bazelbuild/rules_jvm_external", tag = "3.0")
