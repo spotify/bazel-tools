@@ -25,7 +25,7 @@ options:
 github:
   io_bazel:
     repo: bazelbuild/bazel
-    tag: 1.2.1
+    tag: 2.1.0
   io_bazel_buildtools:
     repo: bazelbuild/buildtools
     commit: 77355e5628b4bfffa932bc8645ea165d9f5c486d
