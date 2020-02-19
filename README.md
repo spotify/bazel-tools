@@ -156,12 +156,12 @@ github:
     # The git branch
     branch: master
     # The git tag
-    tag: 1.2.1
+    tag: 2.1.0
 
     # The release artifact name (has to be used together with a tag)
-    release: bazel-1.2.1-dist.zip
+    release: bazel-2.1.0-dist.zip
     # Any top level directory to strip out after extracting the release
-    #stripPrefix: bazel-1.2.1-dist
+    #stripPrefix: bazel-2.1.0-dist
 
 # Dependencies to be fetched from Maven repositories
 maven:
